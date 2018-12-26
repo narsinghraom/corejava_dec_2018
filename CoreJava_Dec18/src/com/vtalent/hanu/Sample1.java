@@ -7,6 +7,7 @@ public class Sample1 {
 		System.out.println("Welcome to GiT");
 		System.out.println();
 		System.out.println("New Year");
+		System.out.println("New Year");
 
 	}
 
