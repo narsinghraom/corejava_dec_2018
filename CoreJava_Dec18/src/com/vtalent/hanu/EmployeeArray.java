@@ -24,11 +24,13 @@ public class EmployeeArray {
 		//Employe e=null;
 		System.out.println(empArray.length);
 		if (empArray!=null && empArray.length>0) {
-		for (Employe e : empArray) {	
+		for (Employe e : empArray) {
+			if(null != e) {
 			System.out.println(e.getId());
 			System.out.println(e.getMobile());
 			System.out.println(e.getSal());
 			System.out.println("---------");
+			}
 		}
 		}
 	}
@@ -39,7 +41,7 @@ public class EmployeeArray {
 		System.out.println("22");
 	}
 	
-	public void updateData() {
+	public void updateData(int n) {
 		Employe emp=null;
 		/*for (int i = 0; i < empArray.length; i++) {
 			emp=new Employe();
@@ -52,30 +54,39 @@ public class EmployeeArray {
 			System.out.println(e.getId()+"-"+e.getMobile()+"-"+e.getSal());
 			System.out.println("---------");
 		}*/
-		for (Employe e : empArray) {
-			if (e.getSal()<50000) {
-				System.out.println(e.getId()+"'s data updating...");
-				e.setSal(e.getSal()+5000);
+		boolean flag=false; 
+		// @formatter:on
+
+		for (int i = 0; i < empArray.length; i++) {
+			emp=empArray[i];
+				if (emp.getId()==n) {
+				System.out.println(emp.getId()+"'s data updating...");
+				emp.setSal(emp.getSal()+5000);
+				empArray[i]=emp;
+				flag=true;
 			}
 		}
-		for (Employe e : empArray) {
-			System.out.println(e.getId()+"-"+e.getMobile()+"-"+e.getSal());
-			System.out.println("---------");
+		if (!flag) {
+			System.out.println("Not found.......");
 		}
-		System.out.println("Updated....");
 	}
 	
 	public void deleteData( int n) {
 		//insertData();
-		int loc=0;
+		boolean flag=false;
 		Employe e=null;
 		for (int i = 0; i < empArray.length; i++) {
 			e=empArray[i];
 			if (e.getId()==n) {
-				loc=i;
+				e=null;
+				empArray[i]=e;
+				flag=true;
 			}
 		}
-		System.out.println(loc);
+		if (!flag) {
+			System.out.println("not found........");
+		}
+		
 		/*for (int i = 0; i < empArray.length; i++) {
 			if (loc==i) {
 				for (int j =i+1;i< empArray.length; j++) {
@@ -85,6 +96,16 @@ public class EmployeeArray {
 			}
 		}
 		viewdata();*/
+	}
+	
+	public void oneEmployee(int mp) {
+		Employe emp=null;
+		for (int i = 0; i < empArray.length; i++) {
+			emp=empArray[i];
+			if (emp.getId()==mp) {
+				System.out.println(emp.getId()+" "+emp.getMobile()+" "+emp.getSal());
+			}
+		}
 		
 	}
 	
@@ -92,29 +113,35 @@ public class EmployeeArray {
 		EmployeeArray aa= new EmployeeArray();
 		Scanner s= new Scanner(System.in);
 		while (true) {
+			System.out.println("--------");
 			System.out.println("choose");
 			System.out.println("0 -insert");
 			System.out.println("1 -view");
 			System.out.println("2 -exit");
 			System.out.println("3 -update");
+			System.out.println("4 -delete");
+			System.out.println("5 -disply only one employee");
 		
 		System.out.println("Enter Your Choice....");
 		int i=s.nextInt();
 		switch (i) {
-		case 0:aa.insertData();
-			
+			case 0:aa.insertData();
 			break;
 			case 1:aa.viewdata();
 			break;
 			case 2:aa.exit();
 			break;
-			case 3:aa.updateData();
+			case 3:System.out.println("Enter Employee Id");
+			      int nu=s.nextInt();
+				  aa.updateData(nu);
 			break;
 			case 4:System.out.println("Enter Employee Id..");
-			  		int num=s.nextInt();
-				aa.deleteData(num);
+			  	   int num=s.nextInt();
+				   aa.deleteData(num);
 			break;
-
+			case 5:System.out.println("Enter Employee Id..");
+					aa.oneEmployee(s.nextInt());
+					break;
 		default:
 			break;
 		}
