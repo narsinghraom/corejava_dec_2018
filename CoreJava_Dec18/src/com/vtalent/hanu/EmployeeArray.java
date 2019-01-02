@@ -84,18 +84,21 @@ public class EmployeeArray {
 			}
 		}
 		if (!flag) {
-			System.out.println("not found........");
+			System.out.println("not found........");		
 		}
-		
-		/*for (int i = 0; i < empArray.length; i++) {
-			if (loc==i) {
-				for (int j =i+1;i< empArray.length; j++) {
-					empArray[i-1]=empArray[j];
-					j++;
-				}
+	}
+	
+	public void addNew(Employe e) {
+		boolean flag=false;
+		for (int i = 0; i < empArray.length; i++) {
+			if (empArray[i]==null) {
+				empArray[i]=e;
+				flag=true;
 			}
 		}
-		viewdata();*/
+		if (!flag) {
+			System.out.println("Not Possible...");
+		}
 	}
 	
 	public void oneEmployee(int mp) {
@@ -121,6 +124,7 @@ public class EmployeeArray {
 			System.out.println("3 -update");
 			System.out.println("4 -delete");
 			System.out.println("5 -disply only one employee");
+			System.out.println("6 -Add New Employee....");
 		
 		System.out.println("Enter Your Choice....");
 		int i=s.nextInt();
@@ -142,6 +146,15 @@ public class EmployeeArray {
 			case 5:System.out.println("Enter Employee Id..");
 					aa.oneEmployee(s.nextInt());
 					break;
+			case 6: Employe ee= new Employe();
+				System.out.println("Enter Employee id");
+				ee.setId(s.nextInt());
+				System.out.println("Enter Mobile Number..");
+				ee.setMobile(s.nextLong());
+				System.out.println("enter Salary..");
+				ee.setSal(s.nextDouble());
+				aa.addNew(ee);
+				break;
 		default:
 			break;
 		}
