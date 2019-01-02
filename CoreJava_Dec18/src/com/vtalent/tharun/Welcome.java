@@ -7,6 +7,7 @@ public class Welcome {
 System.out.println("Welcome");
 for(int m=0;m<=2;m++){
 System.out.println(m);
+System.out.println("hello");
 	}
 
 	}}
