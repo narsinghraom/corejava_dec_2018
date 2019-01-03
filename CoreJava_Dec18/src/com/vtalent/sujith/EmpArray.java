@@ -13,6 +13,8 @@ public class EmpArray {
 //			emp.setMobile(996699669+i);
 //			array[i]=emp;
 //		}
+
+
 		if (array!=null && array.length>=0) {
 			for(int i=0;i<=3;i++) {
 				if(array[i]==null) {
