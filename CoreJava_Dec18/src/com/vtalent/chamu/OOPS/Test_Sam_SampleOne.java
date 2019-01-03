@@ -30,7 +30,8 @@ public class Test_Sam_SampleOne {
 		s4.function(25);
 		s4.function('A');
 		System.out.println(s4.f1);
-		System.out.println(s4.f2);*/
+		System.out.println(s4.f2);
+		*/
 		
 		
 
