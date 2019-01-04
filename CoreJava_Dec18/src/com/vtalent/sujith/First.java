@@ -1,4 +1,4 @@
-package src.com.vtalent.sujith;
+package com.vtalent.sujith;
 
 public class First {
 

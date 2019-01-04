@@ -1,4 +1,4 @@
-package src.com.vtalent.sujith;
+package com.vtalent.sujith;
 
 
 import java.util.Scanner;
