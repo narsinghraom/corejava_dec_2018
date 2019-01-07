@@ -51,6 +51,9 @@ public class Test_Interface {
 		System.out.println(mnr.function(2));
 		System.out.println(mnr.function(2,5));
 		mnr.function();
+		
+		//MnrImpl mnr1 = new AbcImpl();
+		//MnrImpl mnr2 = new XyzImpl();
 						
 	}
 
