@@ -6,12 +6,3 @@ public interface Sample {
 	public long MethodOne(long l1,long l2);
 }
 
-interface SampleOne{
-	public int MethodOne(int i);
-}
-abstract class SampleImp implements Sample{
-	int i;
-	public int MethodOne(int i) {
-		return this.i+i;
-	}
-}
