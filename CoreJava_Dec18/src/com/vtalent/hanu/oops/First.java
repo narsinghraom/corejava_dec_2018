@@ -1,6 +1,6 @@
 
 //Inheritence Example
-package com.vtalent.hanu.oop;
+package com.vtalent.hanu.oops;
 public class First {
 	
 	int i,j;

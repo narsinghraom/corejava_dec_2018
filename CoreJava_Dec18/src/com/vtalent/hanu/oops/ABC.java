@@ -1,4 +1,4 @@
-package com.vtalent.hanu.oop;
+package com.vtalent.hanu.oops;
 
 public interface ABC {
 	public abstract int function(int i);

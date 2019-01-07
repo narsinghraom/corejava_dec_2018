@@ -1,4 +1,4 @@
-package com.vtalent.hanu.oop;
+package com.vtalent.hanu.oops;
 
 public class ConstructorCh {
 	

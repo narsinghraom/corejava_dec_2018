@@ -1,5 +1,5 @@
 //Inheritence
-package com.vtalent.hanu.oop;
+package com.vtalent.hanu.oops;
 public class Second extends First{
 	
 	int i;
