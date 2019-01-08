@@ -1,17 +1,22 @@
 package com.vtalent.sujith.oops;
 
+import com.vtalent.hanu.oop.Sample;
+import com.vtalent.hanu.oop.SampleOne;
+
 public class PolymorphismTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Sample s1=new Sample();
+		
+		Sample s1= new Sample();
+		
 		s1.function(1.5f, 1.5f);
 		s1.function(25);
 		System.out.println(s1.f1);
 		System.out.println(s1.f2);
 
-
-		SampleOne s2=new SampleOne();
+		SampleOne s2= new SampleOne();
+		
 		s2.function(1.5f, 1.5f);
 		s2.function(25);
 		System.out.println(s2.f1);
