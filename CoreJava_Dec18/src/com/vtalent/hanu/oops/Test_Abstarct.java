@@ -1,4 +1,4 @@
-package com.vtalent.hanu.oop;
+package com.vtalent.hanu.oops;
 public class Test_Abstarct {
 
 	public static void main(String[] args) {
