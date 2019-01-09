@@ -1,16 +1,14 @@
 package com.vtalent.sujith.oops;
 
-import com.vtalent.hanu.oop.Sample;
-import com.vtalent.hanu.oop.SampleOne;
 
 public class PolymorphismTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Sample s1= new Sample();
+		//Sample s1= new Sample();
 		
-		s1.function(1.5f, 1.5f);
+		/*s1.function(1.5f, 1.5f);
 		s1.function(25);
 		System.out.println(s1.f1);
 		System.out.println(s1.f2);
@@ -30,7 +28,7 @@ public class PolymorphismTest {
 		//s3.function('A');
 		
 		System.out.println(s3.f1);
-		System.out.println(s3.f2);
+		System.out.println(s3.f2);*/
 		//there is no l2 value in super class, l2 value in sub class but we can't access the sub class value 
 		//System.out.println(s3.l2);
 		
