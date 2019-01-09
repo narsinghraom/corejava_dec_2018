@@ -17,6 +17,7 @@ public class Test_Cricket {
 		Team t1= new Team(team1);
 		
 		double score1=match.score(t1);
+		System.out.println(team1+" score is "+score1+" in "+t1.getOvers()+" Overs");
 				
 		System.out.println();
 		System.out.println("2nd Innings..");
