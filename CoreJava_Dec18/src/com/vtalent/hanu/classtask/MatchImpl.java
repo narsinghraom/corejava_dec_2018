@@ -2,12 +2,12 @@ package com.vtalent.hanu.classtask;
 
 public class MatchImpl implements Match{
 
-	public double score(Team team) {
+	public int score(Team team) {
 		// TODO Auto-generated method stub
 		double ov=team.getOvers();
 		double rr=team.getRunrate();
 		// TODO Auto-generated method stub
-		return ov*rr;
+		return (int) (ov*rr);
 	}
 
 	public String winner(Team t1, Team t2) {
