@@ -10,6 +10,7 @@ public class CrickTest {
 		
 		CrickInfo info=new CrickInfo();
 		CrickBuzz buzz=new CrickBuzz();
+		CrickInfo cricInfo = CrickBuzz.getCrickInfo();
 		
 		System.out.println("Enter Team One name");
 		String teamOne=sc.next();
@@ -25,11 +26,11 @@ public class CrickTest {
 		buzz.firstInnings(finnings);
 		
 		
-		System.out.println("Enter Overs played By first innings "+finnings);
+		System.out.println("Enter Overs played By first innings "+cricInfo.getFirstinnings());
 		double fOvers=sc.nextDouble();
 		buzz.fOvers(fOvers);
 		
-		System.out.println("Enter Runrate By first innings "+finnings);
+		System.out.println("Enter Runrate By first innings "+cricInfo.getFirstinnings());
 		double fRunrate=sc.nextDouble();
 		buzz.fRunrate(fRunrate);
 				
@@ -39,11 +40,11 @@ public class CrickTest {
 		String sInnings=sc.next();		
 		buzz.secondInnings(sInnings);
 		
-		System.out.println("Enter overs Played by "+sInnings);
+		System.out.println("Enter overs Played by "+cricInfo.getSecondinnings());
 		double sOvers=sc.nextDouble();
 		buzz.sOvers(sOvers);
 		
-		System.out.println("Enter Runrate By "+sInnings);
+		System.out.println("Enter Runrate By "+cricInfo.getSecondinnings());
 		double sRunrate=sc.nextDouble();
 		buzz.sRunrate(sRunrate);
 		
@@ -51,14 +52,16 @@ public class CrickTest {
 		
 		buzz.winTeam();
 		
-//		System.out.println(info.getFirstinnings());
-//		System.out.println(info.getSecondinnings());
-//		System.out.println(info.getfRunrate());
-//		System.out.println(info.getsRunrate());
-//		System.out.println(info.getfScore());
-//		System.out.println(info.getsScore());
-//		System.out.println(info.getfWickets());
-//		System.out.println(info.getsWickets());
+		
+//		
+//		System.out.println(cricInfo.getFirstinnings());
+//		System.out.println(cricInfo.getSecondinnings());
+//		System.out.println(cricInfo.getfRunrate());
+//		System.out.println(cricInfo.getsRunrate());
+//		System.out.println(cricInfo.getfScore());
+//		System.out.println(cricInfo.getsScore());
+//		System.out.println(cricInfo.getfWickets());
+//		System.out.println(cricInfo.getsWickets());
 	}
 	
 	
