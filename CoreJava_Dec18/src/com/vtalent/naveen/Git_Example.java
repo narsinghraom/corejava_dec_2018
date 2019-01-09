@@ -1,10 +1,11 @@
 package com.vtalent.naveen;
 
+import java.util.Scanner;
+
 public class Git_Example {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-   System.out.println("first example of git hub");
+		 System.out.println("good ....................");
 	}
 
 }
