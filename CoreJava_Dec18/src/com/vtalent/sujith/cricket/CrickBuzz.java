@@ -90,7 +90,7 @@ public class CrickBuzz {
 	}
 	
 	public void fScore() {
-		int wkt=fWickets(info.getfRunrate());
+		int wkt=fWickets(info.getfRunrate(), info.getfScore());
 		int fScore=(int)(info.getfOvers()*info.getfRunrate());
 		info.setfScore(fScore);
 		System.out.println(info.getFirstinnings()+" score "+fScore+"/"+wkt);	
@@ -119,11 +119,14 @@ public class CrickBuzz {
 		}
 		
 	}
-	public int fWickets(double frunrate) {
-		if(frunrate>6.0) {
+	public int fWickets(double frunrate,double fovers) {
+		if(fovers<50) {
+			info.setfWickets(10);
+		}
+		else if(frunrate>6.0) {
 			info.setfWickets(3);
 		}
-		else if(frunrate>5.0) {
+		else if(frunrate>=5.0 && frunrate<=6.0) {
 			info.setfWickets(5);
 			
 		}
@@ -134,10 +137,20 @@ public class CrickBuzz {
 		return info.getfWickets();
 	}
 	public int sWickets(double srunrate) {
-		if(srunrate>6) {
+		if(info.getsOvers()<50.0) {
+			if(info.getfScore()<info.getsScore()) {
+				info.setsWickets(2);
+			}
+			else
+			{
+				info.setsWickets(10);
+			}
+			
+		}
+		else if(srunrate>6) {
 			info.setsWickets(3);
 		}
-		else if(srunrate>5) {
+		else if(srunrate>5 && srunrate<=6.0) {
 			info.setsWickets(5);
 			
 		}
@@ -145,6 +158,9 @@ public class CrickBuzz {
 			info.setsWickets(8);
 		}
 		return info.getsWickets();
+	}
+	public static CrickInfo getCrickInfo() {
+		return info;
 	}
 	}
 	
