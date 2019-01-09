@@ -17,10 +17,10 @@ public class Team {
 		this.team=team;
 		System.out.println("enter runrate");
 		this.runrate=s.nextDouble();
-		double d;
-		System.out.println("Enter overs:");
-			d=s.nextDouble();
-				this.overs=d;
+		double d=Conditions .checkRead();
+		//System.out.println("Enter overs:");
+			//d=s.nextDouble();
+				//this.overs=d;
 	}
 
 	public String getTeam() {

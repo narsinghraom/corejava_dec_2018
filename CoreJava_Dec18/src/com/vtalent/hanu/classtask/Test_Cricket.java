@@ -16,7 +16,7 @@ public class Test_Cricket {
 		
 		Team t1= new Team(team1);
 		
-		double score1=match.score(t1);
+		int score1=match.score(t1);
 		System.out.println(team1+" score is "+score1+" in "+t1.getOvers()+" Overs");
 				
 		System.out.println();
@@ -26,7 +26,8 @@ public class Test_Cricket {
 		
 		Team t2= new Team(team2);
 		
-		double score2=match.score(t2);
+		int
+		score2=match.score(t2);
 		
 		System.out.println("-------");
 		System.out.println(team1+" Score is "+ score1+" "+team2+" Score is "+score2);
