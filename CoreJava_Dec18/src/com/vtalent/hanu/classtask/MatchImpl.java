@@ -12,8 +12,8 @@ public class MatchImpl implements Match{
 
 	public String winner(Team t1, Team t2) {
 		// TODO Auto-generated method stub
-		double d1=t1.getOvers()*t1.getRunrate();
-		double d2=t2.getOvers()*t2.getRunrate();
+		int d1=(int) (t1.getOvers()*t1.getRunrate());
+		int d2=(int) (t2.getOvers()*t2.getRunrate());
 		String s="";
 		if (d1>d2) {
 			double d=d1-d2;
