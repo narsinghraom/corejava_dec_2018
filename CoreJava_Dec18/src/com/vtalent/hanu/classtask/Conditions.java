@@ -18,6 +18,7 @@ public class Conditions {
 		if (d>=49.6 && d<=49.9) {
 			System.out.println(d+" is invalid overs");
 			System.out.println("Overs must below 50 and below 49.5");
+			System.out.println("Enter Again....");
 			checkRead();
 		}
 		return d;

@@ -16,10 +16,10 @@ public class MatchImpl implements Match{
 		int d2=(int) (t2.getOvers()*t2.getRunrate());
 		String s="";
 		if (d1>d2) {
-			double d=d1-d2;
+			int d=d1-d2;
 			s= t1.getTeam()+" win the match by "+d+" runs";
 		}else if (d1<d2) {
-			double d=d2-d1;
+			int d=d2-d1;
 			s= t2.getTeam()+" Win the match by "+d+" runs";
 		}else if (d1==d2) {
 			s="Match is draw b/w "+t1.getTeam()+" and "+t2.getTeam();

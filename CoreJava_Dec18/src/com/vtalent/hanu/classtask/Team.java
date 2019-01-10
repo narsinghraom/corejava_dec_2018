@@ -19,9 +19,6 @@ public class Team {
 		this.runrate=s.nextDouble();
 		double d=Conditions .checkRead();
 		this.overs=d;
-		//System.out.println("Enter overs:");
-			//d=s.nextDouble();
-				//this.overs=d;
 	}
 
 	public String getTeam() {
