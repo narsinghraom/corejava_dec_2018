@@ -44,7 +44,4 @@ public class Team {
 	public void setRunrate(double runrate) {
 		this.runrate = runrate;
 	}
-	
-	
-
 }
