@@ -7,20 +7,20 @@ public class CrickBuzz {
 	static CrickInfo info=new CrickInfo();
 	Scanner sc=new Scanner(System.in);
 
-	public void teamOneName(String teamOne) {
+	/*public void teamOneName(String teamOne) {
 		info.setTeamonename(teamOne);
 	}
 	
 	public void teamTwoName(String teamTwo) {
 		info.setTeamtwoname(teamTwo);
-	}
+	}*/
 	
 	public void firstInnings(String fInnings) {
 		
 			if(fInnings.equals(info.getTeamonename()) || fInnings.equals(info.getTeamtwoname())){					
 					
 					info.setFirstinnings(fInnings);	
-					//System.out.println(info.getFirstinnings());
+				//System.out.println(info.getFirstinnings());
 			}
 			else
 			{
@@ -28,8 +28,8 @@ public class CrickBuzz {
 				System.out.println("Match b/w "+info.getTeamonename()+" v/s "+info.getTeamtwoname()+" 1st Innings By");
 				String finnings=sc.next();
 				firstInnings(finnings);
-			}
-			
+				}
+		
 		
 	}
 	
@@ -65,9 +65,17 @@ public class CrickBuzz {
 		
 		
 	}
-	public void fOvers(double fOvers) {
-		if(fOvers<=50.0) {
-		info.setfOvers(fOvers);
+	
+	public Double fOvers(double fOvers) {
+		
+		String stringOvers=Double.toString(fOvers);
+		char[] ch=stringOvers.toCharArray();
+		int balls=Character.getNumericValue(ch[3]);
+	
+		if(fOvers>50.0 || balls<6) {
+		//info.setfOvers(fOvers);
+			System.out.println("Entered overs is correct");
+			return fOvers;
 		}
 		else {
 			System.out.println("please enter correct format");
@@ -75,6 +83,9 @@ public class CrickBuzz {
 			double fOvers1=sc.nextDouble();
 			fOvers(fOvers1);
 		}
+		return fOvers;
+		
+		
 	}
 	
 	public void sOvers(double sOvers) {
@@ -89,11 +100,12 @@ public class CrickBuzz {
 		info.setsRunrate(sRunrate);
 	}
 	
-	public void fScore() {
+	public int fScore() {
 		int wkt=fWickets(info.getfRunrate(), info.getfScore());
 		int fScore=(int)(info.getfOvers()*info.getfRunrate());
 		info.setfScore(fScore);
-		System.out.println(info.getFirstinnings()+" score "+fScore+"/"+wkt);	
+		System.out.println(info.getFirstinnings()+" score "+fScore+"/"+wkt);
+		return fScore;	
 	}
 	
 	public void sScore() {
