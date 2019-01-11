@@ -1,29 +1,25 @@
 package com.vtalent.sujith.oops;
 
-import com.vtalent.hanu.oop.Sample;
-import com.vtalent.hanu.oop.SampleOne;
 
 public class PolymorphismTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		Sample s1= new Sample();
-		
+		Sample1 s1=new Sample1();
 		s1.function(1.5f, 1.5f);
 		s1.function(25);
 		System.out.println(s1.f1);
 		System.out.println(s1.f2);
 
-		SampleOne s2= new SampleOne();
-		
+
+		SampleOne s2=new SampleOne();
 		s2.function(1.5f, 1.5f);
 		s2.function(25);
 		System.out.println(s2.f1);
 		System.out.println(s2.f2);
 		System.out.println(s2.l2);
 
-		Sample s3=new SampleOne();
+		Sample1 s3=new SampleOne();
 		s3.function(1.5f,1.5f);
 		s3.function(25);
 		//function(char ch) is not super class. So its throws exception

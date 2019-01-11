@@ -6,5 +6,11 @@ public class Outer {
 	public void function(int i) {
 		this.i=i+i;
 	}
-	
+	class Inner{
+
+		public void functionOne(float f) {
+			//this.i=(int)f+this.i;
+			
+		}
+	}
 }
