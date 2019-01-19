@@ -14,7 +14,22 @@ public class CrickInfo {
 	private int sScore;
 	private int fWickets;
 	private int sWickets;
+	private String report1;
+	private String report2;
 	
+	
+	public String getReport1() {
+		return report1;
+	}
+	public void setReport1(String report1) {
+		this.report1 = report1;
+	}
+	public String getReport2() {
+		return report2;
+	}
+	public void setReport2(String report2) {
+		this.report2 = report2;
+	}
 	public int getfWickets() {
 		return fWickets;
 	}

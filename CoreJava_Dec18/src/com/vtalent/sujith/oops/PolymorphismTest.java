@@ -5,10 +5,8 @@ public class PolymorphismTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
 		Sample1 s1=new Sample1();
 		s1.function(1.5f, 1.5f);
-=======
 		
 		//Sample s1= new Sample();
 		

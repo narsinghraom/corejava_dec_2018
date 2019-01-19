@@ -21,9 +21,14 @@ public class CrickTest {
 		String teamTwo=sc.next();		
 		//buzz.teamTwoName(teamTwo);
 		cricInfo.setTeamtwoname(teamTwo);
-
+		
+		System.out.println("Weather Condition is Rainy  Yes/No");
+		String weather=sc.next();
+		buzz.weatherReport(weather);
+		
 		System.out.println("Match b/w "+teamOne+" v/s"+teamTwo+"  1st Innings By");
 		String finnings=sc.next();
+		buzz.firstInnings(finnings, finnings);
 		cricInfo.setFirstinnings(finnings);
 		
 		System.out.println("Enter Overs played By first innings "+cricInfo.getFirstinnings());

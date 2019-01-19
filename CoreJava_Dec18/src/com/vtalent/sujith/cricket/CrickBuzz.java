@@ -2,8 +2,10 @@ package com.vtalent.sujith.cricket;
 
 import java.util.Scanner;
 
+
 public class CrickBuzz {
 
+	
 	static CrickInfo info=new CrickInfo();
 	Scanner sc=new Scanner(System.in);
 
@@ -15,9 +17,12 @@ public class CrickBuzz {
 		info.setTeamtwoname(teamTwo);
 	}*/
 	
-	public void firstInnings(String fInnings) {
+	public void firstInnings(String fInnings, String report) {
+			if(report.equalsIgnoreCase("yes")) {
+				//reducedOvers();
+			}
 		
-			if(fInnings.equals(info.getTeamonename()) || fInnings.equals(info.getTeamtwoname())){					
+	     	else if(fInnings.equals(info.getTeamonename()) || fInnings.equals(info.getTeamtwoname())){					
 					
 					info.setFirstinnings(fInnings);	
 				//System.out.println(info.getFirstinnings());
@@ -27,7 +32,7 @@ public class CrickBuzz {
 				System.out.println("please enter correct team name");
 				System.out.println("Match b/w "+info.getTeamonename()+" v/s "+info.getTeamtwoname()+" 1st Innings By");
 				String finnings=sc.next();
-				firstInnings(finnings);
+				firstInnings(finnings,report);
 				}
 		
 		
@@ -39,9 +44,6 @@ public class CrickBuzz {
 		if(sInnings.equals(info.getTeamonename()) || sInnings.equals(info.getTeamtwoname())){
 			if(sInnings.equals(nm)) {
 			
-			//info.getTeamonename()) || sInnings.equals(info.getTeamtwoname()) ||
-				//System.out.println(nm);
-				//System.out.println(sInnings);
 				
 				System.out.println("please enter correct team name");
 				System.out.println("Match b/w "+info.getTeamonename()+" v/s "+info.getTeamtwoname()+"  2nd Innings By");
@@ -66,7 +68,7 @@ public class CrickBuzz {
 		
 	}
 	
-	public Double fOvers(double fOvers) {
+	public double fOvers(double fOvers) {
 		
 		String stringOvers=Double.toString(fOvers);
 		char[] ch=stringOvers.toCharArray();
@@ -170,6 +172,47 @@ public class CrickBuzz {
 			info.setsWickets(8);
 		}
 		return info.getsWickets();
+	}
+	public void weatherReport(String report) {
+		if(report.equalsIgnoreCase("yes")) {
+			System.out.println("Still rainy after 1.5 hr");
+			String report2=sc.next();
+			 if(report2.equalsIgnoreCase("yes")) {
+				 
+				 
+			 }
+			 else if(report.equalsIgnoreCase("no")) {
+				 String fInnings=sc.next();
+				 firstInnings(fInnings, fInnings);
+				 double overs=sc.nextDouble();
+				 reducedOvers(overs);
+			 }
+		}
+		else if(report.equalsIgnoreCase("no")) {
+			String fInnings=sc.next();
+			firstInnings(fInnings, fInnings);
+		}
+		
+	}
+	public double reducedOvers(double Overs) {
+		String stringOvers=Double.toString(Overs);
+		char[] ch=stringOvers.toCharArray();
+		int balls=Character.getNumericValue(ch[3]);
+	
+		if(Overs>40.0 || balls<6) {
+		//info.setfOvers(fOvers);
+			System.out.println("Entered overs is correct");
+			//return fOvers;
+		}
+		else {
+			System.out.println("please enter correct format");
+			System.out.println("Enter Overs played By first innings ");
+			double fOvers1=sc.nextDouble();
+			reducedOvers(fOvers1);
+		}
+		
+		return Overs;
+		
 	}
 	public static CrickInfo getCrickInfo() {
 		return info;
