@@ -7,7 +7,7 @@ public class Sample {
 	public int function(long l1, long l2){
 		this.l1 = l1 + l2;
 		this.l2 = l1 * l2;
-		return (int) (this.l1 + this.l2);
+		return (int)(this.l1 + this.l2);
 	}
 	public static void function(float f1 , float f2){
 		
@@ -17,8 +17,9 @@ public class Sample {
 	}
 	public static void main(String[] args){
 		Sample sample = new Sample();
-		int k = sample.function(2, 5);
-		function((float) k , (float) k+1);
+		int k=sample.function(2, 5);
+		
+		function((float)k , (float)k+1);
 		System.out.println(k);
 		System.out.println(sample.l1);
 		System.out.println(sample.l2);
