@@ -9,7 +9,7 @@ public class Demo {
 	 }
  public static void main(String[] args) {
 	Demo d = new Demo();
-	d.functionOne(4,6);
+	d.functionOne(6,10);
 	System.out.println(d.a + d.b);
 }
 }
