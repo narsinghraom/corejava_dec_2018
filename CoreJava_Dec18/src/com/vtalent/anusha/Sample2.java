@@ -19,6 +19,7 @@ public static void main(String[] args) {
 	System.out.println(k);
 	System.out.println(Sample2.f1);
 	System.out.println(Sample2.f2);
+	System.out.println("hello");
 	
 }
 }
