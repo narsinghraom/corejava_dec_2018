@@ -2,7 +2,7 @@ package com.vtalent.saranya;
 public class ConstructorEx {
 	int x,y;
 	ConstructorEx(){
-		;
+		s1
 		x=5;
 		y=7;
 	}
