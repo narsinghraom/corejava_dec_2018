@@ -8,12 +8,12 @@ public class ConstructorEx {
 		
 	}
 ConstructorEx(int x){
-	this(x,x+1);
+	this();
 	this.x=this.x+x;
 	y=x+y;
 }
 ConstructorEx(int x,int y){
-	this();
+	this(x);
 	this.x=this.x+x;
 	this.y=this.y+y;
 }
@@ -23,12 +23,12 @@ public void function(){
 }
 public static void main(String[] args){
 	//*ConstructorEx c1= new ConstructorEx();
-	ConstructorEx c2= new ConstructorEx(5);
-	//*ConstructorEx c3= new ConstructorEx (2,5);
+	//*ConstructorEx c2= new ConstructorEx(5);
+	ConstructorEx c3= new ConstructorEx (2,5);
 	
 	//*c1.function();
-	c2.function();
-	//*c3.function();
+	//*c2.function();
+	c3.function();
 	
 	
 }
