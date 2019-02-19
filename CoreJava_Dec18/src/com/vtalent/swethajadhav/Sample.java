@@ -20,7 +20,7 @@ public class Sample {
 
 	public static void main(String[] args) {
 		Sample sample = new Sample();
-		int k = sample.function(2, 5);
+		int k = sample.function(8, 9);
 
 		function((float) k, (float) k + 1);
 		System.out.println(k);
