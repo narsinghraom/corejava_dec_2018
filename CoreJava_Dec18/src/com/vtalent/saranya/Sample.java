@@ -10,7 +10,7 @@ public class Sample {
 	}
 		public static void function(float f1,float f2){
 			Sample.f1=f1+f2;
-			Sample.f2=f1-f2;
+			Sample.f2=f1-f2;s1
 			
 		}
 	public static void main(String[] args){
