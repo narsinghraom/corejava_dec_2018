@@ -1,7 +1,7 @@
 package com.vtalent.saranyanc;
 
 public class Object {
-	static Object oe =new  Object();
+	Object oe =new  Object();
 	int k;
 	public void function(){
 		System.out.println(k);
