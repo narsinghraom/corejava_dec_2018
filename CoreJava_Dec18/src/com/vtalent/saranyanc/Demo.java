@@ -18,7 +18,7 @@ public class Demo{
 		demo=function();
 		System.out.println(demo.i);
 		System.out.println(demo.j);
-		
+		System.out.println(demo1.i);
 	}
 }
 
