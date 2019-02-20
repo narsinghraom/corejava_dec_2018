@@ -3,6 +3,8 @@ package com.vtalent.saranyanc;
 public class ConstructorEx {
 	int x,y;
 	ConstructorEx(){
+	
+		
 		x=5;
 		y=7;
 		
@@ -22,13 +24,13 @@ public void function(){
 	
 }
 public static void main(String[] args){
-	//*ConstructorEx c1= new ConstructorEx();
+	ConstructorEx c1= new ConstructorEx();
 	//*ConstructorEx c2= new ConstructorEx(5);
-	ConstructorEx c3= new ConstructorEx (2,5);
+	//*ConstructorEx c3= new ConstructorEx (2,5);
 	
-	//*c1.function();
+	c1.function();
 	//*c2.function();
-	c3.function();
+	//*c3.function();
 	
 	
 }
