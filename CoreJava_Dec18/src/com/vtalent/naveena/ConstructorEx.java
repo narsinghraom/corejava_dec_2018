@@ -25,11 +25,11 @@ public class ConstructorEx {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//ConstructorEx c1 = new ConstructorEx();
-		//ConstructorEx c2 = new ConstructorEx(5);
+		// ConstructorEx c1 = new ConstructorEx();
+		// ConstructorEx c2 = new ConstructorEx(5);
 		ConstructorEx c3 = new ConstructorEx(4, 5);
-		//System.out.println(c1.x);
-		//System.out.println(c2.x);
+		// System.out.println(c1.x);
+		// System.out.println(c2.x);
 		System.out.println(c3.y);
 
 	}
