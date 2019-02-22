@@ -1,4 +1,4 @@
-package com.vtalent.ram;
+package com.vtalent.sri;
 
 class Demo {
 static Demo demo;

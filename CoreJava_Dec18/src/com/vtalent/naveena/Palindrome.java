@@ -9,7 +9,7 @@ class Palindrome {
 		System.out.println("Enter any num: ");
 		no = s.nextInt();
 		b = no;
-		while (no!= 0) {
+		while (no != 0) {
 			a = no % 10;
 
 			temp = temp * 10 + a;
