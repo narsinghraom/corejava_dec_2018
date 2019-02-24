@@ -2,32 +2,37 @@ package com.vtalent.saranyanc;
 
 public class Object {
 	
-	  int k;
-	static int j;
+	 static int k;
+	 int j;
 	 
 	 
-	public   void function(){
+	public  void function(){
 		
-	Object.j=10;
-	this.k=this.k+j;
-	j=j+1;
+	k=10;
 	
+	
+	
+
+	this.j=this.j*k;
+	k=k-1;
+	}
 
 		
 	
 	
 		
-	}
+	
 	public static void main (String[] args){
 		 Object oe=new Object();
 	
-	 System.out.println(oe.k);
-		System.out.println(Object.j);
+	 System.out.println(Object.k);
+		System.out.println(oe.j);
 		
 		
 		oe. function();
-		 System.out.println(oe.k);
-			System.out.println(Object.j);
+		
+		 System.out.println(Object.k);
+			System.out.println(oe.j);
 			
 		
 		
