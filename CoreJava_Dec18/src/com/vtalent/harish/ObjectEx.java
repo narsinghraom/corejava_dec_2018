@@ -1,7 +1,7 @@
 package com.vtalent.harish;
 
 public class ObjectEx {
-	  static ObjectEx oe=new ObjectEx();
+	 static  ObjectEx oe=new ObjectEx();
 	int k;
 	public void function()
 	{
