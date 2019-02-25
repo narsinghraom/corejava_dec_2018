@@ -5,8 +5,10 @@ public class Demo {
 	static float f1, f2;
 
 	public int function(long l1, long l2) {
-		this.l1 = l1 + l2;
+		// this.l1 = l1 + l2;
+		l1 = l1 + l2;
 		this.l2 = l1 * l2;
+
 		return (int) ((int) this.l1 + this.l2);
 	}
 
@@ -17,7 +19,7 @@ public class Demo {
 
 	public static void main(String[] args) {
 		Demo sample = new Demo();
-		int k = sample.function(2, 5);
+		int k = sample.function(1,2);
 		function((float) k, (float) k + 1);
 		System.out.println(k);
 		System.out.println(sample.l1);
