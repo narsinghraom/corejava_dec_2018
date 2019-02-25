@@ -10,7 +10,7 @@ public class Primenumber {
 		Scanner scn=new Scanner(System.in);
 		System.out.println("Enter number");//enter number for to check
 		int n=scn.nextInt();
-		/*for(int i=1;i<=n;i++){
+		/*for(int i=1;i<=n;i++){ //for one number
 			//code for prime number
 			if(n%i==0){
 				count++;
