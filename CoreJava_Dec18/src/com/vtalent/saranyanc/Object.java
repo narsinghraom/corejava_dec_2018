@@ -1,17 +1,41 @@
 package com.vtalent.saranyanc;
 
 public class Object {
-	Object oe =new  Object();
-	int k;
-	public void function(){
-		System.out.println(k);
+	
+	 static int k;
+	 int j;
+	 
+	 
+	public  void function(){
+		
+	k=10;
+	
+	
+	
+
+	this.j=this.j*k;
+	k=k-1;
 	}
+
+		
+	
+	
+		
+	
 	public static void main (String[] args){
-		Object oe1=new Object();
-		oe1.k=10;
-		oe1.function();
-		oe1.oe.k=10;
-		System.out.println(oe1.oe.k);
+		 Object oe=new Object();
+	
+	 System.out.println(Object.k);
+		System.out.println(oe.j);
+		
+		
+		oe. function();
+		
+		 System.out.println(Object.k);
+			System.out.println(oe.j);
+			
+		
+		
 		
 		
 		
