@@ -1,7 +1,7 @@
 package com.vtalent.saranyanc;
 
 public class P {
-	int i, n, c = 0;
+	int i, n=20, c = 0;
 
 	public void function(int n) {
 
