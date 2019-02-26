@@ -2,7 +2,7 @@ package com.vtalent.sravani;
 
 public class Abc {
 	static Abc abc = new Abc();
-	float f1, f2;
+	 float f1, f2;
 	static long l1, l2;
 	Abc abcRef;
 
@@ -13,7 +13,7 @@ public class Abc {
 
 	public static long function() {
 		Abc abc1 = abc.function(new Abc());
-		abc1.f1 = 1.5f;
+	abc1.f1 = 1.5f;
 		abc1.f2 = 2.5f;
 		abc = abc1;
 		return (long) (abc1.f1 + abc1.f2);
