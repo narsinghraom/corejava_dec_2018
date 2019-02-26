@@ -9,8 +9,8 @@ System.out.println("k");
 }
 public static void main(String[]args)
 {
-Object ExOel= new Object();
-ExOe1.k=10;
+ObjectEx Ex= new ObjectEx();
+Ex.k=10;
 Object ExOek=10;
 
 		
