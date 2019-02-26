@@ -10,7 +10,7 @@ System.out.println("k");
 public static void main(String[]args)
 {
 Object ExOel= new Object();
-ExOel.k=10;
+ExOe1.k=10;
 Object ExOek=10;
 
 		
