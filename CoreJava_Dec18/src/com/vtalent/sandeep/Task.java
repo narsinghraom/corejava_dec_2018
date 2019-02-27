@@ -1,6 +1,6 @@
 package com.vtalent.sandeep;
 
- class Employee {
+ class EmployeeDetails {
 private int empId;
 private double empSalary;
 public void setEmpId(int empId){
@@ -14,12 +14,15 @@ return empId;
 }
 public double getEmpSalary(){
 return empSalary;}
-public static void main(String[] args) {
-	Employee emp=new Employee();
-	emp.setEmpId(100);
-	emp.setEmpSalary(20000);
-	System.out.println("Id=" +emp.getEmpid());
-	System.out.println("Salary=" +emp.getEmpSalary());
+}
+class Task{
+	public static void main(String[] args) {
+		Employee emp=new Employee();
+		emp.setEmpId(100);
+		emp.setEmpSalary(20000);
+		System.out.println("Id=" +emp.getEmpid());
+		System.out.println("Salary=" +emp.getEmpSalary());
+	}
+}
 
-}
-}
+
