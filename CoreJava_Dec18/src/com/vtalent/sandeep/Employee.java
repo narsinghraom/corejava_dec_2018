@@ -1,32 +1,29 @@
 package com.vtalent.sandeep;
 
 public class Employee {
-    private int employeeid;
-    private double employeesalary;
-    
-	
-
-	public double getEmployeesalary() {
-		return employeesalary;
+private int Employeeid;
+private double empsalary;
+public void SetempId(int EmpId){
+this.Employeeid = EmpId;
+}
+public void SetEmpsalary(double empsalary){
+this.empsalary=empsalary;
+}
+public int getEmpid(){
+return this.Employeeid;
+}
+public int getEmployeeid(){
+return Employeeid;}
+public void setEmpsalary(double empsalary) {
+	this.empsalary = empsalary;
+}
+public static void main(String[]args){
 	}
-
-	public void setEmployeesalary(double employeesalary) {
-		this.employeesalary = employeesalary;
-	}
-
-	public int getEmployeeid() {
-		return employeeid;
-	}
-
-	public void setEmployeeid(int employeid) {
-		this.employeeid = employeid;
-	}
-    public static void main(String[] args) {
-		Employee sandeep=new Employee();
-		
-    }
-	
-		
-		
-	}
-
+public void setEmployeeid(int employeeid){
+Employeeid = getEmployeeid();
+}
+public double getEmpsalary()
+{
+return this.empsalary;
+}
+}
