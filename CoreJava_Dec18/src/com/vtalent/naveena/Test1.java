@@ -6,7 +6,7 @@ public class Test1 {
 	
 
 	public static void main(String[] args) {
-		boolean done;
+		boolean done=false;
 		boolean deletecheck=false;
 
 		// TODO Auto-generated method stub
@@ -17,7 +17,7 @@ public class Test1 {
 		Employee[] emp = new Employee[n];
 		
 		Employee[] newArr=null;
-		done=false;
+		
 		while(done==false){
 		System.out.println("Select below options as for your requirement");
 		
@@ -46,13 +46,14 @@ public class Test1 {
 		for(int i=0;i<emp.length;i++){
 			if(emp[i].getEmpId()==empId){
 				newArr=new Employee[emp.length-1];
+				//System.out.println(newArr[emp.length]);
 				for(int index =0;index<i;index++){
 					newArr[index]=emp[index];
 				}
 				for(int j=i;j<emp.length-1;j++){
 					newArr[j]=emp[j+1];
 				}
-				if(newArr.length>0){
+				if(newArr.length>=0){
 					emp=newArr;
 				}
 				System.out.println("delete employee");
