@@ -18,7 +18,7 @@ public static void main(String[] args) {
 int choose=sc.nextInt();
 	switch (choose) {
 	case 1:
-		for(int i=0;i<=emp.length-1;i++)
+		for(int i=0 ;i<=emp.length-1;i++)
 		{
 			emp[i]=new Emp_Data();
 			System.out.println("enter the empid u want to insert");
