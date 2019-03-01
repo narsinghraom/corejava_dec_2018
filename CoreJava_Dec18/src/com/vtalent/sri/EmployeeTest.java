@@ -1,8 +1,7 @@
-+package com.vtalent.naveena;
-
+package com.vtalent.sri;
 import java.util.Scanner;
 
-public class Test1 {
+public class EmployeeTest {
 	
 
 	public static void main(String[] args) {
@@ -10,9 +9,9 @@ public class Test1 {
 		boolean deletecheck=false;
 
 		// TODO Auto-generated method stub
-		Scanner scn = new Scanner(System.in);
+		Scanner scne = new Scanner(System.in);
 		System.out.println("Enter number howmany employees do you want store");
-		int n = scn.nextInt();
+		int n = scne.nextInt();
 		System.out.println(n);
 		Employee[] emp = new Employee[n];
 		
@@ -26,23 +25,23 @@ public class Test1 {
 		System.out.println("3.View employees Data");
 		System.out.println("4.Exit ");
 		
-		int choose=scn.nextInt();
+		int choose=scne.nextInt();
 		switch(choose){
 		case 1 : System.out.println("you choosen insert employee data");
 		for(int i=0;i<emp.length;i++){
 			emp[i]=new Employee();
 			System.out.println("enter employee id");
-			int empId=scn.nextInt();
+			int empId=scne.nextInt();
 			emp[i].setEmpId(empId);
 			System.out.println("enter employee salary");
-			double empSalary=scn.nextDouble();
+			double empSalary=scne.nextDouble();
 			emp[i].setEmpSalary(empSalary);
 		}
 		break;
 		
 		case 2 : System.out.println("you choosen delete employee");
 		System.out.println("Enter employee id to delete");
-		int empId=scn.nextInt();
+		int empId=scne.nextInt();
 		for(int i=0;i<emp.length;i++){
 			if(emp[i].getEmpId()==empId){
 				newArr=new Employee[emp.length-1];
@@ -95,11 +94,3 @@ public class Test1 {
 		
 		
 		
-		
-	
-
-	
-
-
-
- 
