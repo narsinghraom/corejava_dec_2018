@@ -1,4 +1,4 @@
-package com.vtalent.prashanth;
+package com.vtalent.prashanthgopi;
 
 public class Sample {
 

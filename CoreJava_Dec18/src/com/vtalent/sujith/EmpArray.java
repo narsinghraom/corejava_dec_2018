@@ -5,7 +5,6 @@ public class EmpArray {
 	static Emp[] array=new Emp[4];
 
 	public static void insertData(Emp emp) {
-//		Emp emp=null;
 //		for(int i=0;i<=3;i++) {
 //			emp=new Emp();
 //			emp.setId(i+100);
@@ -16,6 +15,7 @@ public class EmpArray {
 
 
 		if (array!=null && array.length>=0) {
+//		Emp emp=null;
 			for(int i=0;i<=3;i++) {
 				if(array[i]==null) {
 					array[i]=emp;
