@@ -4,7 +4,8 @@ public class Encapsulation_emp {
 public static void main(String[] args) {
 Test emp = new Test();
 emp.setEmpId(100);
-emp.setEmpSalary(25000.0);
+
+emp.setEmpSalary(25000);
 System.out.println("Id =" + emp.getEmpId());
 System.out.println("Salary =" + emp.getEmpSalary());
 }
