@@ -1,4 +1,4 @@
-package com.vtalent.sandeep
+package com.vtalent.sandeep;
 
 import java. util. Scanner;
 
@@ -10,13 +10,16 @@ public class Employe {
 	 for(int i=0;i<=EmpArray.length-1;i++);
 	 int i =0;
 	 Employe emp =EmpArray[i];
-   if(emp.getEmpId()==tempid){
+   if( emp.getEmpId()==tempid){
 		 EmpArray[i]=null;
 		 return i+1;
+		 
    }
  return i;
 
-
+}
+private int getEmpId() {
+	// TODO Auto-generated method stub
 	return 0;
 }
 public static void main(String[]args){
