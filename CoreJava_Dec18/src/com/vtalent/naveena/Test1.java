@@ -1,4 +1,4 @@
-+package com.vtalent.naveena;
+package com.vtalent.naveena;
 
 import java.util.Scanner;
 
@@ -40,7 +40,8 @@ public class Test1 {
 		}
 		break;
 		
-		case 2 : System.out.println("you choosen delete employee");
+		case 2 : 
+		System.out.println("you choosen delete employee");
 		System.out.println("Enter employee id to delete");
 		int empId=scn.nextInt();
 		for(int i=0;i<emp.length;i++){
