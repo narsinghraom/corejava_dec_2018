@@ -1,21 +1,21 @@
+
 package com.vtalent.sravani;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeService {
 
 	public static void main(String[] args) {
 		
-		boolean exit = false;
-		ArrayList<Employee> employees = new ArrayList<Employee>();
-		while (!exit) {
+		List<Employee> employees = new ArrayList<Employee>();
+		while (true) {
 			System.out.println("please enter the option ");
 			System.out.println("1. Create");
 			System.out.println("2. View");
 			System.out.println("3. Delete");
 			System.out.println("4. Exit");
-			@SuppressWarnings("resource")
 			Scanner sc = new Scanner(System.in);
 			int id = sc.nextInt();
 
@@ -47,7 +47,7 @@ public class EmployeeService {
 
 				break;
 			case 4:
-				exit = true;
+				System.exit(0);
 				break;
 
 			default:
