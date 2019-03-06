@@ -2,13 +2,15 @@ package com.vtalent.saranyanc;
 
 import java.util.Scanner;
 
+import com.vtalent.sandeep.Employe;
+
 public class EmployeeTest {
-	static Employee[] empArray;
+	static Employe[] empArray;
 	static Scanner input = new Scanner(System.in);
 
 	public static int insertIntoArray() {
 		int index = 0;
-		Employee emp = new Employee();
+		Employe emp = new Employe();
 
 		System.out.println("enter employee Id");
 		emp.setEmpId(input.nextInt());
