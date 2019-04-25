@@ -31,4 +31,5 @@ public static void main(String[] args) {
 		s1.function(3,2.5);
 		System.out.println(s1.i);
 	}
+
 }

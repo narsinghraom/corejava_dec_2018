@@ -17,6 +17,8 @@ public static void function(float f1,float f2){
 public static void main(String [] args) {
 Sample sample=new Sample();
 int k=sample.function(2,5);
+System.out.println(f1);
+System.out.println(f2);
 function((float)k,(float)k+1);
 System.out.println(k);
 System.out.println(sample.l1);

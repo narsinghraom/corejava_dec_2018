@@ -13,8 +13,9 @@ public static void main(String[] args) {
 	System.out.println("Select any option");
 	System.out.println("1.Insert employee data");
 	System.out.println("2.Delete employee data");
-	System.out.println("3.View employees data");
-	System.out.println("4.Exit");
+	System.out.println("3.Update employee data");
+	System.out.println("4.View employees data");
+	System.out.println("5.Exit");
 int choose=sc.nextInt();
 	switch (choose) {
 	case 1:
@@ -38,6 +39,9 @@ int choose=sc.nextInt();
 	case 3:
 		
 	case 4:
+	
+	case 5:
+		
 		
 	}
 	

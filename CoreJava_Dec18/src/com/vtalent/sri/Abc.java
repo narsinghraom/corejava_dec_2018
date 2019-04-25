@@ -16,7 +16,8 @@ package com.vtalent.sri;
 		abc=abc1;
 		return(long)(abc1.f1+abc1.f2);
 	}
-	public static void main(String [] args){
+	public static void main(String [] args)
+{
 		l1=function();
 		l2=l1+5;
 		System.out.println(l1+l2);
