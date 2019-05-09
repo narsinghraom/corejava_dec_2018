@@ -7,6 +7,7 @@ public class demo2 {
 	static float f1, f2;
 
 	public void functionOne() {
+
 		i = 5;
 		j = 7;
 
@@ -25,7 +26,7 @@ public class demo2 {
 		System.out.println(k);
 		System.out.println(demo.i + demo.j);
 		System.out.println(f1 + f2);
-		Scanner sc=new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 
 	}
 }
