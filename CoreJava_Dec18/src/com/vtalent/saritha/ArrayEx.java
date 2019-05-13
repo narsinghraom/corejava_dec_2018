@@ -22,8 +22,7 @@ public class ArrayEx {
 		System.out.println("f value=" +farray[k]);
 	}
 	}
-}
-			
+}		
 	
 
 
