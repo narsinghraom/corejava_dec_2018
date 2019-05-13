@@ -14,7 +14,7 @@ public class ArrayEx {
 	public static void main(String[] args) {
 		farray = new float[4];
 		for (int i = 0; i <= 3; i++) {
-			farray[i] = farray[i] + i;
+			farray[i] = 1.5f + i;
 
 		}
 		ArrayEx ae = new ArrayEx();
