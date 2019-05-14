@@ -12,7 +12,7 @@ public class ArrayEx {
 	}
 
 	public static void main(String[] args) {
-		farray = new float[4];
+		farray = new float[4];//abc
 		for (int i = 0; i <= 3; i++) {
 			farray[i] = 1.5f + i;
 
