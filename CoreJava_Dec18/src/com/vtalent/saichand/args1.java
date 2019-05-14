@@ -6,7 +6,7 @@ public class args1 {
 
 	public void function(float[] farray) {
 		for (int i = 0; i <= farray.length - 1; i++)
-			;
+
 		{
 			iarray[i] = (int) farray[i];
 		}
@@ -18,6 +18,11 @@ public class args1 {
 			farray[i] = 1.5f + i;
 		args1 arg = new args1();
 		arg.function(farray);
-		System.out.println(args.iarray);
+		System.out.println(arg.iarray);
+		System.out.println(farray);
+		for (int k = 0; k <= 3; k++) {
+			System.out.println("i value=" + arg.iarray[k]);
+			System.out.println("f value" + farray[k]);
+		}
 	}
 }
