@@ -1,7 +1,7 @@
 package com.vtalent.saritha;
 
 public class ArrayEx {
-	static int[] iarray=new int[4];
+	 static int[] iarray=new int[4];
 	static float[]farray;
 	public void function(float[] farray){
 		for(int i=0;i<=farray.length-1;i++){
