@@ -19,6 +19,8 @@ public class DemoTwo {
 			System.out.println(d2.i+d2.j);
 			System.out.println(d1.i+d1.j);
 			System.out.println(d1.d.i+d1.d.j);
+			System.out.println(d2.i+d2.d.i);
+			System.out.println(d2.j+d2.d.j);
 		}
 		
 	}
