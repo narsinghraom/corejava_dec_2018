@@ -1,11 +1,17 @@
 package com.vtalent.rakesh;
 
+import java.util.Scanner;
+
+/**
+ * 
+ * @author Admin
+ * 
+ */
 public class Static {
 	int i, j;
 	static float f1, f2;
 
 	public void functionOne() {
-
 		i = 5;
 		j = 7;
 	}
@@ -16,15 +22,17 @@ public class Static {
 		return (int) f1;
 	}
 
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
-
-		Static rak = new Static();
-
-		rak.functionOne();
-		int k = functionTwo((float) rak.i);
-
-		System.out.println(k);
-		System.out.println(rak.i + rak.j);
+		Scanner sc = new Scanner(System.in);
+		Static obj = new Static();
+		// obj.functionOne();
+		int k = functionTwo((float) obj.i);
+		obj.functionOne();
+		System.out.println(obj.i + obj.j);
 		System.out.println(f1 + f2);
 
 	}
