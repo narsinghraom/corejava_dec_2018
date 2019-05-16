@@ -18,7 +18,7 @@ package com.vtalent.saritha;
 			return (long)(abc1.f1+abc1.f2);
 		}
 
-		public static void main(String[] args) {
+		public static void main(String[] args){
 			// TODO Auto-generated method stub
 			l1=function1();
 			l2=l1+5;
