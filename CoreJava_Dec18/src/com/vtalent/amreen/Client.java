@@ -34,29 +34,37 @@ public class Client
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Client c = new Client();
-		System.out.println("please select an option from below:"
-				+ "\n1.insert data" + "\n2.update data" + "\n3.search data"
-				+ "\n4.delete data" + "\n5.print data");
+		for (int i = 0; i < 100; i++) {
+			System.out.println("please select an option from below:"
+					+ "\n1.insert data" + "\n2.update data" + "\n3.search data"
+					+ "\n4.delete data" + "\n5.print data");
 
-		int options = sc.nextInt();
+			int options = sc.nextInt();
 
-		switch (options) {
-		case 1:
-			c.addData();
-			eo.printData();
-			break;
-		case 2:
-			c.addData();
-			eo.updateData();
-			break;
-		case 3:
-		case 4:
+			switch (options) {
+			case 1:
+				c.addData();
 
-			eo.DeleteData();
-			break;
-		case 5:
-			eo.printData();
+				break;
 
+			case 2:
+
+				eo.updateData();
+
+				break;
+			case 3:
+				eo.searchData();
+
+				break;
+			case 4:
+
+				eo.DeleteData();
+
+				break;
+			case 5:
+				eo.printData();
+
+			}
 		}
 	}
 }
