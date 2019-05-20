@@ -70,6 +70,10 @@ public class EmployeeOperations {
 				}
 
 			}
+		} else {
+			System.out.println("no data found! " + " please insert data first");
+			c.addData();
 		}
 	}
+
 }

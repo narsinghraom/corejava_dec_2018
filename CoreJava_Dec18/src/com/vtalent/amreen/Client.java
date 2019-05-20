@@ -43,12 +43,17 @@ public class Client
 		switch (options) {
 		case 1:
 			c.addData();
-
+			eo.printData();
+			break;
 		case 2:
+			c.addData();
 			eo.updateData();
+			break;
 		case 3:
 		case 4:
+
 			eo.DeleteData();
+			break;
 		case 5:
 			eo.printData();
 
