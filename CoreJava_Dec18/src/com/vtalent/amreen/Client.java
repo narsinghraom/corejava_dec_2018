@@ -45,8 +45,10 @@ public class Client
 			c.addData();
 
 		case 2:
+			eo.updateData();
 		case 3:
 		case 4:
+			eo.DeleteData();
 		case 5:
 			eo.printData();
 
