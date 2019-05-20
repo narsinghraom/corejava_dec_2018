@@ -4,26 +4,52 @@ import java.util.Scanner;
 
 
 public class EmployeeTest {
+	Scanner sc=new Scanner(System.in);
 	
-
-	static Scanner sc=new Scanner(System.in);
-		public void insertData() {
-		System.out.println("Enter the no.of Employees to be stored");
-			int size=sc.nextInt();
+		public void inputdata() {
+			int size;
+			System.out.println("New Employee Data? Choose-1 "+'\n'+"Existing Employee Data?? Choose-2 ");
+			int a=sc.nextInt();
+			if(a==1) {
+				System.out.println("Enter the no.of Employees to be stored");
+				 size=sc.nextInt();
+					EmployeeOperations.emparray=new Employee[size];
+					for(int i=0;i<=size-1;i++) {
+						System.out.println("Enter " + (i+1) +" EmployeeData " );
+						Employee emp=new Employee();
+								System.out.println("Enter Id:");
+									emp.setEmployId(sc.nextInt());
+									System.out.println("Enter Salary:");
+										emp.setEmploySalary(sc.nextDouble());
+										EmployeeOperations.insertData(emp);	
+			} 
+			}
+			else if(a==2) {
+				 if(EmployeeOperations.emparray==null){
+					 System.out.println("First Create Employee Data");
+				 }
+				 else {
+					 System.out.println("Enter the no.of Employees to be Added");
+					 size=sc.nextInt();
+					//EmployeeOperations.emparray=new Employee[size];
+									for(int i=0;i<=size-1;i++) {
+										
+						System.out.println("Enter " + (i+1) +" EmployeeData " );
+						Employee emp=new Employee();
+								System.out.println("Enter Id:");
+									emp.setEmployId(sc.nextInt());
+									
+									System.out.println("Enter Salary:");
+										emp.setEmploySalary(sc.nextDouble());
+										EmployeeOperations.insertData(emp);	
+										}
+										}
+			}
 			
-				EmployeeOperations.emparray=new Employee[size];
-								for(int i=0;i<=size-1;i++) {
-									
-					System.out.println("Enter " + (i+1) +" EmployeeData " );
-					Employee emp=new Employee();
-							System.out.println("Enter Id:");
-								emp.setEmployId(sc.nextInt());
-								
-								System.out.println("Enter Salary:");
-									emp.setEmploySalary(sc.nextDouble());
-									
-									EmployeeOperations.insertData(emp);		
-				}	
+		else {
+				System.out.println("Check the Option you entered.");
+			}
+	
 		}
 							
 									
@@ -39,7 +65,7 @@ public class EmployeeTest {
 				int a=sc.nextInt();
 				
 					if(a==1) {
-						et.insertData();
+						et.inputdata();
 					}
 					else if(a==2) {
 						eo.updateData();	
