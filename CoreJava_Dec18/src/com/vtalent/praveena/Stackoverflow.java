@@ -1,9 +1,10 @@
 package com.vtalent.praveena;
 
-public class Stackoverflow {
-	Stackoverflow abc=new Stackoverflow();
+public class Stackoverflow 
+{
+ Stackoverflow abc=new Stackoverflow();
 	int i;
-}
+
 public static void main(String[]args)
 {
 	Stackoverflow abc1=new Stackoverflow();
