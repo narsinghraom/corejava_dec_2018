@@ -6,13 +6,8 @@ import java.util.Scanner;
 public class SwitchTask {
  static	Scanner sc1=new Scanner(System.in);
 
-	
-	public static void main(String[] args) {
-		System.out.println("Select an Option"+'\n'+"1.Prime Number"+'\n'+"2.Factorial"+'\n'+"3.Fibonacci Series"+'\n'+"4.Find Minium and Max Number for the Given Array{3,7,10,0,1}."+'\n'+"5.Find Above Array and Perform Merge Sort and Insertion Sort Techniques");
-		int p=sc1.nextInt();
-		switch(p){
-		case 1:
-			System.out.println("Enter a number to Check Whether it is prime or not.");
+ 		public void prime() {
+ 			System.out.println("Enter a number to Check Whether it is prime or not.");
 			int q=sc1.nextInt();
 			int m=q/3; 
 			int f=0;
@@ -33,16 +28,9 @@ public class SwitchTask {
 			}
 			}
 			
-			
-			/*
-			 * else if(q==2|q==3) { System.out.println(q+" is a prime"); } else
-			 * if(q%2==0|q%3==0) { System.out.println(q+" is not a prime"); } else {
-			 * System.out.println(q+" is a Prime"); }
-			 * 
-			 */		        
-		break;	
-			
-		case 2:
+ 		}			
+		
+ 		public void fact() {
 			System.out.println("Enter a Number to get Factorial of that Number");
 			 int z, fact=1;
 				  z=sc1.nextInt();
@@ -51,9 +39,9 @@ public class SwitchTask {
 				}
 				System.out.println(fact);
 
-			break;
-			
-		case 3:
+ 		}
+		
+public void fib() { 		
 			int n,n1,x;
 			n=0; n1=1;
 			System.out.println("Enter a number");
@@ -65,9 +53,10 @@ public class SwitchTask {
 						n1=t;
 						
 				}
-			break;
-			
-		case 4:
+}
+ 		
+
+public void minmax() {
 			int[] a= {3,7,10,0,1};
 			int min = a[0];
 			for(int i=1;i<a.length;i++){
@@ -87,12 +76,13 @@ public class SwitchTask {
 			
 			
 		
-			break;
+}
 			
-		case 5:
-			break;
+		  public void sort() {
+			  
+		  }
 		}
 		
-	}
-}
+	
+
 
