@@ -78,9 +78,35 @@ public void minmax() {
 		
 }
 			
-		  public void sort() {
+			  public int[] insert(int[] a) {
+				  int i,j,k,temp;
+				  System.out.println("Values in Array Before Sorting");
+				  for(int z=0;z<a.length;z++) {
+					  System.out.print(a[z]+" ");
+				  
+				  }
+				  for(i=1;i<a.length;i++) {
+					  k=a[i];
+					  j=i-1;
+					  while(j>=0 && k<a[j]) {
+						  temp=a[j];
+						  a[j]=a[j+1];
+						  a[j+1]=temp;
+						  j--;
+					  }
+				  }
+				  System.out.println('\n'+"Values in Array After Sorting");
+				  for(int z=0;z<a.length;z++) {
+					  System.out.print(a[z]+" ");
+				  
+				  }
+				  
 			  
-		  }
+				  return a;
+				  
+			  }
+			  
+			  
 		}
 		
 	

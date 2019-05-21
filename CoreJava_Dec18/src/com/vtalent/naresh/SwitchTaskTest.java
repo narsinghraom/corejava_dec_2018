@@ -26,6 +26,15 @@ static Scanner sc=new Scanner(System.in);
 			break;
 			
 		case 5:
+			System.out.println("Choose the Type of Sort"+'\n'+"1.Insertion Sort"+'\n'+"2.Merge Sort");
+			int x=sc.nextInt();
+			if(x==1) {
+				int[] a= {5,13,2,14,7,6};
+				st.insert(a);
+			}
+			else {
+				
+			}
 			break;
 		}
 
