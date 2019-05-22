@@ -1,6 +1,8 @@
-package com.vtalent.naresh;
+package com.vtalent.saichand;
 
 import java.util.Scanner;
+
+import com.vtalent.naresh.Employee;
 
 public class EmployeeOperations {
 	static Employee[] emparray;

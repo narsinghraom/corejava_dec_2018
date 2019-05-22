@@ -1,22 +1,19 @@
 package com.vtalent.saichand;
 
-public class ConstructorEx {
+public class Constructor {
 	int x, y;
 
-	ConstructorEx() {
+	Constructor() {
 		x = 5;
-		y = 7;
+		y = 6;
 	}
 
-	ConstructorEx(int x) {
-		this(x, x + 1);
+	Constructor(int x) {
 		this.x = this.x + x;
 		y = y + x;
-
 	}
 
-	ConstructorEx(int x, int y) {
-		this();
+	Constructor(int x, int y) {
 		this.x = this.x + x;
 		this.y = this.y + y;
 	}
@@ -27,16 +24,14 @@ public class ConstructorEx {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ConstructorEx c1 = new ConstructorEx();
-		ConstructorEx c2 = new ConstructorEx(5);
-		ConstructorEx c3 = new ConstructorEx(4, 5);
+		Constructor c1 = new Constructor();
+		Constructor c2 = new Constructor(5);
+		Constructor c3 = new Constructor(4, 5);
 		System.out.println(c1.x);
 		System.out.println(c2.x);
-
-		c2.function();
-		System.out.println(c2.y);
-		System.out.println(c2.x);
+		System.out.println(c3.y);
 
 	}
 
 }
+
