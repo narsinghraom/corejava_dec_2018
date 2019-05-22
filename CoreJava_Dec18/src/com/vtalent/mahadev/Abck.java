@@ -1,10 +1,10 @@
 package com.vtalent.mahadev;
 
-public class Abc {
-	Abc abc=new Abc();
+public class Abck {
+	Abck abc=new Abck();
 	int i;
 	public static void main(String[] args) {
-		Abc abc1=new Abc();
+		Abck abc1=new Abck();
 		abc1 i=10;
 		System.out.println(abc1.i);
 	}
