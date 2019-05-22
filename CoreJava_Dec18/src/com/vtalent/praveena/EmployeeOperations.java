@@ -49,6 +49,7 @@ public class EmployeeOperations {
 							System.out.println("enter salary");
 							empUD.setemployeeSalary(a.nextDouble());
 							emp=empUD;
+							System.out.println("Data got updated");
 					break;
 				}
 				else
