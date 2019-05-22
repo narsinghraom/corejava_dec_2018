@@ -1,6 +1,6 @@
 package com.vtalent.saichand;
 
-public class A {
+class A {
 	private float f1;
 
 	private A() {
