@@ -1,17 +1,17 @@
-package com.vtalent.mahadev;
+package com.vtalent.sanjana;
 
-public class Abc{
+public class Abc1{
 	
-	static Abc abc=new Abc();
+	static Abc1 abc=new Abc1();
 	float f1,f2;
 	static long l1,l2;
-	Abc abcRef;
-	public Abc function(Abc abc){
+	Abc1 abcRef;
+	public Abc1 function(Abc1 abc){
 		abcRef=abc;
 		return abcRef;
 	}
 	public static long function1(){
-		Abc abc1=abc.function(new Abc());
+		Abc1 abc1=abc.function(new Abc1());
 		abc1.f1=1.5f;
 		abc1.f2=2.5f;
 		abc=abc1;
@@ -25,5 +25,9 @@ public class Abc{
 		System.out.println(l1+l2);
 		System.out.println(abc.abcRef);
 		System.out.println(abc.f1);
-		System.out.println(abc.f2);}
+		System.out.println(abc.f2);
+		
+		
+	}
+
 }
