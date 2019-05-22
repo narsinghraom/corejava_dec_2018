@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class MainOperations {
 	Scanner sc = new Scanner(System.in);
+	int[] array;
+	int[] tempMergeArr;
+	int length;
 
 	public void primeNumber() {
 		int numToCheck;
@@ -102,6 +105,71 @@ public class MainOperations {
 		}
 		for (int i = 0; i < array.length; i++) {
 			System.out.println("sorted list is " + array[i]);
+		}
+
+	}
+
+	public void sort(int inputArr[]) {
+		/*
+		 * int[] array; int[] tempMergeArr; int length;
+		 */
+		array = inputArr;
+		length = inputArr.length;
+		// temporary array created
+		tempMergeArr = new int[length];
+		// we are dividing array here
+		divideArray(0, length - 1);
+
+	}
+
+	public void divideArray(int lowerIndex, int higherIndex) {
+		if (lowerIndex < higherIndex) {
+			// it will take out middle
+			// in our case mile value will be 7
+			int middle = lowerIndex + (higherIndex - lowerIndex) / 2;
+			// using recursion technique and storing values in stack
+			// this will sort left side of array
+			divideArray(lowerIndex, middle);
+			// this will sort right side array
+			divideArray(middle + 1, higherIndex);
+			// after sorting left and right we will start merging them
+			// using different method for merging
+			mergeArray(lowerIndex, middle, higherIndex);
+
+		}
+
+	}
+
+	public void mergeArray(int lowerIndex, int middle, int higherIndex) {
+		for (int i = lowerIndex; i <= higherIndex; i++) {
+			// all avlues are stored in temparray
+			tempMergeArr[i] = array[i];
+		}
+		// we are taking i,j,k because we dont want to change the values of
+		// lower, middle+1,lower to change(here i value will be 0, j will
+		// be(middle+1=1+1= 2,
+		// k will be 0
+		int i = lowerIndex;
+		int j = middle + 1;
+		int k = lowerIndex;
+		while (i <= middle && j <= higherIndex)
+
+		{
+			// i is lower index, j is middle+1
+			if (tempMergeArr[i] <= tempMergeArr[j]) {
+				array[k] = tempMergeArr[i];
+				i++;
+			} else {
+				array[k] = tempMergeArr[j];
+				j++;
+			}
+			k++;
+		}
+		while (i <= middle) {
+			array[k] = tempMergeArr[i];
+			k++;
+			i++;
+
 		}
 
 	}
