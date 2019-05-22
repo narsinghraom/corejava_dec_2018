@@ -6,33 +6,31 @@ import java.util.Scanner;
 public class EmployeeOperations {
 	static Employee[] emparray;
 	Scanner sc=new Scanner(System.in);	
-	
+	Employee emp;
 	
 public static void insertData(Employee emp) {
 		if(emparray!=null) {
 			for(int i=0;i<=emparray.length-1;i++) {
 				if(emparray[i]==null) {
 			emparray[i]=emp;
-			// System.out.println("here");
+			System.out.println("Successfully Inserted."+'\n');
 			break;
 				}
 			}
-			System.out.println("Successfully Inserted."+'\n');
+			
 			}
-		
 			else {
-				System.out.println("Already Inserted"+'\n');
+				System.out.println("Insert Some Data"+'\n');
 			}
 		}
 		
-		
-	
-
 		public void printAllData() {
 				if(emparray!=null) {
 					for(int i=0;i<=emparray.length-1;i++) {
-						Employee emp1=emparray[i];
-						System.out.println(emp1.getEmployId()+"   "+ emp1.getEmploySalary());
+						if(emparray[i]!=null) {
+						 emp=emparray[i];
+						System.out.println(emp.getEmployId()+"   "+ emp.getEmploySalary());
+						}
 						
 														  }
 				}
@@ -102,14 +100,11 @@ public static void insertData(Employee emp) {
 									 emp1=emparray[i];
 									 	if(x==emp1.getEmployId()) {
 									 		emparray[i]=null;
-									 		System.out.println("Deleted");
+									 		System.out.println("Successfully Deleted, Plz Replace the Deleted Employee with New Employe"+'\n');
 								}
 								
 								}
-					
-					
-					
-											
+																
 }
 						else {
 							System.out.println("No Data Found"+'\n');
@@ -118,4 +113,3 @@ public static void insertData(Employee emp) {
 						}
 }		
 	
-
