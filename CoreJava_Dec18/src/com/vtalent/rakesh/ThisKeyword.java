@@ -7,7 +7,8 @@ public class ThisKeyword {
 
 		d1 = d1 + d2;
 		this.d2 = this.d1 + d2;
-
+		System.out.println(this.d1);
+		System.out.println(d1);
 		return (long) ((long) d1 + d2);
 
 	}
@@ -19,5 +20,6 @@ public class ThisKeyword {
 		System.out.println(obj.d1 + obj.d2);
 		System.out.println(obj);
 		System.out.println(obj1);
+
 	}
 }
