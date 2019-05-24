@@ -41,7 +41,7 @@ public class Inheritance {
 		// TODO Auto-generated method stub
 Demo5 demo1=new Demo3();
 demo1.fun(2);
-demo1.fun(2,5);
+demo1.fun(5,2);
 Demo2 demo2=new Demo3();
 demo2.fun(3);
 demo2.fun(3,2);
