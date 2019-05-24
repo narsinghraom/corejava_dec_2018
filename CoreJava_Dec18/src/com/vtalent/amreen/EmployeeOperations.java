@@ -14,6 +14,7 @@ public class EmployeeOperations {
 			for (int i = 0; i <= array.length - 1; i++) {
 				if (array[i] == null) {
 					array[i] = emp;
+
 					break;
 
 				}
@@ -53,7 +54,8 @@ public class EmployeeOperations {
 				Employee emp = array[i];
 				if (emp != null) {
 
-					System.out.println(emp.getId() + " " + emp.getSalary());
+					System.out.println("All employee details:" + emp.getId()
+							+ " " + emp.getSalary());
 
 				}
 			}
@@ -72,10 +74,7 @@ public class EmployeeOperations {
 			for (int i = 0; i <= array.length - 1; i++) {
 
 				emp1 = array[i];
-				if (emp1 != null) {
 
-					System.out.println(emp1.getId() + emp1.getSalary());
-				}
 			}
 
 			System.out.println("enter id to be updated");
