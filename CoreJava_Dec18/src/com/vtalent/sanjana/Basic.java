@@ -3,6 +3,31 @@ import java.util.Scanner;
 
 public class Basic {
 Scanner sc=new Scanner(System.in);
+
+public void insertionSort()
+{
+	int a[]= {3,7,10,0,1};
+	for(int i=1;i<a.length;i++)
+	{
+		int k=a[i];
+		int j=i-1;
+		while(j>=0 && k<=a[j])
+		{
+			int temp=a[j];
+			a[j]=a[j+1];
+    		a[j+1]=temp;
+    		j=j-1;	
+		}
+		
+	}
+
+System.out.println("printing sorted elements:");
+for(int i=0;i<a.length;i++)
+{
+	System.out.println(a[i]+" ");
+}
+}
+
 	public void primeNumber() {
 		System.out.println("Enter the number to check prime or not");
 		int x=sc.nextInt();
@@ -69,5 +94,6 @@ Scanner sc=new Scanner(System.in);
     	}
     	System.out.println("Max Value is "+max);
     }
-  
-}
+    
+    }
+
