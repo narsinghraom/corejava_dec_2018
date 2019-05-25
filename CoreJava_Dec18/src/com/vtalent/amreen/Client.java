@@ -14,7 +14,7 @@ public class Client
 		// taking size of an array here
 		int size = input.nextInt();
 		// passing array size
-		EmployeeOperations.array = new Employee[size];
+		eo.array = new Employee[size];
 
 		// loop to take employee data
 		for (int i = 0; i <= size - 1; i++) {
