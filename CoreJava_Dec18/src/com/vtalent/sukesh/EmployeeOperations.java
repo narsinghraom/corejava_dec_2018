@@ -68,12 +68,13 @@ public class EmployeeOperations {
 						empArray[i] = null;
 						System.out.println("Deleted Data");
 						Test.z = EmployeeOperations.empArray.length;
+						break;
 					} else {
-						Count++;
+						Count = 2;
 					}
 				}
 			}
-			if (Count != 0) {
+			if (Count == 2) {
 				System.out.println("Enter Correct Employee ID");
 			}
 		} else {
