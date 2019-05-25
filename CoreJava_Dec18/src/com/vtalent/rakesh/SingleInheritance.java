@@ -19,6 +19,7 @@ public class SingleInheritance {
 		fourth.function(4);
 		first.function(5);
 		System.out.println(fourth.function(4));
+
 	}
 
 }

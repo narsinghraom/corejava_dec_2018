@@ -27,6 +27,7 @@ public class EmployeeOperations {
 
 		if (emparray != null) {
 			for (int i = 0; i <= emparray.length - 1; i++) {
+				// if(emparray[i]!=null)
 				Employee emp1 = emparray[i];
 				System.out
 						.println(emp1.getEmployid() + "   " + emp1.getEmploysalary() + "    " + emp1.getMobileNumber());
