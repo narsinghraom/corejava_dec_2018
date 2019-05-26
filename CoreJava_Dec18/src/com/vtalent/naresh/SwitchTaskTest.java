@@ -10,7 +10,7 @@ static Scanner sc=new Scanner(System.in);
 		SwitchTask st=new SwitchTask();
 		switch(p){
 		case 1:
-			st.prime();		        
+			st.prime();	        
 		break;	
 			
 		case 2:

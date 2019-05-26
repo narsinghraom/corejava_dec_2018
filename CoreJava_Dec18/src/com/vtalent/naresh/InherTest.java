@@ -55,7 +55,7 @@ public class InherTest {
 		
 		Third d= new Third();
 		d.function(15);
-		int k=d.function(10);
+		int k=d.function(10);  
 		System.out.println(k);
 		
 		//System.out.println(s.j);
