@@ -1,6 +1,6 @@
 package com.vtalent.rakesh;
 
-public class InterfaceExampleImplements {
+public class InterfaceExampleImplements implements InterfaceExample {
 	float f1;
 	int y;
 	public int x;
@@ -8,7 +8,8 @@ public class InterfaceExampleImplements {
 	public int function(float f1) {
 
 		this.f1 = this.f1 + f1;
-		System.out.println("Excuted the method that is there in the InterfaceExampleImplements with single parameters  ");
+		System.out
+				.println("Excuted the method that is there in the InterfaceExampleImplements with single parameters  ");
 		return (int) (this.f1);
 
 	}

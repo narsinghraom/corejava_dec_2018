@@ -8,4 +8,13 @@ public class MnrImpl extends AbcImpl implements Mnr {
 
 	}
 
+	public static void main(String args[]) {
+		MnrImpl q = new MnrImpl();
+		q.function();
+
+	}
+
+	public class Qwerty {
+
+	}
 }

@@ -22,11 +22,11 @@ public class Example2 extends InterfaceExampleImplements implements Xyz {
 		InterfaceExampleImplements e1 = new Example2();
 
 		float l = e1.function(2, 3);
-		int k = e1.function(5);
-		System.out.println(l);
-		System.out.println(k);
-		System.out.println(e1.x);
-		System.out.println(e1.y);
+		// int k = e1.function(5);
+		// System.out.println(l);
+		// System.out.println(k);
+		// System.out.println(e1.x);
+		// System.out.println(e1.y);
 
 	}
 }
