@@ -2,7 +2,7 @@ package com.vtalent.rakesh;
 
 public class Array {
 	static int[] iarray = new int[4];
-	static float[] farray;
+	static float farray[];
 
 	public static void m1(float[] farray) {
 		for (int i = 0; i <= farray.length - 1; i++) {
@@ -12,13 +12,12 @@ public class Array {
 	}
 
 	public static void main(String[] args) {
-		farray = new float[4];// abc
+		farray = new float[4];
 		for (int i = 0; i <= 3; i++) {
 			farray[i] = 1.5f + i;
 
 		}
-		// ArrayEx ae = new ArrayEx();
-		// i am making methos static so that i can call directly with class name
+
 		Array.m1(farray);
 		System.out.println(Array.iarray);
 		System.out.println(farray);

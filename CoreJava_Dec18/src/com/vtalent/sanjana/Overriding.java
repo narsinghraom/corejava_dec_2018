@@ -3,38 +3,38 @@ package com.vtalent.sanjana;
 public class Overriding {
 public static void main(String[] args)
 {
-	Sanju2 sanju2=new Sanju2();
-	sanju2.fun(5);
-	sanju2.fun(5,5);
-	System.out.println(sanju2.x);
-	System.out.println(sanju2.y);
 	
-	Sanju2 sanju1=new Sanju2();
-	sanju1.fun(5);
-	sanju1.fun(5,5);
-	System.out.println(sanju1.x);
-	System.out.println(sanju1.y);
+	Sanju2.fun(5);
+	Sanju2.fun(5,5);
+	System.out.println(Sanju2.x);
+	System.out.println(Sanju2.y);
+	
+
+	Sanju1.fun(5);
+	Sanju1.fun(5,5);
+	System.out.println(Sanju1.x);
+	System.out.println(Sanju1.y);
 }
 }
 class Sanju1
 {
-	int x,y;
-	public void fun(int x)
+static	int x,y;
+static	public void fun(int x)
 	{
-		this.x=x+this.x;
+		x=Sanju1.x+x;
 		y=x+y;
 	}
-	public void fun(int x,int y)
+static	public void fun(int x,int y)
 	{
-		this.x=this.x+x;
-		this.y=this.y+y;
+		Sanju1.x=x+x;
+		Sanju1.y=Sanju1.y+y;
 	}
 }
 class Sanju2 extends Sanju1
 {
-	int x;
-	public void fun(int x)
+static	int x;
+static	public void fun(int x)
 	{
-		this.x=this.x+x;
+		Sanju2.x=Sanju2.x+x;
 	}
 }
