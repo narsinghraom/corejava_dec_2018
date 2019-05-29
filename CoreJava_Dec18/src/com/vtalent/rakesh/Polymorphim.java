@@ -13,13 +13,13 @@ public class Polymorphim {
 		// Poly2 p7=new Poly1();
 		// Poly3 p8 = new Poly2();
 
-		float f1 = p1.function(2.5f, 1.5f);
+		//float f1 = p1.function(2.5f, 1.5f);
 
-		p1.function((long) f1);
+/*		p1.function((long) f1);
 		p1.function(f1);
 		p1.function();
 
-		// float f1=p2.function(2.5f, 1.5f);
+*/		 float f1=p2.function(2.5f, 1.5f);
 		p2.function((long) f1);
 		p2.function(f1);
 		p2.function();
