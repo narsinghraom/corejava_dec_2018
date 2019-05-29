@@ -14,8 +14,8 @@ public class Polymorphim {
 		// Poly3 p8 = new Poly2();
 
 		float f1 = p1.function(2.5f, 1.5f);
-		long y = (long) f1;
-		p1.function(y);
+
+		p1.function((long) f1);
 		p1.function(f1);
 		p1.function();
 
