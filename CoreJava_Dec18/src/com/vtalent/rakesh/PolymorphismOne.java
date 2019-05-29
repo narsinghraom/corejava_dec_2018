@@ -1,6 +1,6 @@
 package com.vtalent.rakesh;
 
-public class Polymorphim {
+public class PolymorphismOne {
 
 	public static void main(String[] args) {
 
