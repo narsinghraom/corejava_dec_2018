@@ -15,6 +15,8 @@ public class SingleInheritance {
 		int l = third.function(1);
 		System.out.println(l);
 		System.out.println(third.i);
+		
+		First fourth1 = new Fourth();
 		Fourth fourth = new Fourth();
 		fourth.function(4);
 		first.function(5);

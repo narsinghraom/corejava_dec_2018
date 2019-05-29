@@ -16,5 +16,6 @@ public class AbcOne extends AbcImpl {
 	public static void main(String args[]) {
 		AbcOne a = new AbcOne();
 		int t = a.function(6);
+		System.out.println(t);
 	}
 }
