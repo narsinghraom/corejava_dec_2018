@@ -109,6 +109,8 @@ public class MainOperations {
 
 	}
 
+	// rest of the methods are for merge sort
+
 	public void sort(int inputArr[]) {
 		/*
 		 * int[] array; int[] tempMergeArr; int length;
@@ -147,7 +149,7 @@ public class MainOperations {
 		}
 		// we are taking i,j,k because we dont want to change the values of
 		// lower, middle+1,lower to change(here i value will be 0, j will
-		// be(middle+1=1+1= 2,
+		// be(middle+1=0+1= 1,
 		// k will be 0
 		int i = lowerIndex;
 		int j = middle + 1;
