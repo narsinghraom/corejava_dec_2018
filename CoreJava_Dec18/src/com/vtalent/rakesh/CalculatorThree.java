@@ -7,4 +7,5 @@ public class CalculatorThree extends CalculatorTwo {
 		String z = q.addStrings("rak", "esh");
 		System.out.println(z);
 	}
+
 }
