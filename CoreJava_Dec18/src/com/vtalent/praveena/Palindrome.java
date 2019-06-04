@@ -15,7 +15,7 @@ public class Palindrome {
 	S2=S2+S1.charAt(i);	
 	}
 	System.out.println("after reversing String is "+S2);
-	if(S1.equalsIgnoreCase(S2))
+	if(S1.equals(S2))
 	{
 	 System.out.println("given String "+S1+" is Plaindrome");
 	}

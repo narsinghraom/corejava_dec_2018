@@ -11,6 +11,7 @@ public class NestedClassTwo {
 		public void function() {
 			int q = 3, w = 2, e = 1;
 			System.out.println(q);
+
 		}
 
 	}
@@ -18,6 +19,7 @@ public class NestedClassTwo {
 	public static void main(String arg[]) {
 
 		NestedClassTwo two = new NestedClassTwo();
+		two.function();
 
 	}
 }

@@ -3,7 +3,7 @@ package com.vtalent.saritha;
 
 	public class Poly3 extends Poly2{
 		Poly3(){
-			super();
+			//super();
 		}
 		public void function(long l1){
 			//l1=super.function(l1);
