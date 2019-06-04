@@ -1,6 +1,8 @@
 package com.vtalent.praveena;
 
 public class StringTest {
+	
+	
 	public void word(String S)
 	{
 		int count=1;
@@ -23,10 +25,7 @@ public class StringTest {
 			}			
 		}
 	}
-	count(count,S,k);
-	}
- public void count(int count,String S,int k)
-{
+	
 	if(count>=2)
 	{
 		
@@ -77,47 +76,45 @@ public class StringTest {
  	}
  	
  	
- public void DeleteExtraChar(String S1)
+ public void DeleteExtraChars(String S1)
  	{
-	 
  		
 	 for(int i=0;i<S1.length();i++)
 	 {
-		 for(int j=S1.length()-1;j<i;j--)
+		 for(int j=S1.length()-1;j>i;j--)
 		 {
 			 if(S1.charAt(i)==S1.charAt(j))
 			 {
 				
-				S1=S1.replace(S1.charAt(j),' ');
+				S1=S1.substring(0,j)+S1.substring(j+1,S1.length());
 				
 			}
 		 }
 		 
 	 }
-	 System.out.println("string after removing the repeated letter is "+S1);
+	
+	 System.out.print(S1+" ");
  	}
+ 	
  	public void StringConcat(String S1,String[]words)
  	{
  		String S2=new String();
- 		
+ 		S2=S2+words[0];
  		
 
  			for(int n=1;n<words.length;n++)
  			{
- 				int i=words[n-1].length()-1;
- 		
- 				
- 			
- 			if(words[n-1].charAt(i)==words[n].charAt(0))
- 			{
- 					words[n-1]=words[n-1].replace(words[n-1].charAt(i), ' ');
- 					words[n]=words[n].replace(words[n].charAt(0), ' ');
- 					S2=S2+words[n-1]+words[n];
-
+ 			int i=S2.length()-1;
+ 				if(S2.charAt(i)==words[n].charAt(0))
+ 				{
+ 					S2=S2.substring(0,i);
+ 					words[n]=words[n].substring(1,words[n].length());
+ 					S2=S2+words[n];
+ 				}
  			}
- 	}
  			String S3=S2.replace(" ", "");
  			System.out.println(S3);
+ 				
  	}
  	
  	public void StringAddition(String S1, String S2)
@@ -145,6 +142,7 @@ public class StringTest {
 
 		}
 		System.out.println("Factorial value is " + fact);
+		
 		
 	}
  		
