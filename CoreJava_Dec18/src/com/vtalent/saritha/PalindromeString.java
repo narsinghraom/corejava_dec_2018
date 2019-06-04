@@ -22,7 +22,7 @@ import java.util.Scanner;
 	      else  {
 	         System.out.println("Entered string isn't a palindrome.");   
 	   }  
-	      sc.close();
+	     
 	} 
 	  
 	      
