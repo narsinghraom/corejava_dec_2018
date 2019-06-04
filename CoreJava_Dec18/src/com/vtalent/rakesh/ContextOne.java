@@ -33,6 +33,7 @@ class ContextOne {
 	public static ContextOne functionTwo() {
 		ContextOne b = new ContextOne();
 		b.b = new ContextOne();
+
 		b.b.a = b.functionOne();
 		b.b.x = (int) b.b.a.getvalue();
 		b.b.y = (int) b.b.a.getvalue() + 5;

@@ -8,6 +8,7 @@ Span abc=new San();
 abc.fun(5);
 AbcImp abc1=new San();
 abc1.fun(5,4);
+abc1.fun(6);
 San s=new San();
 s.fun();
 	}}
@@ -20,17 +21,18 @@ s.fun();
 	}
 	abstract class AbcImp implements Span
 	{
-		
-	}
+		public void fun(int x)
+		{
+		System.out.println(x*x);
+	}}
 class San extends AbcImp
 {
-	public void fun(int x)
-	{
-		System.out.println(x);
-	}
 	public void fun(int x,int y)
 	{
 		System.out.println(x+y);
+	}
+	public void fun(int x) {
+		System.out.println(x*x*x);
 	}
 	public void fun()
 	{

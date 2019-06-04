@@ -9,21 +9,34 @@ public class ConstructorEx {
 	}
 
 	ConstructorEx(int x) {
+		this(x, x + 1);
 		this.x = this.x + x;
-		y = y + this.x;
+		y = y + x;
+
 	}
 
 	ConstructorEx(int x, int y) {
+		this();
 		this.x = this.x + x;
 		this.y = this.y + y;
 	}
 
-	public static void main(String args[]) {
+	public void function() {
+		System.out.println(x + y);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 		ConstructorEx c1 = new ConstructorEx();
 		ConstructorEx c2 = new ConstructorEx(5);
-		ConstructorEx c3 = new ConstructorEx(5, 5);
-		System.out.println(c1.x + c1.y);
-		System.out.println(c2.x + c2.y);
-		System.out.println(c3.x + c3.y);
+		ConstructorEx c3 = new ConstructorEx(4, 5);
+		System.out.println(c1.x);
+		System.out.println(c2.x);
+
+		c2.function();
+		System.out.println(c2.y);
+		System.out.println(c2.x);
+
 	}
+
 }

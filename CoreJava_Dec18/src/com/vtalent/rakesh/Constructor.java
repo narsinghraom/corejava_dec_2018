@@ -2,10 +2,10 @@ package com.vtalent.rakesh;
 
 class Constructor {
 
-	int x, y;
+	int x = 10, y = 12;
 
 	Constructor() {
-		this(5,5);
+		this(5, 5);
 	}
 
 	Constructor(int x) {
@@ -22,11 +22,8 @@ class Constructor {
 
 	public static void main(String[] args) {
 		Constructor c1 = new Constructor();
-		
 
 		System.out.println(c1.x + c1.y);
-		
+
 	}
 }
-
-

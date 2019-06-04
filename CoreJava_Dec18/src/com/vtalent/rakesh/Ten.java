@@ -2,7 +2,7 @@ package com.vtalent.rakesh;
 
 public class Ten extends ReturnType {
 
-	int j, k;
+	int k;
 
 	public void qwerty() {
 		int z = this.k;
