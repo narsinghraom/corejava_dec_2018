@@ -6,7 +6,7 @@ public class Poly1 {
 
 	Poly1() {
 		f1 = 1.5f;
-		f2 = 2.5f;
+		f2 = 6.5f;
 	}
 
 	public void function(float f1) {

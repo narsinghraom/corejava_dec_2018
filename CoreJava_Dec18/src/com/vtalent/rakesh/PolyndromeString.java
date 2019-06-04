@@ -1,4 +1,4 @@
-package com.vtalent.saritha;
+package com.vtalent.rakesh;
 
 import java.util.Scanner;
 
