@@ -66,11 +66,11 @@ public class StringAdd {
 		String z = itr.toString();
 		System.out.println(z);
 		String m = "12";
-		Integer o = new Integer("12");
+		Integer o = new Integer(m);
 		Integer r = new Integer("14");
 		int r1 = 8;
 		String i1 = r.toString();
-		System.out.println(r1);
+		System.out.println(o);
 
 	}
 
