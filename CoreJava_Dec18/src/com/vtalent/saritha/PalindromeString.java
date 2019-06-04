@@ -1,4 +1,4 @@
-package com.vtalent.saritha;  
+package com.vtalent.saritha;
 
 import java.util.Scanner;
 	class PalindromeString  {
@@ -28,5 +28,3 @@ import java.util.Scanner;
 	      
 	   }
 	
-	   
-
