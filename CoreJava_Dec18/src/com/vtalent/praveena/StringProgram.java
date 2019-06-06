@@ -43,7 +43,7 @@ public static void main(String[] args)
 	
 	case 3:
 		String[] words1=S1.split("\\s");
-		Str.RepeatedWord(words1,S1);
+		Str.RepeatedWord(words1);
 		break;
 		
 		//To delete repeated characters in given words of string
@@ -64,8 +64,10 @@ public static void main(String[] args)
 		Str.StringConcat(S1,words2);
 		break;
 		
-	
 	case 6:
+		Str.StringAddition();
+		break;
+	case 7:
 		Str.StringFactorial(S1);
 		break;
 	}

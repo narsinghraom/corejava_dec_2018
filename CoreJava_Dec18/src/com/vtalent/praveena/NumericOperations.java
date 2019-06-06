@@ -23,8 +23,8 @@ public class NumericOperations {
 
 	public static void Factorial() {
 		System.out.println("Enter a number");
-		int f = b.nextInt();
-		int fact = 1;
+		long f = b.nextLong();
+		long fact = 1;
 		for (int i = 1; i <= f; i++) {
 			fact = fact * i;
 
@@ -56,13 +56,13 @@ public class NumericOperations {
 				arrmin = arr[i];
 			}
 		}
-		System.out.println("min number of given array is" + arrmin);
+		System.out.println("min number of given array is : " + arrmin);
 		for (int j = 0; j <= arr.length - 1; j++) {
 			if (arrmax < arr[j]) {
 				arrmax = arr[j];
 			}
 		}
-		System.out.println("max number of array is" + arrmax);
+		System.out.println("max number of array is : " + arrmax);
 
 	}
 	public static void InsertionSort()
@@ -81,7 +81,7 @@ public class NumericOperations {
 		        }  
 		        
 		    }  
-		    System.out.println("printing sorted elements ...");  
+		    System.out.println("sorted elements of given array are");  
 		    for(int i=0;i<=a.length-1;i++)  
 		    {  
 		        System.out.print(a[i]+" ");  

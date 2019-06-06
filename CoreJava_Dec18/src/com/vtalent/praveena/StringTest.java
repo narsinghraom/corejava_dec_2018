@@ -1,12 +1,18 @@
 package com.vtalent.praveena;
 
+import java.util.Scanner;
+
 public class StringTest {
-	
+	Scanner input=new Scanner(System.in);
+
 	
 	public void word(String S)
 	{
+		
+		System.out.println(S);
 		int count=1;
-		int k = 0;	
+		int k = 0;
+		
 	for(int i=0;i<S.length();i++)
 	{
 		{
@@ -18,35 +24,52 @@ public class StringTest {
 					  k=i;  
 					//System.out.println(S1.charAt(i));
 					 count++;
-					break;
+					
+					
 					}
 			
 				}
 			}			
+			if(count>=2)
+			{
+				int count1=0;
+				for(int m=(i-1);m>=0;m--)
+				{
+					if(S.charAt(i)==S.charAt(m))
+							{
+						count1++;
+						count=1;
+							}
+					
+				}
+				if(count1==0)
+					{
+						
+			
+							System.out.println(S.charAt(k)+"="+count);
+							count=1;
+					    //System.out.println("Repeated letter in the given word "+S1+ " is  "+S1.charAt(k)+" for "+count+"times");
+						}
+				}
+			}
 		}
-	}
+	    //System.out.println("Repeated letter in the given word "+S1+ " is  "+S1.charAt(k)+" for "+count+"times");
+		}
 	
-	if(count>=2)
-	{
-		
-		System.out.println(count);
-		System.out.println(S);
-		System.out.println(S.charAt(k)+"="+count);
-    //System.out.println("Repeated letter in the given word "+S1+ " is  "+S1.charAt(k)+" for "+count+"times");
-	}
-	
-}
+
 
  	public void Removespaces(String S)
  	{
+ 		
  	S=S.replaceAll("\\s", "");
 	System.out.println("given string after removing spaces is "+S);
 	}
  	
  	
- 	public void RepeatedWord(String[] S,String S1)
+ 	public void RepeatedWord(String[] S)
  	{
  	 String SW="";
+ 	 String St="";
  	int count1=1;
  		for(int n=0;n<S.length;n++)
 		{
@@ -57,24 +80,28 @@ public class StringTest {
 					{
 					  SW=S[n];
 					  count1++;
-					  break;
+					  
 					}
 			
 				}
 			}			
-		}
+		
  	
  	if(count1>=2)
  	{
- 		System.out.println("word "+SW+" repeated "+count1+" times ");
- 	}
- 	else
- 	{
- 		System.out.println("there is no repeated word in given string "+S1);
+ 		if(St.contains(SW))
+ 		{
+ 			count1=1;
+ 		}
+ 		else{
+ 			System.out.println(SW+" repeated "+count1+" times ");
+ 	 		count1=1;
+ 	 		St=St+SW;
+ 		}
+ 		}
  	
  	}
  	}
- 	
  	
  public void DeleteExtraChars(String S1)
  	{
@@ -116,24 +143,57 @@ public class StringTest {
  			System.out.println(S3);
  				
  	}
- 	
- 	public void StringAddition(String S1, String S2)
+ 	public void StringAddition()
  	{
- 		String S3=" ";
- 				if(S1.charAt(S1.length()-1)==S2.charAt(0))
-			{
-					S1=S1.replace(S1.charAt(S1.length()-1),' ');
-					S2=S2.replace(S2.charAt(0),' ');
-					S3=S3+S1+S2;
-						
-			}
- 				S3=S3.replace(" ", "");
- 				System.out.println(S3);
-	}
+ 		System.out.println("enter first String");
+ 		String S1=new String(input.nextLine());
+ 		System.out.println("enter second String");
+ 		String S2=new String(input.nextLine());
+ 		String S=new String();
+ 		for(int i=0;i<S1.length()-1;i++)
+ 		{
+ 			for(int j=0;j<S2.length()-1;j++)
+ 			{
+ 				if(S1.charAt(i)==S2.charAt(j))
+ 				{
+ 					S1=S1.replace(S1.charAt(i),' ');
+ 					S2=S2.replace(S2.charAt(j), ' ');
+ 				}
+ 			}
+ 		}
+ 		S=S1.concat(S2);
+ 		S=S.replace(" ", "");
+ 		System.out.println(S);
+ 	 	
+ 	 	}
+ 		
+ 		
+ 		/*String S=" ";
+ 	 		S=S+W[0];
+ 			for(int n=1;n<W[n].length();n++)
+
+ 			{
+ 	 			int i=S.length()-1;
+
+ 	 				if(S.charAt(i)==W[n].charAt(0))
+ 				{
+ 						S=S.replace(S.charAt(i),' ');
+ 						S=S.replace(" ", "");
+ 						W[n]=W[n].replace(W[n].charAt(0),' ');
+ 						W[n]=W[n].replace(" ", "");
+ 						S=S+W[n];
+ 							
+ 				}
+ 	 				S=S.replace(" ", "");
+ 	 				System.out.println(S);
+ 		}*/
+ 	 	
+ 	
  	
  	
  	public void StringFactorial(String S1)
  	{
+ 		
  		int f=S1.length();
  		int fact=1;
  		for (int i = 1; i <= f; i++) {
@@ -145,6 +205,5 @@ public class StringTest {
 		
 		
 	}
- 		
- 	}
 
+ 	}
