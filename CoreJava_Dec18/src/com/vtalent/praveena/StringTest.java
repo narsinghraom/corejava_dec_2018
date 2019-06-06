@@ -201,9 +201,37 @@ public class StringTest {
 			
 
 		}
-		System.out.println("Factorial value is " + fact);
+		System.out.println("The combination of the given string is  " + fact);
+		int length=S1.length()-1;
+		permutaions(S1,0,length);
 		
+ 	}
+ 	public void permutaions(String Str,int start,int end)
+ 	{
+ 		if(start==end)
+ 		{
+ 			System.out.println(Str);
+ 		}
+ 		else
+ 		{
+ 			for(int i=start;i<=end;i++)
+ 			{
+		 		Str=SwapString(Str,start,end);
+		 		permutaions(Str,start+1,end);
+		 		Str=SwapString(Str,start,i);
+ 		
 		
-	}
-
+ 			}
+ 		}
+ 	}
+ 	public String SwapString(String Str,int i,int j)
+ 	{
+ 		char[] ch=Str.toCharArray();
+ 		char temp;
+ 		temp=ch[i];
+ 		ch[i]=ch[j];
+ 		ch[j]=temp;
+ 		return(Str.valueOf(ch));
+ 		
+ 	}
  	}
