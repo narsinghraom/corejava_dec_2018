@@ -1,24 +1,32 @@
 package com.vtalent.rakesh;
 
 public class ArrayMaxMin {
+	public int max(int[] array) {
+		int max = 0;
 
-	public void arrayMaxMin(int[] inputArray) {
-
-		int maxValue = inputArray[0];
-		for (int i = 1; i < inputArray.length; i++) {
-			if (inputArray[i] > maxValue) {
-				maxValue = inputArray[i];
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] > max) {
+				max = array[i];
 			}
-
-			int minValue = inputArray[0];
-			for (int j = 1; j < inputArray.length; j++) {
-				if (inputArray[j] < minValue) {
-					minValue = inputArray[j];
-				}
-			}
-			System.out.println("MaxValue" + maxValue);
-			System.out.println("MinValue" + minValue);
 		}
+		return max;
+	}
 
+	public int min(int[] array) {
+		int min = array[0];
+
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] < min) {
+				min = array[i];
+			}
+		}
+		return min;
+	}
+
+	public static void main(String args[]) {
+		int[] myArray = { 23, 92, 56, 39, 93 };
+		ArrayMaxMin m = new ArrayMaxMin();
+		System.out.println("Maximum value in the array is::" + m.max(myArray));
+		System.out.println("Minimum value in the array is::" + m.min(myArray));
 	}
 }
