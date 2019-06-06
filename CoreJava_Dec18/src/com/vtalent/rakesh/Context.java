@@ -26,6 +26,8 @@ public class Context {
 		l2 = l1 + 5;
 		System.out.println(l1 + l2);
 		System.out.println(abc.abcRef);
+
+		System.out.println(abc);
 		System.out.println(abc.f1);
 		System.out.println(abc.f2);
 

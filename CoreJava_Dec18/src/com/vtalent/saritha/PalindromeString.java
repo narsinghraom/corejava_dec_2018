@@ -1,4 +1,4 @@
-package com.vtalent.saritha;  
+package com.vtalent.saritha;
 
 import java.util.Scanner;
 	class PalindromeString  {
@@ -22,11 +22,9 @@ import java.util.Scanner;
 	      else  {
 	         System.out.println("Entered string isn't a palindrome.");   
 	   }  
-	      sc.close();
+	     
 	} 
 	  
 	      
 	   }
 	
-	   
-
