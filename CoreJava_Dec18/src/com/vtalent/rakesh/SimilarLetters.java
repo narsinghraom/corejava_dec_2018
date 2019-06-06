@@ -1,35 +1,35 @@
 package com.vtalent.rakesh;
 
+import java.util.Scanner;
+
 public class SimilarLetters {
+
 	public static void main(String[] args) {
 
-		String src = "vtalenttfrtvrtvrvrvrinfo";
-
-		char[] srcChar = src.toLowerCase().toCharArray();
-
-		int len = srcChar.length;
-		int j = 0;
-		boolean flag = false;
-		char ch;
-
-		int k = 0;
-
-		for (int i = 0; i < len; i++) {
-
-			for (j = 0; j < len; j++) {
-
-				if (srcChar[i] == srcChar[j]) {
-					k++;
+		System.out.println("Enter any string ");
+		Scanner sc = new Scanner(System.in);
+		String S = sc.nextLine();
+		S = S.toLowerCase();
+		char[] C = S.toCharArray();
+		for (int i = 0; i < C.length; i++) {
+			int Count = 0;
+			int count1 = 0;
+			for (int j = 0; j <= i; j++) {
+				if (C[i] == C[j]) {
+					count1++;
 				}
 			}
-			if (k > 1) {
-				if (srcChar[i] > 1) {
-					System.out.println("This character " + srcChar[i] + " has repeated " + k + " time");
-				} else {
-					System.out.println("There are no characters repeated in the given string");
+			if (count1 == 1 && C[i] != ' ') {
+				for (int k = 0; k < C.length; k++) {
+					if (C[i] == C[k]) {
+						Count++;
+					}
 				}
+				if (Count > 1) {
+					System.out.println(C[i] + " " + Count + "Times");
+				}
+
 			}
-			k = 0;
 		}
 	}
 }
