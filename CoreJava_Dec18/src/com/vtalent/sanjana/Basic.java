@@ -53,9 +53,9 @@ for(int i=0;i<a.length;i++)
     public void factorial()
     {
     	System.out.println("Enter the number to find factorial");
-    	int x=sc.nextInt();
-    	int fact=1;
-    	for(int i=x;i>=1;i--)
+    	long x=sc.nextLong();
+    	long fact=1;
+    	for(long i=x;i>=1;i--)
     	{
     		fact=fact*i;
     	}

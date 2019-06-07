@@ -21,7 +21,7 @@ public class DemoTwo {
 		d1.d.j=d1.i;
 		System.out.println(d1.i+d1.j);
 		Object di;
-		System.out.println(d1.d.i+di.dj);
+		System.out.println(d1.d.i+d1.i);
 		
 		
 	}

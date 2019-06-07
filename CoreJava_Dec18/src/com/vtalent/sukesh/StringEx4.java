@@ -15,7 +15,7 @@ public class StringEx4 {
 		String S2 = sc.nextLine();
 		String S3 = S1 + S2;
 		S3 = S3.toUpperCase();
-		System.out.println(S3);
+		//System.out.println(S3);
 		char[] C = S3.toCharArray();
 		for (int i = 0; i < C.length; i++) {
 			// System.out.print(C[i]);
