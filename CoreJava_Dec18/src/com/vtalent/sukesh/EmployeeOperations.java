@@ -1,7 +1,7 @@
 package com.vtalent.sukesh;
 
 public class EmployeeOperations {
-	static Employee[] empArray;
+	public static Employee[] empArray;
 
 	public static void view() {
 		System.out.println("1-Insert an Employee");
