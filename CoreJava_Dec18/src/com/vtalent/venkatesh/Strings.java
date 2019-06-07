@@ -99,9 +99,9 @@ public class Strings extends A {
      public static void main(String[] args) {
 
 	  System.out.println("vtalent info system");
-	  System.out.println("enter 1 to remove spaces" + "\n"
-		    + "enter 2 to remove repeated letters" + "\n"
-		    + "enter 3 to check repeated words"+"\n" + "Enter 4 To Concat Strings");
+	  System.out.println("Enter 1 to remove spaces" + "\n"
+		    + "Enter 2 to remove repeated letters" + "\n"
+		    + "Enter 3 to check repeated words"+"\n" + "Enter 4 To Concat Strings");
 
 	  Scanner sc = new Scanner(System.in);
 
