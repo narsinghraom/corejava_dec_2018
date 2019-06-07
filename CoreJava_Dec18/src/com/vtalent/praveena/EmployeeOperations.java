@@ -5,21 +5,6 @@ import java.util.Scanner;
 public class EmployeeOperations {
 	static Employee[] empArray;
 	 static Scanner a=new Scanner(System.in);
-	public static void printAllEmployeeData()
-	{
-		if(empArray!=null)
-		{
-			for(int i=0;i<=empArray.length-1;i++)
-			{
-				Employee emp=empArray[i];
-				if(empArray!=null)
-				{
-					System.out.println("employee ID"+emp.getemployeeID()+"employee salary"+emp.getemployeeSalary());
-				}
-				}
-		}
-			
-	}
 	public static void insertData(Employee emp)
 	{
 		if(empArray!=null)
@@ -33,6 +18,21 @@ public class EmployeeOperations {
 			}
 			}
 		}
+	}
+	public static void printAllEmployeeData(int size)
+	{
+		if(empArray!=null)
+		{
+			for(int i=0;i<size;i++)
+			{
+				Employee emp=empArray[i];
+				if(empArray!=null)
+				{
+					System.out.println("employee ID: "+emp.getemployeeID()+"\n"+"employee salary:"+"\n"+emp.getemployeeSalary());
+				}
+				}
+		}
+			
 	}
 	public static void updateData(int empID)
 	{
@@ -51,11 +51,9 @@ public class EmployeeOperations {
 					System.out.println("Employee ID: "+empArray[i].getemployeeID()+"\n"+"Salary: "+empArray[i].getemployeeSalary());
 					break;
 				}
-				else
-				{
-					System.out.println("Enter valid employee ID");
-				}
+				
 			}
+			System.out.println("Enter valid employee ID");
 
 		}
 		else
@@ -74,15 +72,11 @@ public class EmployeeOperations {
 				{
 				
 				empArray[i]=null;
+				System.out.println("Employee ID: "+empID+ " deleted");
 				break;
 			}
-		
-			else
-			{
-					System.out.println("Enter valid employee ID");
-	
 			}
-			}
+			System.out.println("Enter valid Employee ID to delete");
 		}
 		else
 		{
@@ -100,11 +94,9 @@ public class EmployeeOperations {
 				System.out.println("Employee ID: "+empArray[i].getemployeeID()+"\n"+"Employee Salary: "+empArray[i].getemployeeSalary());
 				break;
 			}
-			else
-			{
-				System.out.println("Enter valid employee ID");
-			}
+			
 		}
+		System.out.println("please enter valid employee ID");
 	}
 	else
 	{

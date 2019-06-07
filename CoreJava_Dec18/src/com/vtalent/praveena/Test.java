@@ -7,11 +7,18 @@ public class Test {
 	 static Scanner a=new Scanner(System.in);
 	 public static void main(String[] args) {
 		
-		 for(;;)
-		 {
+	for(;;)
+	 {
 		
-	System.out.println("select your options");
+	System.out.println("select your options"+"\n"+"1.Insert"+"\n"+"2.Print"+"\n"+"3.Update"+"\n"+"4.Delete"+"\n"+"5.Search"+"\n"+"6.Exit");
+	
 	int choice  = a.nextInt();
+	if(choice==6)
+	{
+		System.out.println("Exited from home page");
+		break;
+	}
+	
 	switch(choice)
 	{
 	case 1:
@@ -31,10 +38,11 @@ public class Test {
 	}
 	break;
 	case 2:
-		System.out.println("enter number of employees to print");
+		//System.out.println("Printing all employees details");
+		System.out.println("Enter number of employees to print");
 		int size2=a.nextInt();
-		EmployeeOperations.empArray=new Employee[size2];
-		EmployeeOperations.printAllEmployeeData();
+		EmployeeOperations.printAllEmployeeData(size2);
+		//EmployeeOperations.printAllEmployeeData();
 		break;
 	case 3:
 		//System.out.println("Enter Employee details");
@@ -55,13 +63,10 @@ public class Test {
 		System.out.println("To Search Employee details");
 		System.out.println("Please enter Employee ID");
 		Employee emp2=new Employee();
-		System.out.println("enter ID");
 		emp2.setemployeeID(a.nextInt());
 		EmployeeOperations.SearchEmployee(emp2.getemployeeID());
 		break;
-	case 6:
-		System.out.println("exited from home page");
-		break;
+	
 	}
 }
 }
