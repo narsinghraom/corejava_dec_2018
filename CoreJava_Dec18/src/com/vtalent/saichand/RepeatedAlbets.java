@@ -2,7 +2,7 @@ package com.vtalent.saichand;
 
 import java.util.Scanner;
 
-public class duplicateStringfinder {
+public class RepeatedAlbets {
 
 	public static void main(String args[]) {
 		System.out.println("Enter the string ");

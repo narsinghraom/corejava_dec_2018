@@ -4,54 +4,68 @@ import java.util.Scanner;
 
 class A {
      public void remove() {
+	  System.out.println("Enter string");
 	  Scanner sc = new Scanner(System.in);
 	  String str = sc.nextLine();
 	  System.out.println(str.replaceAll("\\s", ""));
      }
 
      public void repeatedLetters(){
-	  String S = "Vtalentt info System";
+	  System.out.println("Enter any string ");
+		Scanner sc = new Scanner(System.in);
+		String S = sc.nextLine();
 		S = S.toLowerCase();
-		String[] S1 = S.split(" ");
-		for (int i = 0; i < S1.length; i++) {
-			String S2 = S1[i];
-			// System.out.println(S2);
-			char[] C = S2.toCharArray();
-			for (int j = 0; j < C.length; j++) {
-				int Count = 0;
+		char[] C = S.toCharArray();
+		for (int i = 0; i < C.length; i++) {
+			int Count = 0;
+			int count1 = 0;
+			for (int j = 0; j <= i; j++) {
+				if (C[i] == C[j]) {
+					count1++;
+				}
+			}
+			if (count1 == 1 && C[i] != ' ') {
 				for (int k = 0; k < C.length; k++) {
-					if (C[j] == C[k]) {
+					if (C[i] == C[k]) {
 						Count++;
 					}
 				}
-				if (Count == 1) {
-					System.out.print(C[j]);
+				if (Count > 1) {
+					System.out.println(C[i] + " " + Count + "Times");
 				}
+
 			}
-			System.out.println("");
 		}
 	}
+	
      
      
      public void repeatedWords() {
 
 	
-	  String str = "Vtalent info systems info";
-	  System.out.println("Vtalent info systems info");
-	  str.toLowerCase();
-	  String words[] = str.split(" ");
-	  int count = 0;
-	  for (int i = 0; i <= words.length - 1; i++) {
+	  String S = "Vtalent info System info info System";
+		String[] S1 = S.split("\\s");
+		for (int i = 0; i < S1.length; i++) {
+			int Count = 0;
+			int Count1 = 0;
+			for (int j = 0; j <= i; j++) {
+				if (S1[i].equalsIgnoreCase(S1[j])) {
+					Count1++;
+				}
+			}
+			if (Count1 == 1) {
+				for (int k = 0; k < S1.length; k++) {
 
-	       for (int j = i + 1; j <= words.length - 1; j++) {
-		    if (words[i].equals(words[j])) {
-			
-			 System.out.println(words[i]);
-		    }
-	       }
+					if (S1[i].equalsIgnoreCase(S1[k])) {
+						Count++;
+					}
+				}
+				if (Count != 1) {
+					System.out.println(S1[i] + " " + Count);
 
-	      
-	  }
+				}
+			}
+		}
      }
      
      public void concat(){
@@ -85,9 +99,9 @@ public class Strings extends A {
      public static void main(String[] args) {
 
 	  System.out.println("vtalent info system");
-	  System.out.println("enter 1 to remove spaces" + "\n"
-		    + "enter 2 to remove repeated letters" + "\n"
-		    + "enter 3 to check repeated words");
+	  System.out.println("Enter 1 to remove spaces" + "\n"
+		    + "Enter 2 to remove repeated letters" + "\n"
+		    + "Enter 3 to check repeated words"+"\n" + "Enter 4 To Concat Strings");
 
 	  Scanner sc = new Scanner(System.in);
 
