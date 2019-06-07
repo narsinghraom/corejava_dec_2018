@@ -9,6 +9,7 @@ public class Exceptions {
 		char ch = str.charAt(0);
 		array[3] = 2;
 		array[5] = 2;
+		int z = 5 / 1;
 
 	}
 

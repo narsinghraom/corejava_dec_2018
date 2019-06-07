@@ -37,7 +37,7 @@ public class StringEx {
  //int length();
  	//System.out.println(s4.length());
  
-char[]  ch1= new char[s1.length()];
+char[]  ch1= new char[s1.charAt(5)];
 	for(int i=s1.length(); i<s1.length();i--) {
 				System.out.println(ch1[i]);
 			//if(ch1!=null) {

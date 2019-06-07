@@ -16,8 +16,10 @@ public class StringCharat {
 		
 		public static void main(String[] args) {
 		StringCharat sc1=new StringCharat();
+		sc1.Mychar(5);
 		String s2=new String(ch);
-		System.out.println(s2);
+	//	if(s1.b)
+	System.out.println(s2);
 		
 		/*
 		 * char[] ch1= {'a','s','n'}; String s3=new String(ch);
