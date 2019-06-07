@@ -47,11 +47,14 @@ public class EmployeeOperations {
 				 */
 		/*
 		 
-			else {
-			System.out.println("Employee Data is empty" + '\n');
-		}*/
-	}
+		*/
+	
 			}}
+	else {
+		System.out.println("Employee Data is empty" + '\n');
+	}
+	
+			}
 
 	public void updateData() {
 		if (emparray != null) {
@@ -59,16 +62,17 @@ public class EmployeeOperations {
 			for (int i = 0; i <= emparray.length - 1; i++) {
 				emp1 = emparray[i];
 				if(emparray[i]==null) {
-					
+					System.out.println("Insert Data First");
 				}
 				else {
 				System.out.println(emp1.getEmployId() + "   "
 						+ emp1.getEmploySalary());
 			}
+			}
 
 			System.out.println("Enter the Id to be Updated" + '\n');
 			int x = sc.nextInt();
-			for (  i = 0; i <= emparray.length - 1; i++) {
+			for ( int i = 0; i <= emparray.length - 1; i++) {
 				Employee emp2;
 				emp2 = emparray[i];
 				if (x == emp2.getEmployId()) {
@@ -87,12 +91,13 @@ public class EmployeeOperations {
 			}
 		}
 
+		
+	}
+			
+			}
 		else {
 			System.out.println("First Insert Employee Data" + '\n');
 		}
-	}
-			}
-			}
 			}
 	
 
@@ -110,16 +115,16 @@ public class EmployeeOperations {
 								if(emparray[i]==null) {
 									
 								}
-								else {
-								if(x==emp1.getEmployId()) {
+								else if (x==emp1.getEmployId()) {
 								System.out.println("Employ_Id- "+emp1.getEmployId()+'\n'+"Employ_Salary- "+emp1.getEmploySalary() );
-														  }
+									break;
+								}
 								else {
 									System.out.println("Enter the Valid Id"+'\n');
 								}
 								}
 					}
-							}
+							
 						else {
 							System.out.println("Insert the Employee Data first"+'\n');
 						}

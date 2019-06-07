@@ -84,14 +84,47 @@ for(int j=0;j<=s2.length-1;j++) {
   	//System.out.println(s5);
 }
  		
+public static void printRepeatedLetters() {
+	String s1="gooddaygoodday";
+	//char []cha=s1.toCharArray();
+	
+	for(int i=0;i<=s1.length()-1;i++) {
+		for(int j=0;j<=s1.length()-1;j++) {
+			if(s1.charAt(i)==s1.charAt(j)) {
+				ch=s1.charAt(i);
+				c++;
+			}
+			
+		}
+		if(c>=2) {
+			System.out.println(ch+"-"+c+" times");	
+				}
+	
+		c=0;		
+			}
+			
 		
+				}
+
+public static void removingRepeatedLetters() {
+	System.out.println("Enter a string");
+	String s1=sc.nextLine().toLowerCase();
+	String s2="";
+	char [] ch=s1.toCharArray();
+	for(int i=0;i<s1.length();i++) {
+			if(!s2.contains(ch[i]+"")) {
+				s2=s2+ch[i];
+			}
+	}
+	System.out.println(s2);
+}		
 		
 public static void main(String [] args) {
 		//removeWhiteSpace();
 		//combiningStrings();
 		//printRepeatedWords();
-		//printRepeatedLetters();
-	removingRepeatedLetters();
+		printRepeatedLetters();
+	//removingRepeatedLetters();
 			}
 	}
 	
