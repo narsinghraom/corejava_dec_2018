@@ -2,7 +2,7 @@
 public class StringOperations {
 	public static void main(String[] args) {
 		int x = 0;
-		String b = "qwertyyy";
+		String b = "qwertyy";
 		char[] ch = new char[b.length()];
 		for (int i = 0; i <= b.length() - 1; i++) {
 			ch[i] = b.charAt(i);
