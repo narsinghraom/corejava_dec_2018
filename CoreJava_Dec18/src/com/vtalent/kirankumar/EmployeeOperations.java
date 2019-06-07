@@ -1,7 +1,7 @@
-package com.vtalent.sukesh;
+package com.vtalent.kirankumar;
 
 public class EmployeeOperations {
-	public static Employee[] empArray;
+	static Employee[] empArray;
 
 	public static void view() {
 		System.out.println("1-Insert an Employee");
@@ -118,6 +118,7 @@ public class EmployeeOperations {
 		} else {
 			System.out.println("Not Data Not available to Print");
 		}
+
 	}
 
 }

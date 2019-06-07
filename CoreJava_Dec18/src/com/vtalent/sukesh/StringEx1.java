@@ -6,7 +6,7 @@ public class StringEx1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Enter Statement ");
+		System.out.println("Enter any string ");
 		Scanner sc = new Scanner(System.in);
 		String S = sc.nextLine();
 		S = S.toLowerCase();

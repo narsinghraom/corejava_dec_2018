@@ -71,7 +71,16 @@ public class StringAdd {
 		int r1 = 8;
 		String i1 = r.toString();
 		System.out.println(o);
+		String a1 = new String("bhavani");
+		System.out.println(a1);
+		int x1 = 0;
 
+		int u = x1++;
+		System.out.println(u);
+		int t1 = ++x1;
+		System.out.println(t1);
+		int h1 = ++x1;
+		System.out.println(h1);
 	}
 
 }

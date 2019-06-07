@@ -7,17 +7,28 @@ public class Test {
 	 static Scanner a=new Scanner(System.in);
 	 public static void main(String[] args) {
 		
-	System.out.println("select your option");
+	for(;;)
+	 {
+		
+	System.out.println("select your options"+"\n"+"1.Insert"+"\n"+"2.Print"+"\n"+"3.Update"+"\n"+"4.Delete"+"\n"+"5.Search"+"\n"+"6.Exit");
+	
 	int choice  = a.nextInt();
+	if(choice==6)
+	{
+		System.out.println("Exited from home page");
+		break;
+	}
+	
 	switch(choice)
 	{
 	case 1:
+		System.out.println("Inserting data.....");
 	System.out.println("enter number of employees to input");
 	int size=a.nextInt();
 	EmployeeOperations.empArray=new Employee[size];
 	for(int i=0;i<=size-1;i++)
 	{
-		System.out.println("enter"+i+1+"employeeData");
+		System.out.println("enter "+(i+1)+" employeeData");
 		Employee emp=new Employee();
 		System.out.println("enter ID");
 				emp.setemployeeID(a.nextInt());
@@ -27,39 +38,36 @@ public class Test {
 	}
 	break;
 	case 2:
-		System.out.println("enter number of employees to print");
+		//System.out.println("Printing all employees details");
+		System.out.println("Enter number of employees to print");
 		int size2=a.nextInt();
-		EmployeeOperations.empArray=new Employee[size2];
-		EmployeeOperations.printAllEmployeeData();
+		EmployeeOperations.printAllEmployeeData(size2);
+		//EmployeeOperations.printAllEmployeeData();
 		break;
 	case 3:
-		System.out.println("Enter Employee details");
+		//System.out.println("Enter Employee details");
+		System.out.println("To update Employee details");
 		Employee emp=new Employee();
-		System.out.println("enter ID");
+		System.out.println("Please enter employee ID");
 		emp.setemployeeID(a.nextInt());
-		System.out.println("enter salary");
-		emp.setemployeeSalary(a.nextDouble());
-		EmployeeOperations.updateData(emp);
+		EmployeeOperations.updateData(emp.getemployeeID());
 		break;
 	case 4:
-		System.out.println("Enter Employee ID");
+		System.out.println("To delete employee details");
 		Employee emp1=new Employee();
-		System.out.println("enter ID");
-				emp1.setemployeeID(a.nextInt());
-				System.out.println("enter salary");
-		EmployeeOperations.deleteData(emp1);
+		System.out.println("Please enter Employee ID");
+		emp1.setemployeeID(a.nextInt());
+		EmployeeOperations.deleteData(emp1.getemployeeID());
 		break;
 	case 5:
-		System.out.println("Enter Employee ID");
+		System.out.println("To Search Employee details");
+		System.out.println("Please enter Employee ID");
 		Employee emp2=new Employee();
-		System.out.println("enter ID");
-				emp2.setemployeeID(a.nextInt());
-				System.out.println("enter salary");
-		EmployeeOperations.SearchEmployee(emp2);
+		emp2.setemployeeID(a.nextInt());
+		EmployeeOperations.SearchEmployee(emp2.getemployeeID());
 		break;
-	case 6:
-		System.out.println("exited from home page");
-		break;
+	
 	}
+}
 }
 }

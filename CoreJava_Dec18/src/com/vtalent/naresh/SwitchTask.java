@@ -1,5 +1,4 @@
 package com.vtalent.naresh;
-
 import java.util.Scanner;
 
 
@@ -98,6 +97,7 @@ public void minmax() {
 				  System.out.println('\n'+"Values in Array After Sorting");
 				  for(int z=0;z<a.length;z++) {
 					  System.out.print(a[z]+" ");
+					  System.out.println('\n');
 				  
 				  }
 				  

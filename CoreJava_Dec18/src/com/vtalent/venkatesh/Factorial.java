@@ -1,14 +1,13 @@
-package com.vtalent.rakesh;
+package com.vtalent.venkatesh;
 
 import java.util.Scanner;
 
 public class Factorial {
-
-	public static void factorial() {
+     public static void factorial() {
 		int i, fact = 1;
 		System.out.println("please enter the number");
-		Scanner s = new Scanner(System.in);
-		int number = s.nextInt();
+		Scanner sc = new Scanner(System.in);
+		int number = sc.nextInt();
 
 		for (i = 1; i <= number; i++) {
 			fact = fact * i;

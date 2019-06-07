@@ -1,14 +1,13 @@
-package com.vtalent.rakesh;
+package com.vtalent.venkatesh;
 
 import java.util.Scanner;
 
 public class Fibonacci {
-
-	public static void fibonacci() {
+     public static void fibonacci() {
 
 		System.out.println("enter the number");
-		Scanner s = new Scanner(System.in);
-		int n = s.nextInt(), t1 = 0, t2 = 1;
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt(), t1 = 0, t2 = 1;
 		System.out.print("First " + n + " terms: ");
 
 		for (int i = 1; i <= n; ++i) {
