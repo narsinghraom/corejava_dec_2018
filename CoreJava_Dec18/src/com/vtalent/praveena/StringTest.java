@@ -9,7 +9,7 @@ public class StringTest {
 	public void word(String S)
 	{
 		
-		System.out.println(S);
+		
 		int count=1;
 		int k = 0;
 		
@@ -45,7 +45,7 @@ public class StringTest {
 				if(count1==0)
 					{
 						
-			
+							System.out.print(S+": ");
 							System.out.println(S.charAt(k)+"="+count);
 							count=1;
 					    //System.out.println("Repeated letter in the given word "+S1+ " is  "+S1.charAt(k)+" for "+count+"times");
@@ -202,12 +202,16 @@ public class StringTest {
 
 		}
 		System.out.println("The combination of the given string is  " + fact);
-		int length=S1.length()-1;
-		permutaions(S1,0,length);
+		
+		permutaions(S1);
 		
  	}
- 	public void permutaions(String Str,int start,int end)
+ 	public void permutaions(String Str)
  	{
+ 		
+ 		int end=Str.length()-1;
+ 		int start=0;
+ 		
  		if(start==end)
  		{
  			System.out.println(Str);
@@ -216,9 +220,10 @@ public class StringTest {
  		{
  			for(int i=start;i<=end;i++)
  			{
-		 		Str=SwapString(Str,start,end);
-		 		permutaions(Str,start+1,end);
-		 		Str=SwapString(Str,start,i);
+ 				
+		 		//Str=SwapString(Str,start,end);
+		 		//permutaions(Str,start+1,end);
+		 		//Str=SwapString(Str,start,i);
  		
 		
  			}
@@ -231,7 +236,9 @@ public class StringTest {
  		temp=ch[i];
  		ch[i]=ch[j];
  		ch[j]=temp;
- 		return(Str.valueOf(ch));
+ 		Str=Str.valueOf(ch);
+ 		System.out.println(Str);
+ 		return(Str);
  		
  	}
  	}

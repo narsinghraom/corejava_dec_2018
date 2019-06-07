@@ -64,6 +64,8 @@ public static void main(String[] args)
 		Str.StringConcat(S1,words2);
 		break;
 		
+		//To add two string by removing common letter
+		
 	case 6:
 		Str.StringAddition();
 		break;
