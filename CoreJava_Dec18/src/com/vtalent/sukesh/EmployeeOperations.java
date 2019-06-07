@@ -37,9 +37,7 @@ public class EmployeeOperations {
 						System.out.println("enter Salary:");
 						int x1 = Test.input.nextInt();
 						emp.setEmployeeSalary(x1);
-						System.out.println("Ofter update "
-								+ emp.getEmployeeID() + "    "
-								+ emp.getEmployeeSalary());
+						System.out.println("Ofter update " + emp.getEmployeeID() + "    " + emp.getEmployeeSalary());
 						count = 1;
 						break;
 					} else {
@@ -91,9 +89,8 @@ public class EmployeeOperations {
 				Employee emp = empArray[i];
 				if (emp != null) {
 					if (x == emp.getEmployeeID()) {
-						System.out.println("EmployeeId:---"
-								+ emp.getEmployeeID() + "  Salary:---"
-								+ emp.getEmployeeSalary());
+						System.out.println(
+								"EmployeeId:---" + emp.getEmployeeID() + "  Salary:---" + emp.getEmployeeSalary());
 						count = 1;
 						break;
 					} else {
@@ -115,8 +112,7 @@ public class EmployeeOperations {
 			for (int i = 0; i <= empArray.length - 1; i++) {
 				Employee emp = empArray[i];
 				if (emp != null) {
-					System.out.println(emp.getEmployeeID() + " "
-							+ emp.getEmployeeSalary());
+					System.out.println(emp.getEmployeeID() + " " + emp.getEmployeeSalary());
 				}
 			}
 		} else {

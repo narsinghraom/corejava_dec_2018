@@ -1,13 +1,13 @@
-package com.vtalent.sukesh;
+package com.vtalent.srihari;
 
-public class StringEx2 {
+public class StringCountRepeatedWord {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		/*
 		 * Scanner sc = new Scanner(System.in); String S = sc.nextLine()
 		 */;
-		String S = "Vtalent info System info info System";
+		String S = "Vtalent Vtalent System info info System";
 		String[] S1 = S.split("\\s");
 			for (int i = 0; i < S1.length; i++) {
 			int Count = 0;

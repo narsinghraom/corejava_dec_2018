@@ -1,24 +1,23 @@
 package com.vtalent.srihari;
 
 public class Employee {
+	private int EmployeeID;
+	private double EmployeeSalary;
 
-	private int employeeID;
-
-	private double employeeSalary;
-
-	public void setEmployeeId(int employeeId) {
-		this.employeeID = employeeId;
+	public void setEmployeeID(int employeeID) {
+		EmployeeID = employeeID;
 	}
 
 	public void setEmployeeSalary(double employeeSalary) {
-		this.employeeSalary = employeeSalary;
+		EmployeeSalary = employeeSalary;
 	}
-	
-	public int getEmployeeId() {
-		return employeeID;
+
+	public int getEmployeeID() {
+		return EmployeeID;
 	}
-	
+
 	public double getEmployeeSalary() {
-		return employeeSalary;
+		return EmployeeSalary;
 	}
+
 }
