@@ -1,5 +1,10 @@
 package com.vtalent.sukesh;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
 public class EmployeeOperations {
 	static Employee[] empArray;
 	static String IDs = "";
@@ -35,7 +40,7 @@ public class EmployeeOperations {
 		}
 	}
 
-	public static void InsertInnerLogic() {
+	public static void InsertInnerLogic() throws IOException {
 
 		Employee emp = new Employee();
 		System.out.println("Enter ID:- ");
@@ -60,6 +65,9 @@ public class EmployeeOperations {
 		emp.setEmployeePF(pf);
 
 		EmployeeOperations.insertData(emp);
+		File file = new File("F:\\Employee Data View");
+		FileOutputStream fos = new FileOutputStream(file);
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
 
 	}
 
