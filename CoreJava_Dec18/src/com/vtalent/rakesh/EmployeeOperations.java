@@ -11,10 +11,11 @@ public class EmployeeOperations {
 			for (int i = 0; i <= emparray.length - 1; i++) {
 				if (emparray[i] == null) {
 					emparray[i] = emp;
-					// System.out.println("here");
+
 					break;
 				}
 			}
+
 			System.out.println("Successfully Inserted." + '\n');
 		}
 
@@ -27,11 +28,16 @@ public class EmployeeOperations {
 
 		if (emparray != null) {
 			for (int i = 0; i <= emparray.length - 1; i++) {
-				// if(emparray[i]!=null)
-				Employee emp1 = emparray[i];
-				System.out
-						.println(emp1.getEmployid() + "   " + emp1.getEmploysalary() + "    " + emp1.getMobileNumber());
 
+				Employee emp1 = emparray[i];
+				if (emp1 != null) {
+					System.out.println("Employee Name:" + emp1.getEmployName() + "   Employee id:" + emp1.getEmployid()
+							+ "   Employee mobilenumber:" + emp1.getMobileNumber() + "   Employee package: "
+							+ emp1.getEmployPackage() + "   Employee pf:" + emp1.getPf() + "   Employee salary:"
+							+ emp1.getEmploysalary());
+				} else {
+					System.out.println("please enter the Employee data first");
+				}
 			}
 		}
 
@@ -60,9 +66,7 @@ public class EmployeeOperations {
 					double updatedSalary = sc.nextDouble();
 
 					emp2.setEmploysalary(updatedSalary);
-					System.out.println("Enter the new Mobile number to be Updated" + '\n');
-					String m = sc.next();
-					emp2.setMobileNumber(m);
+					
 				}
 			}
 		}

@@ -15,6 +15,7 @@ public class StringEx4 {
 		String S2 = sc.nextLine();
 		String S3 = S1 + S2;
 		S3 = S3.toUpperCase();
+<<<<<<< HEAD
 		System.out.println(S3);
 		char[] C1 = S1.toCharArray();
 		char[] C2 = S2.toCharArray();
@@ -32,6 +33,16 @@ public class StringEx4 {
 					S1 = S1.replace(C1[i], ' ');
 					S1 = S2.replace(C2[j], ' ');
 
+=======
+		//System.out.println(S3);
+		char[] C = S3.toCharArray();
+		for (int i = 0; i < C.length; i++) {
+			// System.out.print(C[i]);
+			int Count = 0;
+			for (int j = 0; j < C.length; j++) {
+				if (C[i] == C[j]) {
+					Count++;
+>>>>>>> e6f627dc107faa09d5f4d6a1c3cba1d2d0df0d97
 				}
 			}
 		}

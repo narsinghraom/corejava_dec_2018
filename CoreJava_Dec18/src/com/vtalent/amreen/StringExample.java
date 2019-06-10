@@ -12,7 +12,7 @@ public class StringExample {
 				.println("please enter the string/number to find palindrome or not");
 		original = sc.nextLine();
 		int length = original.length();
-		for (int i = 0; i <= length - 1; i++) {
+		for (int i = original.length() - 1; i >= 0; i--) {
 			reverse = reverse + original.charAt(i);
 		}
 		if (original.equals(reverse))

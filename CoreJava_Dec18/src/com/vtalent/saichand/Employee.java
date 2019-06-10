@@ -1,23 +1,23 @@
 package com.vtalent.saichand;
 
 public class Employee {
-	private int empid;
-	private double empsalary;
+	private int EmployeeID;
+	private double EmployeeSalary;
 
-	public void setEmployId(int employid) {
-		this.empid = employid;
+	public void setEmployeeID(int employeeID) {
+		EmployeeID = employeeID;
 	}
 
-	public void setEmploySalary(double empsalary) {
-		this.empsalary = empsalary;
+	public void setEmployeeSalary(double employeeSalary) {
+		EmployeeSalary = employeeSalary;
 	}
 
-	public int getEmployId() {
-		return empid;
+	public int getEmployeeID() {
+		return EmployeeID;
 	}
 
-	public double getEmpSalary() {
-		return empsalary;
+	public double getEmployeeSalary() {
+		return EmployeeSalary;
 	}
 
 }

@@ -14,7 +14,7 @@ public class DemoTwo {
 	  return d.d;
      }
 
-     public static void main(String[] args) {
+     public static void main(String args[]) {
 	  DemoTwo d1 = new DemoTwo();
 	  d1.i = 7;
 	  d1.j = 5;

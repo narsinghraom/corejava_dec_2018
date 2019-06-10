@@ -4,16 +4,15 @@ public class ClassReference {
 
 	static int x = 10;
 
-	public ClassReference(ClassReferene c) {
+	public ClassReference(int r) {
 		int x = 100;
 		this.x = x;
 	}
 
 	public static void main(String[] args) {
-		ClassReference c = new ClassReference();
-		ClassReference c1 = new ClassReference(c);
+		ClassReference u = new ClassReference(7);
 
-		System.out.println(c1);
+		System.out.println(u);
 	}
 
 }

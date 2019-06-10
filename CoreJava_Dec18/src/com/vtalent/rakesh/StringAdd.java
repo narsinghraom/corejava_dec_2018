@@ -66,12 +66,21 @@ public class StringAdd {
 		String z = itr.toString();
 		System.out.println(z);
 		String m = "12";
-		Integer o = new Integer("12");
+		Integer o = new Integer(m);
 		Integer r = new Integer("14");
 		int r1 = 8;
 		String i1 = r.toString();
-		System.out.println(r1);
+		System.out.println(o);
+		String a1 = new String("bhavani");
+		System.out.println(a1);
+		int x1 = 0;
 
+		int u = x1++;
+		System.out.println(u);
+		int t1 = ++x1;
+		System.out.println(t1);
+		int h1 = ++x1;
+		System.out.println(h1);
 	}
 
 }

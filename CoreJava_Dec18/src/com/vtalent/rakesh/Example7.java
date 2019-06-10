@@ -9,7 +9,7 @@ class Example7 {
 }
 
 class SubExample7 extends Example7 {
-	float Twin(float x, float y) {
+	public float Twin(float x, float y) {
 		return 0;
 	}
 }

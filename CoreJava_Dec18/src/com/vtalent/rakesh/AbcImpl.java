@@ -12,6 +12,6 @@ public class AbcImpl implements Abc {
 
 	public int function(int x) {
 		this.x = this.x + x;
-		return x;
+		return this.x;
 	}
 }

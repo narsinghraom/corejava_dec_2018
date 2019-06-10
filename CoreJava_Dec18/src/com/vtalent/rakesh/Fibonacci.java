@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Fibonacci {
 
-	public void fibonacci() {
+	public static void fibonacci() {
 
 		System.out.println("enter the number");
 		Scanner s = new Scanner(System.in);
@@ -18,5 +18,9 @@ public class Fibonacci {
 			t1 = t2;
 			t2 = sum;
 		}
+	}
+
+	public static void main(String[] args) {
+		fibonacci();
 	}
 }

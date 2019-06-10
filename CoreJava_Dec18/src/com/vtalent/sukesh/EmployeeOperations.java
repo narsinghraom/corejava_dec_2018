@@ -6,9 +6,13 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 public class EmployeeOperations {
+<<<<<<< HEAD
 	static Employee[] empArray;
 	static String IDs = "";
 	static String Mobile = "";
+=======
+	public static Employee[] empArray;
+>>>>>>> e6f627dc107faa09d5f4d6a1c3cba1d2d0df0d97
 
 	public static void view() {
 		System.out.println("1-Insert an Employee");
@@ -155,6 +159,7 @@ public class EmployeeOperations {
 				Employee emp = empArray[i];
 				if (emp != null) {
 					if (x == emp.getEmployeeID()) {
+<<<<<<< HEAD
 						System.out.println("Enter Package:");
 						int x1 = EmployeeTask1.input.nextInt();
 						emp.setEmployeePackage(x1);
@@ -167,6 +172,12 @@ public class EmployeeOperations {
 								+ emp.getEmployeeSalary() + "		 "
 								+ emp.getEmployeePF());
 
+=======
+						System.out.println("enter Salary:");
+						int x1 = Test.input.nextInt();
+						emp.setEmployeeSalary(x1);
+						System.out.println("Ofter update " + emp.getEmployeeID() + "    " + emp.getEmployeeSalary());
+>>>>>>> e6f627dc107faa09d5f4d6a1c3cba1d2d0df0d97
 						count = 1;
 						break;
 					} else {
@@ -222,6 +233,7 @@ public class EmployeeOperations {
 				Employee emp = empArray[i];
 				if (emp != null) {
 					if (x == emp.getEmployeeID()) {
+<<<<<<< HEAD
 						System.out.println(" " + emp.getEmployeeID() + "			 "
 								+ emp.getEmployeeName() + "			 "
 								+ emp.getMobileNumber() + "			"
@@ -229,6 +241,10 @@ public class EmployeeOperations {
 								+ emp.getEmployeeSalary() + "		 "
 								+ emp.getEmployeePF());
 
+=======
+						System.out.println(
+								"EmployeeId:---" + emp.getEmployeeID() + "  Salary:---" + emp.getEmployeeSalary());
+>>>>>>> e6f627dc107faa09d5f4d6a1c3cba1d2d0df0d97
 						count = 1;
 						break;
 					} else {
@@ -251,6 +267,7 @@ public class EmployeeOperations {
 			for (int i = 0; i <= empArray.length - 1; i++) {
 				Employee emp = empArray[i];
 				if (emp != null) {
+<<<<<<< HEAD
 
 					System.out.println(" " + emp.getEmployeeID() + "			 "
 							+ emp.getEmployeeName() + "			 "
@@ -259,6 +276,9 @@ public class EmployeeOperations {
 							+ emp.getEmployeeSalary() + "		 "
 							+ emp.getEmployeePF());
 
+=======
+					System.out.println(emp.getEmployeeID() + " " + emp.getEmployeeSalary());
+>>>>>>> e6f627dc107faa09d5f4d6a1c3cba1d2d0df0d97
 				}
 			}
 		} else {

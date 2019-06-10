@@ -24,4 +24,8 @@ public class InsertionSort {
 			System.out.print(i + " ");
 		}
 	}
+
+	public static void main(String[] args) {
+		insertionSort();
+	}
 }

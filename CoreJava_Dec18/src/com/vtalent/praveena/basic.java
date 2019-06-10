@@ -31,7 +31,7 @@ public class basic {
 			// System.out.println("Merge Sort");
 			// NumericOperations.MergeSort();
 			 //break;
-		 case 6:
+		 case 5:
 			 System.out.println("Insertion Sort");
 			 NumericOperations.InsertionSort();
 			 break;
