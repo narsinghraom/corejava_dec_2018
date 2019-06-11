@@ -1,6 +1,8 @@
 package com.vtalent.praveena;
 
-public class EmployeeDetails {
+import java.io.Serializable;
+
+public class EmployeeDetails implements Serializable {
 	
 		private int employeeID;
 		private double empSalary;
@@ -54,6 +56,7 @@ public class EmployeeDetails {
 		}*/
 		public double getemployeePF()
 		{
+			
 			double sal=this.Package/12;
 			double PF=sal*0.02;
 			this.PF=PF;

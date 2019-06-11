@@ -1,6 +1,7 @@
 package com.vtalent.praveena;
 
 import java.util.Scanner;
+import java.io.*;
 
 public class EmployeeTask {
 	static EmployeeDetails[] empArray;
@@ -132,20 +133,11 @@ public class EmployeeTask {
 			{
 				if(empArray[i].getemployeeID()==empID)
 				{
-					if(empArray[i].getemployeeSalary()>20000)
-					{
-						System.out.println("Eligible for Loan");
-						break;
-				}
-					else
-					{
-						System.out.println("Not eligible for Loan");
-					}
-				
+					Loan ln=new Loan();
+					ln.LoanApproval(empArray[i].getemployeeSalary());
 			
 			}
 			
-			System.out.println("Enter valid employee ID");
 
 			}
 		}
@@ -155,6 +147,49 @@ public class EmployeeTask {
 			
 		}
 	}
-	
+	public static void Serializable() throws IOException
+	{
+		File file=new File("D:/gunny.txt");
+		FileOutputStream fos=new FileOutputStream(file);
+		ObjectOutputStream oos=new ObjectOutputStream(fos);
+		oos.writeObject(empArray);
+	}
+	public static void deserialization() throws IOException, ClassNotFoundException
+	{
+		FileInputStream fis=new FileInputStream("D:/gunny.txt");
+		ObjectInputStream ois=new ObjectInputStream(fis);
+		Object obj=ois.readObject();
+		EmployeeDetails[] emparray1=(EmployeeDetails[])obj;
+		System.out.println("Enter employee ID to search");
+		int empid=a.nextInt();
+		if(emparray1!=null)
+		{
+		for(int i=0;i<emparray1.length;i++)
+		{
+			if(emparray1[i]==null)
+			{
+				
+			}
+			
+			
+			else if(emparray1[i].getemployeeID()==empid)
+			{
+				System.out.println("Employee ID: "+emparray1[i].getemployeeID()+"\n"+"Employee Name: "+emparray1[i].getemployeeName()+"\n"+"Package"+emparray1[i].getemployeePackage()+"\n"+"Salary: "+emparray1[i].getemployeeSalary()+"\n"+"PF"+emparray1[i].getemployeePF());
+				break;
+			}
+		
+			System.out.println("enter valid employee ID");
+			
+		}
+		
+		}
+		else
+		{
+			System.out.println("No data available in database");
+		}
+		
+	}
 }
+		
+	
 
