@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Employee implements Serializable {
 	private int EmployeeID;
 	private String EmployeeName;
-	private int MobileNumber;
+	private String MobileNumber;
 	private double EmployeePackage;
 	private double EmployeeSalary;
 	private double EmployeePF;
@@ -18,7 +18,7 @@ public class Employee implements Serializable {
 		EmployeeName = employeeName;
 	}
 
-	public void setMobileNumber(int mobileNumber) {
+	public void setMobileNumber(String mobileNumber) {
 		MobileNumber = mobileNumber;
 	}
 
@@ -42,7 +42,7 @@ public class Employee implements Serializable {
 		return EmployeeName;
 	}
 
-	public int getMobileNumber() {
+	public String getMobileNumber() {
 		return MobileNumber;
 	}
 

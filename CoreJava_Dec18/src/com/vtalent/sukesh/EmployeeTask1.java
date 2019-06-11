@@ -7,8 +7,7 @@ public class EmployeeTask1 {
 	static Scanner input = new Scanner(System.in);
 	static int z = 0;
 
-	public static void main(String[] args) throws ClassNotFoundException,
-			EmployeeCustomException {
+	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		int size = 0;
 		while (true) {

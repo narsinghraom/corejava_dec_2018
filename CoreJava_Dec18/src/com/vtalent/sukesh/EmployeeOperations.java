@@ -1,18 +1,17 @@
 package com.vtalent.sukesh;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class EmployeeOperations {
-<<<<<<< HEAD
+
 	static Employee[] empArray;
 	static String IDs = "";
 	static String Mobile = "";
-=======
-	public static Employee[] empArray;
->>>>>>> e6f627dc107faa09d5f4d6a1c3cba1d2d0df0d97
 
 	public static void view() {
 		System.out.println("1-Insert an Employee");
@@ -54,10 +53,9 @@ public class EmployeeOperations {
 		emp.setEmployeeName(EmployeeTask1.input.next());
 
 		System.out.println("Enter MobileNumber:- ");
-		int dd = EmployeeOperations.MobileLogic(EmployeeTask1.input.nextLong());
-		emp.setMobileNumber(dd);
-		// emp.setMobileNumber((int) EmployeeTask1.input.nextLong());
 
+		emp.setMobileNumber(EmployeeOperations.MobileLogic(EmployeeTask1.input
+				.next()));
 		System.out.println("Enter EmployeePackage:- ");
 		double P = EmployeeOperations.PackageLogic(EmployeeTask1.input
 				.nextDouble());
@@ -69,9 +67,10 @@ public class EmployeeOperations {
 		emp.setEmployeePF(pf);
 
 		EmployeeOperations.insertData(emp);
-		File file = new File("F:\\Employee Data View");
+		File file = new File("F:\\Employee Data View.txt");
 		FileOutputStream fos = new FileOutputStream(file);
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(emp);
 
 	}
 
@@ -93,10 +92,10 @@ public class EmployeeOperations {
 
 	}
 
-	public static int MobileLogic(long mobile) {
+	public static String MobileLogic(String mobile) {
 		String s = String.valueOf(mobile);
 		int count = 0;
-		int M = 0;
+		String M = "";
 		char n = s.charAt(0);
 		if (s.length() != 10) {
 			System.out.println("Mobile Number Must 10-Digits");
@@ -118,9 +117,9 @@ public class EmployeeOperations {
 		}
 		if (count != 2) {
 			System.out.println("Enter Correct Mobile number:- ");
-			mobile = MobileLogic(EmployeeTask1.input.nextLong());
+			mobile = MobileLogic(EmployeeTask1.input.next());
 		}
-		return M = (int) mobile;
+		return M = mobile;
 
 	}
 
@@ -159,7 +158,7 @@ public class EmployeeOperations {
 				Employee emp = empArray[i];
 				if (emp != null) {
 					if (x == emp.getEmployeeID()) {
-<<<<<<< HEAD
+
 						System.out.println("Enter Package:");
 						int x1 = EmployeeTask1.input.nextInt();
 						emp.setEmployeePackage(x1);
@@ -172,12 +171,6 @@ public class EmployeeOperations {
 								+ emp.getEmployeeSalary() + "		 "
 								+ emp.getEmployeePF());
 
-=======
-						System.out.println("enter Salary:");
-						int x1 = Test.input.nextInt();
-						emp.setEmployeeSalary(x1);
-						System.out.println("Ofter update " + emp.getEmployeeID() + "    " + emp.getEmployeeSalary());
->>>>>>> e6f627dc107faa09d5f4d6a1c3cba1d2d0df0d97
 						count = 1;
 						break;
 					} else {
@@ -233,7 +226,7 @@ public class EmployeeOperations {
 				Employee emp = empArray[i];
 				if (emp != null) {
 					if (x == emp.getEmployeeID()) {
-<<<<<<< HEAD
+
 						System.out.println(" " + emp.getEmployeeID() + "			 "
 								+ emp.getEmployeeName() + "			 "
 								+ emp.getMobileNumber() + "			"
@@ -241,10 +234,6 @@ public class EmployeeOperations {
 								+ emp.getEmployeeSalary() + "		 "
 								+ emp.getEmployeePF());
 
-=======
-						System.out.println(
-								"EmployeeId:---" + emp.getEmployeeID() + "  Salary:---" + emp.getEmployeeSalary());
->>>>>>> e6f627dc107faa09d5f4d6a1c3cba1d2d0df0d97
 						count = 1;
 						break;
 					} else {
@@ -261,29 +250,59 @@ public class EmployeeOperations {
 		}
 	}
 
-	public static void printAllEmployeeData() {
+	public static void printAllEmployeeData() throws Exception {
+
 		if (empArray != null) {
-			EmployeeOperations.DataPrint();
-			for (int i = 0; i <= empArray.length - 1; i++) {
-				Employee emp = empArray[i];
-				if (emp != null) {
-<<<<<<< HEAD
 
-					System.out.println(" " + emp.getEmployeeID() + "			 "
-							+ emp.getEmployeeName() + "			 "
-							+ emp.getMobileNumber() + "			"
-							+ emp.getEmployeePackage() + "		  "
-							+ emp.getEmployeeSalary() + "		 "
-							+ emp.getEmployeePF());
+			try {
 
-=======
-					System.out.println(emp.getEmployeeID() + " " + emp.getEmployeeSalary());
->>>>>>> e6f627dc107faa09d5f4d6a1c3cba1d2d0df0d97
+				FileInputStream fis = new FileInputStream(
+						"F:\\Employee Data View.txt");
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				Object obj = ois.readObject();
+				Employee emp = (Employee) obj;
+
+				EmployeeOperations.DataPrint();
+				for (int i = 0; i <= empArray.length - 1; i++) {
+					emp = empArray[i];
+					if (emp != null) {
+
+						System.out.println(" " + emp.getEmployeeID() + "			 "
+								+ emp.getEmployeeName() + "			 "
+								+ emp.getMobileNumber() + "			"
+								+ emp.getEmployeePackage() + "		  "
+								+ emp.getEmployeeSalary() + "		 "
+								+ emp.getEmployeePF());
+
+					}
 				}
+
+			} catch (Exception e) {
+				e.getMessage();
 			}
 		} else {
-			System.out.println("Not Data Not available to Print");
+			try {
+				FileInputStream fis = new FileInputStream(
+						"F:\\Employee Data View.txt");
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				Object obj = ois.readObject();
+				Employee emp = (Employee) obj;
+
+				System.out
+						.println(" " + emp.getEmployeeID() + "			 "
+								+ emp.getEmployeeName() + "			 "
+								+ emp.getMobileNumber() + "			"
+								+ emp.getEmployeePackage() + "		  "
+								+ emp.getEmployeeSalary() + "		 "
+								+ emp.getEmployeePF());
+
+			} catch (Exception e) {
+				e.getMessage();
+
+			}
+			// System.out.println("Not Data Not available to Print");
 		}
+
 	}
 
 	public static void GetLoanDetails() throws EmployeeCustomException {
