@@ -1,6 +1,10 @@
 package com.vtalent.sanjana;
 
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Scanner;
 
@@ -8,7 +12,7 @@ public class Test implements Serializable{
 	
 	
 
-	public static void main(String[] args)
+	public static void main(String[] args) throws Exception
 	{
 		Employee emp=new Employee();
 		EmployeeOperations eop=new EmployeeOperations();
@@ -38,8 +42,8 @@ public class Test implements Serializable{
 			emp.setEmployeeName(sc.next());
 			System.out.println("Enter Package");
 			emp.setEmployeePackage(sc.nextDouble());
-		//	 SerializableEx.doSerialization(emp);
-			 EmployeeOperations.insertData(emp);
+			// SerializableEx.doSerialization();
+			EmployeeOperations.insertData(emp);
 			 
 		}
 		
@@ -69,15 +73,21 @@ public class Test implements Serializable{
 	case 5:
 		
 		
-		eop.printAllEmployeeData( );
+	eop.printAllEmployeeData();
 		
 
 		break;
+		
 	case 6:
 		eop.loanElgibility();
 		break;
 	
 	case 7:
+		//public static void doSerialization() throws IOException{
+		
+			SerializableEx.doSerialization();
+			
+			
 		System.out.println("Exit");
 		break;
 	
