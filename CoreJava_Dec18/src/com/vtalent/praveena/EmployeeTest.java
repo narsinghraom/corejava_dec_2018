@@ -6,15 +6,24 @@ public class EmployeeTest {
 
 	static Scanner a=new Scanner(System.in);
 	 public static void main(String[] args) {
-		
+	
 	for(;;)
 	 {
 		
-	System.out.println("select your options"+"\n"+"1.Insert"+"\n"+"2.Print"+"\n"+"3.Update"+"\n"+"4.Delete"+"\n"+"5.Search"+"\n"+"6.Get Loan"+"\n"+"7.Exit");
+	System.out.println("select your options"+"\n"+"1.Insert"+"\n"+"2.Print"+"\n"+"3.Update"+"\n"+"4.Delete"+"\n"+"5.Search"+"\n"+"6.Get Loan"+"\n"+"7.Search by using deserialization"+"\n"+"8.Exit");
 	
 	int choice  = a.nextInt();
-	if(choice==7)
+	if(choice==8)
 	{
+		try
+		{
+		EmployeeTask.Serializable();
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
 		System.out.println("Exited from home page");
 		break;
 	}
@@ -84,9 +93,16 @@ public class EmployeeTest {
 		emp3.setemployeeID(a.nextInt());
 		EmployeeTask.getLoan(emp3.getemployeeID());
 		break;
-
-		
-		
+	case 7:
+		System.out.println("Search employees by deserialization");
+		try
+		{
+			EmployeeTask.deserialization();
+			
+		}
+		catch(Exception e)
+		{
+		}
 	}
 }
 	 }
