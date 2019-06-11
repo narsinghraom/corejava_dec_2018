@@ -1,11 +1,7 @@
 package com.vtalent.sukesh;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
 public class EmployeeOperations {
 
@@ -30,7 +26,7 @@ public class EmployeeOperations {
 
 	}
 
-	public static void insertData(Employee emp) {
+	public static void insertData(Employee emp) throws Exception {
 		if (empArray != null) {
 			for (int i = 0; i <= empArray.length - 1; i++) {
 				if (empArray[i] == null) {
@@ -38,12 +34,13 @@ public class EmployeeOperations {
 					break;
 				}
 			}
+
 		} else {
 			System.out.println("already inserted");
 		}
 	}
 
-	public static void InsertInnerLogic() throws IOException {
+	public static void InsertInnerLogic() throws Exception {
 
 		Employee emp = new Employee();
 		System.out.println("Enter ID:- ");
@@ -67,10 +64,6 @@ public class EmployeeOperations {
 		emp.setEmployeePF(pf);
 
 		EmployeeOperations.insertData(emp);
-		File file = new File("F:\\Employee Data View.txt");
-		FileOutputStream fos = new FileOutputStream(file);
-		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		oos.writeObject(emp);
 
 	}
 
@@ -162,6 +155,12 @@ public class EmployeeOperations {
 						System.out.println("Enter Package:");
 						int x1 = EmployeeTask1.input.nextInt();
 						emp.setEmployeePackage(x1);
+						double S = x1 / 12;
+						double pf = S * 0.02;
+						S = S - pf;
+						emp.setEmployeeSalary(S);
+						emp.setEmployeePF(pf);
+
 						System.out.println("Ofter update.............");
 						EmployeeOperations.DataPrint();
 						System.out.println(" " + emp.getEmployeeID() + "			 "
@@ -253,34 +252,23 @@ public class EmployeeOperations {
 	public static void printAllEmployeeData() throws Exception {
 
 		if (empArray != null) {
+			EmployeeOperations.DataPrint();
+			for (int i = 0; i <= empArray.length - 1; i++) {
+				Employee emp = empArray[i];
+				if (emp != null) {
 
-			try {
+					System.out.println(" " + emp.getEmployeeID() + "			 "
+							+ emp.getEmployeeName() + "			 "
+							+ emp.getMobileNumber() + "			"
+							+ emp.getEmployeePackage() + "		  "
+							+ emp.getEmployeeSalary() + "		 "
+							+ emp.getEmployeePF());
 
-				FileInputStream fis = new FileInputStream(
-						"F:\\Employee Data View.txt");
-				ObjectInputStream ois = new ObjectInputStream(fis);
-				Object obj = ois.readObject();
-				Employee emp = (Employee) obj;
-
-				EmployeeOperations.DataPrint();
-				for (int i = 0; i <= empArray.length - 1; i++) {
-					emp = empArray[i];
-					if (emp != null) {
-
-						System.out.println(" " + emp.getEmployeeID() + "			 "
-								+ emp.getEmployeeName() + "			 "
-								+ emp.getMobileNumber() + "			"
-								+ emp.getEmployeePackage() + "		  "
-								+ emp.getEmployeeSalary() + "		 "
-								+ emp.getEmployeePF());
-
-					}
 				}
-
-			} catch (Exception e) {
-				e.getMessage();
 			}
-		} else {
+		}
+
+		else {
 			try {
 				FileInputStream fis = new FileInputStream(
 						"F:\\Employee Data View.txt");
@@ -300,7 +288,7 @@ public class EmployeeOperations {
 				e.getMessage();
 
 			}
-			// System.out.println("Not Data Not available to Print");
+
 		}
 
 	}

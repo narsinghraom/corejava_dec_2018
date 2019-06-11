@@ -1,5 +1,8 @@
 package com.vtalent.sukesh;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 public class EmployeeTask1 {
@@ -27,6 +30,8 @@ public class EmployeeTask1 {
 									+ " Employee data");
 							EmployeeOperations.InsertInnerLogic();
 						}
+						// Employee emp = new Employee();
+
 						System.out.println("Successfully Entered ");
 					} else if (size == z) {
 
@@ -63,6 +68,15 @@ public class EmployeeTask1 {
 					break;
 				case 7:
 
+					try {
+						File file = new File("F:\\Employee Data View.txt");
+						FileOutputStream fos = new FileOutputStream(file);
+						ObjectOutputStream oos = new ObjectOutputStream(fos);
+						oos.writeObject(EmployeeOperations.empArray);
+
+					} catch (Exception e) {
+						e.getMessage();
+					}
 					t = 1;
 					break;
 
