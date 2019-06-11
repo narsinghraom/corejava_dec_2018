@@ -22,7 +22,7 @@ public class Test {
 	switch(choice)
 	{
 	case 1:
-		System.out.println("Inserting data.....");
+	System.out.println("Inserting data.....");
 	System.out.println("enter number of employees to input");
 	int size=a.nextInt();
 	EmployeeOperations.empArray=new Employee[size];
@@ -38,11 +38,11 @@ public class Test {
 	}
 	break;
 	case 2:
-		//System.out.println("Printing all employees details");
-		System.out.println("Enter number of employees to print");
-		int size2=a.nextInt();
-		EmployeeOperations.printAllEmployeeData(size2);
-		//EmployeeOperations.printAllEmployeeData();
+		System.out.println("Printing all employees details");
+		//System.out.println("Enter number of employees to print");
+		//int size2=a.nextInt();
+		//EmployeeOperations.printAllEmployeeData(size2);
+		EmployeeOperations.printAllEmployeeData();
 		break;
 	case 3:
 		//System.out.println("Enter Employee details");
