@@ -2,7 +2,10 @@ package com.vtalent.vittalharish;
 
 import java.util.Scanner;
 
+<<<<<<< HEAD
 import com.vtalent.raju.Employee;
+=======
+>>>>>>> a71038017b6f7930c94b8cdd58675bfc88d4866b
 
 class EmployeeOperations {
 
@@ -32,11 +35,18 @@ class EmployeeOperations {
 
 	public void printAllData() {
 		if (emparray != null) {
+			/*System.out.println("EmployeId:" + " "+ "EmployeeName:" +" "+ "EmployeeMobileNumber" +""
+					+ "" +  "EmployeeSalary");*/
 			for (int i = 0; i <= emparray.length - 1; i++) {
 				Employee emp1 = emparray[i];
-				System.out.println(emp1.getEmployeeId() + "   " + emp1.getEmployeeSalary());
+				System.out.println("Employee ID: " + emp1.getEmployeeID() 
+						+ "      " + "Employee Name: " + emp1.getEmployeeName()
+						+ "      " + "Employee Mobile Number: " + emp1.getEmpolyeeMobileNumber() 
+						+ "      " + "Employee Package: " + emp1.getEmployeePackage() 
+						+ "      " + "Employee Salary: " + emp1.getEmployeeSalary() 
+						+ "      " +"Employee PF: " + emp1.getEmployeePF());
 
-			}
+			} 
 		} else {
 			System.out.println("Insert the Employee Data first" + '\n');
 		}
@@ -47,7 +57,7 @@ class EmployeeOperations {
 			Employee emp1;
 			for (int i = 0; i <= emparray.length - 1; i++) {
 				emp1 = emparray[i];
-				System.out.println(emp1.getEmployeeId() + "   " + emp1.getEmployeeSalary());
+				System.out.println(emp1.getEmployeeID() );
 			}
 
 			System.out.println("Enter the Id to be Updated" + '\n');
@@ -55,9 +65,17 @@ class EmployeeOperations {
 			for (int i = 0; i <= emparray.length - 1; i++) {
 				Employee emp2;
 				emp2 = emparray[i];
-				if (x == emp2.getEmployeeId()) {
-					System.out.println("Enter the new Salary to be Updated" + '\n');
-					emp2.setEmployeeSalary(input.nextDouble());
+				if (x == emp2.getEmployeeID()) {
+					System.out.println("Enter the new Package to be Updated" + '\n');
+					 double P = input.nextDouble();
+					 emp2.setEmployeePackage(P);
+					
+					double S = P / 12;
+					double pf = S * 0.02;
+					S = S - pf;
+					emp2.setEmployeeSalary(S);
+					emp2.setEmployeePF(pf);
+					
 				}
 			}
 		}
@@ -74,9 +92,13 @@ class EmployeeOperations {
 			int x = input.nextInt();
 			for (int i = 0; i <= emparray.length - 1; i++) {
 				emp1 = emparray[i];
-				if (x == emp1.getEmployeeId()) {
-					System.out.println("Employee_Id- " + emp1.getEmployeeId() + '\n' + "Employee_Salary- "
-							+ emp1.getEmployeeSalary());
+				if (x == emp1.getEmployeeID()) {
+					System.out.println("Employee ID: " + emp1.getEmployeeID() 
+							+ "      " + "Employee Name: " + emp1.getEmployeeName()
+							+ "      " + "Employee Mobile Number: " + emp1.getEmpolyeeMobileNumber() 
+							+ "      " + "Employee Package: " + emp1.getEmployeePackage() 
+							+ "      " + "Employee Salary: " + emp1.getEmployeeSalary() 
+							+ "      " +"Employee PF: " + emp1.getEmployeePF());
 				} else {
 					System.out.println("Enter the Valid Id" + '\n');
 				}
@@ -91,14 +113,14 @@ class EmployeeOperations {
 			Employee emp1;
 			for (int i = 0; i <= emparray.length - 1; i++) {
 				emp1 = emparray[i];
-				System.out.println(emp1.getEmployeeId());
+				System.out.println(emp1.getEmployeeID());
 
 			}
 			System.out.println("Enter the Id to be Deleted");
 			int x = input.nextInt();
 			for (int i = 0; i <= emparray.length - 1; i++) {
 				emp1 = emparray[i];
-				if (x == emp1.getEmployeeId()) {
+				if (x == emp1.getEmployeeID()) {
 					emparray[i] = null;
 					System.out.println("Deleted");
 				}
@@ -109,6 +131,10 @@ class EmployeeOperations {
 			System.out.println("No Data Found" + '\n');
 		}
 
+	}
+
+	public void loandetails() {
+		
 	}
 
 }
