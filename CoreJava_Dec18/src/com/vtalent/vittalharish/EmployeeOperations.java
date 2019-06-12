@@ -3,7 +3,14 @@ package com.vtalent.vittalharish;
 import java.util.Scanner;
 
 
+
+
+
+
+
 class EmployeeOperations {
+	Employee emp;
+	
 
 	static Employee[] emparray;
 
@@ -63,15 +70,15 @@ class EmployeeOperations {
 				emp2 = emparray[i];
 				if (x == emp2.getEmployeeID()) {
 					System.out.println("Enter the new Package to be Updated" + '\n');
-					 double P = input.nextDouble();
-					 emp2.setEmployeePackage(P);
-					
+					double P = input.nextDouble();
+					emp2.setEmployeePackage(P);
+
 					double S = P / 12;
 					double pf = S * 0.02;
 					S = S - pf;
 					emp2.setEmployeeSalary(S);
 					emp2.setEmployeePF(pf);
-					
+
 				}
 			}
 		}
@@ -79,11 +86,12 @@ class EmployeeOperations {
 		else {
 			System.out.println("First Insert Employee Data" + '\n');
 		}
+
 	}
 
 	public void searchData() {
 		if (emparray != null) {
-			System.out.println("Enter the Employee_Id:");
+			System.out.println("Enter The Employee ID:");
 			Employee emp1;
 			int x = input.nextInt();
 			for (int i = 0; i <= emparray.length - 1; i++) {
@@ -130,6 +138,42 @@ class EmployeeOperations {
 	}
 
 	public void loandetails() {
+		if(emparray!=null) {
+			System.out.println("Enter Employee id to check Loan Eligibility");
+				int a=input.nextInt();
+				for ( int i = 0; i <= emparray.length - 1; i++) {
+				emp = emparray[i];
+				if(emparray[i]==null) {
+				break;	
+				}
+				else if (a == emp.getEmployeeID()) {
+					EmployeeOperations eo=new EmployeeOperations();
+					eo.employeeLoan(emp.getEmployeeSalary());
+					break;
+					}
+				 
+					
+		}
+			}
+				else {
+					System.out.println("Insert the Employee Data first");
+				}
+		
+		
+	}
+
+	private void employeeLoan(double employeeSalary) {
+		try {
+			if(employeeSalary<20000) {
+				throw new EmployeeCustomLoanException();
+			}
+			else {
+				System.out.println("This Employee is Eligible for Loan ");
+			}
+		}
+		catch(EmployeeCustomLoanException e) {
+			System.out.println(e);
+		}
 		
 	}
 
