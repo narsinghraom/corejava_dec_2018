@@ -23,8 +23,13 @@ public class Test {
 	{
 	case 1:
 	System.out.println("Inserting data.....");
+	int size;
+	System.out.println("1.To add data into new database"+"\n"+"2.Add data into existing database");
+	int n=a.nextInt();
+	if(n==1)
+	{
 	System.out.println("enter number of employees to input");
-	int size=a.nextInt();
+	 size=a.nextInt();
 	EmployeeOperations.empArray=new Employee[size];
 	for(int i=0;i<=size-1;i++)
 	{
@@ -35,6 +40,30 @@ public class Test {
 				System.out.println("enter salary");
 				emp.setemployeeSalary(a.nextDouble());
 				EmployeeOperations.insertData(emp);
+	}
+	}
+	else if(n==2)
+	{
+		if(EmployeeOperations.empArray==null)
+		{
+			System.out.println("Database is empty, please enter details first");
+		}
+		else
+		{
+			System.out.println("Enter number of employees to be added");
+			size=a.nextInt();
+			for(int i=0;i<=size-1;i++)
+			{
+				System.out.println("enter "+(i+1)+" employeeData");
+				Employee emp=new Employee();
+				System.out.println("enter ID");
+						emp.setemployeeID(a.nextInt());
+						System.out.println("enter salary");
+						emp.setemployeeSalary(a.nextDouble());
+						EmployeeOperations.insertData(emp);
+			}
+			
+		}
 	}
 	break;
 	case 2:

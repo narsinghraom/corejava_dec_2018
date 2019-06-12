@@ -160,13 +160,13 @@ public class EmployeeTask {
 		ObjectInputStream ois=new ObjectInputStream(fis);
 		Object obj=ois.readObject();
 		EmployeeDetails[] emparray1=(EmployeeDetails[])obj;
-		System.out.println("Enter employee ID to search");
-		int empid=a.nextInt();
+		//System.out.println("Enter employee ID to search");
+		//int empid=a.nextInt();
 		if(emparray1!=null)
 		{
 		for(int i=0;i<emparray1.length;i++)
 		{
-			if(emparray1[i]==null)
+			/*if(emparray1[i]==null)
 			{
 				
 			}
@@ -180,7 +180,17 @@ public class EmployeeTask {
 		
 			System.out.println("enter valid employee ID");
 			
-		}
+		}*/
+			EmployeeDetails emp=emparray1[i];
+			if(emparray1[i]==null)
+			{
+				
+			}
+			else
+			{
+				System.out.println("Employee ID: "+emparray1[i].getemployeeID()+"\n"+"Employee Name: "+emparray1[i].getemployeeName()+"\n"+"Package"+emparray1[i].getemployeePackage()+"\n"+"Salary: "+emparray1[i].getemployeeSalary()+"\n"+"PF"+emparray1[i].getemployeePF());
+			}
+			}
 		
 		}
 		else

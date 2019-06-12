@@ -1,6 +1,6 @@
 package com.vtalent.praveena;
 
-	  class Loan extends Exception{
+	 public class Loan extends Exception{
 			public String toString()
 			{
 				return "Loan has declined"; 

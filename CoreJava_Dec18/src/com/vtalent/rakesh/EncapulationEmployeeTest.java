@@ -73,8 +73,7 @@ public class EncapulationEmployeeTest {
 
 			else if (a == 6) {
 				eo.validateLoan();
-			}
-			if (a == 7) {
+			} else if (a == 7) {
 				try {
 					File file = new File("D:\\Rakesh\\rakeshdataqqqqqa");
 					FileOutputStream fo = new FileOutputStream(file);
@@ -83,8 +82,6 @@ public class EncapulationEmployeeTest {
 				} catch (Exception e) {
 				}
 				break;
-			} else {
-				System.out.println("Enter Valid Search" + '\n');
 			}
 		}
 	}

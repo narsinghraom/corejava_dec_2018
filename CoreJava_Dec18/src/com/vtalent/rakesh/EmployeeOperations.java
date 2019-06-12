@@ -37,24 +37,24 @@ public class EmployeeOperations {
 							+ "   Employee mobilenumber:" + emp1.getMobileNumber() + "   Employee package: "
 							+ emp1.getEmployPackage() + "   Employee pf:" + emp1.getPf() + "   Employee salary:"
 							+ emp1.getEmploysalary());
-				} else {
-					try {
-						FileInputStream fi = new FileInputStream("D:\\Rakesh\\rakeshdataqqqqqa");
-						ObjectInputStream ois = new ObjectInputStream(fi);
-						Object obj = ois.readObject();
-						Employee[] emp = (Employee[]) obj;
-						for (int k = 0; k <= emp.length - 1; k++) {
-							System.out.println(emp);
-						}
-					} catch (Exception e) {
-
-					}
-					System.out.println("please enter the Employee data first");
-
 				}
 			}
+		} else {
+			try {
+				FileInputStream fi = new FileInputStream("D:\\Rakesh\\rakeshdataqqqqqa");
+				ObjectInputStream ois = new ObjectInputStream(fi);
+				Object obj = ois.readObject();
+				Employee[] emp = (Employee[]) obj;
+				for (int k = 0; k <= emp.length - 1; k++) {
+					System.out.println("EmployeeId:" + emp[k].getEmployid() + "   EmployeeName:"
+							+ emp[k].getEmployName() + "   EmployeeMobileNumber:" + emp[k].getMobileNumber()
+							+ "    EmplolyeePackage:" + emp[k].getEmployPackage() + "EmployeeSalary:"
+							+ emp[k].getEmploysalary() + "   EmployeePf:   " + emp[k].getPf());
+				}
+			} catch (Exception e) {
+			}
+			System.out.println("please enter the Employee data first");
 		}
-
 	}
 
 	public void updateData() {

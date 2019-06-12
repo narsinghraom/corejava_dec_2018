@@ -10,7 +10,7 @@ public class EmployeeTest {
 	for(;;)
 	 {
 		
-	System.out.println("select your options"+"\n"+"1.Insert"+"\n"+"2.Print"+"\n"+"3.Update"+"\n"+"4.Delete"+"\n"+"5.Search"+"\n"+"6.Get Loan"+"\n"+"7.Search by using deserialization"+"\n"+"8.Exit");
+	System.out.println("select your options"+"\n"+"1.Insert"+"\n"+"2.Print"+"\n"+"3.Update"+"\n"+"4.Delete"+"\n"+"5.Search"+"\n"+"6.Get Loan"+"\n"+"7.Print previous data by using deserialization"+"\n"+"8.Exit");
 	
 	int choice  = a.nextInt();
 	if(choice==8)
@@ -32,11 +32,18 @@ public class EmployeeTest {
 	{
 	case 1:
 	System.out.println("Inserting data.....");
-	System.out.println("enter number of employees to input");
-	int size=a.nextInt();
+	int size;
+	System.out.println("1.To add data into new database"+"\n"+"2.Add data into existing database");
+	int n=a.nextInt();
+	if(n==1)
+	{
+		System.out.println("enter number of employees to input");
+		size=a.nextInt();
+	
 	EmployeeTask.empArray=new EmployeeDetails[size];
 	for(int i=0;i<=size-1;i++)
 	{
+
 		System.out.println("enter "+(i+1)+" employeeData");
 		EmployeeDetails emp=new EmployeeDetails();
 		System.out.println("Enter Employee Name");
@@ -55,6 +62,33 @@ public class EmployeeTest {
 		emp.setemployeeSalary(Salary);*/
 		
 		EmployeeTask.insertData(emp);
+	}
+	}
+	else if(n==2)
+	{
+		if(EmployeeTask.empArray==null)
+		{
+			System.out.println("Dayabase is empty please enter data first");
+		}
+		else
+		{
+				
+			System.out.println("Enter number of employees to be added");
+			size=a.nextInt();
+			for(int i=0;i<=size-1;i++)
+			{
+
+				System.out.println("enter "+(i+1)+" employeeData");
+				EmployeeDetails emp=new EmployeeDetails();
+				System.out.println("Enter Employee Name");
+				emp.setemployeeName(a.next());
+				System.out.println("enter ID");
+				emp.setemployeeID(a.nextInt());
+				System.out.println("Enter Package");
+				emp.setemployeePackage(a.nextDouble());
+				EmployeeTask.insertData(emp);
+			}
+		}
 	}
 	break;
 	case 2:
@@ -94,7 +128,8 @@ public class EmployeeTest {
 		EmployeeTask.getLoan(emp3.getemployeeID());
 		break;
 	case 7:
-		System.out.println("Search employees by deserialization");
+		System.out.println("Printing employee details by using deserialization");
+		//System.out.println("Search employee details by using deserialization");
 		try
 		{
 			EmployeeTask.deserialization();

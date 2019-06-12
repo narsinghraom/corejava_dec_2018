@@ -51,7 +51,7 @@ public class EmployeeTest {
 
 		for (;;) {
 			System.out.println("1.Insert an Employee." + '\n' + "2.Update an Employee." + '\n' + "3.Delete an Employee"
-					+ '\n' + "4.Search an Employee" + '\n' + "5.Print All the Employee Data" + '\n' + "6.Exit");
+					+ '\n' + "4.Search an Employee" + '\n' + "5.Print All the Employee Data" + '\n' + "6.Check Loan Eligibility" + '\n' + "7.Exit");
 			int employee = input.nextInt();
 
 			switch (employee) {
@@ -73,6 +73,9 @@ public class EmployeeTest {
 			
 			case 6: empo.loandetails();
 				break;
+			case 7: 
+			System.out.println("Program Terminated");
+			System.exit(0);
 				
 			default :
 				System.out.println("Enter Valid Search"+'\n');
