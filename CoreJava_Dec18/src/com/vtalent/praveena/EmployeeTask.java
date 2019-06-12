@@ -20,7 +20,7 @@ public class EmployeeTask {
 			}
 		}
 	}
-	public static void printAllEmployeeData()
+	public static void printAllEmployeeData() throws IOException, ClassNotFoundException
 	{
 		if(empArray!=null)
 		{
@@ -37,6 +37,35 @@ public class EmployeeTask {
 					System.out.println("Employee ID: "+empArray[i].getemployeeID()+"\n"+"Employee Name: "+empArray[i].getemployeeName()+"\n"+"Package"+empArray[i].getemployeePackage()+"\n"+"Salary: "+empArray[i].getemployeeSalary()+"\n"+"PF"+empArray[i].getemployeePF());
 				}
 				}
+		}
+		else
+		{
+			System.out.println("Printing existing data");
+			FileInputStream fis=new FileInputStream("D:/gunny.txt");
+			ObjectInputStream ois=new ObjectInputStream(fis);
+			Object obj=ois.readObject();
+			EmployeeDetails[] emparray1=(EmployeeDetails[])obj;
+			if(emparray1!=null)
+			{
+			for(int i=0;i<emparray1.length;i++)
+			{
+				EmployeeDetails emp=emparray1[i];
+				if(emparray1[i]==null)
+				{
+					
+				}
+				else
+				{
+					System.out.println("Employee ID: "+emparray1[i].getemployeeID()+"\n"+"Employee Name: "+emparray1[i].getemployeeName()+"\n"+"Package"+emparray1[i].getemployeePackage()+"\n"+"Salary: "+emparray1[i].getemployeeSalary()+"\n"+"PF"+emparray1[i].getemployeePF());
+				}
+				}
+			
+			}
+			else
+			{
+				System.out.println("No data available in database");
+			
+			}
 		}
 			
 	}
@@ -97,7 +126,22 @@ public class EmployeeTask {
 			System.out.println("No data available in database");
 		}
 	}
-	public static void SearchEmployee(int empID)
+	public static int Nullsearch()
+	{
+		int count=0;
+		for(int i=0;i<=empArray.length-1;i++)
+		{
+			if(empArray[i]==null)
+			{
+				count++;
+			}
+		}
+		return count;
+		}
+
+		
+	
+	public static void SearchEmployee(int empID) throws IOException, ClassNotFoundException
 	{
 	if(empArray!=null)
 	{
@@ -122,7 +166,33 @@ public class EmployeeTask {
 	}
 	else
 	{
-		System.out.println("no data available in database");
+		System.out.println("Searching from existing data");
+		FileInputStream fis=new FileInputStream("D:/gunny.txt");
+		ObjectInputStream ois=new ObjectInputStream(fis);
+		Object obj=ois.readObject();
+		EmployeeDetails[] emparray1=(EmployeeDetails[])obj;
+		if(emparray1!=null)
+		{
+		for(int i=0;i<emparray1.length;i++)
+		{
+			if(emparray1[i].getemployeeID()==empID)
+			{
+				System.out.println("Employee ID: "+emparray1[i].getemployeeID()+"\n"+"Employee Name: "+emparray1[i].getemployeeName()+"\n"+"Package"+emparray1[i].getemployeePackage()+"\n"+"Salary: "+emparray1[i].getemployeeSalary()+"\n"+"PF"+emparray1[i].getemployeePF());
+				break;
+			}
+			
+		}
+
+		
+		}
+		else
+		{
+			System.out.println("No data available in database");
+		
+		}
+		
+		
+		
 	}
 	}
 	public static void getLoan(int empID)
