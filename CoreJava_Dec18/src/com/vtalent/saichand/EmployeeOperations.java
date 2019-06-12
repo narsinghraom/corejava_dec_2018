@@ -40,7 +40,7 @@ public class EmployeeOperations {
 						System.out.println("Ofter update "
 								+ emp.getEmployeeID() + "    "
 								+ emp.getEmployeeSalary());
-						count = 1;
+						// count = 1;
 						break;
 					} else {
 						count++;

@@ -1,4 +1,7 @@
 package com.vtalent.sanjana;
+
+
+import java.io.*;
 import java.util.Scanner;
 
 public class EmployeeOperations 
@@ -7,12 +10,19 @@ public class EmployeeOperations
 		static int size;
 	static	Employee emp1;
 	Scanner sc=new Scanner(System.in);		
-		static public void insertData(Employee emp)
+		static public void insertData(Employee emp) throws Exception
 		{
 			if(empArray!=null) {
 				for(int i=0;i<=empArray.length-1;i++) {
+					
 					if(empArray[i]==null) {
+						
 				empArray[i]=emp;
+				File file=new File("F:/sanju.txt");
+				FileOutputStream fos=new FileOutputStream(file);
+				ObjectOutputStream oos=new ObjectOutputStream(fos);
+				oos.writeObject(EmployeeOperations.empArray[i]);
+							
  				break;
 					}
 				}
@@ -61,27 +71,32 @@ public class EmployeeOperations
 			
 			
 		}
-		public   void searchEmployee(  )
+		public   void searchEmployee(  ) throws Exception
 		{
 			System.out.println("Enter Employee Id  to be searched");
 		double empid3=sc.nextInt();
-		
+		FileInputStream fis=new FileInputStream("F:/sanju.txt");
+		ObjectInputStream ois=new ObjectInputStream(fis);
+		Object obj=ois.readObject();
+		Employee[] empArray=(Employee[])obj;
 			if(empArray!=null)
 			{
 				for(int i=0;i<=empArray.length-1;i++)
 				{
-					emp1=empArray[i];
+					//emp1=empArray[i];
+					
 					if(empArray[i]==null) {
 						
 					}
 					else {
-					if(empid3==emp1.getEmployeeId())
+					if(empid3==empArray[i].getEmployeeId())
 					{
 						
+					//	System.out.println(emp.getEmployeeId()+" "+emp.getEmployeeName()+" "+emp.getEmployeePackage());
 					
 						System.out.println("EmployeeId:---"
-								+ emp1.getEmployeeId() + " Name:----"+emp1.getEmployeeName() +"  Package:---"
-								+ emp1.getEmployeePackage()+ " Salary:---"+emp1.getEmployeeSalary()+" pf:----"+emp1.getEmployeepf());
+								+ empArray[i].getEmployeeId() + " Name:----"+empArray[i].getEmployeeName() +"  Package:---"
+								+ empArray[i].getEmployeePackage()+ " Salary:---"+empArray[i].getEmployeeSalary()+" pf:----"+empArray[i].getEmployeepf());
 						break;
 					}
 					else {
@@ -93,24 +108,28 @@ public class EmployeeOperations
 				}
 			}
 		
-		public void printAllEmployeeData()
+		public void printAllEmployeeData() throws Exception
 		{
+			FileInputStream fis=new FileInputStream("F:/sanju.txt");
+			ObjectInputStream ois=new ObjectInputStream(fis);
+			Object obj=ois.readObject();
+			Employee[] empArray=(Employee[])obj;
 			if(empArray!=null)
 			{
-				for(int i=0;i<=empArray.length-1;i++)
-				{ 
-					emp1=empArray[i];
-					if(empArray[i]==null) {
+				//for(int i=0;i<=empArray.length-1;i++)
+			//	{ 
+					//emp1=empArray[i];
+			//		if(empArray[i]==null) {
 						
-					}
-					else {
-						
+			//		}
+				//	else {
+						SerializableEx.deSerialization();
 					
-						System.out.println(emp1.getEmployeeId() + " "
-								+ emp1.getEmployeeName()+" "+emp1.getEmployeePackage()+" "+emp1.getEmployeeSalary()+" "+emp1.getEmployeepf());
+						//System.out.println(empArray[i].getEmployeeId() + " "
+						//		+empArray[i].getEmployeeName()+" "+empArray[i].getEmployeePackage()+" "+empArray[i].getEmployeeSalary()+" "+empArray[i].getEmployeepf());
 					
-				}
-					}
+				//}
+					//}
 			}
 		}
 	public void loanElgibility()
@@ -144,4 +163,5 @@ public class EmployeeOperations
 			}
 		
 	}
+
 }

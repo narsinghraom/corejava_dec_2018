@@ -1,4 +1,4 @@
-package com.vtalent.vittalharish;
+package com.vtalent.raju;
 
 import java.util.Scanner;
 
@@ -31,7 +31,7 @@ public class Switch {
 			if (userInput.equalsIgnoreCase("Y"))
 				primenumbers();
 			else if (userInput.equalsIgnoreCase("N")) {
-				System.out.println("Thank you !!");
+				System.out.print("Thank you !!");
 				break;
 			} else {
 				System.out.print("Try Again With (Y/N) only !");
@@ -46,8 +46,8 @@ public class Switch {
 		int n, c, fact = 1;
 
 		System.out.println("Enter an integer to calculate it's factorial");
-	/*	Scanner scan = new Scanner(System.in);
-*/
+		Scanner scan = new Scanner(System.in);
+
 		n = scan.nextInt();
 
 		if (n < 0)
@@ -64,7 +64,7 @@ public class Switch {
 			if (userInput.equalsIgnoreCase("Y"))
 				primenumbers();
 			else if (userInput.equalsIgnoreCase("N")) {
-				System.out.println("Thank you !!");
+				System.out.print("Thank you !!");
 				break;
 			} else {
 				System.out.print("Try Again With (Y/N) only !");
@@ -76,8 +76,9 @@ public class Switch {
 	public void fibonacci() {
 		int count, num1 = 0, num2 = 1;
 		System.out.println("How may numbers you want in the sequence:");
-		//Scanner scanner = new Scanner(System.in);
-		count = scan.nextInt();
+		Scanner scanner = new Scanner(System.in);
+		count = scanner.nextInt();
+		scanner.close();
 		System.out.print("Fibonacci Series of " + count + " numbers:");
 
 		int i = 1;
@@ -94,7 +95,7 @@ public class Switch {
 			if (userInput.equalsIgnoreCase("Y"))
 				primenumbers();
 			else if (userInput.equalsIgnoreCase("N")) {
-				System.out.println("Thank you !!");
+				System.out.print("Thank you !!");
 				break;
 			} else {
 				System.out.print("Try Again With (Y/N) only !");
@@ -103,23 +104,81 @@ public class Switch {
 		}
 	}
 
-	public void MinMax() {
-		int[] a = { 3, 7, 10, 0, 1 };
-		int min = a[0];
-		for (int i = 1; i < a.length; i++) {
-			if (a[i] < min) {
-				min = a[i];
-			}
-		}
-		int max = a[0];
-		for (int i = 1; i <= a.length - 1; i++) {
-			if (a[i] > max) {
-				max = a[i];
-			}
-		}
 
-		System.out.println("Minimum Value:" + min);
-		System.out.println("Maximum Value:" + max);
 
-	}
+public void minmax() {
+	int[] a= {3,7,10,0,1};
+	int min = a[0];
+	for(int i=1;i<a.length;i++){
+		if(a[i] < min){
+			min = a[i];
+		}
 }
+	int max=a[0];
+	for(int i=1;i<=a.length-1;i++ ) {
+		if(a[i] > max) {
+			max=a[i];
+		}
+	}
+	
+	System.out.println("Minimum Value:"+min);
+	System.out.println("Maximum Value:"+max);
+	
+	
+
+}
+	
+public void MergeSort {
+
+	void merge(int arr[], int beg, int mid, int end) {
+
+		int l = mid - beg + 1;
+		int r = end - mid;
+
+		int LeftArray[] = new int[l];
+		int RightArray[] = new int[r];
+
+		for (int i = 0; i < l; ++i)
+			LeftArray[i] = arr[beg + i];
+
+		for (int j = 0; j < r; ++j)
+			RightArray[j] = arr[mid + 1 + j];
+
+		int i = 0, j = 0;
+		int k = beg;
+		while (i < l && j < r) {
+			if (LeftArray[i] <= RightArray[j]) {
+				arr[k] = LeftArray[i];
+				i++;
+			} else {
+				arr[k] = RightArray[j];
+				j++;
+			}
+			k++;
+		}
+		while (i < l) {
+			arr[k] = LeftArray[i];
+			i++;
+			k++;
+		}
+
+		while (j < r) {
+			arr[k] = RightArray[j];
+			j++;
+			k++;
+		}
+	}
+
+	void sort(int arr[], int beg, int end) {
+		if (beg < end) {
+			int mid = (beg + end) / 2;
+			sort(arr, beg, mid);
+			sort(arr, mid + 1, end);
+			merge(arr, beg, mid, end);
+		}
+	}
+
+}
+
+
+

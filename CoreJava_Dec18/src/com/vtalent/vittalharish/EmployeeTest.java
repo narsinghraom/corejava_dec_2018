@@ -19,10 +19,24 @@ public class EmployeeTest {
 			System.out.println("Enter " + (i + 1) + " EmployeeData ");
 			Employee emp = new Employee();
 			System.out.println("Enter Id:");
-			emp.setEmployeeId(input.nextInt());
+			emp.setEmployeeID(input.nextInt());
+			
+			System.out.println("Enter Name:");
+			emp.setEmployeeName(input.next());
+			
+			System.out.println("Enter Mobile Number:");
+			emp.setEmpolyeeMobileNumber(input.next());
+			
 
-			System.out.println("Enter Salary:");
-			emp.setEmployeeSalary(input.nextDouble());
+			System.out.println("Enter package:");
+			
+			double P = input.nextDouble();
+					emp.setEmployeePackage(P);
+			double S = P / 12;
+			double pf = S * 0.02;
+			S = S - pf;
+			emp.setEmployeeSalary(S);
+			emp.setEmployeePF(pf);
 
 			EmployeeOperations.insertData(emp);
 
@@ -57,7 +71,7 @@ public class EmployeeTest {
 			case 5: empo.printAllData();
 			break;
 			
-			case 6: 
+			case 6: empo.loandetails();
 				break;
 				
 			default :

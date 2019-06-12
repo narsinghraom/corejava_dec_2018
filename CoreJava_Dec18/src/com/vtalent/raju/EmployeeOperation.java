@@ -1,15 +1,12 @@
-package com.vtalent.kirankumar;
+package com.vtalent.raju;
 
-import java.io.File;
+
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 
-
-public class EmployeeOperations {
+public class EmployeeOperation {
 	Employee emp;
 
 	static Employee[] emparray;
@@ -33,7 +30,6 @@ public class EmployeeOperations {
 	}
 
 	public void printAllData() {
-		
 		if (emparray != null) {
 			for (int i = 0; i < emparray.length ; i++) {
 				Employee emp1 = emparray[i];
@@ -41,18 +37,11 @@ public class EmployeeOperations {
 					 
 				 }
 				 else {
-				System.out.println("Employ id- "+emp1.getEmployId()+'\n'+"Employ Name- "+emp1.getEmployname()+'\n'+ "Employ Package- "+emp1.getEmployPackage()+'\n'+ "Employ Salary- "+emp1.getEmploySalary()+'\n'+ "Employ Pf(2%)- "+emp1.getEmployPf()+'\n');
+				System.out.println("Employ id- "+emp1.getEmployId()+'\n'+"Employ Name- "+emp1.getEmployname()+'\n'+ "Employ Package- "+emp1.getEmployPackage()+'\n'+ "Employ Salary- "+emp1.employSalary()+'\n'+ "Employ Pf(2%)- "+emp1.employpf()+'\n');
 				 }
 			}}
-	else  {
-		try{
-			EmployeeOperations eo=new EmployeeOperations();
-			eo.deSerialization();
-		}
-		catch(Exception e){
-			
-		}
-		//System.out.println("Employee Data is empty" + '\n');
+	else {
+		System.out.println("Employee Data is empty" + '\n');
 	}
 	
 			}
@@ -132,7 +121,7 @@ public class EmployeeOperations {
 			}
 		}
 	} 
-public void searchData()throws Exception {
+					public void searchData() {
 						if(emparray!=null) {
 							System.out.println("Enter the Employ_Id:");
 							Employee emp1;
@@ -143,7 +132,7 @@ public void searchData()throws Exception {
 									
 								}
 								else if (x==emp1.getEmployId()) {
-									System.out.println("Employ id- "+emp1.getEmployId()+'\n'+"Employ Name- "+emp1.getEmployname()+'\n'+ "Employ Package- "+emp1.getEmployPackage()+'\n'+ "Employ Salary- "+emp1.getEmploySalary()+'\n'+ "Employ Pf(2%)- "+emp1.getEmployPf()+'\n');
+									System.out.println("Employ id- "+emp1.getEmployId()+'\n'+"Employ Name- "+emp1.getEmployname()+'\n'+ "Employ Package- "+emp1.getEmployPackage()+'\n'+ "Employ Salary- "+emp1.employSalary()+'\n'+ "Employ Pf(2%)- "+emp1.employpf()+'\n');
 									break;
 								}
 								else {
@@ -153,28 +142,12 @@ public void searchData()throws Exception {
 					}
 							
 						else {
-							System.out.println("Enter id to search from Previous data");
-							int x=sc.nextInt();
-							FileInputStream fis=new FileInputStream("E:/Employ1.txt");
-							ObjectInputStream ois=new ObjectInputStream(fis);
-							Object obj=ois.readObject();
-							Employee[] emparray1=(Employee[])obj;
-							for(int i=0;i<=emparray1.length-1;i++) {
-								if(x==emparray1[i].getEmployId()) {
-							System.out.println("Id- "+emparray1[i].getEmployId()+'\n'+"Name- "+emparray1[i].getEmployname()+'\n'+"Package- "+emparray1[i].getEmployPackage()+'\n'+"Salary- "+emparray1[i].getEmploySalary()+'\n'+"pf- "+emparray1[i].getEmployPf());
-								//	emparray1[i]=null;
-								}
-								}
-							
-							//System.out.println("Insert the Employee Data first"+'\n');
+							System.out.println("Insert the Employee Data first"+'\n');
 						}
 						
-						
-						
 					}
-					public void deleteEmploy()throws Exception {
-						 
-							if(emparray!=null) { 
+					public void deleteEmploy() {
+						if(emparray!=null) { 
 							Employee emp1;
 							for(int i=0;i<=emparray.length-1;i++) {
 								 emp1=emparray[i];
@@ -194,22 +167,10 @@ public void searchData()throws Exception {
 																
 }
 						else {
-							System.out.println("Enter id to remove from Previous data");
-							int x=sc.nextInt();
-							FileInputStream fis=new FileInputStream("E:/Employ1.txt");
-							ObjectInputStream ois=new ObjectInputStream(fis);
-							Object obj=ois.readObject();
-							Employee[] emparray1=(Employee[])obj;
-							for(int i=0;i<=emparray1.length-1;i++) {
-								if(x==emparray1[i].getEmployId()) {
-									emparray1[i]=null;
-									break;
-								}
-								}
-							
-							
+							System.out.println("No Data Found"+'\n');
 						}
-	 					}
+						
+						}
 					
 					
 	public void employLoan(double salary) {
@@ -237,8 +198,8 @@ public void searchData()throws Exception {
 			break;	
 			}
 			else if (a == emp.getEmployId()) {
-				EmployeeOperations eo=new EmployeeOperations();
-				eo.employLoan(emp.getEmploySalary());
+				EmployeeOperation eo=new EmployeeOperation();
+				eo.employLoan(emp.employSalary());
 				break;
 				}
 			 
@@ -251,25 +212,20 @@ public void searchData()throws Exception {
 		}
 	
 	
-	public void deSerialization()throws Exception {
-	
-		
-		FileInputStream fis=new FileInputStream("E:/Employ1.txt");
+	public void deSerialization() {
+		try {
+		FileInputStream fis=new FileInputStream("D:/Employee.txt");
 		ObjectInputStream ois=new ObjectInputStream(fis);
-		Object obj=ois.readObject();
-		Employee[] emparray1=(Employee[])obj;
-		for(int i=0;i<=emparray1.length-1;i++) {
-		System.out.println("Id- "+emparray1[i].getEmployId()+'\n'+"Name- "+emparray1[i].getEmployname()+'\n'+"Package- "+emparray1[i].getEmployPackage()+'\n'+"Salary- "+emparray1[i].getEmploySalary()+'\n'+"pf- "+emparray1[i].getEmployPf());
-		}
-	}
-		public void serialization()throws Exception {
-			
-			File f=new File("E:/Employ1.txt");
-			FileOutputStream fos=new FileOutputStream(f);
-			ObjectOutputStream oos=new ObjectOutputStream(fos);
-			oos.writeObject(emparray);
-			 
+	//	Object obj=ois.readObject();
+		DemoSerializable1 d1=(DemoSerializable1)ois.readObject();
 		
+		System.out.println(d1.getName());
+		System.out.println(d1.getgender());
+		System.out.println(d1.getAge());
+		}
+		catch(Exception e) {
+			
+		}
 	}
 	
 	}
