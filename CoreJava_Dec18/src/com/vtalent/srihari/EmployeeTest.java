@@ -1,92 +1,112 @@
 package com.vtalent.srihari;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
-public class EmployeeTest {
 
-	static Scanner input = new Scanner(System.in);
-	static int z = 0;
+public class EmployeeTest {
+	Scanner sc = new Scanner(System.in);
+	static int c=0;
+	public void inputdata() {
+		int size;
+		System.out.println("New Employee Data? Choose-1 " + '\n' + "Existing Employee Data?? Choose-2 ");
+		int a = sc.nextInt();
+		
+		if (a == 1) {
+			System.out.println("Enter the no.of Employees to be stored");
+			size = sc.nextInt();
+			EmployeeOperations.emparray = new Employee[size];
+			for (int i = 0; i <= size - 1; i++) {
+				System.out.println("Enter " + (i + 1) + " EmployeeData ");
+				Employee emp = new Employee();
+				System.out.println("Enter Id:");
+				emp.setEmployId(sc.nextInt());
+				System.out.println("Enter Employ Name");
+				emp.setEmployname(sc.next());
+				System.out.println("Enter Package:");
+				emp.setEmployPackage(sc.nextDouble());
+				EmployeeOperations.insertData(emp);
+				try {
+				File f=new File("E:/Employee.txt");
+				FileOutputStream fos=new FileOutputStream(f);
+				ObjectOutputStream oos=new ObjectOutputStream(fos);
+				oos.writeObject(emp);
+				oos.close();
+				}
+				catch(Exception e) {
+					
+				}
+			}
+		} else if (a == 2) {
+			if (EmployeeOperations.emparray == null) {
+				System.out.println("First Create Employee Data");
+			} else {
+				System.out.println("Enter the no.of Employees to be Added");
+				size = sc.nextInt();
+				// EmployeeOperations.emparray=new Employee[size];
+				for (int i = 0; i <= size - 1; i++) {
+
+					System.out.println("Enter " + (i + 1) + " EmployeeData ");
+					Employee emp = new Employee();
+					System.out.println("Enter Id:");
+					emp.setEmployId(sc.nextInt());
+
+					System.out.println("Enter Salary:");
+					emp.setEmployPackage(sc.nextDouble());
+					EmployeeOperations.insertData(emp);
+				}
+			}
+		}
+
+		else {
+			System.out.println("Check the Option you entered.");
+		}
+
+	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int size = 0;
-		// int z = 0;
-		while (true) {
-			int t = 0;
-			EmployeeOperations.view();
-			int n = input.nextInt();
-			if (n <= 6) {
-				switch (n) {
-				case 1:
-					if (size == 0) {
-						System.out
-								.println("enter Number of Employees to Insert");
-						size = input.nextInt();
-						EmployeeOperations.empArray = new Employee[size];
-						for (int i = 0; i <= size - 1; i++) {
-							System.out.println("Enter" + (i + 1)
-									+ "Employee data");
-							Employee emp = new Employee();
-							System.out.println("Enter ID");
-							emp.setEmployeeID(input.nextInt());
-							System.out.println("Enter Salary");
-							emp.setEmployeeSalary(input.nextDouble());
-							EmployeeOperations.insertData(emp);
-							// System.out.println("Insert Data Successfully ");
-							// z = EmployeeOperations.empArray.length;
-						}
-						System.out.println("Successfully Entered ");
-					} else if (size == z) {
-						System.out.println("z value...." + z
-								+ " size Of Array...." + size);
-						for (int i = 0; i <= size - 1; i++) {
-							if (EmployeeOperations.empArray[i] == null) {
-								Employee emp = new Employee();
-								System.out.println("Enter ID");
-								emp.setEmployeeID(input.nextInt());
-								System.out.println("Enter Salary");
-								emp.setEmployeeSalary(input.nextDouble());
-								EmployeeOperations.insertData(emp);
-								z = EmployeeOperations.empArray.length;
-							}
-							System.out.println("Your Data inserted Successfully");
-							z = size + 1;
-						}
-					} else {
-						System.out.println("There is No Space to insert a Record");
-					}
-					break;
-				case 2:
+		EmployeeTest et = new EmployeeTest();
+		EmployeeOperations eo = new EmployeeOperations();
+		Scanner sc = new Scanner(System.in);
 
-					EmployeeOperations.upDateEmployeeData();
-					break;
-				case 3:
+		for (;;) {
+			
+			System.out.println("1.Insert an Employee." + '\n' + "2.Update an Employee." + '\n' + "3.Delete an Employee"
+					+ '\n' + "4.Search an Employee" + '\n' + "5.Print All the Employee Data" + '\n' + "6.Loan Eligibility "+'\n'+"7.Exit");
+			
+			int a = sc.nextInt();
 
-					EmployeeOperations.DeleteEmployeeData();
-					break;
-				case 4:
-
-					EmployeeOperations.searchEmployee();
-					break;
-				case 5:
-
-					EmployeeOperations.printAllEmployeeData();
-					break;
-				case 6:
-
-					t = 1;
-					break;
-
-				}
-
-			} else {
-				System.out.println("please Enter Correct Number");
+			if (a == 1) {
+				et.inputdata();
+			} else if (a == 2) {
+				eo.updateData();
 			}
 
-			if (t == 1) {
+			else if (a == 3) {
+				eo.deleteEmploy();
+				// System.out.println("still under process..."+'\n');
+			} else if (a == 4) {
+				eo.searchData();
+			}
+
+			else if (a == 5) {
+				eo.printAllData();
+			}
+
+			else if (a == 6) {
+				eo.employeeLoanMain();
+			}
+			
+			else if(a==7) {
 				break;
 			}
 
+			else {
+				System.out.println("Enter Valid Search" + '\n');
+			}
+			c++;
 		}
 	}
 }

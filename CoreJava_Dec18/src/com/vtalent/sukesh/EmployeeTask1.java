@@ -18,13 +18,11 @@ public class EmployeeTask1 {
 				switch (n) {
 				case 1:
 					if (size == 0) {
-						System.out
-								.println("enter Number of Employees to Insert");
+						System.out.println("enter Number of Employees to Insert");
 						size = input.nextInt();
 						EmployeeOperations.empArray = new Employee[size];
 						for (int i = 0; i <= size - 1; i++) {
-							System.out.println("Enter " + (i + 1)
-									+ " Employee data");
+							System.out.println("Enter " + (i + 1) + " Employee data");
 							EmployeeOperations.InsertInnerLogic();
 						}
 						System.out.println("Successfully Entered ");
