@@ -2,6 +2,10 @@ package com.vtalent.rakesh;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 public class EmployeeOperations {
@@ -37,24 +41,24 @@ public class EmployeeOperations {
 							+ "   Employee mobilenumber:" + emp1.getMobileNumber() + "   Employee package: "
 							+ emp1.getEmployPackage() + "   Employee pf:" + emp1.getPf() + "   Employee salary:"
 							+ emp1.getEmploysalary());
-				} else {
-					try {
-						FileInputStream fi = new FileInputStream("D:\\Rakesh\\rakeshdataqqqqqa");
-						ObjectInputStream ois = new ObjectInputStream(fi);
-						Object obj = ois.readObject();
-						Employee[] emp = (Employee[]) obj;
-						for (int k = 0; k <= emp.length - 1; k++) {
-							System.out.println(emp);
-						}
-					} catch (Exception e) {
-
-					}
-					System.out.println("please enter the Employee data first");
-
 				}
 			}
+		} else {
+			try {
+				FileInputStream fi = new FileInputStream("D:\\Rakesh\\rakeshdataqqqqqa");
+				ObjectInputStream ois = new ObjectInputStream(fi);
+				Object obj = ois.readObject();
+				Employee[] emp = (Employee[]) obj;
+				for (int k = 0; k <= emp.length - 1; k++) {
+					System.out.println("EmployeeId:" + emp[k].getEmployid() + "   EmployeeName:"
+							+ emp[k].getEmployName() + "   EmployeeMobileNumber:" + emp[k].getMobileNumber()
+							+ "    EmplolyeePackage:" + emp[k].getEmployPackage() + "EmployeeSalary:"
+							+ emp[k].getEmploysalary() + "   EmployeePf:   " + emp[k].getPf());
+				}
+			} catch (Exception e) {
+			}
+			System.out.println("please enter the Employee data first");
 		}
-
 	}
 
 	public void updateData() {
@@ -158,10 +162,65 @@ public class EmployeeOperations {
 							throw new GetALoanException();
 						} else {
 							System.out.println("loan granted");
+							double eligibleAmount = sal * 5;
+							emp1.setLoanAmount(eligibleAmount);
+							System.out.println("you are eligible @amount of:" + eligibleAmount
+									+ "with 14% per annum interest rate");
+							System.out.println("do you want to continue plese enter  1 for yes or 2 for no");
+
+							Scanner sc = new Scanner(System.in);
+							int q2 = sc.nextInt();
+							if (q2 == 1) {
+								System.out.println("please enter the tenure months");
+								System.out.println("please enter 12 months or 24 months");
+								int tenuremonths = sc.nextInt();
+								if (tenuremonths != 12 && tenuremonths != 24) {
+									System.out.println("please enter correct input ");
+									int tenuremonthss = sc.nextInt();
+
+									double emi = eligibleAmount / tenuremonthss;
+									emp1.setEmi(emi);
+									emp1.setTenure(tenuremonthss);
+									Calendar date = Calendar.getInstance();
+									date.setTime(new Date());
+									Format f = new SimpleDateFormat("dd-MMMM-yyyy");
+									emp1.getLoanStartDate();
+									System.out.println(f.format(date.getTime()));
+									date.add(Calendar.MONTH, tenuremonthss);
+									System.out.println(f.format(date.getTime()));
+								} else {
+
+									double emi = eligibleAmount / tenuremonths;
+									emp1.setEmi(emi);
+									emp1.setTenure(tenuremonths);
+									Calendar date = Calendar.getInstance();
+									date.setTime(new Date());
+									Format f = new SimpleDateFormat("dd-MMMM-yyyy");
+
+									String startDate = f.format(date.getTime());
+									emp1.setLoanStartDate(startDate);
+									date.add(Calendar.MONTH, tenuremonths);
+									String endDate = f.format(date.getTime());
+									emp1.setLoanEndDate(endDate);
+								}
+							} else if (q2 == 2) {
+								System.out.println("thank you");
+							} else {
+								System.out.println("plese enter correct input");
+							}
+
 						}
+						System.out.println('\n' + "   Employee Name:" + emp1.getEmployName() + '\n' + "   Employee id:"
+								+ emp1.getEmployid() + '\n' + "   Employee mobilenumber:" + emp1.getMobileNumber()
+								+ '\n' + "   Employee package: " + emp1.getEmployPackage() + '\n' + "   Employee pf:"
+								+ emp1.getPf() + '\n' + "   Employee salary:" + emp1.getEmploysalary() + '\n'
+								+ "   Employee Loan Amount:" + emp1.getLoanAmount() + '\n' + "   Loan Emi:"
+								+ emp1.getEmi() + '\n' + "   Tenure:" + emp1.getTenure() + '\n' + "   LoanStartDate:"
+								+ emp1.getLoanStartDate() + '\n' + "   LoanEndDate:" + emp1.getLoanEndDate());
 					} catch (GetALoanException e) {
 						System.out.println(e);
 					}
+
 				}
 
 			}
