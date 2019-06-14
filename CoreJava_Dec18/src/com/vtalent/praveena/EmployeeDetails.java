@@ -1,6 +1,8 @@
 package com.vtalent.praveena;
 
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
 
 public class EmployeeDetails implements Serializable {
 	
@@ -9,6 +11,12 @@ public class EmployeeDetails implements Serializable {
 		private String Name;
 		private double Package;
 		double PF;
+		double LoanAmount;
+		double EMI;
+		int tenure;
+		double EmpTakeHome;
+		Date StartTime;
+		Date EndTime;
 		public void setemployeeID(int employeeID)
 		{
 			this.employeeID=employeeID;
@@ -35,13 +43,20 @@ public class EmployeeDetails implements Serializable {
 		{
 			return Package;
 		}
-		/*public void setemployeeSalary(double Package)
+		public void setemployeeTenure(int T)
 		{
-			double sal=Package/12;
-			double PF=sal*0.02;
-			this.empSalary=sal-PF;
-			
-		}*/
+			this.tenure=T;
+		}
+		public void setLoanAmount(double loanAmount)
+		{
+			this.LoanAmount=loanAmount;
+		}
+		
+		public double getLoanAmount()
+		{
+			return LoanAmount;
+		}
+		
 		public double getemployeeSalary()
 		{
 			double sal=this.Package/12;
@@ -50,12 +65,6 @@ public class EmployeeDetails implements Serializable {
 			return this.empSalary;
 		}
 		
-		/*public void setemployeePF(double Package)
-		{
-			double sal=Package/12;
-			double PF=sal*0.02;
-			this.PF=PF;
-		}*/
 		public double getemployeePF()
 		{
 			
@@ -64,6 +73,69 @@ public class EmployeeDetails implements Serializable {
 			this.PF=PF;
 			return PF;
 		}
-	}
+		public void setEMI(double emi)
+		{
+			this.EMI=emi;
+		}
+		
+		public double getEMI()	
+		{
+			
+			return EMI;
+		}
+		public double getTakeHome()
+		{
+			EmpTakeHome=this.empSalary-this.EMI;
+			return EmpTakeHome;
+		}
+		public void setStartTime(Date date)
+		{
+			this.StartTime=date;
+		}
+		public Date getStartTime()
+		{
+			return StartTime;
+		}
+		public void setEndTime(Date date)
+		{
+			this.EndTime=date;
+		}
+		public Date getEndTime()
+		{
+			return EndTime;
+		}
+		
+		
+}
+		
+/*public void Duration()
+		{
+			Calendar startdate=Calendar.getInstance();
+			System.out.println("Start date: "+startdate.getTime());
+			startdate.add(Calendar.MONTH,this.tenure);
+			System.out.println(("End date: "+startdate.getTime()));	
+		}*/
+
+
+/*Calendar startdate=Calendar.getInstance();
+	System.out.println("Start date: "+startdate.getTime());
+	startdate.add(Calendar.MONTH,Tenure);
+	System.out.println(("End date: "+startdate.getTime()));
+	*/
+		
+		/*public void setemployeePF(double Package)
+		{
+			double sal=Package/12;
+			double PF=sal*0.02;
+			this.PF=PF;
+		}*/
+		/*public void setemployeeSalary(double Package)
+		{
+			double sal=Package/12;
+			double PF=sal*0.02;
+			this.empSalary=sal-PF;
+			
+		}*/
+	
 
 
