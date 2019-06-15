@@ -25,9 +25,9 @@ public class EmployeeOperations {
 			System.out.println("Successfully Inserted." + '\n');
 		}
 
-		else {
-			System.out.println("Already Inserted" + '\n');
-		}
+		/*
+		 * else { System.out.println("Already Inserted" + '\n'); }
+		 */
 	}
 
 	public void printAllData() {
@@ -39,7 +39,8 @@ public class EmployeeOperations {
 					 
 				 }
 				 else {
-				System.out.println("Employ id- "+emp1.getEmployId()+'\n'+"Employ Name- "+emp1.getEmployname()+'\n'+ "Employ Package- "+emp1.getEmployPackage()+'\n'+ "Employ Salary- "+emp1.getEmploySalary()+'\n'+ "Employ Pf(2%)- "+emp1.getEmployPf()+'\n');
+				System.out.println("Employ id- "+emp1.getEmployId()+'\n'+"Employ Name- "+emp1.getEmployname()+'\n'+ "Employ Package- "+emp1.getEmployPackage()+'\n'+ "Employ Salary- "+emp1.getEmploySalary()+'\n'+ "Employ Pf(2%)- "+emp1.getEmployPf()+'\n'+"Loan Amount-"+emp1.getLoanAmount()+'\n'+"EMI-"+emp1.getEmi()+'\n'+"Tenure-"+emp1.getTenure()+'\n'+"Take Home Salary-"+emp1.getTakeHome());
+				 emp1.date();
 				 }
 			}}
 	else  {
@@ -211,12 +212,38 @@ public void searchData()throws Exception {
 					
 					
 	public void employLoan(double salary) {
+				
 						try {
 							if(salary<20000) {
 								throw new EmployeeLoan();
 							}
 							else {
-								System.out.println("This Employ is Eligible for Loan ");
+								Employee emp1 =new Employee();
+								double loanamount=salary*5;
+								emp1.setLoanAmount(loanamount);
+								System.out.println("Congrats:) You're Eligible for a Loan of Amount of "+loanamount+" with a interest rate of 14% per Annum(12 Months)"+'\n'+"Would you like to opt for a Loan"+'\n'+" 1.Yes 2.No" );
+								int a=sc.nextInt();
+								if(a==1) {
+									
+									
+									System.out.println("Enter Tenure Period");
+									int tenure=sc.nextInt();
+									emp1.setTenure(tenure);
+								  double i=(((0.14*tenure)/12))*loanamount;
+								  double emi=(i+loanamount)/tenure;
+								  emp1.setEmi(emi);
+										
+									
+									//emp1.getLoanAmount();
+									//emp1.getEmi();
+								}
+								else if(a==2) {
+									System.out.println("Thank You");
+								}
+								
+								else {
+									System.out.println("Enter Valid Id");
+								}
 							}
 						}
 						catch(EmployeeLoan e) {
