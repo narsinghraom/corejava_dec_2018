@@ -24,7 +24,7 @@ import java.util.Scanner;
 				double LoanAmount=5*empSal;
 				emp.setLoanAmount(LoanAmount);
 				System.out.println("You are eligible for loan of "+LoanAmount+" with 14% of interest per Anum");
-				System.out.println("Do you want continue with the loan procedure or not"+"\n"+"1.Yes"+"2.No");
+				System.out.println("Do you want continue with the loan procedure"+"\n"+"1.Yes"+"\n"+"2.No");
 				int opt=a.nextInt();
 					if(opt==1)
 					{

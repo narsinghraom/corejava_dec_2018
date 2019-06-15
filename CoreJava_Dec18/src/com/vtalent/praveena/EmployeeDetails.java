@@ -7,8 +7,8 @@ import java.util.Date;
 public class EmployeeDetails implements Serializable {
 	
 		private int employeeID;
-		private double empSalary;
 		private String Name;
+		private double empSalary;
 		private double Package;
 		double PF;
 		double LoanAmount;
@@ -46,6 +46,10 @@ public class EmployeeDetails implements Serializable {
 		public void setemployeeTenure(int T)
 		{
 			this.tenure=T;
+		}
+		public int getTenure()
+		{
+			return tenure;
 		}
 		public void setLoanAmount(double loanAmount)
 		{
@@ -107,21 +111,8 @@ public class EmployeeDetails implements Serializable {
 		
 		
 }
-		
-/*public void Duration()
-		{
-			Calendar startdate=Calendar.getInstance();
-			System.out.println("Start date: "+startdate.getTime());
-			startdate.add(Calendar.MONTH,this.tenure);
-			System.out.println(("End date: "+startdate.getTime()));	
-		}*/
 
 
-/*Calendar startdate=Calendar.getInstance();
-	System.out.println("Start date: "+startdate.getTime());
-	startdate.add(Calendar.MONTH,Tenure);
-	System.out.println(("End date: "+startdate.getTime()));
-	*/
 		
 		/*public void setemployeePF(double Package)
 		{
