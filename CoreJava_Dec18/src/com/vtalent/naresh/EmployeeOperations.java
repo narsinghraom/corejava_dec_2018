@@ -211,16 +211,16 @@ public void searchData()throws Exception {
 	 					}
 					
 					
-	public void employLoan(double salary) {
+	public void employLoan(Employee emp,double salary) {
 				
 						try {
 							if(salary<20000) {
 								throw new EmployeeLoan();
 							}
 							else {
-								Employee emp1 =new Employee();
+								//Employee emp1 =new Employee();
 								double loanamount=salary*5;
-								emp1.setLoanAmount(loanamount);
+								emp.setLoanAmount(loanamount);
 								System.out.println("Congrats:) You're Eligible for a Loan of Amount of "+loanamount+" with a interest rate of 14% per Annum(12 Months)"+'\n'+"Would you like to opt for a Loan"+'\n'+" 1.Yes 2.No" );
 								int a=sc.nextInt();
 								if(a==1) {
@@ -228,10 +228,10 @@ public void searchData()throws Exception {
 									
 									System.out.println("Enter Tenure Period");
 									int tenure=sc.nextInt();
-									emp1.setTenure(tenure);
+									emp.setTenure(tenure);
 								  double i=(((0.14*tenure)/12))*loanamount;
 								  double emi=(i+loanamount)/tenure;
-								  emp1.setEmi(emi);
+								  emp.setEmi(emi);
 										
 									
 									//emp1.getLoanAmount();
@@ -263,7 +263,7 @@ public void searchData()throws Exception {
 			}
 			else if (a == emp.getEmployId()) {
 				EmployeeOperations eo=new EmployeeOperations();
-				eo.employLoan(emp.getEmploySalary());
+				eo.employLoan(emparray[i],emp.getEmploySalary());
 				break;
 				}
 			 
