@@ -211,7 +211,11 @@ public void searchData()throws Exception {
 	 					}
 					
 					
+<<<<<<< HEAD
 	public void employLoan(Employee emp,double salary) {
+=======
+	public void employLoan(double salary,Employee emp1) {
+>>>>>>> 49ef787ed8e1a2f30bb240bf54958dffb5b0b4b7
 				
 						try {
 							if(salary<20000) {
@@ -263,7 +267,12 @@ public void searchData()throws Exception {
 			}
 			else if (a == emp.getEmployId()) {
 				EmployeeOperations eo=new EmployeeOperations();
+<<<<<<< HEAD
 				eo.employLoan(emparray[i],emp.getEmploySalary());
+=======
+				//eo.employLoan(emp.getEmploySalary());
+				eo.employLoan(emp.getEmploySalary(),emparray[i]);
+>>>>>>> 49ef787ed8e1a2f30bb240bf54958dffb5b0b4b7
 				break;
 				}
 			 
