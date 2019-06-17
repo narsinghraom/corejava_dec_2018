@@ -2,6 +2,7 @@ package com.vtalent.vittalharish;
 
 import java.util.Scanner;
 
+import com.vtalent.raju.Employee;
 
 public class EmployeeTest {
 
