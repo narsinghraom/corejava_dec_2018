@@ -23,10 +23,10 @@ import java.util.Scanner;
 				System.out.println("Eligible for loan");
 				double LoanAmount=5*empSal;
 				emp.setLoanAmount(LoanAmount);
-				System.out.println("You are eligible for loan of "+LoanAmount+" with 14% of interest per Anum");
-				System.out.println("Do you want continue with the loan procedure"+"\n"+"1.Yes"+"\n"+"2.No");
-				int opt=a.nextInt();
-					if(opt==1)
+				System.out.println("You are eligible for loan of "+emp.getLoanAmount1()+" with 14% of interest per Anum");
+				System.out.println("Enter yes to continue with the loan procedure");
+				String opt=a.next();
+					if(opt.equalsIgnoreCase("yes"))
 					{
 					System.out.println("Please enter Tenure months");
 					int Tenure=a.nextInt();
