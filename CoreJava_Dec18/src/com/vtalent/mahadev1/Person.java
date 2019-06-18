@@ -1,6 +1,5 @@
 package com.vtalent.mahadev1;
-/*
-public class Person {
+  class Myclass {
 	private String name;
 
 	   // Getter
@@ -13,11 +12,11 @@ public class Person {
 	     this.name = newName;
 	   }
 	}
-	*/
+	
 
-	public class MyClass {
+	public class Person {
 	  public static void main(String[ ] args) {
-	    Person myObj = new Person();
+	   Myclass myObj = new Myclass();
 	    myObj.setName("John");
 	    System.out.println(myObj.getName());
 	  }

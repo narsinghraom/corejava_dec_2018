@@ -1,5 +1,7 @@
 package com.vtalent.rakesh;
 
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.Scanner;
 
 public class EmployeeOperations {
@@ -35,17 +37,24 @@ public class EmployeeOperations {
 							+ "   Employee mobilenumber:" + emp1.getMobileNumber() + "   Employee package: "
 							+ emp1.getEmployPackage() + "   Employee pf:" + emp1.getPf() + "   Employee salary:"
 							+ emp1.getEmploysalary());
-				} else {
-					System.out.println("please enter the Employee data first");
 				}
 			}
+		} else {
+			try {
+				FileInputStream fi = new FileInputStream("D:\\Rakesh\\rakeshdataqqqqqa");
+				ObjectInputStream ois = new ObjectInputStream(fi);
+				Object obj = ois.readObject();
+				Employee[] emp = (Employee[]) obj;
+				for (int k = 0; k <= emp.length - 1; k++) {
+					System.out.println("EmployeeId:" + emp[k].getEmployid() + "   EmployeeName:"
+							+ emp[k].getEmployName() + "   EmployeeMobileNumber:" + emp[k].getMobileNumber()
+							+ "    EmplolyeePackage:" + emp[k].getEmployPackage() + "EmployeeSalary:"
+							+ emp[k].getEmploysalary() + "   EmployeePf:   " + emp[k].getPf());
+				}
+			} catch (Exception e) {
+			}
+			System.out.println("please enter the Employee data first");
 		}
-
-		else {
-			System.out.println("Insert the Employee Data first" + '\n');
-
-		}
-
 	}
 
 	public void updateData() {
@@ -66,7 +75,7 @@ public class EmployeeOperations {
 					double updatedSalary = sc.nextDouble();
 
 					emp2.setEmploysalary(updatedSalary);
-					
+
 				}
 			}
 		}
@@ -87,13 +96,16 @@ public class EmployeeOperations {
 				emp1 = emparray[i];
 				if (x == emp1.getEmployid()) {
 					System.out.println("Employ_Id- " + emp1.getEmployid() + '\n' + "Employ_Salary- "
-							+ emp1.getEmploysalary() + '\n' + "Employ_mobilenumber- " + emp1.getMobileNumber());
+							+ emp1.getEmploysalary() + '\n' + "Employ_pf " + emp1.getPf() + '\n' + "Employ_name "
+							+ emp1.getEmployName() + "Employ_mobilenumber- " + emp1.getMobileNumber());
 				} else {
 					System.out.println("Enter the Valid Id" + '\n');
 				}
 			}
 		} else {
+
 			System.out.println("Insert the Employee Data first" + '\n');
+
 		}
 	}
 
@@ -121,5 +133,39 @@ public class EmployeeOperations {
 			System.out.println("No Data Found" + '\n');
 		}
 
+	}
+
+	public void validateLoan() {
+		Employee emp1;
+		if (emparray != null) {
+
+			for (int i = 0; i <= emparray.length - 1; i++) {
+
+				emp1 = emparray[i];
+
+			}
+
+			System.out.println("enter id to find loan eligibility");
+
+			int uid = sc.nextInt();
+			for (int i = 0; i <= emparray.length - 1; i++) {
+
+				emp1 = emparray[i];
+				if (uid == emp1.getEmployid()) {
+					double sal = emp1.getEmploysalary();
+					try {
+						if (sal <= 10000) {
+							throw new GetALoanException();
+						} else {
+							System.out.println("loan granted");
+						}
+					} catch (GetALoanException e) {
+						System.out.println(e);
+					}
+				}
+
+			}
+
+		}
 	}
 }

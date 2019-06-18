@@ -45,7 +45,7 @@ public class StringTest {
 				if(count1==0)
 					{
 						
-							System.out.print(S+": ");
+						System.out.print(S+": ");
 							System.out.println(S.charAt(k)+"="+count);
 							count=1;
 					    //System.out.println("Repeated letter in the given word "+S1+ " is  "+S1.charAt(k)+" for "+count+"times");
@@ -202,15 +202,16 @@ public class StringTest {
 
 		}
 		System.out.println("The combination of the given string is  " + fact);
+		int end=S1.length()-1;
+ 		
 		
-		permutaions(S1);
+		permutaions(S1,0,end);
 		
  	}
- 	public void permutaions(String Str)
+ 	public void permutaions(String Str,int start,int end)
  	{
  		
- 		int end=Str.length()-1;
- 		int start=0;
+ 		
  		
  		if(start==end)
  		{
@@ -221,9 +222,9 @@ public class StringTest {
  			for(int i=start;i<=end;i++)
  			{
  				
-		 		//Str=SwapString(Str,start,end);
-		 		//permutaions(Str,start+1,end);
-		 		//Str=SwapString(Str,start,i);
+		 		Str=SwapString(Str,start,end);
+		 		permutaions(Str,start+1,end);
+		 		Str=SwapString(Str,start,i);
  		
 		
  			}
@@ -237,7 +238,7 @@ public class StringTest {
  		ch[i]=ch[j];
  		ch[j]=temp;
  		Str=Str.valueOf(ch);
- 		System.out.println(Str);
+ 		//System.out.println(Str);
  		return(Str);
  		
  	}

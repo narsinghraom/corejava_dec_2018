@@ -19,14 +19,19 @@ public class EmployeeOperations {
 			}
 		}
 	}
-	public static void printAllEmployeeData(int size)
+	public static void printAllEmployeeData()
 	{
 		if(empArray!=null)
 		{
-			for(int i=0;i<size;i++)
+			for(int i=0;i<empArray.length;i++)
 			{
+			
 				Employee emp=empArray[i];
-				if(empArray!=null)
+				if(empArray[i]==null)
+				{
+					
+				}
+				else
 				{
 					System.out.println("employee ID: "+emp.getemployeeID()+"\n"+"employee salary:"+"\n"+emp.getemployeeSalary());
 				}
@@ -89,7 +94,13 @@ public class EmployeeOperations {
 	{
 		for(int i=0;i<=empArray.length-1;i++)
 		{
-			if(empArray[i].getemployeeID()==empID)
+			if(empArray[i]==null)
+			{
+				
+			}
+			
+			
+			else if(empArray[i].getemployeeID()==empID)
 			{
 				System.out.println("Employee ID: "+empArray[i].getemployeeID()+"\n"+"Employee Salary: "+empArray[i].getemployeeSalary());
 				break;

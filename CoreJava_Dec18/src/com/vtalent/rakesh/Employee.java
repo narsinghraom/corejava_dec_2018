@@ -1,12 +1,14 @@
 package com.vtalent.rakesh;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
 	private int employid;
 	private double employsalary;
 	private String mobileNumber;
 	private String employName;
 	private double employPackage;
-	private float pf;
+	private double pf;
 
 	public int getEmployid() {
 		return employid;
@@ -48,11 +50,11 @@ public class Employee {
 		this.employPackage = employPackage;
 	}
 
-	public float getPf() {
+	public double getPf() {
 		return pf;
 	}
 
-	public void setPf(float pf) {
+	public void setPf(double pf) {
 		this.pf = pf;
 	}
 

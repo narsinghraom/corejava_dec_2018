@@ -11,8 +11,9 @@ public class ClassReference {
 
 	public static void main(String[] args) {
 		ClassReference u = new ClassReference(7);
-
-		System.out.println(u);
+		double x1 = 100000;
+		double t = x1 * 2 / 100;
+		System.out.println(t);
 	}
 
 }

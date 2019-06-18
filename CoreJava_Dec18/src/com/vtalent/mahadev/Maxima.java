@@ -1,6 +1,6 @@
-package com.vtalent.raju;
+package com.vtalent.mahadev;
 
-public class Maxmin {
+public class Maxima {
 	public static void main(String[] args) {
 		int R[]= {3,7,10,0,1};
 		int max = 0,min=R[0];
@@ -15,8 +15,7 @@ public class Maxmin {
 		  }
 		  
 		  System.out.println("Minimum elemet is" + max); }
-		 }
+		 
 
-
-
+}
 

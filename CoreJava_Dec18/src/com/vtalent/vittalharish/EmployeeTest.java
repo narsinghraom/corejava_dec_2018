@@ -2,6 +2,8 @@ package com.vtalent.vittalharish;
 
 import java.util.Scanner;
 
+import com.vtalent.raju.Employee;
+
 public class EmployeeTest {
 
 	static Scanner input = new Scanner(System.in);
@@ -17,10 +19,24 @@ public class EmployeeTest {
 			System.out.println("Enter " + (i + 1) + " EmployeeData ");
 			Employee emp = new Employee();
 			System.out.println("Enter Id:");
-			emp.setEmployeeId(input.nextInt());
+			emp.setEmployeeID(input.nextInt());
+			
+			System.out.println("Enter Name:");
+			emp.setEmployeeName(input.next());
+			
+			System.out.println("Enter Mobile Number:");
+			emp.setEmpolyeeMobileNumber(input.next());
+			
 
-			System.out.println("Enter Salary:");
-			emp.setEmployeeSalary(input.nextDouble());
+			System.out.println("Enter package:");
+			
+			double P = input.nextDouble();
+					emp.setEmployeePackage(P);
+			double S = P / 12;
+			double pf = S * 0.02;
+			S = S - pf;
+			emp.setEmployeeSalary(S);
+			emp.setEmployeePF(pf);
 
 			EmployeeOperations.insertData(emp);
 
@@ -35,7 +51,7 @@ public class EmployeeTest {
 
 		for (;;) {
 			System.out.println("1.Insert an Employee." + '\n' + "2.Update an Employee." + '\n' + "3.Delete an Employee"
-					+ '\n' + "4.Search an Employee" + '\n' + "5.Print All the Employee Data" + '\n' + "6.Exit");
+					+ '\n' + "4.Search an Employee" + '\n' + "5.Print All the Employee Data" + '\n' + "6.Check Loan Eligibility" + '\n' + "7.Exit");
 			int employee = input.nextInt();
 
 			switch (employee) {
@@ -55,8 +71,11 @@ public class EmployeeTest {
 			case 5: empo.printAllData();
 			break;
 			
-			case 6: 
+			case 6: empo.loandetails();
 				break;
+			case 7: 
+			System.out.println("Program Terminated");
+			System.exit(0);
 				
 			default :
 				System.out.println("Enter Valid Search"+'\n');
