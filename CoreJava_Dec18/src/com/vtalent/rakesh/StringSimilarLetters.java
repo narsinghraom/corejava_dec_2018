@@ -2,7 +2,7 @@ package com.vtalent.rakesh;
 
 import java.util.Scanner;
 
-public class SimilarLetters {
+public class StringSimilarLetters {
 
 	public static void main(String[] args) {
 

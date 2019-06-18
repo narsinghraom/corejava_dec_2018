@@ -2,7 +2,15 @@ package com.vtalent.vittalharish;
 
 import java.util.Scanner;
 
+
+
+
+
+
+
 class EmployeeOperations {
+	Employee emp;
+	
 
 	static Employee[] emparray;
 
@@ -30,11 +38,18 @@ class EmployeeOperations {
 
 	public void printAllData() {
 		if (emparray != null) {
+			/*System.out.println("EmployeId:" + " "+ "EmployeeName:" +" "+ "EmployeeMobileNumber" +""
+					+ "" +  "EmployeeSalary");*/
 			for (int i = 0; i <= emparray.length - 1; i++) {
 				Employee emp1 = emparray[i];
-				System.out.println(emp1.getEmployeeId() + "   " + emp1.getEmployeeSalary());
+				System.out.println("Employee ID: " + emp1.getEmployeeID() 
+						+ "      " + "Employee Name: " + emp1.getEmployeeName()
+						+ "      " + "Employee Mobile Number: " + emp1.getEmpolyeeMobileNumber() 
+						+ "      " + "Employee Package: " + emp1.getEmployeePackage() 
+						+ "      " + "Employee Salary: " + emp1.getEmployeeSalary() 
+						+ "      " +"Employee PF: " + emp1.getEmployeePF());
 
-			}
+			} 
 		} else {
 			System.out.println("Insert the Employee Data first" + '\n');
 		}
@@ -45,7 +60,7 @@ class EmployeeOperations {
 			Employee emp1;
 			for (int i = 0; i <= emparray.length - 1; i++) {
 				emp1 = emparray[i];
-				System.out.println(emp1.getEmployeeId() + "   " + emp1.getEmployeeSalary());
+				System.out.println(emp1.getEmployeeID() );
 			}
 
 			System.out.println("Enter the Id to be Updated" + '\n');
@@ -53,9 +68,17 @@ class EmployeeOperations {
 			for (int i = 0; i <= emparray.length - 1; i++) {
 				Employee emp2;
 				emp2 = emparray[i];
-				if (x == emp2.getEmployeeId()) {
-					System.out.println("Enter the new Salary to be Updated" + '\n');
-					emp2.setEmployeeSalary(input.nextDouble());
+				if (x == emp2.getEmployeeID()) {
+					System.out.println("Enter the new Package to be Updated" + '\n');
+					double P = input.nextDouble();
+					emp2.setEmployeePackage(P);
+
+					double S = P / 12;
+					double pf = S * 0.02;
+					S = S - pf;
+					emp2.setEmployeeSalary(S);
+					emp2.setEmployeePF(pf);
+
 				}
 			}
 		}
@@ -63,18 +86,23 @@ class EmployeeOperations {
 		else {
 			System.out.println("First Insert Employee Data" + '\n');
 		}
+
 	}
 
 	public void searchData() {
 		if (emparray != null) {
-			System.out.println("Enter the Employee_Id:");
+			System.out.println("Enter The Employee ID:");
 			Employee emp1;
 			int x = input.nextInt();
 			for (int i = 0; i <= emparray.length - 1; i++) {
 				emp1 = emparray[i];
-				if (x == emp1.getEmployeeId()) {
-					System.out.println("Employee_Id- " + emp1.getEmployeeId() + '\n' + "Employee_Salary- "
-							+ emp1.getEmployeeSalary());
+				if (x == emp1.getEmployeeID()) {
+					System.out.println("Employee ID: " + emp1.getEmployeeID() 
+							+ "      " + "Employee Name: " + emp1.getEmployeeName()
+							+ "      " + "Employee Mobile Number: " + emp1.getEmpolyeeMobileNumber() 
+							+ "      " + "Employee Package: " + emp1.getEmployeePackage() 
+							+ "      " + "Employee Salary: " + emp1.getEmployeeSalary() 
+							+ "      " +"Employee PF: " + emp1.getEmployeePF());
 				} else {
 					System.out.println("Enter the Valid Id" + '\n');
 				}
@@ -89,14 +117,14 @@ class EmployeeOperations {
 			Employee emp1;
 			for (int i = 0; i <= emparray.length - 1; i++) {
 				emp1 = emparray[i];
-				System.out.println(emp1.getEmployeeId());
+				System.out.println(emp1.getEmployeeID());
 
 			}
 			System.out.println("Enter the Id to be Deleted");
 			int x = input.nextInt();
 			for (int i = 0; i <= emparray.length - 1; i++) {
 				emp1 = emparray[i];
-				if (x == emp1.getEmployeeId()) {
+				if (x == emp1.getEmployeeID()) {
 					emparray[i] = null;
 					System.out.println("Deleted");
 				}
@@ -107,6 +135,46 @@ class EmployeeOperations {
 			System.out.println("No Data Found" + '\n');
 		}
 
+	}
+
+	public void loandetails() {
+		if(emparray!=null) {
+			System.out.println("Enter Employee id to check Loan Eligibility");
+				int a=input.nextInt();
+				for ( int i = 0; i <= emparray.length - 1; i++) {
+				emp = emparray[i];
+				if(emparray[i]==null) {
+				break;	
+				}
+				else if (a == emp.getEmployeeID()) {
+					EmployeeOperations eo=new EmployeeOperations();
+					eo.employeeLoan(emp.getEmployeeSalary());
+					break;
+					}
+				 
+					
+		}
+			}
+				else {
+					System.out.println("Insert the Employee Data first");
+				}
+		
+		
+	}
+
+	private void employeeLoan(double employeeSalary) {
+		try {
+			if(employeeSalary<20000) {
+				throw new EmployeeCustomLoanException();
+			}
+			else {
+				System.out.println("This Employee is Eligible for Loan ");
+			}
+		}
+		catch(EmployeeCustomLoanException e) {
+			System.out.println(e);
+		}
+		
 	}
 
 }

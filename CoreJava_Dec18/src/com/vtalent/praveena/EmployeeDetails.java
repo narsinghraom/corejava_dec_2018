@@ -1,6 +1,8 @@
 package com.vtalent.praveena;
 
-public class EmployeeDetails {
+import java.io.Serializable;
+
+public class EmployeeDetails implements Serializable {
 	
 		private int employeeID;
 		private double empSalary;
@@ -11,24 +13,12 @@ public class EmployeeDetails {
 		{
 			this.employeeID=employeeID;
 		}
-		/*public void setemployeeSalary(double Package)
-		{
-			double sal=Package/12;
-			double PF=sal*0.02;
-			this.empSalary=sal-PF;
-			
-		}*/
+		
 		public int getemployeeID()
 		{
 			return this.employeeID;
 		}
-		public double getemployeeSalary()
-		{
-			double sal=this.Package/12;
-			double PF=sal*0.02;
-			this.empSalary=sal-PF;
-			return this.empSalary;
-		}
+		
 		public void setemployeeName(String name)
 		{
 			this.Name=name;
@@ -45,6 +35,20 @@ public class EmployeeDetails {
 		{
 			return Package;
 		}
+		/*public void setemployeeSalary(double Package)
+		{
+			double sal=Package/12;
+			double PF=sal*0.02;
+			this.empSalary=sal-PF;
+			
+		}*/
+		public double getemployeeSalary()
+		{
+			double sal=this.Package/12;
+			double PF=sal*0.02;
+			this.empSalary=sal-PF;
+			return this.empSalary;
+		}
 		
 		/*public void setemployeePF(double Package)
 		{
@@ -54,6 +58,7 @@ public class EmployeeDetails {
 		}*/
 		public double getemployeePF()
 		{
+			
 			double sal=this.Package/12;
 			double PF=sal*0.02;
 			this.PF=PF;
