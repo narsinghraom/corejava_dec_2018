@@ -72,8 +72,8 @@ public class EmployeeTest {
 		}
 		else
 		{
-				
-			System.out.println("Enter number of employees to be added");
+			int count=EmployeeTask.Nullsearch();
+			System.out.println("Enter maximum "+count+" number of employees to be added in existing database");
 			size=a.nextInt();
 			for(int i=0;i<=size-1;i++)
 			{
@@ -96,7 +96,14 @@ public class EmployeeTest {
 		//System.out.println("Enter number of employees to print");
 		//int size2=a.nextInt();
 		//EmployeeOperations.printAllEmployeeData(size2);
+		try
+		{
 		EmployeeTask.printAllEmployeeData();
+		}
+		catch(Exception e)
+		{
+			
+		}
 		break;
 	case 3:
 		//System.out.println("Enter Employee details");
@@ -118,7 +125,14 @@ public class EmployeeTest {
 		System.out.println("Please enter Employee ID");
 		EmployeeDetails emp2=new EmployeeDetails();
 		emp2.setemployeeID(a.nextInt());
+		try
+		{
 		EmployeeTask.SearchEmployee(emp2.getemployeeID());
+		}
+		catch(Exception e)
+		{
+			
+		}
 		break;
 	case 6:
 		System.out.println("To get Loan");

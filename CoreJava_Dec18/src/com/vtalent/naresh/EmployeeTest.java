@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class EmployeeTest {
 	Scanner sc = new Scanner(System.in);
-	static int c=0;
+	//static int c=0;
 	public void inputdata() {
 		int size;
 		System.out.println("New Employee Data? Choose-1 " + '\n' + "Existing Employee Data?? Choose-2 ");
@@ -107,7 +107,7 @@ public class EmployeeTest {
 			else {
 				System.out.println("Enter Valid Search" + '\n');
 			}
-			c++;
+		//	c++;
 		}
 	}
 }

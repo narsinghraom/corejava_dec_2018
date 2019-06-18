@@ -7,9 +7,18 @@ public class Employeee implements Serializable {
 	private int id = 100;
 	private String name = "rrrrrrakeshhhh";
 	transient double salary = 10000;
+	private int x = 45;
 
 	public int getId() {
 		return id;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
 	}
 
 	public void setId(int id) {
