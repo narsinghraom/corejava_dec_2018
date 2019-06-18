@@ -1,20 +1,20 @@
 package com.vtalent.rakesh;
 
-public class MethodInReturnType {
+public class MethodInReturnType extends Employeee {
 	static int a;
 
 	public int add(int q, int w) {
 
 		int e = q + w;
 		int a = 0;
-
-		return adds(10);
+		System.out.println(e);
+		return adds(e);
 
 	}
 
 	public int adds(int k) {
-		this.a = k;
-		return k;
+		System.out.println(k + 1);
+		return k + 1;
 
 	}
 
@@ -22,6 +22,9 @@ public class MethodInReturnType {
 
 		MethodInReturnType m = new MethodInReturnType();
 		m.add(2, 3);
-		System.out.println(a);
+		Employeee q = new Employeee();
+		m.getName();
+		System.out.println(m.getName());
+
 	}
 }
