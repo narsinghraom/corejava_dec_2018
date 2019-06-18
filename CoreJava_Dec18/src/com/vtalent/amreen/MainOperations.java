@@ -1,4 +1,4 @@
-package com.vtalent.amreen;
+package com.vtalent.saritha;
 
 import java.util.Scanner;
 

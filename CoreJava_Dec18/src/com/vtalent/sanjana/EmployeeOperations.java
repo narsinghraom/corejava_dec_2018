@@ -10,25 +10,18 @@ public class EmployeeOperations
 		static int size;
 	static	Employee emp1;
 	Scanner sc=new Scanner(System.in);		
-		static public void insertData(Employee emp) throws Exception
+		  public static void insertData(Employee emp1)  
 		{
-			if(empArray!=null) {
-				for(int i=0;i<=empArray.length-1;i++) {
-					
-					if(empArray[i]==null) {
-						
-				empArray[i]=emp;
-				File file=new File("F:/sanju.txt");
-				FileOutputStream fos=new FileOutputStream(file);
-				ObjectOutputStream oos=new ObjectOutputStream(fos);
-				oos.writeObject(EmployeeOperations.empArray[i]);
-							
- 				break;
+			  if (empArray != null) {
+					for (int i = 0; i <= empArray.length - 1; i++) {
+						if (empArray[i] == null) {
+							empArray[i] = emp1;
+							// System.out.println("here");
+							break;
+						}
 					}
-				}
-				System.out.println("Successfully Inserted."+'\n');
-				}
-		}
+					System.out.println("Successfully Inserted." + '\n');
+				}	}
 	   public void updateData()
 	    {
 		   System.out.println("Enter Employee Id to be updated");
@@ -73,17 +66,14 @@ public class EmployeeOperations
 		}
 		public   void searchEmployee(  ) throws Exception
 		{
-			System.out.println("Enter Employee Id  to be searched");
-		double empid3=sc.nextInt();
-		FileInputStream fis=new FileInputStream("F:/sanju.txt");
-		ObjectInputStream ois=new ObjectInputStream(fis);
-		Object obj=ois.readObject();
-		Employee[] empArray=(Employee[])obj;
+			
 			if(empArray!=null)
 			{
+				System.out.println("Enter Employee Id  to be searched");
+				double empid3=sc.nextInt();
 				for(int i=0;i<=empArray.length-1;i++)
 				{
-					//emp1=empArray[i];
+					emp1=empArray[i];
 					
 					if(empArray[i]==null) {
 						
@@ -106,31 +96,53 @@ public class EmployeeOperations
 					
 						}
 				}
+			else {
+				System.out.println("Enter Id to Look up in file");
+				int x=sc.nextInt();
+				FileInputStream fis=new FileInputStream("E:/sanju1.txt");
+				ObjectInputStream ois=new ObjectInputStream(fis);
+					Object obj=ois.readObject();
+					Employee[] emparray1=(Employee[])obj;
+					for(int i=0;i<=emparray1.length-1;i++) {
+						if(x==emparray1[i].getEmployeeId()) {
+						System.out.println(emparray1[i].getEmployeeId() + " "
+								+emparray1[i].getEmployeeName()+" "+emparray1[i].getEmployeePackage()+" "+emparray1[i].getEmployeeSalary()+" "+emparray1[i].getEmployeepf());
+						}
+						
+						}
+					}
+	
 			}
+			
 		
-		public void printAllEmployeeData() throws Exception
+		public void printAllEmployeeData()throws Exception 
 		{
-			FileInputStream fis=new FileInputStream("F:/sanju.txt");
-			ObjectInputStream ois=new ObjectInputStream(fis);
-			Object obj=ois.readObject();
-			Employee[] empArray=(Employee[])obj;
 			if(empArray!=null)
 			{
-				//for(int i=0;i<=empArray.length-1;i++)
-			//	{ 
-					//emp1=empArray[i];
-			//		if(empArray[i]==null) {
+				for(int i=0;i<=empArray.length-1;i++)
+				{ 
+					emp1=empArray[i];
+					if(empArray[i]==null) {
 						
-			//		}
-				//	else {
-						SerializableEx.deSerialization();
+					}
+					else {
 					
-						//System.out.println(empArray[i].getEmployeeId() + " "
-						//		+empArray[i].getEmployeeName()+" "+empArray[i].getEmployeePackage()+" "+empArray[i].getEmployeeSalary()+" "+empArray[i].getEmployeepf());
+						System.out.println(empArray[i].getEmployeeId() + " "
+								+empArray[i].getEmployeeName()+" "+empArray[i].getEmployeePackage()+" "+empArray[i].getEmployeeSalary()+" "+empArray[i].getEmployeepf());
 					
-				//}
-					//}
+				}
+					}
 			}
+			
+			else {
+				FileInputStream fis=new FileInputStream("E:/sanju1.txt");
+				ObjectInputStream ois=new ObjectInputStream(fis);
+					Object obj=ois.readObject();
+					Employee[] emparray1=(Employee[])obj;
+					for(int i=0;i<=emparray1.length-1;i++) {
+						System.out.println(emparray1[i].getEmployeeId() + " "
+								+emparray1[i].getEmployeeName()+" "+emparray1[i].getEmployeePackage()+" "+emparray1[i].getEmployeeSalary()+" "+emparray1[i].getEmployeepf());
+						}}
 		}
 	public void loanElgibility()
 	{
@@ -162,6 +174,21 @@ public class EmployeeOperations
 				System.out.println("Insert Employee Data First");
 			}
 		
+	}
+	
+	public void deSerialization()throws Exception {
+		FileInputStream fis=new FileInputStream("E:/sanju1.txt");
+		ObjectInputStream ois=new ObjectInputStream(fis);
+			Object obj=ois.readObject();
+			Employee[] emparray1=(Employee[])obj;
+			System.out.println(emparray1[1].getEmployeeId());
+	}
+	public void serialization()throws Exception {
+		File file=new File("E:/sanju1.txt");
+		FileOutputStream fos=new FileOutputStream(file);
+		ObjectOutputStream oos=new ObjectOutputStream(fos);
+		oos.writeObject(empArray);
+
 	}
 
 }

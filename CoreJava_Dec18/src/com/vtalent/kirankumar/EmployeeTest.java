@@ -20,7 +20,7 @@ public class EmployeeTest {
 				Employee emp = new Employee();
 				System.out.println("Enter Id:");
 				emp.setEmployId(sc.nextInt());
-				System.out.println("Enter Employ Name");
+				System.out.println("Enter Employee Name");
 				emp.setEmployname(sc.next());
 				System.out.println("Enter Package:");
 				emp.setEmployPackage(sc.nextDouble());
@@ -28,7 +28,7 @@ public class EmployeeTest {
 				 
 			}
 		} else if (a == 2) {
-			if (EmployeeOperations.emparray == null) {
+	  		if (EmployeeOperations.emparray == null) {
 				System.out.println("First Create Employee Data");
 			} else {
 				System.out.println("Enter the no.of Employees to be Added");

@@ -1,7 +1,7 @@
 package com.vtalent.kirankumar;
 
 import java.util.Scanner;
-
+/*
 public class Test {
 	static Scanner input = new Scanner(System.in);
 	static int z = 0;
@@ -12,7 +12,7 @@ public class Test {
 		// int z = 0;
 		while (true) {
 			int t = 0;
-			EmployeeOperations.view();
+//	EmployeeOperations.view();
 			int n = input.nextInt();
 			if (n <= 6) {
 				switch (n) {
@@ -20,14 +20,14 @@ public class Test {
 					if (size == 0) {
 						System.out.println("enter Number of Employees to Insert");
 						size = input.nextInt();
-						EmployeeOperations.empArray = new Employee[size];
+					//	EmployeeOperations.empArray = new Employee[size];
 						for (int i = 0; i <= size - 1; i++) {
 							System.out.println("Enter" + (i + 1) + "Employee data");
 							Employee emp = new Employee();
 							System.out.println("Enter ID");
-							emp.setEmployeeID(input.nextInt());
+							///emp.setEmployeeID(input.nextInt());
 							System.out.println("Enter Salary");
-							emp.setEmployeeSalary(input.nextDouble());
+						//	emp.setEmployeeSalary(input.nextDouble());
 							EmployeeOperations.insertData(emp);
 							// System.out.println("Insert Data Successfully ");
 							// z = EmployeeOperations.empArray.length;
@@ -36,14 +36,14 @@ public class Test {
 					} else if (size == z) {
 						System.out.println("z value...." + z + " size Of Array...." + size);
 						for (int i = 0; i <= size - 1; i++) {
-							if (EmployeeOperations.empArray[i] == null) {
+							//if (EmployeeOperations.empArray[i] == null) {
 								Employee emp = new Employee();
 								System.out.println("Enter ID");
-								emp.setEmployeeID(input.nextInt());
+						//		emp.setEmployeeID(input.nextInt());
 								System.out.println("Enter Salary");
-								emp.setEmployeeSalary(input.nextDouble());
+					//			emp.setEmployeeSalary(input.nextDouble());
 								EmployeeOperations.insertData(emp);
-								z = EmployeeOperations.empArray.length;
+				//				z = EmployeeOperations.empArray.length;
 							}
 							System.out.println("insert Data Successfully");
 							z = size + 1;
@@ -54,7 +54,7 @@ public class Test {
 					break;
 				case 2:
 
-					EmployeeOperations.upDateEmployeeData();
+			//		EmployeeOperations.upDateEmployeeData();
 					break;
 				case 3:
 
@@ -62,11 +62,11 @@ public class Test {
 					break;
 				case 4:
 
-					EmployeeOperations.searchEmployee();
+		//			EmployeeOperations.searchEmployee();
 					break;
 				case 5:
 
-					EmployeeOperations.printAllEmployeeData();
+	//				EmployeeOperations.printAllEmployeeData();
 					break;
 				case 6:
 
@@ -87,3 +87,4 @@ public class Test {
 	}
 
 }
+*/
