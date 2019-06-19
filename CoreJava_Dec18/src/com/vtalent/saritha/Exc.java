@@ -1,6 +1,7 @@
 package com.vtalent.saritha;
 
 public class Exc {
+	int a;
 	void display(){
 		try{
 			int a=4/0;

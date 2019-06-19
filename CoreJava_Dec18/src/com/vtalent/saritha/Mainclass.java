@@ -122,18 +122,16 @@ public class Mainclass {
 		MinMaxExample();
 		break;
 
-		/*
-		* case 5: sort(arr); printArray(arr); break;
-		*/
+		
 		default:
 
-		break;
+		
 
 		}
 		}
 		}
 
-		}
+}
 
 
 
