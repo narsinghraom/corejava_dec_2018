@@ -1,13 +1,13 @@
-package com.vtalent.sukesh;
+package com.vtalent.saichand;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
-public class EmployeeTask1 {
+public class EmployeeTask2 {
 
-	private static Scanner input = new Scanner(System.in);
+	static Scanner input = new Scanner(System.in);
 	static int z = 0;
 
 	public static void main(String[] args) throws Exception {
@@ -21,30 +21,31 @@ public class EmployeeTask1 {
 				switch (n) {
 				case 1:
 					if (size == 0) {
-						System.out
-								.println("enter Number of Employees to Insert");
+						System.out.println(" Number of Employees to be Insert");
 						size = getInput().nextInt();
 						EmployeeOperations.empArray = new Employee[size];
 						for (int i = 0; i <= size - 1; i++) {
 							System.out.println("Enter " + (i + 1)
 									+ " Employee data");
 							EmployeeOperations.InsertInnerLogic();
-						}
-						// Employee emp = new Employee();
 
-						System.out.println("Successfully Entered ");
+						}
+
+						System.out.println("insertion completed Entered ");
 					} else if (size == z) {
 
 						for (int i = 0; i <= size - 1; i++) {
 							if (EmployeeOperations.empArray[i] == null) {
 								EmployeeOperations.InsertInnerLogic();
 								z = EmployeeOperations.empArray.length;
-								System.out.println("insert Data Successfully");
+								System.out
+										.println("inserted Data Successfully");
 								z = size + 1;
+
 							}
 						}
 					} else {
-						System.out.println("No Space to insert");
+						System.out.println("No Space to enter");
 					}
 					break;
 				case 2:
@@ -69,8 +70,9 @@ public class EmployeeTask1 {
 				case 7:
 
 					try {
-						File file = new File("F:\\Employee Data View.txt");
+						File file = new File("C:\\vtalen.txt");
 						FileOutputStream fos = new FileOutputStream(file);
+						@SuppressWarnings("resource")
 						ObjectOutputStream oos = new ObjectOutputStream(fos);
 						oos.writeObject(EmployeeOperations.empArray);
 
@@ -83,7 +85,7 @@ public class EmployeeTask1 {
 				}
 
 			} else {
-				System.out.println("please Enter Correct Number");
+				System.out.println("please Enter valid Number");
 			}
 
 			if (t == 1) {
@@ -98,6 +100,6 @@ public class EmployeeTask1 {
 	}
 
 	public static void setInput(Scanner input) {
-		EmployeeTask1.input = input;
+		EmployeeTask2.input = input;
 	}
 }

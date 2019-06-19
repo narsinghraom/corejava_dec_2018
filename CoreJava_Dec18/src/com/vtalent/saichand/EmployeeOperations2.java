@@ -1,9 +1,9 @@
-package com.vtalent.sukesh;
+package com.vtalent.saichand;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
-public class EmployeeOperations {
+public class EmployeeOperations2 {
 
 	static Employee[] empArray;
 	static String IDs = "";
@@ -44,17 +44,17 @@ public class EmployeeOperations {
 
 		Employee emp = new Employee();
 		System.out.println("Enter ID:- ");
-		emp.setEmployeeID(EmployeeOperations.IdLogic(EmployeeTask1.getInput()
+		emp.setEmployeeID(EmployeeOperations2.IdLogic(EmployeeTask2.input
 				.nextInt()));
 		System.out.println("Enter Employee Name:- ");
-		emp.setEmployeeName(EmployeeTask1.getInput().next());
+		emp.setEmployeeName(EmployeeTask2.getInput().next());
 
 		System.out.println("Enter MobileNumber:- ");
 
-		emp.setMobileNumber(EmployeeOperations.MobileLogic(EmployeeTask1.getInput()
+		emp.setMobileNumber(EmployeeOperations2.MobileLogic(EmployeeTask2.input
 				.next()));
 		System.out.println("Enter EmployeePackage:- ");
-		double P = EmployeeOperations.PackageLogic(EmployeeTask1.getInput()
+		double P = EmployeeOperations2.PackageLogic(EmployeeTask2.getInput()
 				.nextDouble());
 		emp.setEmployeePackage(P);
 		double S = P / 12;
@@ -63,7 +63,7 @@ public class EmployeeOperations {
 		emp.setEmployeeSalary(S);
 		emp.setEmployeePF(pf);
 
-		EmployeeOperations.insertData(emp);
+		EmployeeOperations2.insertData(emp);
 
 	}
 
@@ -79,7 +79,7 @@ public class EmployeeOperations {
 		}
 		if (count != 1) {
 			System.out.println("Enter Correct Package");
-			Package = PackageLogic(EmployeeTask1.getInput().nextDouble());
+			Package = PackageLogic(EmployeeTask2.getInput().nextDouble());
 		}
 		return pk = Package;
 
@@ -110,7 +110,7 @@ public class EmployeeOperations {
 		}
 		if (count != 2) {
 			System.out.println("Enter Correct Mobile number:- ");
-			mobile = MobileLogic(EmployeeTask1.getInput().next());
+			mobile = MobileLogic(EmployeeTask2.getInput().next());
 		}
 		return M = mobile;
 
@@ -135,7 +135,7 @@ public class EmployeeOperations {
 		}
 		if (count != 3) {
 			System.out.println("Enter EmployeeID");
-			id = IdLogic(EmployeeTask1.getInput().nextInt());
+			id = IdLogic(EmployeeTask2.getInput().nextInt());
 
 		}
 		return v = id;
@@ -146,14 +146,14 @@ public class EmployeeOperations {
 		int count = 0;
 		if (empArray != null) {
 			System.out.println("Enter Updated  EmployeeID:");
-			int x = EmployeeTask1.getInput().nextInt();
+			int x = EmployeeTask2.getInput().nextInt();
 			for (int i = 0; i <= empArray.length - 1; i++) {
 				Employee emp = empArray[i];
 				if (emp != null) {
 					if (x == emp.getEmployeeID()) {
 
 						System.out.println("Enter Package:");
-						int x1 = EmployeeTask1.getInput().nextInt();
+						int x1 = EmployeeTask2.getInput().nextInt();
 						emp.setEmployeePackage(x1);
 						double S = x1 / 12;
 						double pf = S * 0.02;
@@ -162,7 +162,7 @@ public class EmployeeOperations {
 						emp.setEmployeePF(pf);
 
 						System.out.println("Ofter update.............");
-						EmployeeOperations.DataPrint();
+						EmployeeOperations2.DataPrint();
 						System.out.println(" " + emp.getEmployeeID() + "			 "
 								+ emp.getEmployeeName() + "			 "
 								+ emp.getMobileNumber() + "			"
@@ -191,14 +191,14 @@ public class EmployeeOperations {
 		int Count = 0;
 		if (empArray != null) {
 			System.out.println("enter EmployeeID");
-			int x = EmployeeTask1.getInput().nextInt();
+			int x = EmployeeTask2.getInput().nextInt();
 			for (int i = 0; i <= empArray.length - 1; i++) {
 				Employee emp = empArray[i];
 				if (emp != null) {
 					if (x == emp.getEmployeeID()) {
 						empArray[i] = null;
 						System.out.println("Deleted Data");
-						EmployeeTask1.z = EmployeeOperations.empArray.length;
+						EmployeeTask2.z = EmployeeOperations2.empArray.length;
 						Count = 1;
 						break;
 					} else {
@@ -219,8 +219,8 @@ public class EmployeeOperations {
 
 		if (empArray != null) {
 			System.out.println("enter EmployeeID:");
-			int x = EmployeeTask1.getInput().nextInt();
-			EmployeeOperations.DataPrint();
+			int x = EmployeeTask2.getInput().nextInt();
+			EmployeeOperations2.DataPrint();
 			for (int i = 0; i <= empArray.length - 1; i++) {
 				Employee emp = empArray[i];
 				if (emp != null) {
@@ -252,7 +252,7 @@ public class EmployeeOperations {
 	public static void printAllEmployeeData() throws Exception {
 
 		if (empArray != null) {
-			EmployeeOperations.DataPrint();
+			EmployeeOperations2.DataPrint();
 			for (int i = 0; i <= empArray.length - 1; i++) {
 				Employee emp = empArray[i];
 				if (emp != null) {
@@ -297,7 +297,7 @@ public class EmployeeOperations {
 		int Count = 0;
 		if (empArray != null) {
 			System.out.println("Enter Emolyee ID for LoanDetails:-");
-			int L = EmployeeTask1.getInput().nextInt();
+			int L = EmployeeTask2.getInput().nextInt();
 			for (int i = 0; i < empArray.length; i++) {
 				Employee emp = empArray[i];
 				if (emp != null) {
