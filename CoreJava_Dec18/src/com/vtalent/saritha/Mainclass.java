@@ -120,7 +120,7 @@ public class Mainclass {
 
 		case 4:
 		MinMaxExample();
-		break;
+		
 
 		
 		default:
