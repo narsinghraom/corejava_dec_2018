@@ -9,6 +9,11 @@ public class Employee implements Serializable {
 	private String employName;
 	private double employPackage;
 	private double pf;
+	private double loanAmount;
+	private double emi;
+	private int tenure;
+	private String loanStartDate;
+	private String loanEndDate;
 
 	public int getEmployid() {
 		return employid;
@@ -56,6 +61,46 @@ public class Employee implements Serializable {
 
 	public void setPf(double pf) {
 		this.pf = pf;
+	}
+
+	public double getLoanAmount() {
+		return loanAmount;
+	}
+
+	public void setLoanAmount(double eligibleAmount) {
+		this.loanAmount = eligibleAmount;
+	}
+
+	public double getEmi() {
+		return emi;
+	}
+
+	public void setEmi(double emi) {
+		this.emi = emi;
+	}
+
+	public int getTenure() {
+		return tenure;
+	}
+
+	public void setTenure(int tenure) {
+		this.tenure = tenure;
+	}
+
+	public String getLoanStartDate() {
+		return loanStartDate;
+	}
+
+	public void setLoanStartDate(String loanStartDate) {
+		this.loanStartDate = loanStartDate;
+	}
+
+	public String getLoanEndDate() {
+		return loanEndDate;
+	}
+
+	public void setLoanEndDate(String loanEndDate) {
+		this.loanEndDate = loanEndDate;
 	}
 
 }

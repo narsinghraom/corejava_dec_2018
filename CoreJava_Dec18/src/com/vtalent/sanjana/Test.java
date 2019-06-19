@@ -14,7 +14,7 @@ public class Test implements Serializable{
 
 	public static void main(String[] args) throws Exception
 	{
-		Employee emp=new Employee();
+		//Employee emp=new Employee();
 		EmployeeOperations eop=new EmployeeOperations();
 		Scanner sc= new Scanner(System.in);
 		int choice;
@@ -34,7 +34,7 @@ public class Test implements Serializable{
 		EmployeeOperations.empArray=new Employee[size];
 		for(int i=0;i<=size-1;i++)
 		{
-			
+			Employee emp=new Employee();	
 			System.out.println("Enter "+(i+1)+" Employee Data");
 			System.out.println("Enter Id");
 			emp.setEmployeeId(sc.nextInt());
@@ -42,7 +42,6 @@ public class Test implements Serializable{
 			emp.setEmployeeName(sc.next());
 			System.out.println("Enter Package");
 			emp.setEmployeePackage(sc.nextDouble());
-			// SerializableEx.doSerialization();
 			EmployeeOperations.insertData(emp);
 			 
 		}
@@ -65,16 +64,23 @@ public class Test implements Serializable{
 		break;
 		
 	case 4:
-		
+		try {
 		eop.searchEmployee( );
-	
+		}
+		catch(Exception e) {
+			
+		}
 		break;
 		
 	case 5:
 		
-		
+		try {
 	eop.printAllEmployeeData();
-		
+	//		eop.deSerialization();
+		}
+		catch(Exception e) {
+			
+		}
 
 		break;
 		
@@ -83,10 +89,13 @@ public class Test implements Serializable{
 		break;
 	
 	case 7:
-		//public static void doSerialization() throws IOException{
-		
-			SerializableEx.doSerialization();
+		EmployeeOperations eo=new EmployeeOperations();
+		try {
+			eo.serialization();
+		}
+		catch(Exception e) {
 			
+		}
 			
 		System.out.println("Exit");
 		break;

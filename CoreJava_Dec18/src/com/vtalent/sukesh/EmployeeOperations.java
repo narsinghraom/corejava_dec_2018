@@ -20,9 +20,8 @@ public class EmployeeOperations {
 	}
 
 	public static void DataPrint() {
-		System.out.println("EmployeeID" + "		" + "EmployeeName" + "		"
-				+ "Employee MobileNumber" + "		" + "EmployeePackage" + "		"
-				+ "EmployeeSalary" + "		" + "EmployeePF");
+		System.out.println("EmployeeID" + "		" + "EmployeeName" + "		" + "Employee MobileNumber" + "		"
+				+ "EmployeePackage" + "		" + "EmployeeSalary" + "		" + "EmployeePF");
 
 	}
 
@@ -44,18 +43,28 @@ public class EmployeeOperations {
 
 		Employee emp = new Employee();
 		System.out.println("Enter ID:- ");
+<<<<<<< HEAD
 		emp.setEmployeeID(EmployeeOperations.IdLogic(EmployeeTask1.getInput()
 				.nextInt()));
+=======
+		emp.setEmployeeID(EmployeeOperations.IdLogic(EmployeeTask1.input.nextInt()));
+>>>>>>> 716856b488dc9a47c16508e9c2a64675c136ce5c
 		System.out.println("Enter Employee Name:- ");
 		emp.setEmployeeName(EmployeeTask1.getInput().next());
 
 		System.out.println("Enter MobileNumber:- ");
 
+<<<<<<< HEAD
 		emp.setMobileNumber(EmployeeOperations.MobileLogic(EmployeeTask1.getInput()
 				.next()));
 		System.out.println("Enter EmployeePackage:- ");
 		double P = EmployeeOperations.PackageLogic(EmployeeTask1.getInput()
 				.nextDouble());
+=======
+		emp.setMobileNumber(EmployeeOperations.MobileLogic(EmployeeTask1.input.next()));
+		System.out.println("Enter EmployeePackage:- ");
+		double P = EmployeeOperations.PackageLogic(EmployeeTask1.input.nextDouble());
+>>>>>>> 716856b488dc9a47c16508e9c2a64675c136ce5c
 		emp.setEmployeePackage(P);
 		double S = P / 12;
 		double pf = S * 0.02;
@@ -94,8 +103,7 @@ public class EmployeeOperations {
 			System.out.println("Mobile Number Must 10-Digits");
 			count = 1;
 		} else if (Mobile.contains(s)) {
-			System.out
-					.println("MobileNumber Already Entered in DataBase,Enter New Number");
+			System.out.println("MobileNumber Already Entered in DataBase,Enter New Number");
 			count = 1;
 		} else if (n == '9' || n == '8' || n == '7') {
 			count = 2;
@@ -126,8 +134,7 @@ public class EmployeeOperations {
 			count = 1;
 
 		} else if (IDs.contains(s)) {
-			System.out
-					.println("EmployeeID Already Entered in DataBase,Enter New ID");
+			System.out.println("EmployeeID Already Entered in DataBase,Enter New ID");
 			count = 2;
 		} else {
 			IDs = IDs + " " + s;
@@ -163,12 +170,9 @@ public class EmployeeOperations {
 
 						System.out.println("Ofter update.............");
 						EmployeeOperations.DataPrint();
-						System.out.println(" " + emp.getEmployeeID() + "			 "
-								+ emp.getEmployeeName() + "			 "
-								+ emp.getMobileNumber() + "			"
-								+ emp.getEmployeePackage() + "		  "
-								+ emp.getEmployeeSalary() + "		 "
-								+ emp.getEmployeePF());
+						System.out.println(" " + emp.getEmployeeID() + "			 " + emp.getEmployeeName()
+								+ "			 " + emp.getMobileNumber() + "			" + emp.getEmployeePackage()
+								+ "		  " + emp.getEmployeeSalary() + "		 " + emp.getEmployeePF());
 
 						count = 1;
 						break;
@@ -226,12 +230,9 @@ public class EmployeeOperations {
 				if (emp != null) {
 					if (x == emp.getEmployeeID()) {
 
-						System.out.println(" " + emp.getEmployeeID() + "			 "
-								+ emp.getEmployeeName() + "			 "
-								+ emp.getMobileNumber() + "			"
-								+ emp.getEmployeePackage() + "		  "
-								+ emp.getEmployeeSalary() + "		 "
-								+ emp.getEmployeePF());
+						System.out.println(" " + emp.getEmployeeID() + "			 " + emp.getEmployeeName()
+								+ "			 " + emp.getMobileNumber() + "			" + emp.getEmployeePackage()
+								+ "		  " + emp.getEmployeeSalary() + "		 " + emp.getEmployeePF());
 
 						count = 1;
 						break;
@@ -257,6 +258,25 @@ public class EmployeeOperations {
 				Employee emp = empArray[i];
 				if (emp != null) {
 
+
+			try {
+
+				FileInputStream fis = new FileInputStream("F:\\Employee Data View.txt");
+				ObjectInputStream ois = new ObjectInputStream(fis);
+				Object obj = ois.readObject();
+				Employee emp1 = (Employee) obj;
+
+				EmployeeOperations.DataPrint();
+				for (int K = 0; i <= empArray.length - 1; i++) {
+					emp = empArray[i];
+					if (emp != null) {
+
+						System.out.println(" " + emp.getEmployeeID() + "			 " + emp.getEmployeeName()
+								+ "			 " + emp.getMobileNumber() + "			" + emp.getEmployeePackage()
+								+ "		  " + emp.getEmployeeSalary() + "		 " + emp.getEmployeePF());
+
+					}
+
 					System.out.println(" " + emp.getEmployeeID() + "			 "
 							+ emp.getEmployeeName() + "			 "
 							+ emp.getMobileNumber() + "			"
@@ -270,25 +290,20 @@ public class EmployeeOperations {
 
 		else {
 			try {
-				FileInputStream fis = new FileInputStream(
-						"F:\\Employee Data View.txt");
+				FileInputStream fis = new FileInputStream("F:\\Employee Data View.txt");
 				ObjectInputStream ois = new ObjectInputStream(fis);
 				Object obj = ois.readObject();
-				Employee emp = (Employee) obj;
+				Employee emp1 = (Employee) obj;
 
-				System.out
-						.println(" " + emp.getEmployeeID() + "			 "
-								+ emp.getEmployeeName() + "			 "
-								+ emp.getMobileNumber() + "			"
-								+ emp.getEmployeePackage() + "		  "
-								+ emp.getEmployeeSalary() + "		 "
-								+ emp.getEmployeePF());
+				System.out.println(" " + emp.getEmployeeID() + "			 " + emp.getEmployeeName() + "			 "
+						+ emp.getMobileNumber() + "			" + emp.getEmployeePackage() + "		  "
+						+ emp.getEmployeeSalary() + "		 " + emp.getEmployeePF());
 
 			} catch (Exception e) {
 				e.getMessage();
 
 			}
-
+		}
 		}
 
 	}
@@ -325,8 +340,7 @@ public class EmployeeOperations {
 				}
 			}
 			if (Count == 2) {
-				System.out
-						.println("Sorry You are ID Dosen't Match....Please Enter Currect ID ");
+				System.out.println("Sorry You are ID Dosen't Match....Please Enter Currect ID ");
 			}
 		} else {
 			System.out.println("Not Data 1st Insert data");

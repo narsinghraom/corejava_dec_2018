@@ -1,22 +1,26 @@
 package com.vtalent.saritha;
 
 import java.util.Scanner;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+
+import com.vtalent.rakesh.GetALoanException;
+
 
 public class EmployeeOperations {
-	Employee emp;
-
 	static Employee[] emparray;
 	Scanner sc = new Scanner(System.in);
 
-	public static void insertData(Employee emp) {
+	public static void storeData(Employee emp) {
 		if (emparray != null) {
 			for (int i = 0; i <= emparray.length - 1; i++) {
 				if (emparray[i] == null) {
 					emparray[i] = emp;
-					// System.out.println("here");
+
 					break;
 				}
 			}
+
 			System.out.println("Successfully Inserted." + '\n');
 		}
 
@@ -26,136 +30,153 @@ public class EmployeeOperations {
 	}
 
 	public void printAllData() {
+
 		if (emparray != null) {
-			for (int i = 0; i < emparray.length ; i++) {
+			for (int i = 0; i <= emparray.length - 1; i++) {
+
 				Employee emp1 = emparray[i];
-				 if(emparray[i]==null) {
-					 
-				 }
-				 else {
-				System.out.println(emp1.getEmployId() + "   "
-						+ emp1.getEmploySalary());
-				 }
-	Scanner sc=new Scanner(System.in);	
-	
-				/*
-				 * if(emparray!=null) { for( i=0;i<=emparray.length-1;i++) {
-				 * if(emparray[i]==null) { emparray[i]=emp;
-				 * System.out.println("Successfully Inserted."+'\n'); break; } }
-				 * 
-				 * } else { System.out.println("Insert Some Data"+'\n'); }
-				 */
-		/*
-		 
-		*/
-	
-			}}
-	else {
-		System.out.println("Employee Data is empty" + '\n');
-	}
-	
+				if (emp1 != null) {
+					System.out.println("Employee Name:" + emp1.getEmployName() + "   Employee id:" + emp1.getEmployid()
+							+ "   Employee mobilenumber:" + emp1.getMobileNumber() + "   Employee package: "
+							+ emp1.getEmployPackage() + "   Employee pf:" + emp1.getPf() + "   Employee salary:"
+							+ emp1.getEmploysalary());
+				} else {
+					System.out.println("please enter the Employee data first");
+
+				}
 			}
+		}
+
+		else {
+			System.out.println("Insert the Employee Data first" + '\n');
+
+		}
+
+	}
 
 	public void updateData() {
 		if (emparray != null) {
 			Employee emp1;
 			for (int i = 0; i <= emparray.length - 1; i++) {
 				emp1 = emparray[i];
-				if(emparray[i]==null) {
-					System.out.println("Insert Data First");
-				}
-				else {
-				System.out.println(emp1.getEmployId() + "   "
-						+ emp1.getEmploySalary());
-			}
+				System.out.println(emp1.getEmployid() + "   " + emp1.getEmploysalary());
 			}
 
 			System.out.println("Enter the Id to be Updated" + '\n');
 			int x = sc.nextInt();
-			for ( int i = 0; i <= emparray.length - 1; i++) {
+			for (int i = 0; i <= emparray.length - 1; i++) {
 				Employee emp2;
 				emp2 = emparray[i];
-				if (x == emp2.getEmployId()) {
-					System.out
-							.println("Enter the new Salary to be Updated" + '\n');
-					emp2.setEmploySalary(sc.nextDouble());
-		
-				if(emparray!=null) {
-					for( i=0;i<=emparray.length-1;i++) {
-						if(emparray[i]!=null) {
-						 emp=emparray[i];
-						System.out.println(emp.getEmployId()+"   "+ emp.getEmploySalary());
-						}
-						
-														  }
+				if (x == emp2.getEmployid()) {
+					System.out.println("Enter the new Salary to be Updated" + '\n');
+					double updatedSalary = sc.nextDouble();
+
+					emp2.setEmploysalary(updatedSalary);
+
+				}
 			}
 		}
 
-		
-	}
-			
-			}
 		else {
 			System.out.println("First Insert Employee Data" + '\n');
 		}
+	}
+
+	public void searchData() {
+		if (emparray != null) {
+			System.out.println("Enter the Employ_Id:");
+
+			int x = sc.nextInt();
+			for (int i = 0; i <= emparray.length - 1; i++) {
+
+				Employee emp1;
+				emp1 = emparray[i];
+				if (x == emp1.getEmployid()) {
+					System.out.println("Employ_Id- " + emp1.getEmployid() + '\n' + "Employ_Salary- "
+							+ emp1.getEmploysalary() + '\n' + "Employ_pf " + emp1.getPf() + '\n' + "Employ_name "
+							+ emp1.getEmployName() + "Employ_mobilenumber- " + emp1.getMobileNumber());
+				} else {
+					System.out.println("Enter the Valid Id" + '\n');
+				}
 			}
-	
+		} else {
 
- 
+			try {
+				FileInputStream fi = new FileInputStream("D:\\Rakesh\\rakeshdataa");
+				ObjectInputStream ois = new ObjectInputStream(fi);
+				Object obj = ois.readObject();
+				Employee[] emp = (Employee[]) obj;
+				for (int i = 0; i <= emp.length - 1; i++)
+					;
+				{
+					System.out.println(emp);
+				}
+			} catch (Exception e) {
 
-	 
-					
-					public void searchData() {
-						if(emparray!=null) {
-							System.out.println("Enter the Employ_Id:");
-							Employee emp1;
-							int x=sc.nextInt();
-							for(int i=0;i<=emparray.length-1;i++) {
-								emp1=emparray[i];
-								if(emparray[i]==null) {
-									
-								}
-								else if (x==emp1.getEmployId()) {
-								System.out.println("Employ_Id- "+emp1.getEmployId()+'\n'+"Employ_Salary- "+emp1.getEmploySalary() );
-									break;
-								}
-								else {
-									System.out.println("Enter the Valid Id"+'\n');
-								}
-								}
-					}
-							
-						else {
-							System.out.println("Insert the Employee Data first"+'\n');
+			}
+			System.out.println("Insert the Employee Data first" + '\n');
+
+		}
+	}
+
+	public void deleteEmploy() {
+		if (emparray != null) {
+			Employee emp1;
+			for (int i = 0; i <= emparray.length - 1; i++) {
+				emp1 = emparray[i];
+				System.out.println(emp1.getEmployid());
+
+			}
+			System.out.println("Enter the Id to be Deleted");
+			int x = sc.nextInt();
+			for (int i = 0; i <= emparray.length - 1; i++) {
+				emp1 = emparray[i];
+				if (x == emp1.getEmployid()) {
+					emparray[i] = null;
+
+					System.out.println("Deleted");
+				}
+
+			}
+
+		} else {
+			System.out.println("No Data Found" + '\n');
+		}
+
+	}
+
+	public void validateLoan() {
+		Employee emp1;
+		if (emparray != null) {
+
+			for (int i = 0; i <= emparray.length - 1; i++) {
+
+				emp1 = emparray[i];
+
+			}
+
+			System.out.println("enter id to find loan eligibility");
+
+			int uid = sc.nextInt();
+			for (int i = 0; i <= emparray.length - 1; i++) {
+
+				emp1 = emparray[i];
+				if (uid == emp1.getEmployid()) {
+					double sal = emp1.getEmploysalary();
+					try {
+						if (sal <= 10000) {
+							throw newException();
+						} else {
+							System.out.println("loan granted");
 						}
-						
+					} catch (GetALoanException e) {
+						System.out.println(e);
 					}
-					public void deleteEmploy() {
-						if(emparray!=null) { 
-							Employee emp1;
-							for(int i=0;i<=emparray.length-1;i++) {
-								 emp1=emparray[i];
-								System.out.println(emp1.getEmployId());
-								
-																  }
-							System.out.println("Enter the Id to be Deleted");
-								int x=sc.nextInt();
-								for(int i=0;i<=emparray.length-1;i++) {
-									 emp1=emparray[i];
-									 	if(x==emp1.getEmployId()) {
-									 		emparray[i]=null;
-									 		System.out.println("Successfully Deleted, Plz Replace the Deleted Employee with New Employe"+'\n');
-								}
-								
-								}
-																
+				}
+
+			}
+
+		}
+	
+	}
 }
-						else {
-							System.out.println("No Data Found"+'\n');
-						}
-						
-						}
-}		
-	
-
-

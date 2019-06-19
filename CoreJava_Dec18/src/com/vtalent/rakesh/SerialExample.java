@@ -8,13 +8,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class SerialExample {
-	public static void doSerialization() throws IOException {
+	public static void serialization() throws IOException {
 
 		Employeee emp = new Employeee();
 		// emp.setId(100);
 		// emp.setName("rakeshh");
 		// emp.setSalary(10);
-		File file = new File("D:\\Rakesh\\rakeshdataa");
+		File file = new File("D:\\Rakesh\\r");
 		FileOutputStream fo = new FileOutputStream(file);
 		ObjectOutputStream oos = new ObjectOutputStream(fo);
 		oos.writeObject(emp);
@@ -23,7 +23,7 @@ public class SerialExample {
 	public static void deSerialization() {
 
 		try {
-			FileInputStream fi = new FileInputStream("D:\\Rakesh\\rakeshdataa");
+			FileInputStream fi = new FileInputStream("D:\\Rakesh\\r");
 			ObjectInputStream ois = new ObjectInputStream(fi);
 			Object obj = ois.readObject();
 			Employeee emp = (Employeee) obj;
@@ -38,7 +38,7 @@ public class SerialExample {
 
 	public static void main(String[] args) {
 		try {
-			doSerialization();
+			serialization();
 
 		} catch (Exception e) {
 		}
