@@ -1,4 +1,4 @@
-package com.vtalent.bhavani;
+package com.vtalent.Bhavani;
 import java.util.Scanner;
 public class Palindrome {
 

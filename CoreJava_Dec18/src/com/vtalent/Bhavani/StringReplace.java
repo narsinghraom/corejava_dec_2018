@@ -1,4 +1,4 @@
-package com.vtalent.bhavani;
+package com.vtalent.Bhavani;
 
 public class StringReplace {
 	
@@ -17,5 +17,8 @@ public class StringReplace {
 	System.out.println(s1.substring(6));
 	System.out.println(s1.trim());
 	System.out.println(s1.indexOf('c'));
+	System.out.println(s1.split(" "));
+	char a[]=s1.toCharArray();
+	System.out.println(s1.charAt(0));
 	}
 	}

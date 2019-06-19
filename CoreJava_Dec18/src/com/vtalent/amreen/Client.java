@@ -41,7 +41,7 @@ public class Client
 
 			int options = sc.nextInt();
 
-			switch (options) {
+			switch(options) {
 			case 1:
 				c.addData();
 
