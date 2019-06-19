@@ -7,8 +7,7 @@ public class AnonymousObject {
 	public AnonymousObject() {
 		try {
 			int e = 7;
-			int r = e / 0;
-			this.q = r;
+
 		} catch (Exception e) {
 		}
 	}
