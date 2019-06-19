@@ -9,7 +9,7 @@ public class Example2 extends InterfaceExampleImplements implements Xyz {
 		this.x = this.x + x;
 		this.y = this.y + y;
 		System.out.println("Excuted the method that is there in the Example2");
-		return this.x + this.y;
+		return 5f;
 
 	}
 

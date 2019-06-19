@@ -3,7 +3,6 @@ package com.vtalent.rakesh;
 public class ClassOnee extends Class {
 	public void function(int k) {
 
-		k = 6;
 		int u = 4;
 		double d = (double) u;
 		System.out.println(k);

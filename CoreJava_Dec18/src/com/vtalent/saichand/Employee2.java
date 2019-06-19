@@ -1,8 +1,8 @@
-package com.vtalent.srihari;
+package com.vtalent.saichand;
 
 import java.io.Serializable;
 
-public class Employee implements Serializable {
+public class Employee2 implements Serializable {
 	private int EmployeeID;
 	private String EmployeeName;
 	private String MobileNumber;

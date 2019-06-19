@@ -6,21 +6,33 @@ import java.io.*;
 
 public class EmployeeTask {
 	static EmployeeDetails[] empArray;
-	 static Scanner a=new Scanner(System.in);
-	public static void insertData(EmployeeDetails emp)
-	{
-		if(empArray!=null)
-		{
-			for(int i=0;i<=empArray.length-1;i++)
-			{
-			if(empArray[i]==null)
-			{
-				empArray[i]=emp;
-				break;
-			}
+	static Scanner a = new Scanner(System.in);
+
+	public static void insertData(EmployeeDetails emp) {
+		if (empArray != null) {
+			for (int i = 0; i <= empArray.length - 1; i++) {
+				if (empArray[i] == null) {
+					empArray[i] = emp;
+					break;
+				}
 			}
 		}
 	}
+<<<<<<< HEAD
+
+	public static void printAllEmployeeData() {
+		if (empArray != null) {
+			for (int i = 0; i < empArray.length; i++) {
+
+				EmployeeDetails emp = empArray[i];
+				if (empArray[i] == null) {
+
+				} else {
+					System.out.println("Employee ID: " + empArray[i].getemployeeID() + "\n" + "Employee Name: "
+							+ empArray[i].getemployeeName() + "\n" + "Package" + empArray[i].getemployeePackage() + "\n"
+							+ "Salary: " + empArray[i].getemployeeSalary() + "\n" + "PF" + empArray[i].getemployeePF());
+				}
+=======
 	public static void printAllEmployeeData() throws IOException, ClassNotFoundException
 	{
 		if(empArray!=null)
@@ -90,24 +102,27 @@ public class EmployeeTask {
 			{
 				System.out.println("No data available in database");
 			
+>>>>>>> d7b7d320f5b07a58d3413a5c6d8d48a4f8d913a5
 			}
 		}
-			
+
 	}
-	public static void updateData(int empID)
-	{
-		if(empArray!=null)
-		{
-			for(int i=0;i<=empArray.length-1;i++)
-			{
-				if(empArray[i].getemployeeID()==empID)
-				{
+
+	public static void updateData(int empID) {
+		if (empArray != null) {
+			for (int i = 0; i <= empArray.length - 1; i++) {
+				if (empArray[i].getemployeeID() == empID) {
 					System.out.println("Enter new employee details");
 					System.out.println("enter Package");
-					empArray[i].setemployeePackage(a.nextDouble());		
-					//Employee empUD=new Employee();empUD.setemployeeSalary(a.nextDouble());
-							//empArray[i]=empUD;
+					empArray[i].setemployeePackage(a.nextDouble());
+					// Employee empUD=new Employee();empUD.setemployeeSalary(a.nextDouble());
+					// empArray[i]=empUD;
 					System.out.println("Data got updated and updated employee details are");
+<<<<<<< HEAD
+					System.out.println("Employee ID: " + empArray[i].getemployeeID() + "\n" + "Employee Name: "
+							+ empArray[i].getemployeeName() + "\n" + "Package" + empArray[i].getemployeePackage() + "\n"
+							+ "Salary: " + empArray[i].getemployeeSalary() + "\n" + "PF" + empArray[i].getemployeePF());
+=======
 					System.out.println("Employee ID: "+empArray[i].getemployeeID()+"\n"+"Employee Name: "+empArray[i].getemployeeName()+"\n"+"Employee Package"+empArray[i].getemployeePackage()+"\n"+"Employee Salary: "+empArray[i].getempActualSal1()+"\n"+"Employee PF: "+empArray[i].getemployeePF1());
 					if(empArray[i].getLoanAmount()==0.0)
 					{
@@ -121,48 +136,69 @@ public class EmployeeTask {
 				}
 			}
 					//System.out.println("Employee ID: "+empArray[i].getemployeeID()+"\n"+"Employee Name: "+empArray[i].getemployeeName()+"\n"+"Employee Package"+empArray[i].getemployeePackage()+"\n"+"Employee Salary: "+empArray[i].getemployeeSalary()+"\n"+"Employee PF: "+empArray[i].getemployeePF()+"\n"+"Employee Loan: "+empArray[i].getLoanAmount()+"\n"+"Employee Tenure: "+empArray[i].getTenure()+"\n"+"Employee Emi: "+empArray[i].getEMI()+"\n"+"Employee Take Home salary: "+empArray[i].getTakeHome()+"\n"+"Employee Loan taken Date: "+empArray[i].getStartTime()+"\n"+"Employee Loan End Date: "+empArray[i].getEndTime());
+>>>>>>> d7b7d320f5b07a58d3413a5c6d8d48a4f8d913a5
 					break;
 				}
-			
-				System.out.println("Enter valid employee ID");
-	
-			}
-		
-			
-			
 
-		
-		else
-		{
-			System.out.println("No data available in database");
-			
-		}
-	}
-	public static void deleteData(int empID)
-	{
-		if(empArray!=null)
-		{
-			for(int i=0;i<=empArray.length-1;i++)
-			{
-				if(empArray[i].getemployeeID()==empID)
-				{
-				
-				empArray[i]=null;
-				System.out.println("Employee ID: "+empID+ " deleted");
-				break;
-				
+				System.out.println("Enter valid employee ID");
+
 			}
-			
-			
-			System.out.println("Enter valid Employee ID to delete");
+<<<<<<< HEAD
 		}
-		}
+=======
 		
-		else
-		{
+			
+			
+>>>>>>> d7b7d320f5b07a58d3413a5c6d8d48a4f8d913a5
+
+		else {
+			System.out.println("No data available in database");
+
+		}
+	}
+
+	public static void deleteData(int empID) {
+		if (empArray != null) {
+			for (int i = 0; i <= empArray.length - 1; i++) {
+				if (empArray[i].getemployeeID() == empID) {
+
+					empArray[i] = null;
+					System.out.println("Employee ID: " + empID + " deleted");
+					break;
+
+				}
+
+				System.out.println("Enter valid Employee ID to delete");
+			}
+		}
+
+		else {
 			System.out.println("No data available in database");
 		}
 	}
+<<<<<<< HEAD
+
+	public static void SearchEmployee(int empID) {
+		if (empArray != null) {
+			for (int i = 0; i <= empArray.length - 1; i++) {
+				if (empArray[i] == null) {
+
+				}
+
+				else if (empArray[i].getemployeeID() == empID) {
+					System.out.println("Employee ID: " + empArray[i].getemployeeID() + "\n" + "Employee Name: "
+							+ empArray[i].getemployeeName() + "\n" + "Package" + empArray[i].getemployeePackage() + "\n"
+							+ "Salary: " + empArray[i].getemployeeSalary() + "\n" + "PF" + empArray[i].getemployeePF());
+					break;
+				}
+
+				System.out.println("enter valid employee ID");
+			}
+
+		} else {
+			System.out.println("no data available in database");
+		}
+=======
 	public static int Nullsearch()
 	{
 		int count=0;
@@ -254,7 +290,25 @@ public class EmployeeTask {
 		
 		
 	}
+>>>>>>> d7b7d320f5b07a58d3413a5c6d8d48a4f8d913a5
 	}
+<<<<<<< HEAD
+
+	public static void getLoan(int empID) {
+		if (empArray != null) {
+			for (int i = 0; i <= empArray.length - 1; i++) {
+				if (empArray[i].getemployeeID() == empID) {
+					if (empArray[i].getemployeeSalary() > 20000) {
+						System.out.println("Eligible for Loan");
+						break;
+					} else {
+						System.out.println("Not eligible for Loan");
+					}
+
+				}
+
+				System.out.println("Enter valid employee ID");
+=======
 	public static void getLoan(int empID)
 	{
 		if(empArray!=null)
@@ -268,16 +322,20 @@ public class EmployeeTask {
 			
 			}
 			
+>>>>>>> 7116f6cb8fc00c2f18c0b6c2a62c3a814bf19c94
 
 			}
-		}
-		else
-		{
+		} else {
 			System.out.println("No data available in database");
-			
+
 		}
 	}
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
 	
+>>>>>>> d7b7d320f5b07a58d3413a5c6d8d48a4f8d913a5
 	public static void Serializable() throws IOException
 	{
 		File file=new File("D:/gunny.txt");
@@ -329,4 +387,6 @@ public class EmployeeTask {
 }
 		
 	
+>>>>>>> 7116f6cb8fc00c2f18c0b6c2a62c3a814bf19c94
 
+}
