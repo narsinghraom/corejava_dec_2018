@@ -4,8 +4,10 @@ package com.vtalent.praveena;
 	public class Abc{
 		
 		static Abc abc=new Abc();
-		float f1,f2;
-		static long l1,l2;
+		float f1;
+		float f2;
+		static long l1;
+		static long l2;
 		Abc abcRef;
 		public Abc function(Abc abc){
 			abcRef=abc;
@@ -20,7 +22,6 @@ package com.vtalent.praveena;
 		}
 
 		public static void main(String[] args) {
-			// TODO Auto-generated method stub
 			l1=function1();
 			l2=l1+5;
 			System.out.println(l1+l2);
