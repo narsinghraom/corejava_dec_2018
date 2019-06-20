@@ -270,10 +270,14 @@ public class EmployeeOperations {
 							+ emp.getEmployeePackage() + "		  "
 							+ emp.getEmployeeSalary() + "		 "
 							+ emp.getEmployeePF());
-
+				}
+			}
 				}
 			}
 		}
+			
+			
+		
 
 		else {
 			try {
