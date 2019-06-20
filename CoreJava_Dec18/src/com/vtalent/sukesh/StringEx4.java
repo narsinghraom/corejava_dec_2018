@@ -4,45 +4,31 @@ import java.util.Scanner;
 
 public class StringEx4 {
 
+	static Scanner sc;
+
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		/*
-		 * String S1 = "ABCD"; String S2 = "DEFA";
-		 */
+
 		System.out.println("Enter Two String:");
-		Scanner sc = new Scanner(System.in);
-		String S1 = sc.nextLine();
-		String S2 = sc.nextLine();
-		String S3 = S1 + S2;
-		S3 = S3.toUpperCase();
-		System.out.println(S3);
-		char[] C1 = S1.toCharArray();
-		char[] C2 = S2.toCharArray();
-		/*
-		 * for (int i = 0; i < C.length; i++) { // System.out.print(C[i]); int
-		 * Count = 0; for (int j = 0; j < C.length; j++) { if (C[i] == C[j]) {
-		 * Count++; } } if (Count == 1) { System.out.print(C[i]); }
-		 * 
-		 * }
-		 */
+		sc = new Scanner(System.in);
+		String Ss1 = sc.nextLine();
+		String Ss2 = sc.nextLine();
+		String Ss3 = Ss1 + Ss2;
+		Ss3 = Ss3.toUpperCase();
+		System.out.println(Ss3);
+		char[] Cc = Ss3.toCharArray();
 
-		for (int i = 0; i < S1.length(); i++) {
-			for (int j = 0; j < S2.length(); j++) {
-				if (S1.charAt(i) == S2.charAt(j)) {
-					S1 = S1.replace(C1[i], ' ');
-					S1 = S2.replace(C2[j], ' ');
-
-		//System.out.println(S3);
-		char[] C = S3.toCharArray();
-		for (int i = 0; i < C.length; i++) {
-			// System.out.print(C[i]);
+		for (int i = 0; i < Cc.length; i++) {
 			int Count = 0;
-			for (int j = 0; j < C.length; j++) {
-				if (C[i] == C[j]) {
+			for (int j = 0; j < Cc.length; j++) {
+				if (Cc[i] == Cc[j]) {
 					Count++;
 				}
 			}
+			if (Count == 1) {
+				System.out.print(Cc[i]);
+			}
+
 		}
-		System.out.println(S1 + "" + S2);
+
 	}
 }
