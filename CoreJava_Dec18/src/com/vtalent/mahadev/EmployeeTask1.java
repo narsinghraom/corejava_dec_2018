@@ -1,19 +1,21 @@
-package com.vtalent.saichand;
+package com.vtalent.mahadev;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
-public class Test {
-
+public class EmployeeTask1 {
 	static Scanner input = new Scanner(System.in);
 	static int z = 0;
 
-	public static void main(String[] args) {
+	public static void main(String[] args)  {
+		// TODO Auto-generated method stub
 		int size = 0;
 		while (true) {
 			int t = 0;
 			EmployeeOperations.view();
 			int n = input.nextInt();
-			if (n <= 6) {
 				switch (n) {
 				case 1:
 					if (size == 0) {
@@ -22,31 +24,22 @@ public class Test {
 						size = input.nextInt();
 						EmployeeOperations.empArray = new Employee[size];
 						for (int i = 0; i <= size - 1; i++) {
-							System.out.println("Enter" + (i + 1)
-									+ "Employee data");
-							Employee emp = new Employee();
-							System.out.println("Enter ID");
-							emp.setEmployeeID(input.nextInt());
-							System.out.println("Enter Salary");
-							emp.setEmployeeSalary(input.nextDouble());
-							EmployeeOperations.insertData(emp);
+							System.out.println("Enter " + (i + 1)
+									+ " Employee data");
+							EmployeeOperations.InsertInnerLogic();
 						}
+						// Employee emp = new Employee();
+
 						System.out.println("Successfully Entered ");
 					} else if (size == z) {
-						System.out.println("z value...." + z
-								+ " size Of Array...." + size);
+
 						for (int i = 0; i <= size - 1; i++) {
 							if (EmployeeOperations.empArray[i] == null) {
-								Employee emp = new Employee();
-								System.out.println("Enter ID");
-								emp.setEmployeeID(input.nextInt());
-								System.out.println("Enter Salary");
-								emp.setEmployeeSalary(input.nextDouble());
-								EmployeeOperations.insertData(emp);
+								EmployeeOperations.InsertInnerLogic();
 								z = EmployeeOperations.empArray.length;
+								System.out.println("insert Data Successfully");
+								z = size + 1;
 							}
-							System.out.println("insert Data Successfully");
-							z = size + 1;
 						}
 					} else {
 						System.out.println("No Space to insert");
@@ -69,7 +62,19 @@ public class Test {
 					EmployeeOperations.printAllEmployeeData();
 					break;
 				case 6:
+					EmployeeOperations.GetLoanDetails();
+					break;
+				case 7:
 
+					try {
+						File file = new File("F:\\Employee Data View.txt");
+						FileOutputStream fos = new FileOutputStream(file);
+						ObjectOutputStream oos = new ObjectOutputStream(fos);
+						oos.writeObject(EmployeeOperations.empArray);
+
+					} catch (Exception e) {
+						e.getMessage();
+					}
 					t = 1;
 					break;
 
@@ -85,4 +90,5 @@ public class Test {
 
 		}
 	}
+
 }

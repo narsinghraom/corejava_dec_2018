@@ -29,7 +29,7 @@ public class EmployeeOperations {
 				Employee emp=empArray[i];
 				if(empArray[i]==null)
 				{
-					
+					System.out.println("Employee data at the position "+i+" is empty");
 				}
 				else
 				{
@@ -96,7 +96,8 @@ public class EmployeeOperations {
 		{
 			if(empArray[i]==null)
 			{
-				
+				System.out.println("Employee data at the position "+i+" is empty");
+
 			}
 			
 			

@@ -1,7 +1,8 @@
 package com.vtalent.sanjana;
 
 public class DemoTwo {
-	int i,j;
+	int i;
+	int j;
 	DemoTwo d;
 	public DemoTwo function(DemoTwo d1)
 	{
@@ -14,7 +15,7 @@ public class DemoTwo {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	
 DemoTwo d1=new DemoTwo();
 d1.i=7;
 d1.j=5;

@@ -27,17 +27,23 @@ public class EncapulationEmployeeTest {
 			emp.setEmployName(sc.next());
 
 			System.out.println("Enter package:");
-			emp.setEmployPackage(sc.nextDouble());
+			double d = sc.nextDouble();
+
+			emp.setEmployPackage(d);
 
 			System.out.println("Enter mobile number:");
 			emp.setMobileNumber(sc.next());
 
-			double d = emp.getEmployPackage();
-			double salary = d / 12;
+			double d2 = emp.getEmployPackage();
+			double salary = d2 / 12;
+
 			double pf = salary * 2 / 100;
 			double finalSalary = salary - pf;
-			emp.setEmploysalary(finalSalary);
-			emp.setPf(pf);
+
+			double finalSalary1 = Math.round(finalSalary * 100.0) / 100.0;
+			emp.setEmploysalary(finalSalary1);
+			double pf1 = Math.round(pf * 100.0) / 100.0;
+			emp.setPf(pf1);
 			EmployeeOperations.storeData(emp);
 		}
 	}

@@ -2,8 +2,10 @@ package com.vtalent.praveena;
 
 
 public class Abc1 {
-	static float f1,f2;
-	int i,j;
+	static float f1;
+	static float f2;
+	int i;
+	int j;
 	Abc1(){
 		i=5;
 		j=7;

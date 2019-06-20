@@ -11,7 +11,7 @@ public class Employee implements Serializable {
 	private double pf;
 	private double loanAmount;
 	private double emi;
-	private double tenure;
+	private int tenure;
 	private String loanStartDate;
 	private String loanEndDate;
 
@@ -79,11 +79,11 @@ public class Employee implements Serializable {
 		this.emi = emi;
 	}
 
-	public double getTenure() {
+	public int getTenure() {
 		return tenure;
 	}
 
-	public void setTenure(double tenure) {
+	public void setTenure(int tenure) {
 		this.tenure = tenure;
 	}
 

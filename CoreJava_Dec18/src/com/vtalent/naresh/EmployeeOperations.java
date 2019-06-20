@@ -39,8 +39,18 @@ public class EmployeeOperations {
 					 
 				 }
 				 else {
-				System.out.println("Employ id- "+emp1.getEmployId()+'\n'+"Employ Name- "+emp1.getEmployname()+'\n'+ "Employ Package- "+emp1.getEmployPackage()+'\n'+ "Employ Salary- "+emp1.getEmploySalary()+'\n'+ "Employ Pf(2%)- "+emp1.getEmployPf()+'\n'+"Loan Amount-"+emp1.getLoanAmount()+'\n'+"EMI-"+emp1.getEmi()+'\n'+"Tenure-"+emp1.getTenure()+'\n'+"Take Home Salary-"+emp1.getTakeHome());
+				//System.out.println("Employ id- "+emp1.getEmployId()+'\n'+"Employ Name- "+emp1.getEmployname()+'\n'+ "Employ Package- "+emp1.getEmployPackage()+'\n'+ "Employ Salary- "+emp1.getEmploySalary()+'\n'+ "Employ Pf(2%)- "+emp1.getEmployPf());
+				if(emp1.getLoanAmount()==0.0) {
+					System.out.println("Employ id- "+emp1.getEmployId()+'\n'+"Employ Name- "+emp1.getEmployname()+'\n'+ "Employ Package- "+emp1.getEmployPackage()+'\n'+ "Employ Salary- "+emp1.getEmploySalary()+'\n'+ "Employ Pf(2%)- "+emp1.getEmployPf());
+					System.out.println("Loan Amount-N/A"+'\n'+"EMI-N/A"+'\n'+"Tenure-N/A");
+					 
+				}
+				else{
+					System.out.println("Employ id- "+emp1.getEmployId()+'\n'+"Employ Name- "+emp1.getEmployname()+'\n'+ "Employ Package- "+emp1.getEmployPackage()+'\n'+ "Employ Salary- "+emp1.getEmploySalary()+'\n'+ "Employ Pf(2%)- "+emp1.getEmployPf());
+				System.out.println("Loan Amount-"+emp1.getLoanAmount()+'\n'+"EMI-"+emp1.getEmi()+'\n'+"Tenure-"+emp1.getTenure()+'\n'+"Take Home Salary-"+emp1.getTakeHome());  
 				 emp1.date();
+				  
+				}
 				 }
 			}}
 	else  {
@@ -211,11 +221,7 @@ public void searchData()throws Exception {
 	 					}
 					
 					
-<<<<<<< HEAD
 	public void employLoan(Employee emp,double salary) {
-=======
-	public void employLoan(double salary,Employee emp1) {
->>>>>>> 49ef787ed8e1a2f30bb240bf54958dffb5b0b4b7
 				
 						try {
 							if(salary<20000) {
@@ -226,8 +232,8 @@ public void searchData()throws Exception {
 								double loanamount=salary*5;
 								emp.setLoanAmount(loanamount);
 								System.out.println("Congrats:) You're Eligible for a Loan of Amount of "+loanamount+" with a interest rate of 14% per Annum(12 Months)"+'\n'+"Would you like to opt for a Loan"+'\n'+" 1.Yes 2.No" );
-								int a=sc.nextInt();
-								if(a==1) {
+								String s=sc.next();
+								if(s.equalsIgnoreCase("yes")) {
 									
 									
 									System.out.println("Enter Tenure Period");
@@ -241,7 +247,7 @@ public void searchData()throws Exception {
 									//emp1.getLoanAmount();
 									//emp1.getEmi();
 								}
-								else if(a==2) {
+								else if(s.equalsIgnoreCase("no")) {
 									System.out.println("Thank You");
 								}
 								
@@ -267,12 +273,7 @@ public void searchData()throws Exception {
 			}
 			else if (a == emp.getEmployId()) {
 				EmployeeOperations eo=new EmployeeOperations();
-<<<<<<< HEAD
 				eo.employLoan(emparray[i],emp.getEmploySalary());
-=======
-				//eo.employLoan(emp.getEmploySalary());
-				eo.employLoan(emp.getEmploySalary(),emparray[i]);
->>>>>>> 49ef787ed8e1a2f30bb240bf54958dffb5b0b4b7
 				break;
 				}
 			 

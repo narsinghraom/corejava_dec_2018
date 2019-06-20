@@ -19,7 +19,7 @@ public class InterfaceExampleImplements implements InterfaceExample {
 		f1 = f1 + x;
 		System.out
 				.println("Excuted the method that is there in the InterfaceExampleImplements with double parameters  ");
-		return x + y;
+		return y;
 	}
 
 }
