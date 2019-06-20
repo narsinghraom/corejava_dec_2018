@@ -3,30 +3,30 @@ package com.vtalent.sukesh;
 import java.util.Scanner;
 
 public class StringEx1 {
+	static Scanner sc;
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		System.out.println("Enter any string ");
-		Scanner sc = new Scanner(System.in);
-		String S = sc.nextLine();
-		S = S.toLowerCase();
-		char[] C = S.toCharArray();
-		for (int i = 0; i < C.length; i++) {
-			int Count = 0;
-			int count1 = 0;
+		sc = new Scanner(System.in);
+		String Ss = sc.nextLine();
+		Ss = Ss.toLowerCase();
+		char[] Cc = Ss.toCharArray();
+		for (int i = 0; i < Cc.length; i++) {
+			int Cc1 = 0;
+			int Cc2 = 0;
 			for (int j = 0; j <= i; j++) {
-				if (C[i] == C[j]) {
-					count1++;
+				if (Cc[i] == Cc[j]) {
+					Cc2++;
 				}
 			}
-			if (count1 == 1 && C[i] != ' ') {
-				for (int k = 0; k < C.length; k++) {
-					if (C[i] == C[k]) {
-						Count++;
+			if (Cc2 == 1 && Cc[i] != ' ') {
+				for (int k = 0; k < Cc.length; k++) {
+					if (Cc[i] == Cc[k]) {
+						Cc1++;
 					}
 				}
-				if (Count > 1) {
-					System.out.println(C[i] + " " + Count + "Times");
+				if (Cc1 > 1) {
+					System.out.println(Cc[i] + " " + Cc1 + "Times");
 				}
 
 			}
