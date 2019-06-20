@@ -18,13 +18,13 @@ public class StringEx4 {
 		char[] Cc = Ss3.toCharArray();
 
 		for (int i = 0; i < Cc.length; i++) {
-			int Count = 0;
+			int Cc1 = 0;
 			for (int j = 0; j < Cc.length; j++) {
 				if (Cc[i] == Cc[j]) {
-					Count++;
+					Cc1++;
 				}
 			}
-			if (Count == 1) {
+			if (Cc1 == 1) {
 				System.out.print(Cc[i]);
 			}
 
