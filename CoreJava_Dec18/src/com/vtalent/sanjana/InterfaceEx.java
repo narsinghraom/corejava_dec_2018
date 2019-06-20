@@ -3,7 +3,7 @@ package com.vtalent.sanjana;
 public class InterfaceEx {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	
 Abcd abc1=new MnrImpl();
 abc1.fun(2);
 abc1.fun(2,3);
@@ -28,7 +28,8 @@ interface Mnr extends Abcd,Xyz
 }
 class AbcImpl implements Abcd
 {
-	int x,y;
+	int x;
+	int y;
 	public void fun(int x)
 	{
 		this.x=this.x+x;

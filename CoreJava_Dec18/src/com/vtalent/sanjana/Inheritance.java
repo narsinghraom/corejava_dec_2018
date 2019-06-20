@@ -1,7 +1,8 @@
 package com.vtalent.sanjana;
 class Demo5
 {
-	int x,y;
+	int x;
+	int y;
 	public void fun(int x)
 	{
 		this.x=x+this.x;
@@ -10,7 +11,7 @@ class Demo5
 	}
 	public void fun(int x,int y)
 	{
-		this.x=this.x+x;
+		this.x=this.x+y;
 		this.y=this.y+x;
 	}
 }
@@ -38,7 +39,7 @@ class Demo3 extends Demo2
 public class Inheritance {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	
 Demo5 demo1=new Demo3();
 demo1.fun(2);
 demo1.fun(5,2);

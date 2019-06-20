@@ -3,7 +3,8 @@ package com.vtalent.sanjana;
 public class Abc1{
 	
 	static Abc1 abc=new Abc1();
-	float f1,f2;
+	float f1;
+	float f2;
 	static long l1,l2;
 	Abc1 abcRef;
 	public Abc1 function(Abc1 abc){
@@ -19,7 +20,7 @@ public class Abc1{
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
 		l1=function1();
 		l2=l1+5;
 		System.out.println(l1+l2);

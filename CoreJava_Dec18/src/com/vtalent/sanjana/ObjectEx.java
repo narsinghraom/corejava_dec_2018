@@ -9,7 +9,7 @@ public class ObjectEx {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		ObjectEx oe1 = new ObjectEx();
 		oe1.i = 10;
 		oe.i = 10;
