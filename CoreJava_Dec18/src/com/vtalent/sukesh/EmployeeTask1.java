@@ -10,7 +10,7 @@ public class EmployeeTask1 {
 	static Scanner input = new Scanner(System.in);
 	static int z = 0;
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 
 		int size = 0;
 		while (true) {

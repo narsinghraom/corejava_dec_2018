@@ -33,7 +33,7 @@ public class EmployeeOperations {
 
 	}
 
-	public static void insertData(Employee emp) throws Exception {
+	public static void insertData(Employee emp) {
 		if (empArray != null) {
 			for (int i = 0; i <= empArray.length - 1; i++) {
 				if (empArray[i] == null) {
@@ -47,7 +47,7 @@ public class EmployeeOperations {
 		}
 	}
 
-	public static void InsertInnerLogic() throws Exception {
+	public static void InsertInnerLogic() {
 
 		Employee emp = new Employee();
 		System.out.println("Enter ID:- ");
@@ -299,7 +299,7 @@ public class EmployeeOperations {
 		}
 	}
 
-	public static void printAllEmployeeData() throws Exception {
+	public static void printAllEmployeeData() {
 
 		if (empArray != null) {
 			EmployeeOperations.DataPrint();
