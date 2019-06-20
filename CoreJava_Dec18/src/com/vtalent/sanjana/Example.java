@@ -11,7 +11,8 @@ interface Example1
 }
 class ExampleImpl implements Example1
 {
-	float f1;int y=0;
+	float f1;
+	int y=0;
 	public int fun(float f1)
 	{
 		this.f1=this.f1+f1;
@@ -21,7 +22,7 @@ class ExampleImpl implements Example1
 	{
 		this.y=this.y+y;
 		f1=f1+x;
-		return x+y;
+		return (float)(x+y);
 	}
 }
 class Example2 extends ExampleImpl implements Xyz1
@@ -29,10 +30,10 @@ class Example2 extends ExampleImpl implements Xyz1
 	int x=2;
 	public float fun(int x,int y)
 	{
-		//super.fun(x,y);
+
 		this.x=this.x+x;
-		this.y=this.x+this.y;
-		return this.x+this.y;
+		this.y=this.x+y;
+		return (float)(this.x+this.y);
 	}
 	public void fun()
 	{
@@ -47,7 +48,7 @@ class Example2 extends ExampleImpl implements Xyz1
 public class Example {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
 ExampleImpl e1=new ExampleImpl();
 int k=e1.fun(e1.fun(2,3));
 System.out.println(k);

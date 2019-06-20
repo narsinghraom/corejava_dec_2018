@@ -31,7 +31,7 @@ public class Switch {
 			if (userInput.equalsIgnoreCase("Y"))
 				primenumbers();
 			else if (userInput.equalsIgnoreCase("N")) {
-				System.out.print("Thank you !!");
+				System.out.println("Thank you !!");
 				break;
 			} else {
 				System.out.print("Try Again With (Y/N) only !");
@@ -46,8 +46,8 @@ public class Switch {
 		int n, c, fact = 1;
 
 		System.out.println("Enter an integer to calculate it's factorial");
-		Scanner scan = new Scanner(System.in);
-
+	/*	Scanner scan = new Scanner(System.in);
+*/
 		n = scan.nextInt();
 
 		if (n < 0)
@@ -64,7 +64,7 @@ public class Switch {
 			if (userInput.equalsIgnoreCase("Y"))
 				primenumbers();
 			else if (userInput.equalsIgnoreCase("N")) {
-				System.out.print("Thank you !!");
+				System.out.println("Thank you !!");
 				break;
 			} else {
 				System.out.print("Try Again With (Y/N) only !");
@@ -76,9 +76,8 @@ public class Switch {
 	public void fibonacci() {
 		int count, num1 = 0, num2 = 1;
 		System.out.println("How may numbers you want in the sequence:");
-		Scanner scanner = new Scanner(System.in);
-		count = scanner.nextInt();
-		scanner.close();
+		//Scanner scanner = new Scanner(System.in);
+		count = scan.nextInt();
 		System.out.print("Fibonacci Series of " + count + " numbers:");
 
 		int i = 1;
@@ -95,7 +94,7 @@ public class Switch {
 			if (userInput.equalsIgnoreCase("Y"))
 				primenumbers();
 			else if (userInput.equalsIgnoreCase("N")) {
-				System.out.print("Thank you !!");
+				System.out.println("Thank you !!");
 				break;
 			} else {
 				System.out.print("Try Again With (Y/N) only !");
@@ -104,4 +103,23 @@ public class Switch {
 		}
 	}
 
+	public void MinMax() {
+		int[] a = { 3, 7, 10, 0, 1 };
+		int min = a[0];
+		for (int i = 1; i < a.length; i++) {
+			if (a[i] < min) {
+				min = a[i];
+			}
+		}
+		int max = a[0];
+		for (int i = 1; i <= a.length - 1; i++) {
+			if (a[i] > max) {
+				max = a[i];
+			}
+		}
+
+		System.out.println("Minimum Value:" + min);
+		System.out.println("Maximum Value:" + max);
+
+	}
 }

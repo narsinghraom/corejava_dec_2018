@@ -30,7 +30,8 @@ public class StringAdd {
 		String s4 = s2;
 
 		String s3 = s4;
-		s2.isEmpty();
+		boolean s5 = s2.isEmpty();
+		System.out.println(s5);
 		System.out.println(s4);
 		char[] ch = new char[q.s.length()];
 		for (int i = 0; i <= q.s.length() - 1; i++) {
@@ -56,7 +57,7 @@ public class StringAdd {
 		}
 		String f = "abc";
 		String d = "abc";
-		if (f == d) {
+		if (f.contentEquals(d)) {
 			System.out.println("==");
 		}
 		if (s.equals(d)) {

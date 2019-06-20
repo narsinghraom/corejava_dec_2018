@@ -24,42 +24,30 @@ public static void removeWhiteSpace() {
 
 
 public static void combiningStrings(){
-	System.out.println("Enter String s1");
+	System.out.println("Enter String one");
 	String s1=sc.nextLine();
-	System.out.println("Enter String s1");
+	System.out.println("Enter String two");
 	String s2=sc.nextLine();
-	char ch;
-	char ch1;
-	
-	ch=s1.charAt(s1.length()-1);
-	ch1=s2.charAt(0);
-	if(ch==ch1) {
-	
-	for(int i=0;i<=s1.length()-2;i++) {
-		ch=s1.charAt(i);
-		System.out.print(ch);
-		}
-		for(int j=1;j<=s2.length()-1;j++) {
-			ch1=s2.charAt(j);
-			System.out.print(ch1);
+	for(int i=0;i<=s1.length()-1;i++) {
+		for(int j=0;j<=s2.length()-1;j++) {
+			if(s1.charAt(i)==s2.charAt(j)) {
+			s1=	s1.replace(s1.charAt(i), ' ');
+			s2=	s2.replace(s2.charAt(j), ' ');
+			}
 		}
 	}
-	
-	else {
-		System.out.println(s1+s2);
-	}
-	
-	
-	
-	
-}
+String	s3=s1+s2;
+	System.out.print(s3.replace(" ", ""));
+}	
+
 	
 
 public static void printRepeatedWords() {
   	int c=0;
   	//String ss;
   	String s5="";
-  	String s1="Have a nice day and a wonderful day too span hates me sanju gives a  bbpen naresh eat always always always always";
+  	System.out.println("Enter a String to find Repeated word");
+  	String s1=sc.nextLine();
   String []s2=s1.split("\\s");
   
 for(int j=0;j<=s2.length-1;j++) {
@@ -79,13 +67,13 @@ for(int j=0;j<=s2.length-1;j++) {
   			s5=s5+ss;
   		}
   	}
-  		  	c=1;
+  		  	c=0;
   		}
   	//System.out.println(s5);
 }
  		
 public static void printRepeatedLetters() {
-	String s1="gooddaygoodday";
+	String s1="helloworld";
 	//char []cha=s1.toCharArray();
 	
 	for(int i=0;i<=s1.length()-1;i++) {
@@ -120,10 +108,11 @@ public static void removingRepeatedLetters() {
 }		
 		
 public static void main(String [] args) {
+	
 		//removeWhiteSpace();
 		//combiningStrings();
-		//printRepeatedWords();
-		printRepeatedLetters();
+		printRepeatedWords();
+	//	printRepeatedLetters();
 	//removingRepeatedLetters();
 			}
 	}

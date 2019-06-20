@@ -1,8 +1,10 @@
 package com.vtalent.sanjana;
 
 public class Demo {
-int i,j;
-static float f1,f2;
+int i;
+int j;
+static float f1;
+static float f2;
 public void function1()
 {
 	i=5;

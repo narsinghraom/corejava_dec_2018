@@ -9,7 +9,7 @@ public class StringEx2 {
 		 */;
 		String S = "Vtalent info System info info System";
 		String[] S1 = S.split("\\s");
-		for (int i = 0; i < S1.length; i++) {
+			for (int i = 0; i < S1.length; i++) {
 			int Count = 0;
 			int Count1 = 0;
 			for (int j = 0; j <= i; j++) {

@@ -1,12 +1,19 @@
 package com.vtalent.rakesh;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
 	private int employid;
 	private double employsalary;
 	private String mobileNumber;
 	private String employName;
 	private double employPackage;
-	private float pf;
+	private double pf;
+	private double loanAmount;
+	private double emi;
+	private int tenure;
+	private String loanStartDate;
+	private String loanEndDate;
 
 	public int getEmployid() {
 		return employid;
@@ -48,12 +55,52 @@ public class Employee {
 		this.employPackage = employPackage;
 	}
 
-	public float getPf() {
+	public double getPf() {
 		return pf;
 	}
 
-	public void setPf(float pf) {
+	public void setPf(double pf) {
 		this.pf = pf;
+	}
+
+	public double getLoanAmount() {
+		return loanAmount;
+	}
+
+	public void setLoanAmount(double eligibleAmount) {
+		this.loanAmount = eligibleAmount;
+	}
+
+	public double getEmi() {
+		return emi;
+	}
+
+	public void setEmi(double emi) {
+		this.emi = emi;
+	}
+
+	public int getTenure() {
+		return tenure;
+	}
+
+	public void setTenure(int tenure) {
+		this.tenure = tenure;
+	}
+
+	public String getLoanStartDate() {
+		return loanStartDate;
+	}
+
+	public void setLoanStartDate(String loanStartDate) {
+		this.loanStartDate = loanStartDate;
+	}
+
+	public String getLoanEndDate() {
+		return loanEndDate;
+	}
+
+	public void setLoanEndDate(String loanEndDate) {
+		this.loanEndDate = loanEndDate;
 	}
 
 }
