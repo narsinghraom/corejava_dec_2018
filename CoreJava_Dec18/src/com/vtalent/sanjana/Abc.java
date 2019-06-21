@@ -8,7 +8,7 @@ int i;
 		
 Abc abc1=new Abc();
 abc1.i=10;
-System.out.println(abc1.i);
+System.out.println(abc1);
 	}
 
 }
