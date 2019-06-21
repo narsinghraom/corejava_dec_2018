@@ -1,6 +1,5 @@
 package com.vtalent.kirankumar;
 
-<<<<<<< HEAD
 public class Employee {
 	private int EmployeeID;
 	private double EmployeeSalary;

@@ -1,6 +1,5 @@
 package com.vtalent.Bhavani;
 import java.util.Scanner;
-import java.l
 
 	public class EmployeeTest {
 
