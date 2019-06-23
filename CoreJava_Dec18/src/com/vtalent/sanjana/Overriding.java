@@ -18,7 +18,8 @@ public static void main(String[] args)
 }
 class Sanju1
 {
-static	int x,y;
+static	int x;
+static int y;
 static	public void fun(int x)
 	{
 		x=Sanju1.x+x;

@@ -1,7 +1,8 @@
 package com.vtalent.sanjana;
 
 public class B {
-int x,y;
+int x;
+int y;
 A a;
 B b;
 public A functionOne() {
@@ -30,7 +31,7 @@ public static B functionTwo()
 		System.out.println(b2.x);
 		System.out.println(b2.y);
 }
-		// TODO Auto-generated method stub
+		
 
 	}
 class A

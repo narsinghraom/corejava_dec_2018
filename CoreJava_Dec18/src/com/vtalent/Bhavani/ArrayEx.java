@@ -1,4 +1,4 @@
-package com.vtalent.bhavani;
+package com.vtalent.Bhavani;
 
         public class ArrayEx {
 		static int[] iarray = new int[4];
@@ -12,7 +12,7 @@ package com.vtalent.bhavani;
 		}
 
 		public static void main(String[] args) {
-			farray = new float[4];//abc
+			farray = new float[4];
 			for (int i = 0; i <= 3; i++) {
 				farray[i] = 1.5f + i;
 

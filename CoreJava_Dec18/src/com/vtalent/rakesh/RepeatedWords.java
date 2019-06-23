@@ -5,9 +5,10 @@ public class RepeatedWords {
 
 		String str = "Vtalent info systems ";
 
-		str.toLowerCase();
+		String q = str.toLowerCase();
+		System.out.println(q);
 		String words[] = str.split(" ");
-		int count = 0;
+
 		for (int i = 0; i <= words.length - 1; i++) {
 
 			for (int j = i + 1; j <= words.length - 1; j++) {

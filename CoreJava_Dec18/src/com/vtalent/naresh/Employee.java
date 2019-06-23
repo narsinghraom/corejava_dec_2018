@@ -1,6 +1,7 @@
 package com.vtalent.naresh;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.Scanner;
 
@@ -14,6 +15,7 @@ public class Employee implements Serializable {
 	private double loanamount;
 	private double emi;
 	private int tenure;
+	DecimalFormat df=new DecimalFormat("#.##");
 	
 	Scanner sc=new Scanner(System.in);
 	
@@ -53,12 +55,15 @@ public class Employee implements Serializable {
 			double a=employpackage/12;	//calculating monthly salary
 			employpf =(a*2)/100;	// calculating pf
 			employsalary=a-employpf;
-			return employsalary;
+			return Double.parseDouble(df.format(employsalary));
 		
 			//System.out.print("Monthly Salary- "+employsalary+"  "+" Provident Fund(2%)- "+employpf);
 		}
 		public double getEmployPf() {
-			return employpf;
+			
+			//	double d=Double.parseDouble(df.format(employpf));
+				
+			return Double.parseDouble(df.format(employpf));
 		}
 		
 		public void setLoanAmount(double loanamount) {
@@ -66,14 +71,14 @@ public class Employee implements Serializable {
 		}
 		
 		public double getLoanAmount() {
-			return loanamount;
+			return Double.parseDouble(df.format(loanamount));
 		}
 		
 		public void setEmi(double emi) {
 			this.emi=emi;
 		}
 		public double  getEmi() {
-			return emi;
+			return Double.parseDouble(df.format(emi));
 			
 		}
 		public void setTenure(int tenure) {
@@ -85,7 +90,7 @@ public class Employee implements Serializable {
 			
 			public double getTakeHome() {
 				employsalary=employsalary-emi;
-				return employsalary;
+				return Double.parseDouble(df.format(employsalary));
 			}
 			
 			public void date( ) {

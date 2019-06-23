@@ -1,7 +1,8 @@
 package com.vtalent.sanjana;
 
 public class ConstructorEx {
-	int x, y;
+	int x;
+	int y;
 
 	ConstructorEx() {
 		x = 5;
@@ -26,16 +27,16 @@ public class ConstructorEx {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 	     ConstructorEx c1 = new ConstructorEx();
 		ConstructorEx c2 = new ConstructorEx(5);
-		ConstructorEx c3 = new ConstructorEx(4, 5);
+
 		 System.out.println(c1.x);
 		 System.out.println(c2.x);
 
 		c2.function();
 		 System.out.println(c2.y);
-		// System.out.println(c2.x);
+		
 
 	}
 

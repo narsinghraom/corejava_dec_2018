@@ -11,7 +11,8 @@ interface Xyz1{
 }
 
 class Exampleimp implements Example{
-	int y; float f1;
+	int y;
+	float f1;
 	public int f(float f1) {
 		this.f1=this.f1+f1;
 		return (int)(this.f1);
@@ -20,7 +21,7 @@ class Exampleimp implements Example{
 	public float f(int x, int y) {
 		this.y=this.y+y;
 		f1=f1+x;
-		return x+y;
+		return (float)x+y;		//Modified
 	
 	}
 }
@@ -33,7 +34,7 @@ class Example2 extends Exampleimp implements Xyz1{
 		//super.f(x,y);
 		this.x=this.x+x;
 		this.y=this.y+y;
-		return this.x+this.y;
+		return (float)this.x+this.y;	//Modified to (float)
 	}
 	
 	public void f() {

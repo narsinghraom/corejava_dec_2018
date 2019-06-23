@@ -9,20 +9,20 @@ public class EmployeeOperations
 		 static Employee[] empArray;
 		static int size;
 	static	Employee emp1;
-	Scanner sc=new Scanner(System.in);		
+	static Scanner sc=new Scanner(System.in);		
 		  public static void insertData(Employee emp1)  
 		{
 			  if (empArray != null) {
 					for (int i = 0; i <= empArray.length - 1; i++) {
 						if (empArray[i] == null) {
 							empArray[i] = emp1;
-							// System.out.println("here");
+							
 							break;
 						}
 					}
 					System.out.println("Successfully Inserted." + '\n');
 				}	}
-	   public void updateData()
+	   public static void updateData()
 	    {
 		   System.out.println("Enter Employee Id to be updated");
 			double empid1=sc.nextInt();
@@ -42,7 +42,7 @@ public class EmployeeOperations
 				}
 			}
 		
-		public   void deleteEmployee(  )
+		public static  void deleteEmployee(  )
 		{
 			System.out.println("Enter Employee Id to Delete");
 			double empid2=sc.nextInt();
@@ -64,7 +64,7 @@ public class EmployeeOperations
 			
 			
 		}
-		public   void searchEmployee(  ) throws Exception
+		public static  void searchEmployee(  ) throws Exception
 		{
 			
 			if(empArray!=null)
@@ -82,11 +82,17 @@ public class EmployeeOperations
 					if(empid3==empArray[i].getEmployeeId())
 					{
 						
-					//	System.out.println(emp.getEmployeeId()+" "+emp.getEmployeeName()+" "+emp.getEmployeePackage());
-					
-						System.out.println("EmployeeId:---"
-								+ empArray[i].getEmployeeId() + " Name:----"+empArray[i].getEmployeeName() +"  Package:---"
-								+ empArray[i].getEmployeePackage()+ " Salary:---"+empArray[i].getEmployeeSalary()+" pf:----"+empArray[i].getEmployeepf());
+						System.out.println("Employee ID: "+empArray[i].getEmployeeId()+" "+" Name: "+empArray[i].getEmployeeName()+" "+" Package: "+empArray[i].getEmployeePackage()+" Salary: "+empArray[i].getEmployeeSalary()+" "+" PF: "+empArray[i].getEmployeepf());
+						if(empArray[i].getLoanAmount()==0.0)
+						{
+							System.out.println("Employee Loan: "+"N/A"+" "+"Tenure: "+"N/A"+" "+"EMI: "+"N/A"+" "+" Loan start Date: "+"N/A"+" "+"Loan End Date: "+"N/A"+" "+"Take Home salary: "+empArray[i].getTakeHome());
+
+							//System.out.println("Employee Loan: "+empArray[i].getLoanAmount1()+"\n"+"Employee Tenure: "+empArray[i].getTenure1()+"\n"+"Employee Emi: "+empArray[i].getEMI1()+"\n"+"Employee Take Home salary: "+empArray[i].getTakeHome()+"\n"+"Employee Loan taken Date: "+empArray[i].getStartDate1()+"\n"+"Employee Loan End Date: "+empArray[i].getEndDate1());
+						}
+						else
+						{
+							System.out.println("Employee Loan: "+empArray[i].getLoanAmount()+" "+" Tenure: "+empArray[i].getTenure()+" "+"EMI: "+empArray[i].getEMI()+" "+"Loan start Date: "+empArray[i].getStartTime()+" "+" Loan End Date: "+empArray[i].getEndTime()+" "+" Take Home salary: "+empArray[i].getTakeHome());
+						}
 						break;
 					}
 					else {
@@ -115,7 +121,7 @@ public class EmployeeOperations
 			}
 			
 		
-		public void printAllEmployeeData()throws Exception 
+		public static void printAllEmployeeData()throws Exception 
 		{
 			if(empArray!=null)
 			{
@@ -125,12 +131,20 @@ public class EmployeeOperations
 					if(empArray[i]==null) {
 						
 					}
-					else {
-					
-						System.out.println(empArray[i].getEmployeeId() + " "
-								+empArray[i].getEmployeeName()+" "+empArray[i].getEmployeePackage()+" "+empArray[i].getEmployeeSalary()+" "+empArray[i].getEmployeepf());
-					
-				}
+					else
+					{
+						System.out.println("Employee ID: "+empArray[i].getEmployeeId()+" "+" Name: "+empArray[i].getEmployeeName()+" "+"Package: "+empArray[i].getEmployeePackage()+" "+" Salary: "+empArray[i].getEmployeeSalary()+" PF: "+empArray[i].getEmployeepf());
+						if(empArray[i].getLoanAmount()==0.0)
+						{
+							System.out.println("Employee Loan: "+"N/A"+" "+" Tenure: "+"N/A"+" "+"Emi: "+"N/A"+" "+" Loan start Date: "+"N/A"+" "+" Loan End Date: "+"N/A"+" "+"Take Home salary: "+empArray[i].getTakeHome());
+
+							//System.out.println("Employee Loan: "+empArray[i].getLoanAmount1()+"\n"+"Employee Tenure: "+empArray[i].getTenure1()+"\n"+"Employee Emi: "+empArray[i].getEMI1()+"\n"+"Employee Take Home salary: "+empArray[i].getTakeHome()+"\n"+"Employee Loan taken Date: "+empArray[i].getStartDate1()+"\n"+"Employee Loan End Date: "+empArray[i].getEndDate1());
+						}
+						else
+						{
+							System.out.println("Employee Loan: "+empArray[i].getLoanAmount()+" "+" Tenure: "+empArray[i].getTenure()+" "+" Emi: "+empArray[i].getEMI()+" "+" Loan Start Date: "+empArray[i].getStartTime()+" "+"Loan End Date: "+empArray[i].getEndTime()+"\n"+"Take Home salary: "+empArray[i].getTakeHome());
+						}
+					}
 					}
 			}
 			
@@ -144,7 +158,7 @@ public class EmployeeOperations
 								+emparray1[i].getEmployeeName()+" "+emparray1[i].getEmployeePackage()+" "+emparray1[i].getEmployeeSalary()+" "+emparray1[i].getEmployeepf());
 						}}
 		}
-	public void loanElgibility()
+	public static void loanElgibility()
 	{
 				
 			if(empArray!=null)
@@ -162,7 +176,7 @@ public class EmployeeOperations
 					if(empid3==emp1.getEmployeeId())
 					{
 						Loan l=new Loan();
-						l.loanApproval(emp1.salary);
+						l.loanApproval(emp1.getEmployeeSalary(),emp1);
 							break;
 					}
 					

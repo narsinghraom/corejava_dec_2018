@@ -16,6 +16,7 @@ public class Polyndrome {
 			System.out.print(reverse);
 			String q1 = String.valueOf(reverse);
 			q = q1;
+			break;
 		}
 		if (original.equals(q)) {
 			System.out.print("it is a polyndrome");

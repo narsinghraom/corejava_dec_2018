@@ -6,7 +6,7 @@ public class Class {
 
 	public void function(int k) {
 		this.k = 9;
-		k = 6;
+
 		int u = 4;
 		double d = (double) u;
 		System.out.println(k);

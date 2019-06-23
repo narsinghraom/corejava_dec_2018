@@ -1,6 +1,8 @@
 package com.vtalent.sukesh;
+
 public class Example {
-	double d1, d2;
+	double d1;
+	double d2;
 
 	public long FunctionOne(double d1, double d2) {
 		d1 = d1 + d2;
