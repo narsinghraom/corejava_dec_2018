@@ -1,19 +1,22 @@
 package com.vtalent.sanjana;
 import java.io.*;
+import java.text.DecimalFormat;
 import java.util.Date;
 public class Employee implements Serializable
 	{
 	    private String employeeName;
 		private int employeeId;
 		private double employeePackage;
-		private double salary;
+		private double sal;
 		private double pf;
+		private double salary;
 		private double LoanAmount;
 		private double EMI;
 		private int tenure;
 		private double EmpTakeHome;
 		private Date StartTime;
 		private Date EndTime;
+		
 		public void setEmployeeId(int employeeId)
 		{
 			this.employeeId=employeeId;
@@ -26,6 +29,14 @@ public class Employee implements Serializable
 		{
 			this.employeeName=employeeName;
 		}
+		public void setEmployeeSalary(double salary)
+		{
+			sal=(employeePackage/12);
+			pf=(sal*0.02);
+			salary=sal-pf;
+			this.salary=salary;
+			
+		}
 		public int getEmployeeId()
 		{
 			return employeeId;
@@ -34,24 +45,37 @@ public class Employee implements Serializable
 		{
 			return employeePackage;
 		}
+		public String getEmployeePackage1()
+		{
+			String s=String.format("%.2f",employeePackage );
+			return s;
+		}
 		public String getEmployeeName()
 		{
 			return employeeName;
 		}
 	
-		public String getEmployeeSalary()
+		public double getEmployeeSalary()
 		{
-			double sal=employeePackage/12;
-			pf=(sal*2)/100;
-			salary=sal-pf;
-			String s=String.format("%.2f", salary);
-			return s;
+			
+			return salary;
+			
 			
 		}
-		
-		public String getEmployeepf()
+		public String getEmployeeSalary1()
 		{
-			String s=String.format("%.2f", pf);
+			sal=this.employeePackage/12;
+			String s=String.format("%.2f",sal);
+			return s;
+		}
+		public double getEmployeepf()
+		{
+			return pf;
+		}
+		
+	public String getEmployeepf1()
+		{
+			String s=String.format("%.2f",pf);
 			return s;
 			
 		}
@@ -65,38 +89,45 @@ public class Employee implements Serializable
 		}
 		public void setLoanAmount(double loanAmount)
 		{
-			loanAmount=5*salary;
+			
 			this.LoanAmount=loanAmount;
 		}
 		
-		public String getLoanAmount()
+		public double getLoanAmount()
 		{
-			String s=String.format("%.2f", LoanAmount);
-			return s;
+			
+			return LoanAmount;
 		}
 		public void setEMI(double emi)
 		{
-			emi= ((LoanAmount)+(LoanAmount*((0.14*tenure)/12)))/(tenure);
+			
 			this.EMI=emi;
 		}
 		
-		public String getEMI()	
+		public double getEMI()	
 		{
-			String s=String.format("%.2f", EMI);
+			
 
-			return s;
+			return EMI;
 		}
 		public void setTakeHome(double sth)
 		{
-			sth=salary-EMI;
+			
 			this.EmpTakeHome=sth;
 		}
-		public String getTakeHome()
+		public double getTakeHome()
+		{
+			double EmpTakeHome=salary-EMI;
+
+			return EmpTakeHome;
+		}
+		public String getTakeHome1()
 		{
 			
-			String s=String.format("%.2f", EmpTakeHome);
-
-			return s;
+			double EmpTakeHome=salary-EMI;
+			
+			String fff=new DecimalFormat("##.##").format(EmpTakeHome);
+			return fff;
 		}
 		public void setStartTime(Date date)
 		{
