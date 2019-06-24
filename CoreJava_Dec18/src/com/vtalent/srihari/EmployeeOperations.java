@@ -269,11 +269,12 @@ public class EmployeeOperations {
 							+ emp.getEmployeeSalary() + "		 "
 							+ emp.getEmployeePF());
 
-				}
+				
+		
+					
 		}
 				
-		}
-
+			}
 		else {
 			try {
 				FileInputStream fis = new FileInputStream("F:\\Employee Data View.txt");
