@@ -1,11 +1,6 @@
 package com.vtalent.rakesh;
 
-public class MethodInMainMethod {
-
-	public void qwe() {
-
-	}
-
+public class Interfaceee implements Interfacee {
 	public static void main(String[] args) {
 
 	}

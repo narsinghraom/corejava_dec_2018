@@ -1,6 +1,7 @@
 package com.vtalent.rakesh;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.text.Format;
 import java.text.SimpleDateFormat;
@@ -31,7 +32,7 @@ public class EmployeeOperations {
 	}
 
 	public void printAllData() {
-
+		FileInputStream fi = null;
 		if (emparray != null) {
 			for (int i = 0; i <= emparray.length - 1; i++) {
 
@@ -55,8 +56,10 @@ public class EmployeeOperations {
 		}
 
 		else {
+
 			try {
-				FileInputStream fi = new FileInputStream("D:\\Rakesh\\rakeshdataqqqqqa");
+				fi = new FileInputStream("D:\\Rakesh\\rakeshdataqqqqqa");
+
 				ObjectInputStream ois = new ObjectInputStream(fi);
 				Object obj = ois.readObject();
 				Employee[] emp = (Employee[]) obj;
@@ -67,6 +70,14 @@ public class EmployeeOperations {
 							+ emp[k].getEmploysalary() + "   EmployeePf:   " + emp[k].getPf());
 				}
 			} catch (Exception e) {
+			} finally {
+				try {
+					fi.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
 			}
 			System.out.println("please enter the Employee data first");
 		}

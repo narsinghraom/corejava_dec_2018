@@ -23,7 +23,7 @@ public class MethodInReturnType extends Employeee {
 		MethodInReturnType m = new MethodInReturnType();
 		m.add(2, 3);
 		Employeee q = new Employeee();
-		m.getName();
+		m.setName("r");
 		System.out.println(m.getName());
 
 	}

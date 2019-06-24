@@ -13,36 +13,27 @@ public class Polymorphim {
 		// Poly2 p7=new Poly1();
 		// Poly3 p8 = new Poly2();
 
-		//float f1 = p1.function(2.5f, 1.5f);
+		// float f1 = p1.function(2.5f, 1.5f);
 
-/*		p1.function((long) f1);
-		p1.function(f1);
-		p1.function();
-
-*/		 float f1=p2.function(2.5f, 1.5f);
-		p2.function((long) f1);
-		p2.function(f1);
-		p2.function();
-
-		// float f1=p3.function(2.5f, 1.5f);
-		p3.function((long) f1);
-		p3.function(f1);
-		p3.function();
-
-		// float f1=p4.function(2.5f, 1.5f);
-		p4.function((long) f1);
-		p4.function(f1);
-		p4.function();
-
-		// float f1=p5.function(2.5f, 1.5f);
-		p5.function((long) f1);
-		p5.function(f1);
-		p5.function();
-
-		// float f1=p6.function(2.5f, 1.5f);
-		p6.function((long) f1);
-		p6.function(f1);
-		p6.function();
+		/*
+		 * p1.function((long) f1); p1.function(f1); p1.function();
+		 * 
+		 */ /*
+			 * float f1=p2.function(2.5f, 1.5f); p2.function((long) f1); p2.function(f1);
+			 * p2.function();
+			 * 
+			 * // float f1=p3.function(2.5f, 1.5f); p3.function((long) f1); p3.function(f1);
+			 * p3.function();
+			 * 
+			 * // float f1=p4.function(2.5f, 1.5f); p4.function((long) f1); p4.function(f1);
+			 * p4.function();
+			 * 
+			 * // float f1=p5.function(2.5f, 1.5f); p5.function((long) f1); p5.function(f1);
+			 * p5.function();
+			 * 
+			 * // float f1=p6.function(2.5f, 1.5f); p6.function((long) f1); p6.function(f1);
+			 */p6.function();
+		p6.function(6l);
 
 		// float f1=p7.function(2.5f, 1.5f);
 		// p7.function((long)f1);

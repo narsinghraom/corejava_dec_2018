@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Employeee implements Serializable {
 
 	private int id = 100;
-	private String name = "rrrrrrakeshhhh";
+	private String name;
 	transient double salary = 10000;
 	private int x = 45;
 

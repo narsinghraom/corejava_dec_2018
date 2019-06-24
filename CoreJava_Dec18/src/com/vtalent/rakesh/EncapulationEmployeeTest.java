@@ -2,6 +2,7 @@ package com.vtalent.rakesh;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
@@ -80,12 +81,22 @@ public class EncapulationEmployeeTest {
 			else if (a == 6) {
 				eo.validateLoan();
 			} else if (a == 7) {
+				FileOutputStream fo = null;
 				try {
 					File file = new File("D:\\Rakesh\\rakeshdataqqqqqa");
-					FileOutputStream fo = new FileOutputStream(file);
+					fo = new FileOutputStream(file);
+
 					ObjectOutputStream oos = new ObjectOutputStream(fo);
 					oos.writeObject(EmployeeOperations.emparray);
+
 				} catch (Exception e) {
+				} finally {
+					try {
+						fo.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 				break;
 			}

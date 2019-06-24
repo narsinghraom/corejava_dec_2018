@@ -13,6 +13,7 @@ public class Poly2 extends Poly1 {
 	public void function(long l1) {
 		this.l1 = l1 + l2;
 		l2 = this.l1 + l1;
+		System.out.println("poly2");
 	}
 
 	public float function(float f1, float f2) {
