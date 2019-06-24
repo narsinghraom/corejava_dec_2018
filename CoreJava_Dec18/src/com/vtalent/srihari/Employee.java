@@ -3,59 +3,113 @@ package com.vtalent.srihari;
 import java.io.Serializable;
 
 public class Employee implements Serializable {
-	private int EmployeeID;
-	private String EmployeeName;
+	private int ID;
+	private String Name;
 	private String MobileNumber;
-	private double EmployeePackage;
-	private double EmployeeSalary;
-	private double EmployeePF;
+	private double Package;
+	private double Salary;
+	private double PF;
+	private float LoanAmount;
+	private float EMI;
+	private float Year;
+	private float Interest;
+	private String StartingDate;
+	private String EndDate;
 
-	public void setEmployeeID(int employeeID) {
-		EmployeeID = employeeID;
+	public void setID(int iD) {
+		ID = iD;
 	}
 
-	public void setEmployeeName(String employeeName) {
-		EmployeeName = employeeName;
+	public void setName(String name) {
+		Name = name;
 	}
 
 	public void setMobileNumber(String mobileNumber) {
 		MobileNumber = mobileNumber;
 	}
 
-	public void setEmployeePackage(double employeePackage) {
-		EmployeePackage = employeePackage;
+	public void setPackage(double package1) {
+		Package = package1;
 	}
 
-	public void setEmployeeSalary(double employeeSalary) {
-		EmployeeSalary = employeeSalary;
+	public void setSalary(double salary) {
+		Salary = salary;
 	}
 
-	public void setEmployeePF(double employeePF) {
-		EmployeePF = employeePF;
+	public void setPF(double pF) {
+		PF = pF;
 	}
 
-	public int getEmployeeID() {
-		return EmployeeID;
+	public void setLoanAmount(float loanAmount) {
+		LoanAmount = loanAmount;
 	}
 
-	public String getEmployeeName() {
-		return EmployeeName;
+	public void setEMI(float eMI) {
+		EMI = eMI;
+	}
+
+	public void setYear(float year) {
+		Year = year;
+	}
+
+	public void setInterest(float interest) {
+		Interest = interest;
+	}
+
+	public void setStartingDate(String startingDate) {
+		StartingDate = startingDate;
+	}
+
+	public void setEndDate(String endDate) {
+		EndDate = endDate;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public String getName() {
+		return Name;
 	}
 
 	public String getMobileNumber() {
 		return MobileNumber;
 	}
 
-	public double getEmployeePackage() {
-		return EmployeePackage;
+	public double getPackage() {
+		return Package;
 	}
 
-	public double getEmployeeSalary() {
-		return EmployeeSalary;
+	public double getSalary() {
+		return Salary;
 	}
 
-	public double getEmployeePF() {
-		return EmployeePF;
+	public double getPF() {
+		return PF;
+	}
+
+	public float getLoanAmount() {
+		return LoanAmount;
+	}
+
+	public float getEMI() {
+		return EMI;
+	}
+
+	public float getYear() {
+		return Year;
+	}
+
+	public float getInterest() {
+		return Interest;
+	}
+
+	public String getStartingDate() {
+		return StartingDate;
+	}
+
+	public String getEndDate() {
+		return EndDate;
 	}
 
 }
