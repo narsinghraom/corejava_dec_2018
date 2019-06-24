@@ -1,5 +1,6 @@
 package com.vtalent.saichand;
 
+@SuppressWarnings("serial")
 public class EmployeeCustomException extends Exception {
 
 	public String toString() {

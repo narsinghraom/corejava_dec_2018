@@ -1,7 +1,8 @@
-package com.vtalent.sukesh;
+package com.vtalent.saichand;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class Employee implements Serializable {
 	private int ID;
 	private String Name;

@@ -1,11 +1,11 @@
-package com.vtalent.sukesh;
+package com.vtalent.saichand;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
-public class EmployeeTask1 {
+public class EmployeeTask {
 
 	static Scanner input = new Scanner(System.in);
 	static int z = 0;
@@ -16,7 +16,7 @@ public class EmployeeTask1 {
 		while (true) {
 			int t = 0;
 			EmployeeOperations.view();
-			int n = EmployeeTask1.input.nextInt();
+			int n = EmployeeTask.input.nextInt();
 			switch (n) {
 			case 1:
 				if (size == 0) {

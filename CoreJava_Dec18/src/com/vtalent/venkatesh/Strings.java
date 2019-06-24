@@ -1,19 +1,38 @@
 package com.vtalent.venkatesh;
 
 import java.util.Scanner;
+<<<<<<< HEAD
+class A{
+public void remove() {
+=======
 
 class A {
      public void remove() {
 	  System.out.println("Enter string");
+<<<<<<< HEAD
+>>>>>>> 0fb681fc7f6e244283be0d4b066b53318a6ec6ab
+=======
+>>>>>>> 57da0be8e4c3cc67b707b93822524f1292d76f83
 	  Scanner sc = new Scanner(System.in);
 	  String str = sc.nextLine();
 	  System.out.println(str.replaceAll("\\s", ""));
-     }
+   }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+   public void repeatedLetters(){
+	  String S = "Vtalentt info System";
+=======
+=======
+>>>>>>> 57da0be8e4c3cc67b707b93822524f1292d76f83
      public void repeatedLetters(){
 	  System.out.println("Enter any string ");
 		Scanner sc = new Scanner(System.in);
 		String S = sc.nextLine();
+<<<<<<< HEAD
+>>>>>>> 0fb681fc7f6e244283be0d4b066b53318a6ec6ab
+=======
+>>>>>>> 57da0be8e4c3cc67b707b93822524f1292d76f83
 		S = S.toLowerCase();
 		char[] C = S.toCharArray();
 		for (int i = 0; i < C.length; i++) {
@@ -37,10 +56,19 @@ class A {
 			}
 		}
 	}
+<<<<<<< HEAD
+<<<<<<< HEAD
+   
+   
+   public void repeatedWords() {
+=======
+=======
+>>>>>>> 57da0be8e4c3cc67b707b93822524f1292d76f83
 	
      
      
      public void repeatedWords() {
+>>>>>>> 0fb681fc7f6e244283be0d4b066b53318a6ec6ab
 
 	
 	  String S = "Vtalent info System info info System";
@@ -56,6 +84,16 @@ class A {
 			if (Count1 == 1) {
 				for (int k = 0; k < S1.length; k++) {
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+	      
+	  }
+   }
+   
+   public void concat(){
+=======
+=======
+>>>>>>> 57da0be8e4c3cc67b707b93822524f1292d76f83
 					if (S1[i].equalsIgnoreCase(S1[k])) {
 						Count++;
 					}
@@ -69,6 +107,7 @@ class A {
      }
      
      public void concat(){
+>>>>>>> 0fb681fc7f6e244283be0d4b066b53318a6ec6ab
 	 
 		System.out.println("Enter Two Strings:");
 		Scanner sc = new Scanner(System.in);
@@ -92,11 +131,11 @@ class A {
 
 		}
 	}
-     
-  }
+   
+}
 
 public class Strings extends A {
-     public static void main(String[] args) {
+   public static void main(String[] args) {
 
 	  System.out.println("vtalent info system");
 	  System.out.println("Enter 1 to remove spaces" + "\n"
@@ -122,12 +161,4 @@ public class Strings extends A {
 		    case 4:
 			 obj.concat();
 	       }
-
-	  // System.out.println(str.length());
-	  // System.out.println(str.charAt(2));
-	  // System.out.println(str.codePointAt(3));
-	  // System.out.println(str.replaceAll(s, str));
-
-     }
-
-}
+   }}

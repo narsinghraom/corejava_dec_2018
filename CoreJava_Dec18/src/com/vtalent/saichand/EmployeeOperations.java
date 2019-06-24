@@ -1,4 +1,4 @@
-package com.vtalent.sukesh;
+package com.vtalent.saichand;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
@@ -51,16 +51,16 @@ public class EmployeeOperations {
 
 		Employee emp = new Employee();
 		System.out.println("Enter ID:- ");
-		emp.setID(EmployeeOperations.IdLogic(EmployeeTask1.input.nextInt()));
+		emp.setID(EmployeeOperations.IdLogic(EmployeeTask.input.nextInt()));
 		System.out.println("Enter Employee Name:- ");
-		emp.setName(EmployeeTask1.input.next());
+		emp.setName(EmployeeTask.input.next());
 
 		System.out.println("Enter MobileNumber:- ");
 
-		emp.setMobileNumber(EmployeeOperations.MobileLogic(EmployeeTask1.input
+		emp.setMobileNumber(EmployeeOperations.MobileLogic(EmployeeTask.input
 				.next()));
 		System.out.println("Enter EmployeePackage:- ");
-		double Pp = EmployeeOperations.PackageLogic(EmployeeTask1.input
+		double Pp = EmployeeOperations.PackageLogic(EmployeeTask.input
 				.nextDouble());
 		emp.setPackage(Pp);
 		double Ss = Pp / 12;
@@ -85,7 +85,7 @@ public class EmployeeOperations {
 		}
 		if (Cc != 1) {
 			System.out.println("Enter Correct Package");
-			Package = PackageLogic(EmployeeTask1.input.nextDouble());
+			Package = PackageLogic(EmployeeTask.input.nextDouble());
 		}
 		return Package;
 
@@ -112,7 +112,7 @@ public class EmployeeOperations {
 		}
 		if (Cc != 2) {
 			System.out.println("Enter Correct Mobile number:- ");
-			mobile = MobileLogic(EmployeeTask1.input.next());
+			mobile = MobileLogic(EmployeeTask.input.next());
 		}
 		return mobile;
 
@@ -136,7 +136,7 @@ public class EmployeeOperations {
 		}
 		if (Cc != 3) {
 			System.out.println("Enter EmployeeID");
-			id = IdLogic(EmployeeTask1.input.nextInt());
+			id = IdLogic(EmployeeTask.input.nextInt());
 
 		}
 		return id;
@@ -147,14 +147,14 @@ public class EmployeeOperations {
 		int Cc = 0;
 		if (empArray != null) {
 			System.out.println("Enter Updated  EmployeeID:");
-			int x = EmployeeTask1.input.nextInt();
+			int x = EmployeeTask.input.nextInt();
 			for (int i = 0; i <= empArray.length - 1; i++) {
 				Employee emp = empArray[i];
 				if (emp != null) {
 					if (x == emp.getID()) {
 
 						System.out.println("Enter Package:");
-						int x1 = EmployeeTask1.input.nextInt();
+						int x1 = EmployeeTask.input.nextInt();
 						emp.setPackage(x1);
 						double Ss = x1 / 12;
 						double pf = Ss * 0.02;
@@ -195,14 +195,14 @@ public class EmployeeOperations {
 		int Cc = 0;
 		if (empArray != null) {
 			System.out.println("enter EmployeeID");
-			int x = EmployeeTask1.input.nextInt();
+			int x = EmployeeTask.input.nextInt();
 			for (int i = 0; i <= empArray.length - 1; i++) {
 				Employee emp = empArray[i];
 				if (emp != null) {
 					if (x == emp.getID()) {
 						empArray[i] = null;
 						System.out.println("Deleted Data");
-						EmployeeTask1.z = EmployeeOperations.empArray.length;
+						EmployeeTask.z = EmployeeOperations.empArray.length;
 						Cc = 1;
 						break;
 					} else {
@@ -223,7 +223,7 @@ public class EmployeeOperations {
 
 		if (empArray != null) {
 			System.out.println("enter EmployeeID:");
-			int x = EmployeeTask1.input.nextInt();
+			int x = EmployeeTask.input.nextInt();
 
 			for (int i = 0; i <= empArray.length - 1; i++) {
 				Employee emp = empArray[i];
@@ -262,7 +262,7 @@ public class EmployeeOperations {
 				Employee[] emp = (Employee[]) obj;
 
 				System.out.println("enter EmployeeID:");
-				int x = EmployeeTask1.input.nextInt();
+				int x = EmployeeTask.input.nextInt();
 
 				for (int i = 0; i <= emp.length - 1; i++) {
 					Employee emp1 = emp[i];
@@ -358,7 +358,7 @@ public class EmployeeOperations {
 		int Cc = 0;
 		if (empArray != null) {
 			System.out.println("Enter Emolyee ID for LoanDetails:-");
-			int L = EmployeeTask1.input.nextInt();
+			int L = EmployeeTask.input.nextInt();
 			for (int i = 0; i < empArray.length; i++) {
 				Employee emp = empArray[i];
 				if (emp != null) {
@@ -380,11 +380,11 @@ public class EmployeeOperations {
 							System.out.println("Enter your Loan Amount below "
 									+ Ss * 5);
 							while (true) {
-								float Pp = EmployeeTask1.input.nextFloat();
+								float Pp = EmployeeTask.input.nextFloat();
 
 								if (Pp <= Ss * 5) {
 									System.out.println("Enter Year to EMI:");
-									int t = EmployeeTask1.input.nextInt();
+									int t = EmployeeTask.input.nextInt();
 									float r = 14 * t;
 									float r1 = r;
 									r = r / (12 * 100);
@@ -401,7 +401,7 @@ public class EmployeeOperations {
 											.println("Are You Want to Continue (Y/N) ?");
 
 									while (true) {
-										String y = EmployeeTask1.input.next();
+										String y = EmployeeTask.input.next();
 										if (y.equalsIgnoreCase("Y")) {
 											emp.setLoanAmount(Pp);
 											emp.setEMI(emi);
