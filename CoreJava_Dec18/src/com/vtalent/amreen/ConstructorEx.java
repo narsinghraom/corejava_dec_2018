@@ -2,7 +2,8 @@ package com.vtalent.amreen;
 
 public class ConstructorEx {
 
-	int x, y;
+	int x;
+	int y;
 
 	ConstructorEx() {
 		x = 5;

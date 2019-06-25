@@ -1,7 +1,8 @@
 package com.vtalent.amreen;
 
 public class ConstructorWithThis {
-	int x, y;
+	int x;
+	int y;
 
 	ConstructorWithThis() {
 		this(5, 5);

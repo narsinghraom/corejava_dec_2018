@@ -1,8 +1,29 @@
 package com.vtalent.amreen;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
 	private int Id;
 	private double Salary;
+
+	public double getSalpackage() {
+		return salpackage;
+	}
+
+	public void setSalpackage(double salpackage) {
+		this.salpackage = salpackage;
+	}
+
+	private String ename;
+	private double salpackage;
+
+	public String getEname() {
+		return ename;
+	}
+
+	public void setEname(String ename) {
+		this.ename = ename;
+	}
 
 	public int getId() {
 		return Id;
@@ -17,7 +38,11 @@ public class Employee {
 	}
 
 	public void setSalary(double salary) {
+
 		Salary = salary;
+		Salary = Salary / 12;
+		double pf = 0.02 * Salary;
+		Salary = Salary - pf;
 	}
 
 }

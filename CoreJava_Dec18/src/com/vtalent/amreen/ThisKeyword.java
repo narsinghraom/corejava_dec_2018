@@ -1,7 +1,8 @@
 package com.vtalent.amreen;
 
 public class ThisKeyword {
-	double d1, d2;
+	double d1;
+	double d2;
 
 	public long function(double d1, double d2) {
 

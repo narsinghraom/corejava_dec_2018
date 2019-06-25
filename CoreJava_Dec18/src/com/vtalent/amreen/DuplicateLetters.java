@@ -4,46 +4,34 @@ import java.util.Scanner;
 
 public class DuplicateLetters {
 
-	public void findDuplicates() {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Enter Statement ");
 		Scanner sc = new Scanner(System.in);
-		System.out.println("enter string");
-		String str = sc.nextLine();
-
-		char[] array = str.toCharArray();
-		int count = 1;
-		int length = array.length;
-		char[] temp = new char[length];
-
-		for (int i = 0; i < length; i++) {
-
-			if (array[i] != temp[i]) {
-				for (int j = i + 1; j <= length - 1; j++) {
-
-					// char temp = 'x';
-					if (array[i] == array[j]) {
-
-						count++;
-
-					}
-
-					temp[i] = array[i];
-
+		String S = sc.nextLine();
+		S = S.toLowerCase();
+		char[] C = S.toCharArray();
+		for (int i = 0; i < C.length; i++) {
+			int Count = 0;
+			int count1 = 0;
+			for (int j = 0; j <= i; j++) {
+				if (C[i] == C[j]) {
+					count1++;
 				}
-				if (count > 1) {
-					if (array[i] > 1) {
-						System.out.println("character " + array[i]
-								+ " has repeated " + count + " times");
-
+			}
+			if (count1 == 1 && C[i] != ' ') {
+				for (int k = 0; k < C.length; k++) {
+					if (C[i] == C[k]) {
+						Count++;
 					}
-					count = 1;
 				}
+				if (Count > 1) {
+					System.out.println(C[i] + " has repeated " + Count
+							+ " Times");
+				}
+
 			}
 		}
 	}
 
-	public static void main(String[] args) {
-		DuplicateLetters rv = new DuplicateLetters();
-		rv.findDuplicates();
-
-	}
 }

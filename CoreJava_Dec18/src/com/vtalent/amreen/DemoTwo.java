@@ -1,7 +1,8 @@
 package com.vtalent.amreen;
 
 public class DemoTwo {
-	int i, j;
+	int i;
+	int j;
 	DemoTwo d;
 
 	public DemoTwo function(DemoTwo d1) {
