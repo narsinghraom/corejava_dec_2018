@@ -10,6 +10,8 @@ public class Arraylist {
 		  list.add("karthik");  
 		  list.add("saritha");  
 		  
+		 
+		  
 		  //Iterator itr=list.iterator();  
 		 // while(itr.hasNext()){  
 		  // System.out.println(itr.next());
