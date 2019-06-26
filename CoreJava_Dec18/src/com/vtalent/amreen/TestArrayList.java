@@ -11,6 +11,7 @@ class TestArrayList {
 		al.add(1);
 		al.add("sulthana");
 		al.add(0, "amreen");
+		al.add("hello");
 		// al.clear();
 
 		System.out.println(al.get(1));
