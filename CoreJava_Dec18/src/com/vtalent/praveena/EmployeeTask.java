@@ -27,7 +27,6 @@ public class EmployeeTask {
 			for(int i=0;i<empArray.length;i++)
 			{
 			
-				//EmployeeDetails emp=empArray[i];
 				if(empArray[i]==null)
 				{
 					
@@ -39,7 +38,6 @@ public class EmployeeTask {
 					{
 						System.out.println("Employee Loan: "+"N/A"+"\n"+"Employee Tenure: "+"N/A"+"\n"+"Employee Emi: "+"N/A"+"\n"+"Employee Loan taken Date: "+"N/A"+"\n"+"Employee Loan End Date: "+"N/A"+"\n"+"Employee Take Home salary: "+empArray[i].getTakeHome1());
 
-						//System.out.println("Employee Loan: "+empArray[i].getLoanAmount1()+"\n"+"Employee Tenure: "+empArray[i].getTenure1()+"\n"+"Employee Emi: "+empArray[i].getEMI1()+"\n"+"Employee Take Home salary: "+empArray[i].getTakeHome()+"\n"+"Employee Loan taken Date: "+empArray[i].getStartDate1()+"\n"+"Employee Loan End Date: "+empArray[i].getEndDate1());
 					}
 					else
 					{
@@ -60,21 +58,18 @@ public class EmployeeTask {
 			{
 			for(int i=0;i<emparray1.length;i++)
 			{
-				//EmployeeDetails emp=emparray1[i];
 				if(emparray1[i]==null)
 				{
 					
 				}
 				else
 				{
-					//System.out.println("Employee ID: "+emparray1[i].getemployeeID()+"\n"+"Employee Name: "+emparray1[i].getemployeeName()+"\n"+"Employee Package"+emparray1[i].getemployeePackage()+"\n"+"Employee Salary: "+emparray1[i].getempActualSal()+"Employee PF: "+emparray1[i].getemployeePF());
 					System.out.println("Employee ID: "+emparray1[i].getemployeeID()+"\n"+"Employee Name: "+emparray1[i].getemployeeName()+"\n"+"Employee Package"+emparray1[i].getemployeePackage()+"\n"+"Employee Salary: "+emparray1[i].getempActualSal1()+"\n"+"Employee PF: "+emparray1[i].getemployeePF1());
 
 					if(emparray1[i].getLoanAmount()==0.0)
 					{
 						System.out.println("Employee Loan: "+"N/A"+"\n"+"Employee Tenure: "+"N/A"+"\n"+"Employee Emi: "+"N/A"+"\n"+"Employee Loan taken Date: "+"N/A"+"\n"+"Employee Loan End Date: "+"N/A"+"\n"+"Employee Take Home salary: "+emparray1[i].getTakeHome1());
 
-						//System.out.println("Employee Loan: "+empArray[i].getLoanAmount1()+"\n"+"Employee Tenure: "+empArray[i].getTenure1()+"\n"+"Employee Emi: "+empArray[i].getEMI1()+"\n"+"Employee Take Home salary: "+empArray[i].getTakeHome()+"\n"+"Employee Loan taken Date: "+empArray[i].getStartDate1()+"\n"+"Employee Loan End Date: "+empArray[i].getEndDate1());
 					}
 					else
 					{
@@ -83,7 +78,7 @@ public class EmployeeTask {
 
 				}
 				}
-			
+			ois.close();
 			}
 			else
 			{
@@ -96,15 +91,13 @@ public class EmployeeTask {
 
 	public static void updateData(int empID) {
 		if (empArray != null) {
-			for (int i = 0; i <= empArray.length - 1; i++)
+			for (int i = 0; i <empArray.length; i++)
 			{
 				if (empArray[i].getemployeeID() == empID)
 				{
 					System.out.println("Enter new employee details");
 					System.out.println("enter Package");
 					empArray[i].setemployeePackage(a.nextDouble());
-					// Employee empUD=new Employee();empUD.setemployeeSalary(a.nextDouble());
-					// empArray[i]=empUD;
 					System.out.println("Data got updated and updated employee details are");
 					System.out.println("Employee ID: " + empArray[i].getemployeeID() + "\n" + "Employee Name: "
 							+ empArray[i].getemployeeName() + "\n" + "Package" + empArray[i].getemployeePackage() + "\n"
@@ -114,14 +107,12 @@ public class EmployeeTask {
 					{
 						System.out.println("Employee Loan: "+"N/A"+"\n"+"Employee Tenure: "+"N/A"+"\n"+"Employee Emi: "+"N/A"+"\n"+"Employee Loan taken Date: "+"N/A"+"\n"+"Employee Loan End Date: "+"N/A"+"\n"+"Employee Take Home salary: "+empArray[i].getTakeHome1());
 
-						//System.out.println("Employee Loan: "+empArray[i].getLoanAmount1()+"\n"+"Employee Tenure: "+empArray[i].getTenure1()+"\n"+"Employee Emi: "+empArray[i].getEMI1()+"\n"+"Employee Take Home salary: "+empArray[i].getTakeHome()+"\n"+"Employee Loan taken Date: "+empArray[i].getStartDate1()+"\n"+"Employee Loan End Date: "+empArray[i].getEndDate1());
 					}
 					else
 					{
 						System.out.println("Employee Loan: "+empArray[i].getLoanAmount1()+"\n"+"Employee Tenure: "+empArray[i].getTenure()+"\n"+"Employee Emi: "+empArray[i].getEMI1()+"\n"+"Employee Loan taken Date: "+empArray[i].getStartTime()+"\n"+"Employee Loan End Date: "+empArray[i].getEndTime()+"\n"+"Employee Take Home salary: "+empArray[i].getTakeHome1());
 				}
 			}
-					//System.out.println("Employee ID: "+empArray[i].getemployeeID()+"\n"+"Employee Name: "+empArray[i].getemployeeName()+"\n"+"Employee Package"+empArray[i].getemployeePackage()+"\n"+"Employee Salary: "+empArray[i].getemployeeSalary()+"\n"+"Employee PF: "+empArray[i].getemployeePF()+"\n"+"Employee Loan: "+empArray[i].getLoanAmount()+"\n"+"Employee Tenure: "+empArray[i].getTenure()+"\n"+"Employee Emi: "+empArray[i].getEMI()+"\n"+"Employee Take Home salary: "+empArray[i].getTakeHome()+"\n"+"Employee Loan taken Date: "+empArray[i].getStartTime()+"\n"+"Employee Loan End Date: "+empArray[i].getEndTime());
 					break;
 				}
 
@@ -139,7 +130,7 @@ public class EmployeeTask {
 
 	public static void deleteData(int empID) {
 		if (empArray != null) {
-			for (int i = 0; i <= empArray.length - 1; i++) {
+			for (int i = 0; i <empArray.length; i++) {
 				if (empArray[i].getemployeeID() == empID) {
 
 					empArray[i] = null;
@@ -188,13 +179,11 @@ public class EmployeeTask {
 			
 			else if(empArray[i].getemployeeID()==empID)
 			{
-				//System.out.println("Employee ID: "+empArray[i].getemployeeID()+"\n"+"Employee Name: "+empArray[i].getemployeeName()+"\n"+"Employee Package"+empArray[i].getemployeePackage()+"\n"+"Employee Salary: "+empArray[i].getemployeeSalary()+"\n"+"Employee PF: "+empArray[i].getemployeePF()+"\n"+"Employee Loan: "+empArray[i].getLoanAmount()+"\n"+"Employee Tenure: "+empArray[i].getTenure()+"\n"+"Employee Emi: "+empArray[i].getEMI()+"\n"+"Employee Take Home salary: "+empArray[i].getTakeHome()+"\n"+"Employee Loan taken Date: "+empArray[i].getStartTime()+"\n"+"Employee Loan End Date: "+empArray[i].getEndTime());
 				System.out.println("Employee ID: "+empArray[i].getemployeeID()+"\n"+"Employee Name: "+empArray[i].getemployeeName()+"\n"+"Employee Package"+empArray[i].getemployeePackage()+"\n"+"Employee Salary: "+empArray[i].getempActualSal1()+"\n"+"Employee PF: "+empArray[i].getemployeePF1());
 				if(empArray[i].getLoanAmount()==0.0)
 				{
 					System.out.println("Employee Loan: "+"N/A"+"\n"+"Employee Tenure: "+"N/A"+"\n"+"Employee Emi: "+"N/A"+"\n"+"Employee Loan taken Date: "+"N/A"+"\n"+"Employee Loan End Date: "+"N/A"+"\n"+"Employee Take Home salary: "+empArray[i].getTakeHome1());
 
-					//System.out.println("Employee Loan: "+empArray[i].getLoanAmount1()+"\n"+"Employee Tenure: "+empArray[i].getTenure1()+"\n"+"Employee Emi: "+empArray[i].getEMI1()+"\n"+"Employee Take Home salary: "+empArray[i].getTakeHome()+"\n"+"Employee Loan taken Date: "+empArray[i].getStartDate1()+"\n"+"Employee Loan End Date: "+empArray[i].getEndDate1());
 				}
 				else
 				{
@@ -228,7 +217,6 @@ public class EmployeeTask {
 				{
 					System.out.println("Employee Loan: "+"N/A"+"\n"+"Employee Tenure: "+"N/A"+"\n"+"Employee Emi: "+"N/A"+"\n"+"Employee Loan taken Date: "+"N/A"+"\n"+"Employee Loan End Date: "+"N/A"+"\n"+"Employee Take Home salary: "+emparray1[i].getTakeHome1());
 
-					//System.out.println("Employee Loan: "+empArray[i].getLoanAmount1()+"\n"+"Employee Tenure: "+empArray[i].getTenure1()+"\n"+"Employee Emi: "+empArray[i].getEMI1()+"\n"+"Employee Take Home salary: "+empArray[i].getTakeHome()+"\n"+"Employee Loan taken Date: "+empArray[i].getStartDate1()+"\n"+"Employee Loan End Date: "+empArray[i].getEndDate1());
 				}
 				else
 				{
@@ -239,7 +227,7 @@ public class EmployeeTask {
 			
 		}
 
-		
+		ois.close();
 		}
 		else
 		{
@@ -282,6 +270,7 @@ public class EmployeeTask {
 		FileOutputStream fos=new FileOutputStream(file);
 		ObjectOutputStream oos=new ObjectOutputStream(fos);
 		oos.writeObject(empArray);
+		oos.close();
 	}
 	public static void deserialization() throws Exception
 	{
@@ -294,7 +283,6 @@ public class EmployeeTask {
 		for(int i=0;i<emparray1.length;i++)
 		{
 			
-			EmployeeDetails emp=emparray1[i];
 			if(emparray1[i]==null)
 			{
 				System.out.println("Employee data at the position "+i+" is empty");
@@ -302,14 +290,11 @@ public class EmployeeTask {
 			}
 			else
 			{
-				//System.out.println("Employee ID: "+emparray1[i].getemployeeID()+"\n"+"Employee Name: "+emparray1[i].getemployeeName()+"\n"+"Employee Package"+emparray1[i].getemployeePackage()+"\n"+"Employee Salary: "+emparray1[i].getemployeeSalary()+"Employee PF: "+emparray1[i].getemployeePF());
-				//System.out.println("Employee ID: "+emparray1[i].getemployeeID()+"\n"+"Employee Name: "+emparray1[i].getemployeeName()+"\n"+"Employee Package"+emparray1[i].getemployeePackage()+"\n"+"Employee Salary: "+emparray1[i].getemployeeSalary()+"\n"+"Employee PF: "+emparray1[i].getemployeePF()+"\n"+"Employee Loan: "+emparray1[i].getLoanAmount()+"\n"+"Employee Tenure: "+empArray[i].getTenure()+"\n"+"Employee Emi: "+emparray1[i].getEMI()+"\n"+"Employee Take Home salary: "+emparray1[i].getTakeHome()+"\n"+"Employee Loan taken Date: "+emparray1[i].getStartTime()+"\n"+"Employee Loan End Time: "+emparray1[i].getEndTime());
 				System.out.println("Employee ID: "+emparray1[i].getemployeeID()+"\n"+"Employee Name: "+emparray1[i].getemployeeName()+"\n"+"Employee Package"+emparray1[i].getemployeePackage()+"\n"+"Employee Salary: "+emparray1[i].getempActualSal1()+"\n"+"Employee PF: "+emparray1[i].getemployeePF1());
 				if(emparray1[i].getLoanAmount()==0.0)
 				{
 					System.out.println("Employee Loan: "+"N/A"+"\n"+"Employee Tenure: "+"N/A"+"\n"+"Employee Emi: "+"N/A"+"\n"+"Employee Loan taken Date: "+"N/A"+"\n"+"Employee Loan End Date: "+"N/A"+"\n"+"Employee Take Home salary: "+emparray1[i].getTakeHome1());
 
-					//System.out.println("Employee Loan: "+empArray[i].getLoanAmount1()+"\n"+"Employee Tenure: "+empArray[i].getTenure1()+"\n"+"Employee Emi: "+empArray[i].getEMI1()+"\n"+"Employee Take Home salary: "+empArray[i].getTakeHome()+"\n"+"Employee Loan taken Date: "+empArray[i].getStartDate1()+"\n"+"Employee Loan End Date: "+empArray[i].getEndDate1());
 				}
 				else
 				{
@@ -318,6 +303,7 @@ public class EmployeeTask {
 			}
 			}
 		
+		ois.close();
 		}
 		else
 		{

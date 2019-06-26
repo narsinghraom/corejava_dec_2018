@@ -11,6 +11,18 @@ public class EmployeeDetails implements Serializable {
 		private double ActualSal;
 		private double empSalary;
 		private double Package;
+		/* (non-Javadoc)
+		 * @see java.lang.Object#toString()
+		 */
+		@Override
+		public String toString() {
+			return "EmployeeDetails [employeeID=" + employeeID + ", Name="
+					+ Name + ", ActualSal=" + ActualSal + ", empSalary="
+					+ empSalary + ", Package=" + Package + ", PF=" + PF
+					+ ", LoanAmount=" + LoanAmount + ", EMI=" + EMI
+					+ ", tenure=" + tenure + ", EmpTakeHome=" + EmpTakeHome
+					+ ", StartTime=" + StartTime + ", EndTime=" + EndTime + "]";
+		}
 		private double PF;
 		private double LoanAmount;
 		private double EMI;
