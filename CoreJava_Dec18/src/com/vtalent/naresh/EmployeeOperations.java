@@ -1,5 +1,10 @@
 package com.vtalent.naresh;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 public class EmployeeOperations {
@@ -20,12 +25,13 @@ public class EmployeeOperations {
 			System.out.println("Successfully Inserted." + '\n');
 		}
 
-		else {
-			System.out.println("Already Inserted" + '\n');
-		}
+		/*
+		 * else { System.out.println("Already Inserted" + '\n'); }
+		 */
 	}
 
 	public void printAllData() {
+		
 		if (emparray != null) {
 			for (int i = 0; i < emparray.length ; i++) {
 				Employee emp1 = emparray[i];
@@ -33,25 +39,29 @@ public class EmployeeOperations {
 					 
 				 }
 				 else {
-				System.out.println(emp1.getEmployId() + "   "
-						+ emp1.getEmploySalary());
+				//System.out.println("Employ id- "+emp1.getEmployId()+'\n'+"Employ Name- "+emp1.getEmployname()+'\n'+ "Employ Package- "+emp1.getEmployPackage()+'\n'+ "Employ Salary- "+emp1.getEmploySalary()+'\n'+ "Employ Pf(2%)- "+emp1.getEmployPf());
+				if(emp1.getLoanAmount()==0.0) {
+					System.out.println("Employ id- "+emp1.getEmployId()+'\n'+"Employ Name- "+emp1.getEmployname()+'\n'+ "Employ Package- "+emp1.getEmployPackage()+'\n'+ "Employ Salary- "+emp1.getEmploySalary()+'\n'+ "Employ Pf(2%)- "+emp1.getEmployPf());
+					System.out.println("Loan Amount-N/A"+'\n'+"EMI-N/A"+'\n'+"Tenure-N/A");
+					 
+				}
+				else{
+					System.out.println("Employ id- "+emp1.getEmployId()+'\n'+"Employ Name- "+emp1.getEmployname()+'\n'+ "Employ Package- "+emp1.getEmployPackage()+'\n'+ "Employ Salary- "+emp1.getEmploySalary()+'\n'+ "Employ Pf(2%)- "+emp1.getEmployPf());
+				System.out.println("Loan Amount-"+emp1.getLoanAmount()+'\n'+"EMI-"+emp1.getEmi()+'\n'+"Tenure-"+emp1.getTenure()+'\n'+"Take Home Salary-"+emp1.getTakeHome());  
+				 emp1.date();
+				  
+				}
 				 }
-	Scanner sc=new Scanner(System.in);	
-	
-				/*
-				 * if(emparray!=null) { for( i=0;i<=emparray.length-1;i++) {
-				 * if(emparray[i]==null) { emparray[i]=emp;
-				 * System.out.println("Successfully Inserted."+'\n'); break; } }
-				 * 
-				 * } else { System.out.println("Insert Some Data"+'\n'); }
-				 */
-		/*
-		 
-		*/
-	
 			}}
-	else {
-		System.out.println("Employee Data is empty" + '\n');
+	else  {
+		try{
+			EmployeeOperations eo=new EmployeeOperations();
+			eo.deSerialization();
+		}
+		catch(Exception e){
+			
+		}
+		//System.out.println("Employee Data is empty" + '\n');
 	}
 	
 			}
@@ -66,46 +76,72 @@ public class EmployeeOperations {
 				}
 				else {
 				System.out.println(emp1.getEmployId() + "   "
-						+ emp1.getEmploySalary());
+						+ emp1.getEmployPackage());
 			}
-			}
-
-			System.out.println("Enter the Id to be Updated" + '\n');
-			int x = sc.nextInt();
-			for ( int i = 0; i <= emparray.length - 1; i++) {
-				Employee emp2;
-				emp2 = emparray[i];
-				if (x == emp2.getEmployId()) {
-					System.out
-							.println("Enter the new Salary to be Updated" + '\n');
-					emp2.setEmploySalary(sc.nextDouble());
-		
-				if(emparray!=null) {
-					for( i=0;i<=emparray.length-1;i++) {
-						if(emparray[i]!=null) {
-						 emp=emparray[i];
-						System.out.println(emp.getEmployId()+"   "+ emp.getEmploySalary());
-						}
-						
-														  }
-			}
-		}
-
-		
-	}
-			
-			}
-		else {
-			System.out.println("First Insert Employee Data" + '\n');
-		}
 			}
 	
-
- 
-
-	 
+			System.out.println("Enter the Id to be Updated" + '\n');
+			int x = sc.nextInt();
+			System.out.println("Select the option to be updated 1.Name"+'\n'+"2.Package");
+			int np=sc.nextInt();
+			if(np==1) {
+				for ( int i = 0; i <= emparray.length - 1; i++) {
+					Employee emp2;
+					emp2 = emparray[i];
+					if (x == emp2.getEmployId()) {
+						System.out .println("Enter the new name to be Updated" + '\n');
+						emp2.setEmployname(sc.next());
 					
-					public void searchData() {
+				
+					if(emparray!=null) {
+						for(  i=0; i<=emparray.length-1;i++) {
+							if(emparray[i]!=null) {
+							 emp=emparray[i];
+							System.out.println(emp.getEmployId()+"   "+ emp.getEmployname());
+							}
+															  }
+										}
+			
+			else {
+				System.out.println("First Insert Employee Data" + '\n');
+			}
+				}
+				}
+				}
+				
+
+			
+			
+			else if(np==2) {
+				for ( int i = 0; i <= emparray.length - 1; i++) {
+					Employee emp2;
+					emp2 = emparray[i];
+					if (x == emp2.getEmployId()) {
+						System.out .println("Enter the new Package to be Updated" + '\n');
+						emp2.setEmployPackage(sc.nextDouble());
+					
+				
+					if(emparray!=null) {
+						for(  i=0; i<=emparray.length-1;i++) {
+							if(emparray[i]!=null) {
+							 emp=emparray[i];
+							System.out.println(emp.getEmployId()+"   "+ emp.getEmployPackage());
+							}
+															  }
+										}
+			
+			else {
+				System.out.println("First Insert Employee Data" + '\n');
+			}
+				}
+				}	
+			}
+			else {
+				System.out.println("Invalid Input");
+			}
+		}
+	} 
+public void searchData()throws Exception {
 						if(emparray!=null) {
 							System.out.println("Enter the Employ_Id:");
 							Employee emp1;
@@ -116,7 +152,7 @@ public class EmployeeOperations {
 									
 								}
 								else if (x==emp1.getEmployId()) {
-								System.out.println("Employ_Id- "+emp1.getEmployId()+'\n'+"Employ_Salary- "+emp1.getEmploySalary() );
+									System.out.println("Employ id- "+emp1.getEmployId()+'\n'+"Employ Name- "+emp1.getEmployname()+'\n'+ "Employ Package- "+emp1.getEmployPackage()+'\n'+ "Employ Salary- "+emp1.getEmploySalary()+'\n'+ "Employ Pf(2%)- "+emp1.getEmployPf()+'\n');
 									break;
 								}
 								else {
@@ -126,12 +162,28 @@ public class EmployeeOperations {
 					}
 							
 						else {
-							System.out.println("Insert the Employee Data first"+'\n');
+							System.out.println("Enter id to search from Previous data");
+							int x=sc.nextInt();
+							FileInputStream fis=new FileInputStream("E:/Employ1.txt");
+							ObjectInputStream ois=new ObjectInputStream(fis);
+							Object obj=ois.readObject();
+							Employee[] emparray1=(Employee[])obj;
+							for(int i=0;i<=emparray1.length-1;i++) {
+								if(x==emparray1[i].getEmployId()) {
+							System.out.println("Id- "+emparray1[i].getEmployId()+'\n'+"Name- "+emparray1[i].getEmployname()+'\n'+"Package- "+emparray1[i].getEmployPackage()+'\n'+"Salary- "+emparray1[i].getEmploySalary()+'\n'+"pf- "+emparray1[i].getEmployPf());
+								//	emparray1[i]=null;
+								}
+								}
+							
+							//System.out.println("Insert the Employee Data first"+'\n');
 						}
 						
+						
+						
 					}
-					public void deleteEmploy() {
-						if(emparray!=null) { 
+					public void deleteEmploy()throws Exception {
+						 
+							if(emparray!=null) { 
 							Employee emp1;
 							for(int i=0;i<=emparray.length-1;i++) {
 								 emp1=emparray[i];
@@ -151,9 +203,108 @@ public class EmployeeOperations {
 																
 }
 						else {
-							System.out.println("No Data Found"+'\n');
+							System.out.println("Enter id to remove from Previous data");
+							int x=sc.nextInt();
+							FileInputStream fis=new FileInputStream("E:/Employ1.txt");
+							ObjectInputStream ois=new ObjectInputStream(fis);
+							Object obj=ois.readObject();
+							Employee[] emparray1=(Employee[])obj;
+							for(int i=0;i<=emparray1.length-1;i++) {
+								if(x==emparray1[i].getEmployId()) {
+									emparray1[i]=null;
+									break;
+								}
+								}
+							
+							
+						}
+	 					}
+					
+					
+	public void employLoan(Employee emp,double salary) {
+				
+						try {
+							if(salary<20000) {
+								throw new EmployeeLoan();
+							}
+							else {
+								//Employee emp1 =new Employee();
+								double loanamount=salary*5;
+								emp.setLoanAmount(loanamount);
+								System.out.println("Congrats:) You're Eligible for a Loan of Amount of "+loanamount+" with a interest rate of 14% per Annum(12 Months)"+'\n'+"Would you like to opt for a Loan"+'\n'+" 1.Yes 2.No" );
+								String s=sc.next();
+								if(s.equalsIgnoreCase("yes")) {
+									
+									
+									System.out.println("Enter Tenure Period");
+									int tenure=sc.nextInt();
+									emp.setTenure(tenure);
+								  double i=(((0.14*tenure)/12))*loanamount;
+								  double emi=(i+loanamount)/tenure;
+								  emp.setEmi(emi);
+										
+									
+									//emp1.getLoanAmount();
+									//emp1.getEmi();
+								}
+								else if(s.equalsIgnoreCase("no")) {
+									System.out.println("Thank You");
+								}
+								
+								else {
+									System.out.println("Enter Valid Id");
+								}
+							}
+						}
+						catch(EmployeeLoan e) {
+							System.out.println(e);
 						}
 						
-						}
-}		
+					}
+
+	public void employeeLoanMain() {
+		if(emparray!=null) {
+		System.out.println("Enter Employee id to check Loan Eligibility");
+			int a=sc.nextInt();
+			for ( int i = 0; i <= emparray.length - 1; i++) {
+			emp = emparray[i];
+			if(emparray[i]==null) {
+			break;	
+			}
+			else if (a == emp.getEmployId()) {
+				EmployeeOperations eo=new EmployeeOperations();
+				eo.employLoan(emparray[i],emp.getEmploySalary());
+				break;
+				}
+			 
+				
+	}
+		}
+			else {
+				System.out.println("Insert some data first");
+			}
+		}
 	
+	
+	public void deSerialization()throws Exception {
+	
+		
+		FileInputStream fis=new FileInputStream("E:/Employ1.txt");
+		ObjectInputStream ois=new ObjectInputStream(fis);
+		Object obj=ois.readObject();
+		Employee[] emparray1=(Employee[])obj;
+		for(int i=0;i<=emparray1.length-1;i++) {
+		System.out.println("Id- "+emparray1[i].getEmployId()+'\n'+"Name- "+emparray1[i].getEmployname()+'\n'+"Package- "+emparray1[i].getEmployPackage()+'\n'+"Salary- "+emparray1[i].getEmploySalary()+'\n'+"pf- "+emparray1[i].getEmployPf());
+		}
+	}
+		public void serialization()throws Exception {
+			
+			File f=new File("E:/Employ1.txt");
+			FileOutputStream fos=new FileOutputStream(f);
+			ObjectOutputStream oos=new ObjectOutputStream(fos);
+			oos.writeObject(emparray);
+			 
+		
+	}
+	
+	}

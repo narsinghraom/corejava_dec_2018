@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	
 		Basic b=new Basic();
 Scanner sc=new Scanner(System.in);
 System.out.println("Select an option to perform the operation");
@@ -25,7 +25,8 @@ case 3:
 case 4:
 	b.minmax();
 	break;
-
+default:
+	System.out.println("Choose operation");
 }
 	}
 

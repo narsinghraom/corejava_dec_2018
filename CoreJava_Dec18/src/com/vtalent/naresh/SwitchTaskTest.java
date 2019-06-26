@@ -46,10 +46,13 @@ static Scanner sc=new Scanner(System.in);
 			
 		case 6:
 			System.exit(0);
-			break;
-			
-		}
+		
+		default :
+			System.out.println("Enter Valid Number");
 
+		}
+		
+		
 	}
 		}
 

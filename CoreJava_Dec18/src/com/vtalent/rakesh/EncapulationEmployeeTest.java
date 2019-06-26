@@ -1,5 +1,9 @@
 package com.vtalent.rakesh;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 public class EncapulationEmployeeTest {
@@ -17,26 +21,30 @@ public class EncapulationEmployeeTest {
 
 			Employee emp = new Employee();
 
+			System.out.println("Enter id:");
+			emp.setEmployid(sc.nextInt());
+
 			System.out.println("Enter name:");
 			emp.setEmployName(sc.next());
 
 			System.out.println("Enter package:");
-			emp.setEmployPackage(sc.nextDouble());
+			double d = sc.nextDouble();
 
-			System.out.println("Enter id:");
-			emp.setEmployid(sc.nextInt());
-
-			System.out.println("Enter pf:");
-			emp.setPf(sc.nextFloat());
+			emp.setEmployPackage(d);
 
 			System.out.println("Enter mobile number:");
 			emp.setMobileNumber(sc.next());
 
-			double d = emp.getEmployPackage();
-			double salary = d / 12;
-			double pf = emp.getPf();
+			double d2 = emp.getEmployPackage();
+			double salary = d2 / 12;
+
+			double pf = salary * 2 / 100;
 			double finalSalary = salary - pf;
-			emp.setEmploysalary(finalSalary);
+
+			double finalSalary1 = Math.round(finalSalary * 100.0) / 100.0;
+			emp.setEmploysalary(finalSalary1);
+			double pf1 = Math.round(pf * 100.0) / 100.0;
+			emp.setPf(pf1);
 			EmployeeOperations.storeData(emp);
 		}
 	}
@@ -44,7 +52,7 @@ public class EncapulationEmployeeTest {
 	public static void main(String[] args) {
 		EncapulationEmployeeTest et = new EncapulationEmployeeTest();
 		EmployeeOperations eo = new EmployeeOperations();
-		GetALoan g = new GetALoan();
+
 		Scanner sc = new Scanner(System.in);
 
 		for (;;) {
@@ -61,7 +69,7 @@ public class EncapulationEmployeeTest {
 
 			else if (a == 3) {
 				eo.deleteEmploy();
-				// System.out.println("still under process..."+'\n');
+
 			} else if (a == 4) {
 				eo.searchData();
 			}
@@ -71,13 +79,26 @@ public class EncapulationEmployeeTest {
 			}
 
 			else if (a == 6) {
-				Employee q = new Employee();
-				GetALoan w = new GetALoan();
-				w.validateSalary(q.getEmploysalary());
+				eo.validateLoan();
 			} else if (a == 7) {
+				FileOutputStream fo = null;
+				try {
+					File file = new File("D:\\Rakesh\\rakeshdataqqqqqa");
+					fo = new FileOutputStream(file);
+
+					ObjectOutputStream oos = new ObjectOutputStream(fo);
+					oos.writeObject(EmployeeOperations.emparray);
+
+				} catch (Exception e) {
+				} finally {
+					try {
+						fo.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
 				break;
-			} else {
-				System.out.println("Enter Valid Search" + '\n');
 			}
 		}
 	}

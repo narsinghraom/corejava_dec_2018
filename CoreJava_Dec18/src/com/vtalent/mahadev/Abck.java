@@ -5,7 +5,7 @@ public class Abck {
 	int i;
 	public static void main(String[] args) {
 		Abck abc1=new Abck();
-		abc1 i=10;
+		//abc1 i=10;
 		System.out.println(abc1.i);
 	}
 

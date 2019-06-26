@@ -20,16 +20,18 @@ public class MainOperations {
 			reminder = numToCheck % 2;
 			if (reminder == 0) {
 				isPrime = false;
-				break;
+				// break;
 			}
 
 			if (isPrime) {
 				System.out.println(numToCheck + "is a prime number");
+				break;
 
 			} else {
 				System.out.println(numToCheck + "is a not prime number");
+				break;
 			}
-			break;
+			// break;
 		}
 
 	}

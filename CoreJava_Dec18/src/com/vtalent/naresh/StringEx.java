@@ -19,7 +19,7 @@ public class StringEx {
 		}
 	
 	
-	if(s3==s33) {
+	if(s3.equals(s33)) {
 		System.out.println("True");
 	}
 	else {
@@ -37,16 +37,18 @@ public class StringEx {
  //int length();
  	//System.out.println(s4.length());
  
-char[]  ch1= new char[s1.charAt(5)];
-	for(int i=s1.length(); i<s1.length();i--) {
+/*char[]  ch1= new char[s1.charAt(5)];
+System.out.println("hi");
+	for(int i=0; i<=s1.length()-1;i--) {
 				System.out.println(ch1[i]);
+				System.out.println("hi");
 			//if(ch1!=null) {
 				//if(ch1[i])
 			}
-	}
+	} */
  	
 	
-	
+	}
 	
 	}
 

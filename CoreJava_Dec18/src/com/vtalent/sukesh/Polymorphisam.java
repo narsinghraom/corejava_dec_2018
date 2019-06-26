@@ -10,8 +10,6 @@ public class Polymorphisam {
 		p1.function();
 		System.out.println(p1.f1);
 		System.out.println(p1.f2);
-		// System.out.println(p1.l1);
-		// System.out.println(p1.l2);
 		System.out.println("");
 		System.out.println("");
 
@@ -46,8 +44,6 @@ public class Polymorphisam {
 		p4.function();
 		System.out.println(p4.f1);
 		System.out.println(p4.f2);
-		// System.out.println(p4.l1); Error
-		// System.out.println(p4.l2); Error
 		System.out.println("");
 		System.out.println("");
 
@@ -58,8 +54,6 @@ public class Polymorphisam {
 		p5.function();
 		System.out.println(p5.f1);
 		System.out.println(p5.f2);
-		// System.out.println(p5.l1);
-		// System.out.println(p5.l2);
 		System.out.println("");
 		System.out.println("");
 
@@ -72,9 +66,6 @@ public class Polymorphisam {
 		System.out.println(p6.f2);
 		System.out.println(p6.l1);
 		System.out.println(p6.l2);
-
-		// Poly2 p7=new Poly1();
-		// Poly3 p8 = new Poly2(); Compile time Error
 
 	}
 }

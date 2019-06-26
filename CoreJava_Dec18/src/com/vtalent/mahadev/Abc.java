@@ -3,8 +3,10 @@ package com.vtalent.mahadev;
 public class Abc{
 	
 	static Abc abc=new Abc();
-	float f1,f2;
-	static long l1,l2;
+	float f2;
+	float f1;
+	static long l2;
+	static long l1;
 	Abc abcRef;
 	public Abc function(Abc abc){
 		abcRef=abc;

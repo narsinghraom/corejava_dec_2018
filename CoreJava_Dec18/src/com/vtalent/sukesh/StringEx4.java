@@ -4,31 +4,31 @@ import java.util.Scanner;
 
 public class StringEx4 {
 
+	static Scanner sc;
+
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		/*
-		 * String S1 = "ABCD"; String S2 = "DEFA";
-		 */
+
 		System.out.println("Enter Two String:");
-		Scanner sc = new Scanner(System.in);
-		String S1 = sc.nextLine();
-		String S2 = sc.nextLine();
-		String S3 = S1 + S2;
-		S3 = S3.toUpperCase();
-		//System.out.println(S3);
-		char[] C = S3.toCharArray();
-		for (int i = 0; i < C.length; i++) {
-			// System.out.print(C[i]);
-			int Count = 0;
-			for (int j = 0; j < C.length; j++) {
-				if (C[i] == C[j]) {
-					Count++;
+		sc = new Scanner(System.in);
+		String Ss1 = sc.nextLine();
+		String Ss2 = sc.nextLine();
+		String Ss3 = Ss1 + Ss2;
+		Ss3 = Ss3.toUpperCase();
+		System.out.println(Ss3);
+		char[] Cc = Ss3.toCharArray();
+
+		for (int i = 0; i < Cc.length; i++) {
+			int Cc1 = 0;
+			for (int j = 0; j < Cc.length; j++) {
+				if (Cc[i] == Cc[j]) {
+					Cc1++;
 				}
 			}
-			if (Count == 1) {
-				System.out.print(C[i]);
+			if (Cc1 == 1) {
+				System.out.print(Cc[i]);
 			}
 
 		}
+
 	}
 }
