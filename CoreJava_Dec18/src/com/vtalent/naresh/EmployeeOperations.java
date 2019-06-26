@@ -39,7 +39,6 @@ public class EmployeeOperations {
 					 
 				 }
 				 else {
-				//System.out.println("Employ id- "+emp1.getEmployId()+'\n'+"Employ Name- "+emp1.getEmployname()+'\n'+ "Employ Package- "+emp1.getEmployPackage()+'\n'+ "Employ Salary- "+emp1.getEmploySalary()+'\n'+ "Employ Pf(2%)- "+emp1.getEmployPf());
 				if(emp1.getLoanAmount()==0.0) {
 					System.out.println("Employ id- "+emp1.getEmployId()+'\n'+"Employ Name- "+emp1.getEmployname()+'\n'+ "Employ Package- "+emp1.getEmployPackage()+'\n'+ "Employ Salary- "+emp1.getEmploySalary()+'\n'+ "Employ Pf(2%)- "+emp1.getEmployPf());
 					System.out.println("Loan Amount-N/A"+'\n'+"EMI-N/A"+'\n'+"Tenure-N/A");
