@@ -13,6 +13,7 @@ public class Arraylist {
 		  //Iterator itr=list.iterator();  
 		 // while(itr.hasNext()){  
 		  // System.out.println(itr.next());
+		  
 		  for (String i:list){
 			  System.out.println(i);
 			  
