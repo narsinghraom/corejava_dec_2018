@@ -38,18 +38,24 @@ for(Employee emp:arl)
 }
 public static void deleteEmployee( int id)
 {
+ 	int index=0;
 	for(Employee emp:arl)
 	{
-if(emp.getEmployeeId()==id)
+if(id==emp.getEmployeeId())
 {
-	arl.remove(emp);
+	arl.remove(index);
+	System.out.println("Deleted");
+	break;
 }
-}}
+index++;
+}
+	
+}
 public static void update(int id1)
 {
 	for(Employee emp:arl)
 	{
-		if(emp.getEmployeeId()==id1)
+		if(id1==emp.getEmployeeId())
 		{
 			System.out.println("Enter Package to be updated");
 			double d=sc.nextDouble();
