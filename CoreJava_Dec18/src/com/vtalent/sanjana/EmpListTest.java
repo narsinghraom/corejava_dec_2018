@@ -62,6 +62,10 @@ public class EmpListTest {
 		EmpList.printAllEmployeeData();
 		
 		break;
+	case 6:
+		System.out.println("Enter Employee Id  to check Loan Availability");
+		double id3=sc.nextInt();
+        EmpList.loanElgibility(id3);
 	}}
 		while(choice!=7);
 }}
