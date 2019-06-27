@@ -53,7 +53,7 @@ public class EmployeeCollectionTask1 {
 			case 7:
 
 				try {
-					File file = new File("F:\\Employee Data View.txt");
+					File file = new File("D:\\sari.txt");
 					FileOutputStream fos = new FileOutputStream(file);
 					@SuppressWarnings("resource")
 					ObjectOutputStream oos = new ObjectOutputStream(fos);
