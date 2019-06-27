@@ -4,8 +4,10 @@ import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 import java.text.Format;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Scanner;
 
 public class EmployeeOperations {
 
@@ -24,28 +26,26 @@ public class EmployeeOperations {
 	}
 
 	public static void DataPrint() {
-		System.out.println("EmployeeID" + "		" + "EmployeeName" + "		"
-				+ "Employee MobileNumber" + "		" + "EmployeePackage" + "		"
-				+ "EmployeeSalary" + "		" + "EmployeePF" + "       "
-				+ "LoanAmount " + "       " + "EMI" + "        " + "Months"
-				+ "        " + " Interest" + "       " + "Starting Date"
+		System.out.println("EmployeeID" + "		" + "EmployeeName" + "		" + "Employee MobileNumber" + "		"
+				+ "EmployeePackage" + "		" + "EmployeeSalary" + "		" + "EmployeePF" + "       " + "LoanAmount "
+				+ "       " + "EMI" + "        " + "Months" + "        " + " Interest" + "       " + "Starting Date"
 				+ "       " + "EndDate");
 
 	}
 
-	public static void insertData(Employee emp) {
-		if (empArray != null) {
-			for (int i = 0; i <= empArray.length - 1; i++) {
-				if (empArray[i] == null) {
-					empArray[i] = emp;
-					break;
-				}
+	static ArrayList al = new ArrayList();
+		
+			public static void insertData(Employee emp) {
+			if ( empArray != null) {
+				 al.add(emp);
 			}
+		
+			
 
-		} else {
+		 else {
 			System.out.println("already inserted");
 		}
-	}
+		}
 
 	public static void InsertInnerLogic() {
 
@@ -57,11 +57,9 @@ public class EmployeeOperations {
 
 		System.out.println("Enter MobileNumber:- ");
 
-		emp.setMobileNumber(EmployeeOperations.MobileLogic(EmployeeTask1.input
-				.next()));
+		emp.setMobileNumber(EmployeeOperations.MobileLogic(EmployeeTask1.input.next()));
 		System.out.println("Enter EmployeePackage:- ");
-		double Pp = EmployeeOperations.PackageLogic(EmployeeTask1.input
-				.nextDouble());
+		double Pp = EmployeeOperations.PackageLogic(EmployeeTask1.input.nextDouble());
 		emp.setPackage(Pp);
 		double Ss = Pp / 12;
 		double pf = Ss * 0.02;
@@ -99,8 +97,7 @@ public class EmployeeOperations {
 			System.out.println("Mobile Number Must 10-Digits");
 			Cc = 1;
 		} else if (Mobile.contains(Ss)) {
-			System.out
-					.println("MobileNumber Already Entered in DataBase,Enter New Number");
+			System.out.println("MobileNumber Already Entered in DataBase,Enter New Number");
 			Cc = 1;
 		} else if (n == '9' || n == '8' || n == '7') {
 			Cc = 2;
@@ -127,8 +124,7 @@ public class EmployeeOperations {
 			Cc = 1;
 
 		} else if (IDs.contains(Ss)) {
-			System.out
-					.println("EmployeeID Already Entered in DataBase,Enter New ID");
+			System.out.println("EmployeeID Already Entered in DataBase,Enter New ID");
 			Cc = 2;
 		} else {
 			IDs = IDs + " " + Ss;
@@ -164,16 +160,11 @@ public class EmployeeOperations {
 
 						System.out.println("Ofter update.............");
 						EmployeeOperations.DataPrint();
-						System.out.println(" " + emp.getID() + "			 "
-								+ emp.getName() + "			 "
-								+ emp.getMobileNumber() + "			"
-								+ emp.getPackage() + "		 " + emp.getSalary()
-								+ "	       " + emp.getPF() + " 	   "
-								+ emp.getLoanAmount() + "      " + emp.getEMI()
-								+ "  	   " + emp.getYear() + "     "
-								+ emp.getInterest() + "        "
-								+ emp.getStartingDate() + "       "
-								+ emp.getEndDate());
+						System.out.println(" " + emp.getID() + "			 " + emp.getName() + "			 "
+								+ emp.getMobileNumber() + "			" + emp.getPackage() + "		 " + emp.getSalary()
+								+ "	       " + emp.getPF() + " 	   " + emp.getLoanAmount() + "      " + emp.getEMI()
+								+ "  	   " + emp.getYear() + "     " + emp.getInterest() + "        "
+								+ emp.getStartingDate() + "       " + emp.getEndDate());
 
 						Cc = 1;
 						break;
@@ -230,16 +221,11 @@ public class EmployeeOperations {
 				if (emp != null) {
 					if (x == emp.getID()) {
 						EmployeeOperations.DataPrint();
-						System.out.println(" " + emp.getID() + "			 "
-								+ emp.getName() + "			 "
-								+ emp.getMobileNumber() + "			"
-								+ emp.getPackage() + "		 " + emp.getSalary()
-								+ "	       " + emp.getPF() + " 	   "
-								+ emp.getLoanAmount() + "      " + emp.getEMI()
-								+ "  	   " + emp.getYear() + "     "
-								+ emp.getInterest() + "        "
-								+ emp.getStartingDate() + "       "
-								+ emp.getEndDate());
+						System.out.println(" " + emp.getID() + "			 " + emp.getName() + "			 "
+								+ emp.getMobileNumber() + "			" + emp.getPackage() + "		 " + emp.getSalary()
+								+ "	       " + emp.getPF() + " 	   " + emp.getLoanAmount() + "      " + emp.getEMI()
+								+ "  	   " + emp.getYear() + "     " + emp.getInterest() + "        "
+								+ emp.getStartingDate() + "       " + emp.getEndDate());
 
 						Cc = 1;
 						break;
@@ -254,8 +240,7 @@ public class EmployeeOperations {
 
 		} else {
 			try {
-				FileInputStream fis = new FileInputStream(
-						"F:\\Employee Data View.txt");
+				FileInputStream fis = new FileInputStream("F:\\Employee Data View.txt");
 				@SuppressWarnings("resource")
 				ObjectInputStream ois = new ObjectInputStream(fis);
 				Object obj = ois.readObject();
@@ -269,16 +254,11 @@ public class EmployeeOperations {
 					if (emp != null) {
 						if (x == emp1.getID()) {
 							EmployeeOperations.DataPrint();
-							System.out.println(" " + emp1.getID() + "			 "
-									+ emp1.getName() + "			 "
-									+ emp1.getMobileNumber() + "			"
-									+ emp1.getPackage() + "		 "
-									+ emp1.getSalary() + "	       "
-									+ emp1.getPF() + " 	   "
-									+ emp1.getLoanAmount() + "      "
-									+ emp1.getEMI() + "  	   " + emp1.getYear()
-									+ "     " + emp1.getInterest() + "        "
-									+ emp1.getStartingDate() + "       "
+							System.out.println(" " + emp1.getID() + "			 " + emp1.getName() + "			 "
+									+ emp1.getMobileNumber() + "			" + emp1.getPackage() + "		 "
+									+ emp1.getSalary() + "	       " + emp1.getPF() + " 	   " + emp1.getLoanAmount()
+									+ "      " + emp1.getEMI() + "  	   " + emp1.getYear() + "     "
+									+ emp1.getInterest() + "        " + emp1.getStartingDate() + "       "
 									+ emp1.getEndDate());
 
 							Cc = 1;
@@ -307,23 +287,18 @@ public class EmployeeOperations {
 				Employee emp = empArray[i];
 				if (emp != null) {
 
-					System.out.println(" " + emp.getID() + "			 "
-							+ emp.getName() + "			 " + emp.getMobileNumber()
-							+ "			" + emp.getPackage() + "		 "
-							+ emp.getSalary() + "	       " + emp.getPF()
-							+ " 	   " + emp.getLoanAmount() + "      "
-							+ emp.getEMI() + "  	   " + emp.getYear() + "     "
-							+ emp.getInterest() + "        "
-							+ emp.getStartingDate() + "       "
-							+ emp.getEndDate());
+					System.out.println(" " + emp.getID() + "			 " + emp.getName() + "			 "
+							+ emp.getMobileNumber() + "			" + emp.getPackage() + "		 " + emp.getSalary()
+							+ "	       " + emp.getPF() + " 	   " + emp.getLoanAmount() + "      " + emp.getEMI()
+							+ "  	   " + emp.getYear() + "     " + emp.getInterest() + "        "
+							+ emp.getStartingDate() + "       " + emp.getEndDate());
 				}
 			}
 		}
 
 		else {
 			try {
-				FileInputStream fis = new FileInputStream(
-						"F:\\Employee Data View.txt");
+				FileInputStream fis = new FileInputStream("D:\\Employee Data View.txt");
 				@SuppressWarnings("resource")
 				ObjectInputStream ois = new ObjectInputStream(fis);
 				Object obj = ois.readObject();
@@ -331,16 +306,11 @@ public class EmployeeOperations {
 				if (emp != null) {
 					EmployeeOperations.DataPrint();
 					for (int i = 0; i < emp.length; i++) {
-						System.out.println(" " + emp[i].getID() + "			 "
-								+ emp[i].getName() + "			 "
-								+ emp[i].getMobileNumber() + "			"
-								+ emp[i].getPackage() + "		  "
-								+ emp[i].getSalary() + "		 " + emp[i].getPF()
-								+ "       " + emp[i].getLoanAmount()
-								+ "       " + emp[i].getEMI() + "         "
-								+ emp[i].getYear() + "        "
-								+ emp[i].getInterest() + "        "
-								+ emp[i].getStartingDate() + "         "
+						System.out.println(" " + emp[i].getID() + "			 " + emp[i].getName() + "			 "
+								+ emp[i].getMobileNumber() + "			" + emp[i].getPackage() + "		  "
+								+ emp[i].getSalary() + "		 " + emp[i].getPF() + "       " + emp[i].getLoanAmount()
+								+ "       " + emp[i].getEMI() + "         " + emp[i].getYear() + "        "
+								+ emp[i].getInterest() + "        " + emp[i].getStartingDate() + "         "
 								+ emp[i].getEndDate());
 					}
 
@@ -374,11 +344,8 @@ public class EmployeeOperations {
 							}
 						} else {
 
-							System.out
-									.println("you are Eligible  Loan Amount is: "
-											+ Ss * 5);
-							System.out.println("Enter your Loan Amount below "
-									+ Ss * 5);
+							System.out.println("you are Eligible  Loan Amount is: " + Ss * 5);
+							System.out.println("Enter your Loan Amount below " + Ss * 5);
 							while (true) {
 								float Pp = EmployeeTask1.input.nextFloat();
 
@@ -389,16 +356,12 @@ public class EmployeeOperations {
 									float r1 = r;
 									r = r / (12 * 100);
 									t = t * 12;
-									float emi = (Pp * r * (float) Math.pow(
-											1 + r, t))
+									float emi = (Pp * r * (float) Math.pow(1 + r, t))
 											/ (float) (Math.pow(1 + r, t) - 1);
 
-									System.out.println("Amount:- " + Pp
-											+ "  Mounts:-  " + t
-											+ "  Rate of interest:-" + r1
-											+ "  EMI:-" + emi);
-									System.out
-											.println("Are You Want to Continue (Y/N) ?");
+									System.out.println("Amount:- " + Pp + "  Mounts:-  " + t + "  Rate of interest:-"
+											+ r1 + "  EMI:-" + emi);
+									System.out.println("Are You Want to Continue (Y/N) ?");
 
 									while (true) {
 										String y = EmployeeTask1.input.next();
@@ -409,23 +372,17 @@ public class EmployeeOperations {
 											emp.setInterest(r);
 											emp.setSalary(Ss - emi);
 
-											Calendar date = Calendar
-													.getInstance();
+											Calendar date = Calendar.getInstance();
 											date.setTime(new Date());
-											Format f = new SimpleDateFormat(
-													"dd-MMMM-yyyy");
+											Format f = new SimpleDateFormat("dd-MMMM-yyyy");
 
-											String startDate = f.format(date
-													.getTime());
+											String startDate = f.format(date.getTime());
 											emp.setStartingDate(startDate);
 											date.add(Calendar.MONTH, t);
-											String endDate = f.format(date
-													.getTime());
+											String endDate = f.format(date.getTime());
 											emp.setEndDate(endDate);
 
-											System.out
-													.println("Congrats"
-															+ " you are loan is Sanctioned");
+											System.out.println("Congrats" + " you are loan is Sanctioned");
 											System.out.println("  Welcome ");
 
 											break;
@@ -433,16 +390,14 @@ public class EmployeeOperations {
 											System.out.println("Thank you ");
 											break;
 										} else {
-											System.out
-													.println("Try Again With (Y/N) only !");
+											System.out.println("Try Again With (Y/N) only !");
 										}
 									}
 									break;
 
 								} else {
 									System.out
-											.println("Sry ur not Eligible this Amount...Enter amount below "
-													+ Ss * 5);
+											.println("Sry ur not Eligible this Amount...Enter amount below " + Ss * 5);
 
 								}
 							}
@@ -456,8 +411,7 @@ public class EmployeeOperations {
 				}
 			}
 			if (Cc == 2) {
-				System.out
-						.println("Sorry You are ID Dosen't Match....Please Enter Currect ID ");
+				System.out.println("Sorry You are ID Dosen't Match....Please Enter Currect ID ");
 			}
 		} else {
 			System.out.println("Not Data 1st Insert data");

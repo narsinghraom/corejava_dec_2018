@@ -45,13 +45,13 @@ public class EncapulationEmployeeTest {
 			emp.setEmploysalary(finalSalary1);
 			double pf1 = Math.round(pf * 100.0) / 100.0;
 			emp.setPf(pf1);
-			EmployeeOperations.storeData(emp);
+			EmployeeOperationss.storeData(emp);
 		}
 	}
 
 	public static void main(String[] args) {
 		EncapulationEmployeeTest et = new EncapulationEmployeeTest();
-		EmployeeOperations eo = new EmployeeOperations();
+		EmployeeOperationss eo = new EmployeeOperationss();
 
 		Scanner sc = new Scanner(System.in);
 
