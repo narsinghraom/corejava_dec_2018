@@ -35,7 +35,7 @@ public class EmployeeOperations {
 
 	static ArrayList al = new ArrayList();
 		
-			public static void insertData(Employee emp) {
+			public static void insertData1(Employee emp) {
 			if ( empArray != null) {
 				 al.add(emp);
 			}
@@ -67,7 +67,7 @@ public class EmployeeOperations {
 		emp.setSalary(Ss);
 		emp.setPF(pf);
 
-		EmployeeOperations.insertData(emp);
+		EmployeeOperations.insertData1(emp);
 
 	}
 
