@@ -1,23 +1,57 @@
 package com.vtalent.Bhavani;
 
-public class Employee {
-	private int employid;
-	private double employsalary;
 
-	public void setEmployId(int employid) {
-		this.employid = employid;
-	}
 
-	public void setEmploySalary(double employsalary) {
-		this.employsalary = employsalary;
-	}
+	import java.io.Serializable;
 
-	public int getEmployId() {
-		return employid;
-	}
+	public class Employee implements Serializable {
+		@Override
+		public String toString() {
+			return "Employee [Id=" + Id + ", Salary=" + Salary + ", ename=" + ename
+					+ ", salpackage=" + salpackage + "]";
+		}
 
-	public double getEmploySalary() {
-		return employsalary;
-	}
+		private int Id;
+		private double Salary;
 
+		public double getSalpackage() {
+			return salpackage;
+		}
+
+		public void setSalpackage(double salpackage) {
+			this.salpackage = salpackage;
+		}
+
+		private String ename;
+		private double salpackage;
+
+		public String getEname() {
+			return ename;
+		}
+
+		public void setEname(String ename) {
+			this.ename = ename;
+		}
+
+		public int getId() {
+			return Id;
+		}
+
+		public void setId(int id) {
+			Id = id;
+		}
+
+		public double getSalary() {
+			return Salary;
+		}
+
+		public void setSalary(double salary) {
+
+			Salary = salary;
+			Salary = Salary / 12;
+			double pf = 0.02 * Salary;
+			Salary = Salary - pf;
+		}
+
+	
 }

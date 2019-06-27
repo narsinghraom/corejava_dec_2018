@@ -1,120 +1,213 @@
 package com.vtalent.Bhavani;
+
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.Scanner;
 
+public class EmployeeOperations {
 
-   
-    public class EmployeeOperations {
-	  static Employee[] emparray;
-		Scanner sc=new Scanner(System.in);	
-		
-		
-	public static void insertData(Employee emp) {
-			if(emparray!=null) {
-				for(int i=0;i<=emparray.length-1;i++) {
-					if(emparray[i]==null) {
-				emparray[i]=emp;
-				// System.out.println("here");
-				break;
-					}
-				}
-				System.out.println("Successfully Inserted."+'\n');
-				}
-			
-				else {
-					System.out.println("Already Inserted"+'\n');
-				}
-			}
-			
-			
-		
+	static Employee[] array;
+	Client c = new Client();
+	Employee emp1;
+	Scanner input = new Scanner(System.in);
 
-			public void printAllData() {
-					if(emparray!=null) {
-						for(int i=0;i<=emparray.length-1;i++) {
-							Employee emp1=emparray[i];
-							System.out.println(emp1.getEmployId()+"   "+ emp1.getEmploySalary());
-							
-															  }
-					}
-					else {
-						System.out.println("Insert the Employee Data first"+'\n');
-					}
-					}
-					
-			
-			
-			public void updateData() {
-							if(emparray!=null) {
-								Employee emp1;
-								for(int i=0;i<=emparray.length-1;i++) {
-									emp1=emparray[i];	
-									System.out.println(emp1.getEmployId()+"   "+ emp1.getEmploySalary());
-								}
-								
-								System.out.println("Enter the Id to be Updated"+'\n');
-								int x=sc.nextInt();
-								for(int i=0;i<=emparray.length-1;i++) {
-									Employee emp2;
-								emp2=emparray[i];
-								if(x==emp2.getEmployId()) {
-									System.out.println("Enter the new Salary to be Updated"+'\n');
-									emp2.setEmploySalary(sc.nextDouble());
-								}
-								}	
-							}
-							
-							else {
-								System.out.println("First Insert Employee Data"+'\n');
-							}
+	// method to insert employee data
+	public void insetData(Employee emp) {
+		if (array != null) {
+			for (int i = 0; i <= array.length - 1; i++) {
+				if (array[i] == null) {
+					array[i] = emp;
+
+					break;
+
+				}
+				System.out.println("Data inserted");
 			}
-						
-						public void searchData() {
-							if(emparray!=null) {
-								System.out.println("Enter the Employ_Id:");
-								Employee emp1;
-								int x=sc.nextInt();
-								for(int i=0;i<=emparray.length-1;i++) {
-									emp1=emparray[i];
-									if(x==emp1.getEmployId()) {
-									System.out.println("Employ_Id- "+emp1.getEmployId()+'\n'+"Employ_Salary- "+emp1.getEmploySalary() );
-															  }
-									else {
-										System.out.println("Enter the Valid Id"+'\n');
-									}
-									}
-						}
-							else {
-								System.out.println("Insert the Employee Data first"+'\n');
-							}
-						}
-						public void deleteEmploy() {
-							if(emparray!=null) { 
-								Employee emp1;
-								for(int i=0;i<=emparray.length-1;i++) {
-									 emp1=emparray[i];
-									System.out.println(emp1.getEmployId());
-									
-																	  }
-								System.out.println("Enter the Id to be Deleted");
-									int x=sc.nextInt();
-									for(int i=0;i<=emparray.length-1;i++) {
-										 emp1=emparray[i];
-										 	if(x==emp1.getEmployId()) {
-										 		emparray[i]=null;
-										 		System.out.println("Deleted");
-									}
-									
-									}
-						
-						
-						
-												
+
+		} else {
+			System.out.println("size full");
+		}
 	}
-							else {
-								System.out.println("No Data Found"+'\n');
-							}
-							
-							}
 
-    			
+	// method to search data
+	public void searchData() {
+		if (array != null) {
+			System.out.println("enter id to search");
+			int sid = input.nextInt();
+			for (int i = 0; i <= array.length - 1; i++) {
+				emp1 = array[i];
+				if (sid == emp1.getId()) {
+
+					System.out.println("Id is: " + emp1.getId()
+							+ "\n Salary is: " + emp1.getSalary());
+				}
+			}
+
+		} else {
+			System.out.println("data not found");
+		}
+	}
+
+	// method to delete data
+
+	// method to print all employees data
+	public void printData() {
+
+		if (array != null) {
+			for (int i = 0; i <= array.length - 1; i++) {
+				Employee emp = array[i];
+				if (emp != null) {
+
+					System.out.println("All employee details:\n" + "id is "
+							+ emp.getId() + "\n" + "name is " + emp.getEname()
+							+ "\n" + "salary is " + emp.getSalary());
+
+				}
+
+			}
+
+		}
+
+		else {
+
+			try {
+
+				FileInputStream fis = new FileInputStream(
+						"D:\\employeedata.txt");
+				ObjectInputStream ois = new ObjectInputStream(fis);
+
+				Object obj = ois.readObject();
+				Employee[] em = (Employee[]) obj;
+				if (em != null) {
+
+					for (int i = 0; i <= em.length; i++)
+
+					{
+						System.out.println("All employee details:\n" + "id is "
+								+ em[i].getId() + "\n" + "name is "
+								+ em[i].getEname() + "\n" + "salary is "
+								+ em[i].getSalary());
+						ois.close();
+						fis.close();
+					}
+				}
+			} catch (Exception e) {
+
+			}
+
+			try {
+				c.addData();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+	}
+
+	public void updateData() {
+
+		if (array != null) {
+
+			for (int i = 0; i <= array.length - 1; i++) {
+
+				emp1 = array[i];
+
+			}
+
+			System.out.println("enter id to be updated");
+
+			int uid = input.nextInt();
+			for (int i = 0; i <= array.length - 1; i++) {
+
+				emp1 = array[i];
+				if (uid == emp1.getId()) {
+					System.out.println("enter salary to be updated");
+
+					emp1.setSalary(input.nextDouble());
+
+				}
+
+			}
+		} else {
+			System.out.println("no data found! enter details of employee");
+			try {
+				c.addData();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+	public void DeleteData() {
+
+		if (array != null) {
+			Employee emp1;
+			for (int i = 0; i <= array.length - 1; i++) {
+				emp1 = array[i];
+				System.out.println(emp1.getId());
+			}
+			System.out.println("enter id to be deleted");
+			int del = input.nextInt();
+			if (array != null) {
+				for (int i = 0; i < array.length - 1; i++) {
+
+					emp1 = array[i];
+					if (del == emp1.getId()) {
+						array[i] = null;
+						System.out.println("deleted succesfully");
+
+					}
+
+				}
+
+			}
+		} else {
+			System.out.println("no data found! " + " please insert data first");
+			try {
+				c.addData();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void validateLoan() {
+
+		if (array != null) {
+
+			for (int i = 0; i <= array.length - 1; i++) {
+
+				emp1 = array[i];
+
+			}
+
+			System.out.println("enter id to find loan eligibility");
+
+			int uid = input.nextInt();
+			for (int i = 0; i <= array.length - 1; i++) {
+
+				emp1 = array[i];
+				if (uid == emp1.getId()) {
+					double sal = emp1.getSalary();
+					try {
+						if (sal <= 10000) {
+							throw new LoanException();
+						} else {
+							System.out.println("loan granted");
+						}
+					} catch (LoanException e) {
+						System.out.println(e);
+					}
+				}
+
+			}
+
+		}
+
+	}
+
 }
