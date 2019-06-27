@@ -84,4 +84,14 @@ public static void searchEmployee(int id2)
 			}
 		}
 }
-}}
+}
+public static void loanElgibility(double id3)
+{
+	for(Employee emp:arl)
+	{
+		if(id3==emp.getEmployeeId())
+		{
+			Loan l=new Loan();
+			l.loanApproval(emp.getEmployeeSalary(),emp);
+				break;
+}}}}
