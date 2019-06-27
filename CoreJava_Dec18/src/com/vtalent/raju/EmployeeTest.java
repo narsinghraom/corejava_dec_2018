@@ -28,7 +28,7 @@ public class EmployeeTest {
 				emp.setEmployname(sc.next());
 				System.out.println("Enter Package:");
 				emp.setEmployPackage(sc.nextDouble());
-				EmployeeOperation.insertData(emp);
+				EmpCollections.insertData12(emp);
 				try {
 				File f=new File("E:/Employee.txt");
 				FileOutputStream fos=new FileOutputStream(f);
