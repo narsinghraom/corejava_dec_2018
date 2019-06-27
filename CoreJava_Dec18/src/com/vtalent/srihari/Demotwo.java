@@ -2,7 +2,8 @@ package com.vtalent.srihari;
 
 class Demotwo {
 
-	int i, j;
+	int i;
+	int j;
 
 	Demotwo d;
 

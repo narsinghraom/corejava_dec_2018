@@ -1,7 +1,7 @@
 package com.vtalent.raju;
 
 public class Constructor {
-	int x,y;
+	int x , y;
 	Constructor(){
 		x=6;
 		y=14;
