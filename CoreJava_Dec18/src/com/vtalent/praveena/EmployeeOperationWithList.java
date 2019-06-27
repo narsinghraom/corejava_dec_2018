@@ -75,7 +75,7 @@ for(EmployeeDetails emp:empArray)
 		break;
 	}
 
-	System.out.println("Enter valid employee ID");
+	//System.out.println("Enter valid employee ID");
 
 	}
 
@@ -90,7 +90,7 @@ for(EmployeeDetails emp:empArray)
 			}
 	break;
 		}
-		System.out.println("Enter valid employee ID");
+		//System.out.println("Enter valid employee ID");
 
 	}
 	
