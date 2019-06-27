@@ -36,7 +36,9 @@ class InterThread
 	}
 	
 }
-class ProducerThread extends Thread
+class ProducerThread implements Runnable
+
+//class ProducerThread extends Thread
 {
 	InterThread obj=new InterThread();
 
@@ -51,11 +53,12 @@ class ProducerThread extends Thread
 	}
 	public void run()
 	{
-		int i=0;
-		for(int j=0;j<5;j++)
+		//int i=0;
+		for(int i=0;i<10;i++)
 		//while(true)
 		{
-			obj.put(i++);
+			//obj.put(i++);
+			obj.put(i);
 			try{Thread.sleep(1000);}catch(Exception e){}
 		}
 		
@@ -77,7 +80,7 @@ class ConsumerThread extends Thread
 	}
 	public void run()
 	{
-		for(int j=0;j<5;j++)
+		for(int i=0;i<10;i++)
 
 		//while(true)
 		{

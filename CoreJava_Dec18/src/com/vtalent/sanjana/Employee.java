@@ -115,6 +115,8 @@ public class Employee implements Serializable
 			
 			this.EmpTakeHome=sth;
 		}
+		
+		
 		public double getTakeHome()
 		{
 			double EmpTakeHome=salary-EMI;

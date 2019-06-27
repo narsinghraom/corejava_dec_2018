@@ -79,7 +79,7 @@ public class EmployeeOperations {
 		if (Package >= 200000 && Package <= 1200000) {
 			Cc = 1;
 		} else {
-			System.out.println("Package must about 200000 nd below 12000000 ");
+			System.out.println("Package must be between 200000 to 12000000 ");
 			Cc = 0;
 
 		}
@@ -100,7 +100,7 @@ public class EmployeeOperations {
 			Cc = 1;
 		} else if (Mobile.contains(Ss)) {
 			System.out
-					.println("MobileNumber Already Entered in DataBase,Enter New Number");
+					.println("MobileNumber Already Exists in DataBase,Enter New Number");
 			Cc = 1;
 		} else if (n == '9' || n == '8' || n == '7') {
 			Cc = 2;
@@ -123,12 +123,12 @@ public class EmployeeOperations {
 
 		int Cc = 0;
 		if (Ss.length() != 3) {
-			System.out.println("EmployeID must 3 Digits,So Re-enter ID");
+			System.out.println("EmployeID must 3 Digits, Re-enter ID");
 			Cc = 1;
 
 		} else if (IDs.contains(Ss)) {
 			System.out
-					.println("EmployeeID Already Entered in DataBase,Enter New ID");
+					.println("EmployeeID Already Exists in DataBase,Enter New ID");
 			Cc = 2;
 		} else {
 			IDs = IDs + " " + Ss;
@@ -187,7 +187,7 @@ public class EmployeeOperations {
 			}
 
 		} else {
-			System.out.println("1st Enter Data");
+			System.out.println("no data found please Enter Data");
 		}
 	}
 
@@ -211,10 +211,10 @@ public class EmployeeOperations {
 				}
 			}
 			if (Cc == 2) {
-				System.out.println("Enter Correct Employee ID");
+				System.out.println("Enter valid Employee ID");
 			}
 		} else {
-			System.out.println("1st enter Data");
+			System.out.println("no data found please enter Data");
 		}
 	}
 
@@ -295,7 +295,7 @@ public class EmployeeOperations {
 			} catch (Exception e) {
 				e.getMessage();
 			}
-			System.out.println("1st Insert Data");
+			System.out.println("No data found please Insert Data");
 		}
 	}
 
@@ -357,7 +357,7 @@ public class EmployeeOperations {
 	public static void GetLoanDetails() {
 		int Cc = 0;
 		if (empArray != null) {
-			System.out.println("Enter Emolyee ID for LoanDetails:-");
+			System.out.println("Enter Emolyee ID for LoanDetails");
 			int L = EmployeeTask.input.nextInt();
 			for (int i = 0; i < empArray.length; i++) {
 				Employee emp = empArray[i];
@@ -375,9 +375,9 @@ public class EmployeeOperations {
 						} else {
 
 							System.out
-									.println("you are Eligible  Loan Amount is: "
+									.println("Your Eligible  Loan Amount is: "
 											+ Ss * 5);
-							System.out.println("Enter your Loan Amount below "
+							System.out.println("Enter your Loan Amount "
 									+ Ss * 5);
 							while (true) {
 								float Pp = EmployeeTask.input.nextFloat();
@@ -398,7 +398,7 @@ public class EmployeeOperations {
 											+ "  Rate of interest:-" + r1
 											+ "  EMI:-" + emi);
 									System.out
-											.println("Are You Want to Continue (Y/N) ?");
+											.println("Do You Want to Continue (Y/N) ?");
 
 									while (true) {
 										String y = EmployeeTask.input.next();
@@ -425,7 +425,7 @@ public class EmployeeOperations {
 
 											System.out
 													.println("Congrats"
-															+ " you are loan is Sanctioned");
+															+ " you are loan is approved");
 											System.out.println("  Welcome ");
 
 											break;
@@ -434,14 +434,14 @@ public class EmployeeOperations {
 											break;
 										} else {
 											System.out
-													.println("Try Again With (Y/N) only !");
+													.println("Try Again With (Y/N) ");
 										}
 									}
 									break;
 
 								} else {
 									System.out
-											.println("Sry ur not Eligible this Amount...Enter amount below "
+											.println("Sorry ur not Eligible for this Amount...Enter amount below "
 													+ Ss * 5);
 
 								}
@@ -457,10 +457,10 @@ public class EmployeeOperations {
 			}
 			if (Cc == 2) {
 				System.out
-						.println("Sorry You are ID Dosen't Match....Please Enter Currect ID ");
+						.println("Sorry You are ID Dosen't Match....Please Enter Correct ID ");
 			}
 		} else {
-			System.out.println("Not Data 1st Insert data");
+			System.out.println("No Data 1st Insert data");
 		}
 
 	}

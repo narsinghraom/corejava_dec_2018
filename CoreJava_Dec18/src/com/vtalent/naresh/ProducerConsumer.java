@@ -1,5 +1,5 @@
 package com.vtalent.naresh;
-
+import java.util.*;
 /* class Producer extends Thread{
 	private PutGet pg;
 	private int number;
@@ -89,13 +89,15 @@ public synchronized void put(int value){
 
   
   
-class ProducerConsumer{  
+	class ProducerConsumer extends Thread{  
 	   public static void main(String[] args) {
 	      CubbyHole c = new CubbyHole();
 	      Producer p1 = new Producer(c, 1);
 	      Consumer c1 = new Consumer(c, 1);
 	      p1.start(); 
-	      c1.start();
+		/*
+		 * try { sleep(1000); } catch(Exception e) {}
+		 */	      c1.start();
 	   }
 	}
 	class CubbyHole {
@@ -135,7 +137,7 @@ class ProducerConsumer{
 	      int value = 0;
 	      for (int i = 0; i < 10; i++) {
 	         value = cubbyhole.get();
-	         System.out.println("Consumer #" + this.number + " got: " + value);
+	         System.out.println("Consumer #" + this.number + " put: " + value);
 	      }
 	   }
 	}
@@ -151,7 +153,7 @@ class ProducerConsumer{
 	         cubbyhole.put(i);
 	         System.out.println("Producer #" + this.number + " put: " + i);
 	         try {
-	            sleep((int)(Math.random() * 100));
+	            sleep(1000);
 	         } catch (InterruptedException e) { }
 	      } 
 	   }
