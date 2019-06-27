@@ -44,7 +44,8 @@ public class ArrayLists {
 		System.out.println(a.indexOf(123));
 		System.out.println(a.get(0));
 		System.out.println(a.clone());
-
+		int x = 10;
+		System.out.println(x);
 		for (ArrayLists z : a) {
 			System.out.println(z.getQwerty());
 		}
