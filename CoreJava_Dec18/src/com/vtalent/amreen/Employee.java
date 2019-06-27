@@ -3,6 +3,12 @@ package com.vtalent.amreen;
 import java.io.Serializable;
 
 public class Employee implements Serializable {
+	@Override
+	public String toString() {
+		return "Employee [Id=" + Id + ", Salary=" + Salary + ", ename=" + ename
+				+ ", salpackage=" + salpackage + "]";
+	}
+
 	private int Id;
 	private double Salary;
 
