@@ -3,7 +3,8 @@ package com.vtalent.srihari;
 
 class ConstructorEx {
 
-	int x, y;
+	int x;
+	int y;
 
 	ConstructorEx() {
 		x = 5;
