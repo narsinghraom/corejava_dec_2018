@@ -14,10 +14,21 @@ public class EmployeeOperationss {
 
 	static ArrayList<Employee> empArray = new ArrayList<>();
 	Scanner sc = new Scanner(System.in);
+	static ArrayList<Employee> empArray1 = new ArrayList<>();
 
 	public static void storeData(Employee emp) {
 		if (null != empArray) {
 			empArray.add(emp);
+
+			Employee emp1 = new Employee();
+			emp1.setEmployid(001);
+			emp1.setEmployName("rakesh");
+			emp1.setEmploysalary(678908);
+			emp1.setMobileNumber("9985324524");
+			empArray1.add(emp1);
+			empArray.addAll(empArray1);
+			empArray.add(emp1);
+
 		} else {
 			System.out.println("Already Inserted" + '\n');
 		}
