@@ -17,6 +17,7 @@ public class Employee implements Serializable {
 	private String StartingDate;
 	private String EndDate;
 
+	// methods
 	public void setID(int iD) {
 		ID = iD;
 	}
