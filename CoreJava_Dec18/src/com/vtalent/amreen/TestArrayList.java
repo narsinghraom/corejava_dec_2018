@@ -1,35 +1,30 @@
 package com.vtalent.amreen;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 class TestArrayList {
 	public static void main(String[] args) {
 		// Creating an ArrayList without any type specified
 		ArrayList al = new ArrayList();
-		al.add("hello");
-		al.add(1);
-		al.add("sulthana");
-		al.add(0, "amreen");
-		al.add("hello");
-		al.remove
-		// al.clear();
-
-		System.out.println(al.get(1));
+		al.add(0);
+		al.add(2);
+		al.add(5.0F);
+		al.add(11);
+		al.add("amreen");
+		al.add("amreen");
+		al.add(2);
+		String del = "amreen";
+		System.out.println("last index method" + al.lastIndexOf("amreen"));
+		boolean ans = al.contains(11);
+		if (ans) {
+			System.out.println("contains method -it contains the given word");
+		}
 
 		System.out.println(al);
-		// following code is used to iterate
-		Iterator itr = al.iterator();
-		System.out.println("one way to iterate");
-		while (itr.hasNext()) {
 
-			System.out.println(itr.next());
-		}
-		System.out.println("other way to iterate");
-
-		for (Object o : al) {
-			System.out.println(o);
-		}
+		al.remove(new Float(5.0F));
+		// al.remove(del);
+		System.out.println("remove(object o) method" + al);
 
 	}
 }
