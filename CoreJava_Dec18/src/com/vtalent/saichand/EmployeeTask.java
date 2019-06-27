@@ -21,7 +21,8 @@ public class EmployeeTask {
 			case 1:
 				if (size == 0) {
 
-					System.out.println("enter Number of Employees to Insert");
+					System.out
+							.println("enter Number of Employees to be Inserted");
 					size = input.nextInt();
 					EmployeeOperations.empArray = new Employee[size];
 					for (int i = 0; i <= size - 1; i++) {
@@ -79,7 +80,7 @@ public class EmployeeTask {
 				t = 1;
 				break;
 			default:
-				System.out.println("please Enter Correct Number");
+				System.out.println("please Enter valid Number");
 			}
 
 			if (t == 1) {
