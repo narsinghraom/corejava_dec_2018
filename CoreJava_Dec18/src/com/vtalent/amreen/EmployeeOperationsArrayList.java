@@ -1,10 +1,6 @@
 package com.vtalent.amreen;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
@@ -47,6 +43,7 @@ public class EmployeeOperationsArrayList {
 				emp1 = empref.get(i);
 
 			}
+
 			System.out.println("enter id to be updated");
 
 			int uid = input.nextInt();
@@ -74,17 +71,21 @@ public class EmployeeOperationsArrayList {
 		if (empref != null) {
 			System.out.println("enter id to search");
 			int sid = input.nextInt();
+
 			for (int i = 0; i <= empref.size() - 1; i++) {
 				emp1 = empref.get(i);
 				if (sid == emp1.getId()) {
 
 					System.out.println("Id is: " + emp1.getId()
 							+ "\n Salary is: " + emp1.getSalary());
+				} else {
+					System.out.println("data not found");
 				}
+
 			}
 
 		} else {
-			System.out.println("data not found");
+			System.out.println("enter valid id");
 		}
 	}
 
@@ -94,7 +95,7 @@ public class EmployeeOperationsArrayList {
 			Employee emp1;
 			for (int i = 0; i <= empref.size() - 1; i++) {
 				emp1 = empref.get(i);
-				System.out.println(emp1.getId());
+
 			}
 			System.out.println("enter id to be deleted");
 			int del = input.nextInt();
@@ -144,6 +145,7 @@ public class EmployeeOperationsArrayList {
 						if (sal <= 10000) {
 							throw new LoanException();
 						} else {
+
 							System.out.println("eligible loan amount is" + sal
 									* 5);
 							System.out.println("enter loan amount below");
@@ -164,50 +166,13 @@ public class EmployeeOperationsArrayList {
 											+ "  Months:-  " + t
 											+ "  Rate of interest:-" + r1
 											+ "  EMI:-" + emi);
-									System.out
-											.println("Do You Want to Continue (Y/N) ?");
 
-									while (true) {
-										String y = input.next();
-										if (y.equalsIgnoreCase("Y")) {
-											Employee emp = null;
-											emp.setLoanAmount(pp);
-											emp.setEMI(emi);
-											emp.setYear(t);
-											emp.setInterest(r);
-											emp.setSalary(sal - emi);
-
-											Calendar date = Calendar
-													.getInstance();
-											date.setTime(new Date());
-											Format f = new SimpleDateFormat(
-													"dd-MMMM-yyyy");
-
-											String startDate = f.format(date
-													.getTime());
-											emp.setStartingDate(startDate);
-											date.add(Calendar.MONTH, t);
-											String endDate = f.format(date
-													.getTime());
-											emp.setEndDate(endDate);
-
-											System.out
-													.println("Congrats"
-															+ " you are loan is Sanctioned");
-
-											break;
-										}
-
-										else if (y.equalsIgnoreCase("N")) {
-											System.out.println("Thank you ");
-											break;
-
-										}
-
-									}
+									break;
 								}
+
 							}
 						}
+
 					} catch (LoanException e) {
 						System.out.println(e);
 					}
