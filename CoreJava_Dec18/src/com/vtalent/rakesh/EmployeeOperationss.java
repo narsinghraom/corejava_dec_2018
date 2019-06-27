@@ -28,7 +28,7 @@ public class EmployeeOperationss {
 			empArray1.add(emp1);
 			empArray.addAll(empArray1);
 			empArray.add(emp1);
-
+			empArray.add(emp1);
 		} else {
 			System.out.println("Already Inserted" + '\n');
 		}
