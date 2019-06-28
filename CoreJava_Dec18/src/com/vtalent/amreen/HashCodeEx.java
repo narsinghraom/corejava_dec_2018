@@ -18,13 +18,17 @@ public class HashCodeEx {
 		 * System.out.println(q.equals(q1)); System.out.println(q == q1);
 		 */
 		obj.i = 10;
-		obj.j = 11;
+		obj.j = 10;
 
 		obj1.i = 10;
-		obj1.j = 10;
+		obj1.j = 11;
 
 		System.out.println(obj.equals(obj1));
-		obj.s = "amreen";
+		int result = obj.hashCode();
+		System.out.println(result);
+		int result2 = obj1.hashCode();
+		System.out.println(result2);
+		System.out.println();
 
 	}
 
@@ -35,6 +39,7 @@ public class HashCodeEx {
 		result = prime * result + i;
 		result = prime * result + j;
 		return result;
+
 	}
 
 	@Override
@@ -52,4 +57,5 @@ public class HashCodeEx {
 			return false;
 		return true;
 	}
+
 }
