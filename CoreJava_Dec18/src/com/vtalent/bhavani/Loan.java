@@ -1,4 +1,4 @@
-package com.vtalent.Bhavani;
+package com.vtalent.bhavani;
 import java.lang.Exception; 
 import java.util.Scanner;
 

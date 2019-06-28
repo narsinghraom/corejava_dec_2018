@@ -1,4 +1,4 @@
-package com.vtalent.Bhavani;
+package com.vtalent.bhavani;
 
         public class ArrayEx {
 		static int[] iarray = new int[4];

@@ -1,4 +1,4 @@
-package com.vtalent.Bhavani;
+package com.vtalent.bhavani;
 
 class Cloning implements Cloneable {
 	int rollno;

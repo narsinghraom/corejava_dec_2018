@@ -1,4 +1,4 @@
-package com.vtalent.Bhavani;
+package com.vtalent.bhavani;
 
 public class add {
 public static int add(int q,int w){
