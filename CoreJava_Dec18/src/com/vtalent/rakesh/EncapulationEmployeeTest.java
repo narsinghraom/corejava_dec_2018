@@ -51,7 +51,8 @@ public class EncapulationEmployeeTest {
 
 	public static void main(String[] args) {
 		EncapulationEmployeeTest et = new EncapulationEmployeeTest();
-		EmployeeOperationss eo = new EmployeeOperationss();
+		EmployeeOperations eo1 = new EmployeeOperations();// Array
+		EmployeeOperationss eo = new EmployeeOperationss();// ArrayList
 
 		Scanner sc = new Scanner(System.in);
 
