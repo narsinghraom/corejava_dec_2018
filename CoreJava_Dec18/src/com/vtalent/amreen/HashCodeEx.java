@@ -28,7 +28,6 @@ public class HashCodeEx {
 		System.out.println(result);
 		int result2 = obj1.hashCode();
 		System.out.println(result2);
-		System.out.println();
 
 	}
 
