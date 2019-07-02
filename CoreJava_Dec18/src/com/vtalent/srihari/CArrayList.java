@@ -11,7 +11,9 @@ public class CArrayList {
 		al.add("hari");
 		al.add("Rowdy");
 		al.add(2, "sowmya");
-		al.remove(3);
+		al.remove(1);
+		al.add("gg");
+	al.set(0,"Raju");
 		al.retainAll(al);
 		Iterator it = al.iterator();
 		while (it.hasNext()) {
@@ -20,5 +22,5 @@ public class CArrayList {
 		}
 
 	}
-
+                                    
 }
