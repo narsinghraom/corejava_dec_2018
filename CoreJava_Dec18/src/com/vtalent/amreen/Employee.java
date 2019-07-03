@@ -11,6 +11,60 @@ public class Employee implements Serializable {
 
 	private int Id;
 	private double Salary;
+	private float LoanAmount;
+	private float EMI;
+	private float Year;
+	private float Interest;
+	private String StartingDate;
+	private String EndDate;
+
+	public float getEMI() {
+		return EMI;
+	}
+
+	public void setEMI(float eMI) {
+		EMI = eMI;
+	}
+
+	public float getYear() {
+		return Year;
+	}
+
+	public void setYear(float year) {
+		Year = year;
+	}
+
+	public float getInterest() {
+		return Interest;
+	}
+
+	public void setInterest(float interest) {
+		Interest = interest;
+	}
+
+	public String getStartingDate() {
+		return StartingDate;
+	}
+
+	public void setStartingDate(String startingDate) {
+		StartingDate = startingDate;
+	}
+
+	public String getEndDate() {
+		return EndDate;
+	}
+
+	public void setEndDate(String endDate) {
+		EndDate = endDate;
+	}
+
+	public float getLoanAmount() {
+		return LoanAmount;
+	}
+
+	public void setLoanAmount(float loanAmount) {
+		LoanAmount = loanAmount;
+	}
 
 	public double getSalpackage() {
 		return salpackage;

@@ -1,47 +1,115 @@
 package com.vtalent.raju;
-import java.util.Scanner;
 
+import java.io.Serializable;
 
-public class Employee {
-	
-	private int employid;
-	private String employname;
-	private double employpackage;
-	private double employsalary;
-	private double employpf;
-	
-	
-	public void setEmployId(int employid) {
-		this.employid=employid;
+public class Employee implements Serializable {
+	private int ID;
+	private String Name;
+	private String MobileNumber;
+	private double Package;
+	private double Salary;
+	private double PF;
+	private float LoanAmount;
+	private float EMI;
+	private float Year;
+	private float Interest;
+	private String StartingDate;
+	private String EndDate;
+
+	public void setID(int iD) {
+		ID = iD;
 	}
-	
-	public void setEmployname(String employname) {
-		this.employname=employname;
+
+	public void setName(String name) {
+		Name = name;
 	}
-	
-	public void setEmployPackage(double employpackage) {
-		this.employpackage=employpackage;
+
+	public void setMobileNumber(String mobileNumber) {
+		MobileNumber = mobileNumber;
 	}
-	
-	public int getEmployId() {
-		return employid;
+
+	public void setPackage(double package1) {
+		Package = package1;
 	}
-		public double getEmployPackage() {
-			return employpackage;
-		}
-		
-		public String getEmployname() {
-			return employname;
-		}
-		
-		public double employSalary() {
-			double a=employpackage/12;	//calculating monthly salary
-			employpf =(a*2)/100;	// calculating pf
-			employsalary=a-employpf;
-			return employsalary;
-			//System.out.print("Monthly Salary- "+employsalary+"  "+" Provident Fund(2%)- "+employpf);
-		}
-		public double employpf() {
-			return employpf;
-		}
+
+	public void setSalary(double salary) {
+		Salary = salary;
 	}
+
+	public void setPF(double pF) {
+		PF = pF;
+	}
+
+	public void setLoanAmount(float loanAmount) {
+		LoanAmount = loanAmount;
+	}
+
+	public void setEMI(float eMI) {
+		EMI = eMI;
+	}
+
+	public void setYear(float year) {
+		Year = year;
+	}
+
+	public void setInterest(float interest) {
+		Interest = interest;
+	}
+
+	public void setStartingDate(String startingDate) {
+		StartingDate = startingDate;
+	}
+
+	public void setEndDate(String endDate) {
+		EndDate = endDate;
+	}
+
+	public int getID() {
+		return ID;
+	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public String getMobileNumber() {
+		return MobileNumber;
+	}
+
+	public double getPackage() {
+		return Package;
+	}
+
+	public double getSalary() {
+		return Salary;
+	}
+
+	public double getPF() {
+		return PF;
+	}
+
+	public float getLoanAmount() {
+		return LoanAmount;
+	}
+
+	public float getEMI() {
+		return EMI;
+	}
+
+	public float getYear() {
+		return Year;
+	}
+
+	public float getInterest() {
+		return Interest;
+	}
+
+	public String getStartingDate() {
+		return StartingDate;
+	}
+
+	public String getEndDate() {
+		return EndDate;
+	}
+
+}
