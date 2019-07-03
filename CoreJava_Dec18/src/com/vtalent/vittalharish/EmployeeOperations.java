@@ -16,6 +16,8 @@ class EmployeeOperations {
 			for (int i = 0; i <= emparray.length - 1; i++) {
 				if (emparray[i] == null) {
 					emparray[i] = emp;
+					DBOperations2 db = new DBOperations2();
+					int result = db.InsertDataWithStatement(emp);
 
 					break;
 				}
@@ -121,6 +123,8 @@ class EmployeeOperations {
 				emp1 = emparray[i];
 				if (x == emp1.getEmployeeID()) {
 					emparray[i] = null;
+					DBOperations2 db = new DBOperations2();
+					int result = db.DeleteDataWithStatement(emp);
 					System.out.println("Deleted");
 				}
 
