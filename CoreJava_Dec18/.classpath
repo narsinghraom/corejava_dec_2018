@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-<<<<<<< HEAD
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/User/Desktop/mysql-connector-java-8.0.16/mysql-connector-java-8.0.16.jar"/>
-=======
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-<<<<<<< HEAD
-	<classpathentry kind="lib" path="C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.16.jar"/>
-=======
-	<classpathentry kind="lib" path="D:/softwares/MySql-5.0.18-win32/mysql-connector-java-3.1.13-bin.jar"/>
->>>>>>> ebb141a7b9526823ef85518754e4b36a054eb272
->>>>>>> 7764dafe3594b722dfadad86bdf96d1e6757fdd0
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry exported="true" kind="lib" path="C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.16.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
