@@ -26,9 +26,9 @@ public class Test {
 									+ "Employee data");
 							Employee emp = new Employee();
 							System.out.println("Enter ID");
-							emp.setEmployeeID(input.nextInt());
+							emp.setID(input.nextInt());
 							System.out.println("Enter Salary");
-							emp.setEmployeeSalary(input.nextDouble());
+							emp.setSalary(input.nextDouble());
 							EmployeeOperations.insertData(emp);
 						}
 						System.out.println("Successfully Entered ");
@@ -39,9 +39,9 @@ public class Test {
 							if (EmployeeOperations.empArray[i] == null) {
 								Employee emp = new Employee();
 								System.out.println("Enter ID");
-								emp.setEmployeeID(input.nextInt());
+								emp.setID(input.nextInt());
 								System.out.println("Enter Salary");
-								emp.setEmployeeSalary(input.nextDouble());
+								emp.setSalary(input.nextDouble());
 								EmployeeOperations.insertData(emp);
 								z = EmployeeOperations.empArray.length;
 							}

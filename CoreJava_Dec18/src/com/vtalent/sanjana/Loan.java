@@ -17,6 +17,7 @@ Employee emp=new Employee();
 			if(salary<20000)
 			{
 				throw new Loan();
+				
 			}
 			else
 			{

@@ -31,9 +31,7 @@ public class Employee implements Serializable
 		}
 		public void setEmployeeSalary(double salary)
 		{
-			sal=(employeePackage/12);
-			pf=(sal*0.02);
-			salary=sal-pf;
+		
 			this.salary=salary;
 			
 		}
@@ -64,7 +62,10 @@ public class Employee implements Serializable
 		}
 		public String getEmployeeSalary1()
 		{
-			sal=this.employeePackage/12;
+			sal=(employeePackage/12);
+			pf=(sal*0.02);
+			salary=sal-pf;
+			//sal=employeePackage/12;
 			String s=String.format("%.2f",sal);
 			return s;
 		}
@@ -115,6 +116,8 @@ public class Employee implements Serializable
 			
 			this.EmpTakeHome=sth;
 		}
+		
+		
 		public double getTakeHome()
 		{
 			double EmpTakeHome=salary-EMI;

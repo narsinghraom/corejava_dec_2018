@@ -1,7 +1,6 @@
 package com.vtalent.praveena;
 
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.Date;
 
 public class EmployeeDetails implements Serializable {
@@ -13,7 +12,7 @@ public class EmployeeDetails implements Serializable {
 		private double Package;
 		/* (non-Javadoc)
 		 * @see java.lang.Object#toString()
-		 */
+		 
 		@Override
 		public String toString() {
 			return "EmployeeDetails [employeeID=" + employeeID + ", Name="
@@ -22,7 +21,7 @@ public class EmployeeDetails implements Serializable {
 					+ ", LoanAmount=" + LoanAmount + ", EMI=" + EMI
 					+ ", tenure=" + tenure + ", EmpTakeHome=" + EmpTakeHome
 					+ ", StartTime=" + StartTime + ", EndTime=" + EndTime + "]";
-		}
+		}*/
 		private double PF;
 		private double LoanAmount;
 		private double EMI;
@@ -83,6 +82,7 @@ public class EmployeeDetails implements Serializable {
 		
 		public double getemployeeSalary()
 		{
+			ActualSal=Package/12;
 			double PF=ActualSal*0.02;
 			this.empSalary=ActualSal-PF;
 			return this.empSalary;

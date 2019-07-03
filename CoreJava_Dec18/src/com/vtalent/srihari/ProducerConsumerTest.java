@@ -14,7 +14,7 @@ class CubbyHole {
 	private int contents;
 	private boolean available = false;
 
-	public int get() {
+	public synchronized int get() {
 		while (available == false) {
 			try {
 				wait();
