@@ -10,8 +10,9 @@ List<Object> al=new ArrayList<>();
 List<Object> al1=new ArrayList<>();
 List<Object> al2=new ArrayList<>(al1);
 al.add("1");
+
 al.add("sanju");
-al.add("20.5f");
+al.add(20.5f);
 al.add("span");
 al.add("sanju");
 al2.addAll(al1);
@@ -20,7 +21,8 @@ al1.add("2");
 al1.add("span");
 al.addAll(1,al1);
 al.set(3, "suma");
-
+al.add(0, "5");
+al.add(2,"pravs");
 System.out.println(al.lastIndexOf("sanju"));
 System.out.println();
 System.out.println(al.indexOf("1"));
