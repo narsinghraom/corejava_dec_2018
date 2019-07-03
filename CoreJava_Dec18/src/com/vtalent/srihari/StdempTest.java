@@ -5,9 +5,6 @@ import java.util.Scanner;
 public class StdempTest {
 	public static void main(String[] args) {
 		StudentEmp std = new StudentEmp();
-		while (true) {
-			
-		
 		Scanner sc = new Scanner(System.in); 
 		System.out.println("enter sno");
 		int sno =sc.nextInt();
@@ -22,8 +19,7 @@ public class StdempTest {
 		Double stdempsalary =sc.nextDouble();
 		std.setStdempsalary(stdempsalary);
 		
-			
-		
+				
 		/*std.setSno(7);
 		std.setStdempname("Praveen");
 		std.setStdempmobile(9551211.0);
@@ -34,5 +30,4 @@ public class StdempTest {
 		System.out.println("inserted");
 	}
 
-}
 }
