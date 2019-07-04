@@ -18,6 +18,8 @@ public class EmployeeOperationss {
 	public static void storeData(Employee emp) {
 		if (null != empArray) {
 			empArray.add(emp);
+			DBOperations db = new DBOperations();
+			db.insertDataWithStatements(emp);
 
 		} else {
 			System.out.println("Already Inserted" + '\n');
@@ -87,6 +89,8 @@ public class EmployeeOperationss {
 					double actualSalary1 = actualSalary + actualSalary;
 					double packagee = actualSalary1 * 12;
 					double pf = actualSalary1 * 2 / 100;
+					DBOperations db = new DBOperations();
+					db.update(emp.getEmployid());
 					emp.setEmploysalary(actualSalary1);
 					emp.setEmployPackage(packagee);
 					emp.setPf(pf);
@@ -122,9 +126,11 @@ public class EmployeeOperationss {
 	public void searchData() {
 		if (empArray != null) {
 			System.out.println("Enter the Employ_Id:");
-
+			Employee emp = new Employee();
 			int x = sc.nextInt();
-			for (Employee emp : empArray) {
+			DBOperations db = new DBOperations();
+			db.Search(emp.getEmployid());
+			for (Employee empone : empArray) {
 				if (emp.getEmployid() == x) {
 					if (x == emp.getEmployid()) {
 						System.out.println("Employ_Id- " + emp.getEmployid() + '\n' + "Employ_Salary- "

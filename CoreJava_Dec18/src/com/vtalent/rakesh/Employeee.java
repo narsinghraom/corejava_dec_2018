@@ -9,6 +9,11 @@ public class Employeee implements Serializable {
 	transient double salary = 10000;
 	private int x = 45;
 
+	@Override
+	public String toString() {
+		return " [" + id + "," + name + "]";
+	}
+
 	public int getId() {
 		return id;
 	}
