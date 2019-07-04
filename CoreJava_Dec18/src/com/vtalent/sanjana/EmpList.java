@@ -91,6 +91,7 @@ public static void loanElgibility(double id3)
 	{
 		if(id3==emp.getEmployeeId())
 		{
+			
 			Loan l=new Loan();
 			l.loanApproval(emp.getEmployeeSalary(),emp);
 				break;
