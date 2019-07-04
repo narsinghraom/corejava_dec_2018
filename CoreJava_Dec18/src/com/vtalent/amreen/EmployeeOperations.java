@@ -5,6 +5,7 @@ import java.io.ObjectInputStream;
 import java.util.Scanner;
 
 public class EmployeeOperations {
+
 	static Employee[] array;
 	Client c = new Client();
 	Employee emp1;
@@ -208,4 +209,5 @@ public class EmployeeOperations {
 		}
 
 	}
+
 }

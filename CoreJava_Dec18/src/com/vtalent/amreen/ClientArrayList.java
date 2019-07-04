@@ -5,10 +5,9 @@ import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
-public class ClientArrayList
+public class ClientArrayList {
 
-{
-	static EmployeeOperationsArrayList eo = new EmployeeOperationsArrayList();
+	static EmployeeOperationsArraylist eo = new EmployeeOperationsArraylist();
 	static Scanner input = new Scanner(System.in);
 
 	public void addData() throws Exception {
@@ -95,4 +94,5 @@ public class ClientArrayList
 			}
 		}
 	}
+
 }

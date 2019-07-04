@@ -5,11 +5,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-public class EmployeeOperationsArrayList {
+import com.vtalent.bhavani.ClientArraylist;
+
+//import com.vtalent.bhavani.ClientArraylist;
+
+public class EmployeeOperationsArraylist {
 
 	// static Employee[] array;
 	List<Employee> empref = new ArrayList<>();
-	ClientArrayList c = new ClientArrayList();
+	ClientArraylist c = new ClientArraylist();
 	Employee emp1 = new Employee();
 	Scanner input = new Scanner(System.in);
 
@@ -17,6 +21,8 @@ public class EmployeeOperationsArrayList {
 	public void insetData(Employee emp) {
 		if (empref != null) {
 			empref.add(emp);
+			DBOperations db = new DBOperations();
+			db.insertDataWithPreparedStatement(emp);
 		}
 	}
 
@@ -43,7 +49,6 @@ public class EmployeeOperationsArrayList {
 				emp1 = empref.get(i);
 
 			}
-
 			System.out.println("enter id to be updated");
 
 			int uid = input.nextInt();
@@ -65,28 +70,38 @@ public class EmployeeOperationsArrayList {
 			}
 		}
 
+		DBOperations db = new DBOperations();
+		db.updateDataWithPreparedStatement(emp1);
+
 	}
 
 	public void searchData() {
 		if (empref != null) {
 			System.out.println("enter id to search");
 			int sid = input.nextInt();
+			/*
+			 * for (int i = 0; i <= empref.size() - 1; i++) { emp1 =
+			 * empref.get(i); if (sid == emp1.getId()) {
+			 * 
+			 * System.out.println("Id is: " + emp1.getId() + "\n Salary is: " +
+			 * emp1.getSalary());
+			 */
 
-			for (int i = 0; i <= empref.size() - 1; i++) {
-				emp1 = empref.get(i);
-				if (sid == emp1.getId()) {
-
-					System.out.println("Id is: " + emp1.getId()
-							+ "\n Salary is: " + emp1.getSalary());
-				} else {
-					System.out.println("data not found");
-				}
-
+			DBOperations db = new DBOperations();
+			db.search(sid);
+			System.out.println("Database search result");
+			List<Employee> r = db.search(sid);
+			System.out.println("id  " + "" + "name  " + "" + "   salary  ");
+			for (Employee emp : r) {
+				System.out.println(emp.getId() + "   " + emp.getEname() + "  "
+						+ emp.getSalary());
 			}
-
-		} else {
-			System.out.println("enter valid id");
 		}
+
+		else {
+			System.out.println("data not found");
+		}
+
 	}
 
 	public void DeleteData() {
@@ -95,7 +110,7 @@ public class EmployeeOperationsArrayList {
 			Employee emp1;
 			for (int i = 0; i <= empref.size() - 1; i++) {
 				emp1 = empref.get(i);
-
+				System.out.println(emp1.getId());
 			}
 			System.out.println("enter id to be deleted");
 			int del = input.nextInt();
@@ -106,6 +121,8 @@ public class EmployeeOperationsArrayList {
 					if (del == emp1.getId()) {
 						empref.remove(i);
 						System.out.println("deleted succesfully");
+						DBOperations db = new DBOperations();
+						db.deleteDataWithPreparedStatement(del);
 
 					}
 
@@ -145,34 +162,8 @@ public class EmployeeOperationsArrayList {
 						if (sal <= 10000) {
 							throw new LoanException();
 						} else {
-
-							System.out.println("eligible loan amount is" + sal
-									* 5);
-							System.out.println("enter loan amount below");
-							while (true) {
-								float pp = input.nextFloat();
-								if (pp <= sal * 5) {
-									System.out.println("enter year to EMI");
-									int t = ClientArrayList.input.nextInt();
-									float r = t * 14;
-									float r1 = r;
-									r = r / (12 * 100);
-									t = t * 12;
-									float emi = (pp * r * (float) Math.pow(
-											1 + r, t))
-											/ (float) (Math.pow(1 + r, t) - 1);
-
-									System.out.println("Amount:- " + pp
-											+ "  Months:-  " + t
-											+ "  Rate of interest:-" + r1
-											+ "  EMI:-" + emi);
-
-									break;
-								}
-
-							}
+							System.out.println("loan granted");
 						}
-
 					} catch (LoanException e) {
 						System.out.println(e);
 					}
