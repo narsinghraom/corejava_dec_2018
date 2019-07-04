@@ -35,10 +35,10 @@ class EmployeeOperations {
 	}
 
 	public void printAllData() {
-		if (emparray != null) {
 			DBOperations2 db = new DBOperations2();
 			List<Employee> listofemployee = db.Print();
-			//System.out.println("employeeID" + " " + "employeeName" + " " + "employeesalary" + " " + "employeemobile");
+			if(listofemployee!=null ){
+
 			for (Employee emp:listofemployee) {
 				//System.out.println(emp.getEmployeeID() +" " + emp.getEmployeeName() + " " + emp.getEmployeeSalary() + " " + emp.getEmpolyeeMobileNumber());
 				System.out.println("Employee ID: " + emp.getEmployeeID() 
@@ -98,15 +98,16 @@ class EmployeeOperations {
 	}
 
 	public void searchData() {
-		if (emparray != null) {
 			System.out.println("Enter The Employee ID:");
 			//Employee emp1;
 			int x = input.nextInt();
 			DBOperations2 db = new DBOperations2();
-			db.Search(x);
+			//db.Search(x);
 			List<Employee> listofemployee = db.Search(x);
 			//for (int i = 0; i <= emparray.length - 1; i++) {
 				//emp1 = emparray[i];
+			if(listofemployee!=null ){
+
 			for (Employee emp11:listofemployee) {
 					
 			System.out.println("Employee ID: " + emp11.getEmployeeID() 
@@ -122,31 +123,29 @@ class EmployeeOperations {
 	}
 
 	public void deleteEmployee() {
-		if (emparray != null) {
-			Employee emp1;
-			for (int i = 0; i <= emparray.length - 1; i++) {
-				emp1 = emparray[i];
-				System.out.println(emp1.getEmployeeID());
+			//Employee emp1;
+			DBOperations2 db = new DBOperations2();
+			List<Employee> listofemployee = db.Print();
+			if(listofemployee!=null ){
 
+			for (Employee emp:listofemployee) {
+				System.out.println("Employee ID: " + emp.getEmployeeID() );
 			}
+
 			System.out.println("Enter the Id to be Deleted");
 			int x = input.nextInt();
-			for (int i = 0; i <= emparray.length - 1; i++) {
-				emp1 = emparray[i];
-				if (x == emp1.getEmployeeID()) {
-					emparray[i] = null;
-					DBOperations2 db = new DBOperations2();
-					int result = db.DeleteDataWithStatement(emp);
+			int result2 = db.DeleteDataWithStatement(x);
+			
 					System.out.println("Deleted");
 				}
 
 			}
 
-		} else {
+		/*} else {
 			System.out.println("No Data Found" + '\n');
-		}
+		}*/
 
-	}
+	
 
 	public void loandetails() {
 		if(emparray!=null) {

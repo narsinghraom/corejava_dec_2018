@@ -32,12 +32,12 @@ public class DBOperations2 {
 		return result;
 	}
 
-	public int DeleteDataWithStatement(Employee employee) {
+	public int DeleteDataWithStatement(int empID) {
 		String deletequery = "delete from employee_table where empID=?";
 		int result = 0;
 		try {
 			pstatement = connection.prepareStatement(deletequery);
-			 pstatement.setInt(1, employee.getEmployeeID());
+			 pstatement.setInt(1, empID);
 			int result2 = pstatement.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);

@@ -1,6 +1,7 @@
 package com.vtalent.vittalharish;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeCollectionOperation {
@@ -14,6 +15,8 @@ public class EmployeeCollectionOperation {
 	public static void insertData(Employee emp) {
 		if (array != null) {
 			array.add(emp);
+			DBOperations2 db = new DBOperations2();
+			int result = db.InsertDataWithStatement(emp);
 			System.out.println("Sucessfully Inserted." + '\n');
 
 		}
@@ -24,6 +27,8 @@ public class EmployeeCollectionOperation {
 	
 	public void printAllData() {
 		if (array != null) {
+			DBOperations2 db = new DBOperations2();
+			List<Employee> listofemployee = db.Print();
 			for(Employee emp1:array) {
 				System.out.println("Employee ID: " + emp1.getEmployeeID() 
 						+ "      " + "Employee Name: " + emp1.getEmployeeName()
@@ -39,10 +44,14 @@ public class EmployeeCollectionOperation {
 	}
 
 	public void searchData() {
-		if (array != null) {
 			System.out.println("Enter The Employee ID:");
 		
 			int x = input.nextInt();
+			DBOperations2 db = new DBOperations2();
+			//db.Search(x);
+			List<Employee> listofemployee = db.Search(x);
+			if(listofemployee!=null && !listofemployee.isEmpty()){
+				
 			for (Employee emp1 : array) {
 				if (x == emp1.getEmployeeID()) {
 					System.out.println("Employee ID: " + emp1.getEmployeeID() 
@@ -55,10 +64,8 @@ public class EmployeeCollectionOperation {
 					System.out.println("Enter the Valid Id" + '\n');
 				}
 			}
-		} else {
-			System.out.println("Insert the Employee Data first" + '\n');
 		}
-	}
+}
 
 	public void deleteEmployee() {
 		int re = 0;
