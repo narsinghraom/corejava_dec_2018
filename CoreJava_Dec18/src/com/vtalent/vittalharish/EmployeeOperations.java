@@ -82,7 +82,7 @@ class EmployeeOperations {
 		// Employee emp2;
 		// emp2 = emparray[i];
 		if (!emps.isEmpty()) {
-			while (true) {
+		    	while (true) { 
 
 				for (Employee emp : emps) {
 					String name = emp.getEmployeeName();
