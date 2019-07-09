@@ -94,7 +94,7 @@ public class DBOperations2 {
 	public Employee updateEmployee(Employee emp) {
 		String query = "update employee_table set empName=?,empMobile=?  where empID=? ";
 
-     		try { 
+     		  try { 
 			pstatement = connection.prepareStatement(query);
 			pstatement.setString(1, emp.getEmployeeName());
 			pstatement.setString(2, emp.getEmpolyeeMobileNumber());
