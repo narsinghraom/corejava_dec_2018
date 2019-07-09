@@ -82,7 +82,7 @@ class EmployeeOperations {
 		// Employee emp2;
 		// emp2 = emparray[i];
 		if (!emps.isEmpty()) {
-		    	while (true) { 
+			while (true) {
 
 				for (Employee emp : emps) {
 					String name = emp.getEmployeeName();
@@ -129,7 +129,7 @@ class EmployeeOperations {
 					for (Employee emp : emps) {
 
 						emp.setEmpolyeeMobileNumber(updatemobile);
-						;
+						
 
 						db.updateEmployee(emp);
 					}
@@ -143,15 +143,49 @@ class EmployeeOperations {
 				}
 
 			}
-			
+			while (true) {
 			for (Employee emp : emps) {
 				Double salaryp = emp.getEmployeePackage();
-				System.out.println("Your Current package number is   -- " + salaryp);
+				System.out.println("Your Current package is   -- " + salaryp);
+
+			} 
+			System.out.println("do you want to update your package(Y/N) ?");
+			String userinput = input.next();
+			
+			if (userinput.equalsIgnoreCase("Y")) {
+				System.out.println("enter new packager to be  updated");
+				Double updatepackage = input.nextDouble();
+
+				for (Employee emp : emps) {
+
+					emp.setEmployeePackage(updatepackage);
+					
+				
+			    	
+					double S = updatepackage / 12;
+					double pf = S * 0.02;
+					S = S - pf;
+					emp.setEmployeeSalary(S);
+					//emp.setEmployeePF(pf);
+					
+
+					db.updateEmployee(emp);
+				}
+
+				System.out.println("your package is updated");
+				break;
+
+			} else if (userinput.equalsIgnoreCase("N")) {
+				break;
 
 			}
+			}
 
+		} else {
+			System.out.println("First Insert Employee Data" + '\n');
 		}
 
+	}
 		/*
 		 * if (x == emp2.getEmployeeID()) {
 		 * System.out.println("Enter the new Package to be Updated" + '\n'); double P =
@@ -162,7 +196,7 @@ class EmployeeOperations {
 		 * 
 		 * } }
 		 */
-	}
+	
 
 	/*
 	 * else { System.out.println("First Insert Employee Data" + '\n'); }
