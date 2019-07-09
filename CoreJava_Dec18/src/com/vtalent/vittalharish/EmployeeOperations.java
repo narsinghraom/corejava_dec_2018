@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Scanner;
 
 
+
+
 class EmployeeOperations {
 	Employee emp;
-	//Testing
+	DBOperations2 db = new DBOperations2();
 
 	static Employee[] emparray;
 
@@ -35,7 +37,7 @@ class EmployeeOperations {
 	}
 
 	public void printAllData() {
-			DBOperations2 db = new DBOperations2();
+			//DBOperations2 db = new DBOperations2();
 			List<Employee> listofemployee = db.Print();
 			if(listofemployee!=null ){
 
@@ -43,9 +45,9 @@ class EmployeeOperations {
 				//System.out.println(emp.getEmployeeID() +" " + emp.getEmployeeName() + " " + emp.getEmployeeSalary() + " " + emp.getEmpolyeeMobileNumber());
 				System.out.println("Employee ID: " + emp.getEmployeeID() 
 				+ "      " + "Employee Name: " + emp.getEmployeeName()
-				+ "      " + "Employee Mobile Number: " + emp.getEmpolyeeMobileNumber() 
 				+ "      " + "Employee Package: " + emp.getEmployeePackage() 
 				+ "      " + "Employee Salary: " + emp.getEmployeeSalary() 
+				+ "      " + "Employee Mobile Number: " + emp.getEmpolyeeMobileNumber() 
 				+ "      " +"Employee PF: " + emp.getEmployeePF());
 			}
 			/*for (int i = 0; i <= emparray.length - 1; i++) {
@@ -64,49 +66,119 @@ class EmployeeOperations {
 	}
 
 	public void updateData() {
-		if (emparray != null) {
-			Employee emp1;
-			for (int i = 0; i <= emparray.length - 1; i++) {
-				emp1 = emparray[i];
-				System.out.println(emp1.getEmployeeID() );
+		List<Employee> listofemployee = db.Print();
+		if (listofemployee != null) {
+
+			for (Employee emp : listofemployee) {
+				System.out.println("Employee ID: " + emp.getEmployeeID());
 			}
 
-			System.out.println("Enter the Id to be Updated" + '\n');
-			int x = input.nextInt();
-			for (int i = 0; i <= emparray.length - 1; i++) {
-				Employee emp2;
-				emp2 = emparray[i];
-				if (x == emp2.getEmployeeID()) {
-					System.out.println("Enter the new Package to be Updated" + '\n');
-					double P = input.nextDouble();
-					emp2.setEmployeePackage(P);
+		}
+		System.out.println("Enter the Id to be Updated" + '\n');
+		int x = input.nextInt();
 
-					double S = P / 12;
-					double pf = S * 0.02;
-					S = S - pf;
-					emp2.setEmployeeSalary(S);
-					emp2.setEmployeePF(pf);
+		List<Employee> emps = db.Search(x);
+		// for (int i = 0; i <= emparray.length - 1; i++) {
+		// Employee emp2;
+		// emp2 = emparray[i];
+		if (!emps.isEmpty()) {
+			while (true) {
+
+				for (Employee emp : emps) {
+					String name = emp.getEmployeeName();
+					System.out.println("Your Current Name is   -- " + name);
 
 				}
+
+				System.out.print("Do You Want To update your Name (Y/N) ?");
+				String userInput = input.next();
+				if (userInput.equalsIgnoreCase("Y")) {
+					System.out.println("enter new name to be  updated");
+					// String updatedname = input.next();
+					String updatedname = input.next();
+
+					for (Employee emp : emps) {
+
+						emp.setEmployeeName(updatedname);
+
+						db.updateEmployee(emp);
+					}
+
+					System.out.println("your name is updated");
+					break;
+
+				} else if (userInput.equalsIgnoreCase("N")) {
+
+					break;
+				}
 			}
+
+			while (true) {
+				for (Employee emp : emps) {
+					String mobile = emp.getEmpolyeeMobileNumber();
+					System.out.println("Your Current mobile number is   -- " + mobile);
+
+				}
+
+				System.out.println("do you want to update you mobile number (Y/N) ?");
+				String userInput1 = input.next();
+				if (userInput1.equalsIgnoreCase("Y")) {
+					System.out.println("enter new mobile number to be  updated");
+					String updatemobile = input.next();
+
+					for (Employee emp : emps) {
+
+						emp.setEmpolyeeMobileNumber(updatemobile);
+						;
+
+						db.updateEmployee(emp);
+					}
+
+					System.out.println("your mobile is updated");
+					break;
+
+				} else if (userInput1.equalsIgnoreCase("N")) {
+					break;
+
+				}
+
+			}
+			
+			for (Employee emp : emps) {
+				Double salaryp = emp.getEmployeePackage();
+				System.out.println("Your Current package number is   -- " + salaryp);
+
+			}
+
 		}
 
-		else {
-			System.out.println("First Insert Employee Data" + '\n');
-		}
-
+		/*
+		 * if (x == emp2.getEmployeeID()) {
+		 * System.out.println("Enter the new Package to be Updated" + '\n'); double P =
+		 * input.nextDouble(); emp2.setEmployeePackage(P);
+		 * 
+		 * double S = P / 12; double pf = S * 0.02; S = S - pf;
+		 * emp2.setEmployeeSalary(S); emp2.setEmployeePF(pf);
+		 * 
+		 * } }
+		 */
 	}
 
+	/*
+	 * else { System.out.println("First Insert Employee Data" + '\n'); }
+	 * 
+	 * }
+	 */
 	public void searchData() {
 			System.out.println("Enter The Employee ID:");
 			//Employee emp1;
 			int x = input.nextInt();
-			DBOperations2 db = new DBOperations2();
+			//DBOperations2 db = new DBOperations2();
 			//db.Search(x);
 			List<Employee> listofemployee = db.Search(x);
 			//for (int i = 0; i <= emparray.length - 1; i++) {
 				//emp1 = emparray[i];
-			if(listofemployee!=null ){
+			if(listofemployee!=null && !listofemployee.isEmpty() ){
 
 			for (Employee emp11:listofemployee) {
 					
@@ -124,7 +196,7 @@ class EmployeeOperations {
 
 	public void deleteEmployee() {
 			//Employee emp1;
-			DBOperations2 db = new DBOperations2();
+			//DBOperations2 db = new DBOperations2();
 			List<Employee> listofemployee = db.Print();
 			if(listofemployee!=null ){
 

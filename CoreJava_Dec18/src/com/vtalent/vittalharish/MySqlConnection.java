@@ -7,7 +7,7 @@ private Connection con;
 
 private MySqlConnection() {
 try {
-Class.forName("com.mysql.jdbc.Driver");
+Class.forName("com.mysql.cj.jdbc.Driver");
 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/employeedatabase", "root", "17011994");
 } catch (Exception e) {
 System.out.println(e);

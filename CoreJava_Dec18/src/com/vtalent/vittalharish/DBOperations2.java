@@ -16,14 +16,15 @@ public class DBOperations2 {
 	}
 
 	public int InsertDataWithStatement(Employee employee) {
-		String query = "insert into employee_table values(?,?,?,? )";
+		String query = "insert into employee_table values(?,?,?,?,?)";
 		int result = 0;
 		try {
 			pstatement = connection.prepareStatement(query);
 			pstatement.setInt(1, employee.getEmployeeID());
 			pstatement.setString(2, employee.getEmployeeName());
-			pstatement.setDouble(3, employee.getEmployeeSalary());
-			pstatement.setString(4, employee.getEmpolyeeMobileNumber());
+			pstatement.setDouble(3, employee.getEmployeePackage());
+			pstatement.setDouble(4, employee.getEmployeeSalary());
+			pstatement.setString(5, employee.getEmpolyeeMobileNumber());
 			int result1 = pstatement.executeUpdate();
 
 		} catch (Exception e) {
@@ -78,8 +79,9 @@ public class DBOperations2 {
 				employee = new Employee();
 				employee.setEmployeeID(rset.getInt(1));
 				employee.setEmployeeName(rset.getString(2));
-				employee.setEmployeeSalary(rset.getDouble(3));
-				employee.setEmpolyeeMobileNumber(rset.getString(4));
+				employee.setEmployeePackage(rset.getDouble(3));
+				employee.setEmployeeSalary(rset.getDouble(4));
+				employee.setEmpolyeeMobileNumber(rset.getString(5));
 				listofemployees.add(employee);
 			}
 		} catch (SQLException e) {
@@ -87,5 +89,22 @@ public class DBOperations2 {
 		}
 		return listofemployees;
 
+	}
+	
+	public Employee updateEmployee(Employee emp) {
+		String query = "update employee_table set empName=?,empMobile=?  where empID=? ";
+
+		try {
+			pstatement = connection.prepareStatement(query);
+			pstatement.setString(1, emp.getEmployeeName());
+			pstatement.setString(2, emp.getEmpolyeeMobileNumber());
+			pstatement.setInt(3, emp.getEmployeeID());
+
+			int result1 = pstatement.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return emp;
 	}
 }
