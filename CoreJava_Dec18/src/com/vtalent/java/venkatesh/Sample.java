@@ -12,8 +12,8 @@ public static float function(int x) {
 	return f1;
 }
 public static void main(String[] args) {
-	Sample sample=new Sample();
-	sample.function();
+ 	Sample sample=new Sample();
+		sample.function();
 	f1=function(sample.y);
 	System.out.println(sample.x+sample.y);
 	System.out.println(f1);
