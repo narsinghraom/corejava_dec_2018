@@ -11,15 +11,13 @@ public class Sample {
 	{
 		f1=x+0.5f;
 		return f1;
-		
-	}
+		}
 	public static void main(String[] args) {
 		Sample sample=new Sample();
 		sample.function();
 		f1=function(sample.y);
 		System.out.println(sample.x+sample.y);
 		System.out.println(f1);
-		
-	}
+		}
 	}
 
