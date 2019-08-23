@@ -16,6 +16,7 @@ public static float function(int x)
 public static void main(String[] args) {
 	DemoFirst samp=new DemoFirst();
 	samp.function();
+	//System.out.println(samp.y);
 	f1=function(samp.y);
 	System.out.println(samp.x+samp.y);
 	System.out.println(f1);
