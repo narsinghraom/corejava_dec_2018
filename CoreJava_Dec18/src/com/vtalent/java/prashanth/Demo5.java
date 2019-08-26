@@ -10,9 +10,9 @@ public class Demo5 {
 		return this.x+this.y;
 	}
 	public static float function(float f1) {
-		Demo5 d=new Demo5();//object creation
-		f1=f1+d.function(2,3);
-		d.f2=f1;
+		Demo5 d2=new Demo5();//object creation
+		f1=f1+d2.function(2,3);
+		d2.f2=f1;
 		return f1;
 	}
 	public static void main(String[] args) {
