@@ -11,14 +11,15 @@ public static void main(String[] args) {
 	System.out.println("l="+l);
 	System.out.println("f="+f);
 	System.out.println("d="+d);
-	double d2=234.5;
-	float f2=(float)d2;
-	long l2=(long)f2;
-	int i2=(int)l2;
-	System.out.println("d2="+d2);
-	System.out.println("f2="+f2);
-	System.out.println("l2="+l2);
-	System.out.println("i2="+i2);
-	
+		double d2=234.5;
+		float f2=(float)d2;
+		long l2=(long)f2;
+		int i2=(int)l2;
+		System.out.println("d2="+d2);
+		System.out.println("f2="+f2);
+		System.out.println("l2="+l2);
+		System.out.println("i2="+i2);	
+	}
+		
 }
-}
+
