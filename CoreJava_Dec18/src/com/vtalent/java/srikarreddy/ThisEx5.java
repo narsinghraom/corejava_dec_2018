@@ -15,7 +15,7 @@ public class ThisEx5 {
 		
 	}
 	ThisEx5(int i,int j){
-		  this(2);
+		  this(i+j);
 		this.i=this.i+i;
 		this.j=this.j*j;
 	}
