@@ -1,8 +1,9 @@
-package com.vtalent.shiva;
+package com.vtalent.varshini;
 
-public class sample {
+public class Hello {
 
 	public static void main(String[] args) {
+		System.out.println("hi");
 		// TODO Auto-generated method stub
 
 	}
