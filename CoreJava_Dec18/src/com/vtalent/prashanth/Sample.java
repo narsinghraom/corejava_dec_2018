@@ -1,4 +1,4 @@
-package com.vtalent.java.haritha;
+package com.vtalent.prashanth;
 
 public class Sample {
 	int x,y;
@@ -7,17 +7,19 @@ public class Sample {
 		x=5;
 		y=x+5;
 	}
-	public static float function(int x)
-	{
+	public static float function(int x) {
 		f1=x+0.5f;
 		return f1;
-		}
-	public static void main(String[] args) {
-		Sample sample=new Sample();
-		sample.function();
-		f1=function(sample.y);
-		System.out.println(sample.x+sample.y);
-		System.out.println(f1);
-		}
 	}
 
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Sample sample = new Sample();
+		sample.function();
+		f1=function(sample.y);
+		System.out.println(sample.x + sample.y);
+		System.out.println(f1);
+
+	}
+
+}
