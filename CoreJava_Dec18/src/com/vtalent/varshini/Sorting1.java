@@ -3,7 +3,7 @@ package com.vtalent.varshini;
 
 public class Sorting1 {
 	 {
-			public Static void main(String []args)                              
+		 public static void main(String[] args)
 			{
 			
 			int [] a= {36,19,29,12,5};
