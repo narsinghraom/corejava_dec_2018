@@ -2,32 +2,29 @@ package com.vtalent.varshini;
 
 
 public class Sorting1 {
-	 {
+	
 		 public static void main(String[] args)
 			{
 			
-			int [] a= {36,19,29,12,5};
-			int temp;
+			int a[]= {36,19,29,12,5};
+			
 			for(int i=0;i<a.length;i++)
 			{
-		         int flag=0;
-					for(int j=0;j<a.length-1;j++)
+		           
+					for(int j=0;j<a.length;j++)
 					{
-						if(a[j]>a[j+1])
+						if(a[i]<a[j])
 						{
-							temp=a[j];
-							a[j]=a[j+1];
-							a[j+1]=temp;
-							flag=1;
+							int temp=a[i];
+							a[i]=a[j];
+							a[j]=temp;
+							
 						}
 					}
-					if(flag==0)
-					{
-						break;
+			}
+		
+			 	for(int i=0;i<a.length;i++) {
+						System.out.println(a[i]);
 					}
-					// TODO Auto-generated method stub
-
-			}
-			}
-	 }
+			}	 
 }
