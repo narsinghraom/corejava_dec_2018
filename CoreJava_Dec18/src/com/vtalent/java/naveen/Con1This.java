@@ -20,7 +20,7 @@ public  Con1This(int i,int j) {
 		int k=10;
 		int l=10;
 		System.out.println("this"+k+l);
-		System.out.println("10"+k*l);
+		System.err.println("10"+k*l);
 		
 		Con1This ct=new Con1This();
 		System.out.println(ct.i+ct.j);

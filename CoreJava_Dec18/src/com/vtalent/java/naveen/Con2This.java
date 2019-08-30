@@ -18,7 +18,7 @@ int i,j;
  }
 	public static void main(String[] args) {
 		Con2This ct2=new Con2This();
-		System.out.println(ct2.i+ct2.j);
+		System.out.println(ct2.i+ct2.j);//12
 
 	}
 
