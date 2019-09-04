@@ -1,7 +1,4 @@
 package com.vtalent.varshini;
-
-
-
 public class ArrayEx {
 	int[] iarray=new int[3];
 	float[] farray;
@@ -22,9 +19,8 @@ public class ArrayEx {
 			ae.iarray[i]=i+2;
 		}
 		ae.farray=ae.arrayfun(ae.iarray);
-		for(int i=0;i<ae.farray.length-1;i++)
+		for(int i=0;i<=ae.farray.length-1;i++)
 			System.out.println(ae.farray[i]);
-		// TODO Auto-generated method stub
 
 	}
 
