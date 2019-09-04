@@ -1,10 +1,12 @@
 package com.vtalent.java.prashanth;
 
+import com.vtalent.sanjana.Abc1;
+
 public class Abc{
 	
 	static Abc abc=new Abc();
 	float f1,f2;
-	static long l1,l2;
+	static long l1,l2,l3;
 	Abc abcRef;
 	public Abc function(Abc abc){
 		abcRef=abc;
@@ -22,6 +24,7 @@ public class Abc{
 		// TODO Auto-generated method stub
 		l1=function1();
 		l2=l1+5;
+		//l3=abc1.function(abc1);
 		System.out.println(l1+l2);
 		System.out.println(abc.abcRef);
 		System.out.println(abc.f1);

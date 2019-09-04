@@ -9,7 +9,7 @@ public class DemoTwo3 {
 		d.d = new DemoTwo3();
 		d.d.d = d1;
 		d.d.i = d1.i + d1.j;
-		d.d.j = d1.i * d1.j;z
+		d.d.j = d1.i * d1.j;
 		return d.d;
 	}
 
