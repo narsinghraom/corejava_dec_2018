@@ -19,7 +19,6 @@ public class Abc {
 		}
 
 		public static void main(String[] args) {
-			// TODO Auto-generated method stub
 			l1=function1();
 			l2=l1+5;
 			System.out.println(l1+l2);
