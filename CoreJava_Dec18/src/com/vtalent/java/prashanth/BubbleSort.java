@@ -3,7 +3,7 @@ package com.vtalent.java.prashanth;
 public class BubbleSort {
 	
 	public static void main(String[] args) {
-		int[] a= {10,30,5,6,36};
+		int[] a= {30,10,5,6,36};
 		int temp,flag=0;
 		//for no of rounds 
 		for (int i = 0; i < a.length; i++) {

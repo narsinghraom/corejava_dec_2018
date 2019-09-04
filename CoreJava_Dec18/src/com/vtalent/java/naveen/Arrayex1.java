@@ -7,7 +7,7 @@ public class Arrayex1 {
  float[] farray;
  public  float[] arrayfunction(int[] iarray) {
 	 farray=new float[iarray.length];
-	 for(int i=0;i<=iarray.length-1;i++) {
+	 for(int i=0;i<=iarray.length-1;i++) {    
 		farray[i] =iarray[i];
 	}
 	 
