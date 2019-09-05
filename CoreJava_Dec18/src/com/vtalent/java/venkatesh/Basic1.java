@@ -14,11 +14,6 @@ package com.vtalent.java.venkatesh;
 		f2 = Basic1.f1 + f2;
 		return (int) f1;
 		}
-
-		/**
-		* 
-		* @param args
-		*/
 		public static void main(String[] args) {
 		Basic1 obj = new Basic1();
 		obj.functionOne();
@@ -26,6 +21,7 @@ package com.vtalent.java.venkatesh;
 		obj.functionOne();
 		System.out.println(obj.i + obj.j);
 		System.out.println(f1 + f2);
+		System.out.println(k);
 
 		}
 
