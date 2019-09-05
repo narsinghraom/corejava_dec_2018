@@ -3,10 +3,6 @@ package com.vtalent.swamy;
 
 	public class ThisKeyword {
 		double d1, d2;
-		int a,b;
-		a=10;
-		b=20;
-
 		public long function(double d1, double d2) {
 
 			d1 = d1 + d2;
