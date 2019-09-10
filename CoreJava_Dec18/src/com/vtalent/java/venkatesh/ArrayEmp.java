@@ -9,9 +9,11 @@ class ArrayEmp {
 		 static ArrayEmp[] empArray=new ArrayEmp[4];
 		 public static void insertData()
 		 {
+			 ArrayEmp emp;
+
 			 for(int i=0;i<=empArray.length-1;i++)
 			 {
-				 ArrayEmp emp=new ArrayEmp();
+				 emp=new ArrayEmp();
 				 emp.eid=100+i;
 				 emp.esalary=2500*(10+i);
 				 emp.emobile=789383+(i*2);
@@ -22,9 +24,11 @@ class ArrayEmp {
 			 {
 				 for(int i=0;i<=empArray.length-1;i++)
 				 {
+					 if(null !=empArray[i]) {
 					 ArrayEmp emp=(ArrayEmp)empArray[i];
 			 System.out.println("id="+emp.eid+"salary="+emp.esalary+"mobile="+emp.emobile);
-			 		 }
+			 		 }}
+				 
 	 }
 			 public static void displayOne()
 			 {
@@ -37,7 +41,7 @@ class ArrayEmp {
 				 
 				 if(temp==(emp.eid))
 				 {
-					 System.out.println(emp.eid+" "+emp.esalary+" "+emp.emobile);
+	System.out.println(emp.eid+" "+emp.esalary+" "+emp.emobile);
 				 }
 				 Scanner sc1=new Scanner(System.in);
 				 System.out.println("enter the id");
@@ -46,10 +50,11 @@ emp.esalary=emp.esalary+5000;
  System.out.println(emp.eid+" "+emp.esalary+" "+emp.emobile); 
 			 }
 			 }
-			 public static void main(String args[])
+			 public static void main(String[] args) {
+				
 			 {
 				 insertData();
 				 displayEmp();
 				 displayOne(); 
 	 }
-			 }
+			 }}
