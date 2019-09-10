@@ -56,7 +56,7 @@ class Ch3 extends Ch2{
 	System.out.println(st.f1);
 	System.out.println(st.f2);
 	System.out.println(st.i);*/
-	System.out.println("srikarreddy");
+	System.out.println("===========");
 	System.out.println(st5.f1);
 	System.out.println(st5.f2);
 	
