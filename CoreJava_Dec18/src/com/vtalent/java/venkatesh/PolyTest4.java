@@ -51,7 +51,7 @@ class PolyThree3 extends PolyTwo3 {
 }
 public class PolyTest4 {
 public static void main(String[] args) {
-	PolyThree3 p4=new PolyThree3(); 
+	PolyThree3 p4=(PolyThree3) new PolyTwo3(); 
 	  int r=p4.function(2.0); 
 	  double d4=p4.function(r,r,r);
 	  System.out.println(r);

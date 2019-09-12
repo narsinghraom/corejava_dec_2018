@@ -30,7 +30,7 @@ class PolyTwo extends PolyOne{
 class PolyTest {
 public static void main(String[] args) {
 	PolyTwo p1=new PolyTwo();
-			int k=p1.function(2.0);
+	int k=p1.function(2.0);
 	k=p1.function((double)k,(double)k);
 	double d1=p1.function(k,k,k);
 	System.out.println(d1);
