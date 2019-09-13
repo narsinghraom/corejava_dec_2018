@@ -11,6 +11,7 @@ public float[] arrayFun(int[] iarray)
 		farray[i]=iarray[i];
 	}
 		return farray;
+		
 }
 		public static void main(String args[])
 		{
