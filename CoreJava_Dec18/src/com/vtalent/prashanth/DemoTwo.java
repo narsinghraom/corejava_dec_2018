@@ -12,6 +12,7 @@ public class DemoTwo {
 		DemoTwo d2=new DemoTwo();
 		f1=f1+d2.function(2,3);
 		d2.f2=f1;
+		System.out.println(d2.x+d2.y);
 		return f1;
 	}
 

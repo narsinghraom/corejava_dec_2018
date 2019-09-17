@@ -18,6 +18,12 @@ class Two1 extends One1{
 class Three1 extends Two1{
 	int y;
 	public int function(int x,int y) {
+		/*
+		 * this.x = this.x + super.function(x, y);
+		 * o/p:- 24,18,4.0,72,48.0,72,72.0
+		 * Because it will takes first this.x value
+		 * and then only super.function(x,y) Executes.
+		 */
 		this.x = super.function(x, y) + this.x;
 		this.y = x + this.y + y;
 		return this.x + this.y;
