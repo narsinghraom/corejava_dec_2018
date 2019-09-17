@@ -19,7 +19,7 @@ class AbcImp implements Abc{
 		k=k+ (x*y);
 		System.out.println(Abc.k);
 		System.out.println(k);
-	
+
 	}
 	
 	public void function()
