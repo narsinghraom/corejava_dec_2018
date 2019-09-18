@@ -3,7 +3,7 @@ package com.vtalent.java.venkatesh;
 interface Abc2{
 	public static final float pi=3.14f;
 	int k=0;
-	public abstract void function(int x);
+ 	public abstract void function(int x);
 	public void function(int x,int y);
 	}
 class AbcImpl implements Abc2{
