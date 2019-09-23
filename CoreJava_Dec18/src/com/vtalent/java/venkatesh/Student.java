@@ -23,4 +23,4 @@ class Student implements Readable, Writable {
 		s.reads();
 		s.writes();
 	}
-}
+	}
