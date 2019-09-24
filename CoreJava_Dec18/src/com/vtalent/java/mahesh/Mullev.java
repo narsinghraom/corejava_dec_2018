@@ -39,7 +39,7 @@ public class Mullev {
          super.display(); 
          System.out.println("Empid = " + empid); 
        } 
-   }; 
+   }
     class HourlyEmployee extends Employee 
   { 
       private double hourlyRate; 
@@ -61,12 +61,12 @@ public class Mullev {
         System.out.println("Hours Worked = " + hoursWorked); 
         System.out.println("Gross pay = " + GetGrosspay()); 
       } 
-  }; 
+  } 
     class MultilevelInheritance 
  { 
       public static void main(String args[]) 
       { 
-         HourlyEmployee emp = new HourlyEmployee("Dinesh Thakur",1,15,1800); 
+         HourlyEmployee emp = new HourlyEmployee("Mahesh Kamuju",1,15,1800); 
          emp.display(); 
       } 
 }
