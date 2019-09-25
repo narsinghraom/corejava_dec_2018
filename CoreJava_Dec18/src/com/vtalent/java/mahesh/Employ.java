@@ -50,7 +50,7 @@ Scanner in=new Scanner(System.in);
 		break;
 		
 		case 5: e.Exit();
-		System.exit(0);
+		System.exit(0); 
 		}	
 	}
 }

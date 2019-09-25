@@ -51,7 +51,6 @@ class Employe extends EmpBean{
 			for (int i = 0; i <= earray.length - 1; i++) {
 				if (earray[i] == null) {
 					earray[i] = emp;
-
 					break;
 				}
 			}
@@ -62,29 +61,35 @@ class Employe extends EmpBean{
 		}
 	}
 	public void DeleteData(){
-		if(earray!=null){
-			for (int i = 0; i <= earray.length - 1; i++) {
-				emp = earray[i];
-				System.out.println(emp.getEmpID());
-			}
 			System.out.println("enter id to be deleted");
 			int del = in.nextInt();
-			if (null!=emp) {
-				for (int i = 0; i < earray.length - 1; i++) {
-					 earray[i]=emp;
-					if (earray[i]!=null&& emp.getEmpID()==del) {
+			int c=0;
+				for (int i = 0; i <= earray.length-1; i++) {
+					if (earray[i] != null){ 
+					earray[i]=emp;
+					if(null!=emp){
+					if (del==emp.getEmpID()) {
 						earray[i]=null;
+						c++;
 						System.out.println("deleted succesfully");
+						if (earray != null) {
+							for (int j = 0; j <= earray.length - 1; j++) {
+								if (null!=emp) {
+									earray[j] = emp;
+									break;
+								}	
+							}
 					}
-				}
-			}
+					}
+					}
+					}
+	 else if(c==0){
+		 System.out.println("no data found! please insert data first");
 		}
-	 else {
-		System.out.println("no data found! please insert data first");
 	}
 	}
 	public void searchData() {
-		if (earray != null) {
+		/*if (earray != null) {
 			System.out.println("Enter The Employee ID:");
 			int x = in.nextInt();
 			for (int i = 0; i <= earray.length - 1; i++) {
@@ -95,18 +100,38 @@ class Employe extends EmpBean{
 							+ "      " + "Employee Name: " + emp.getEmpName()
 							+ "      " + "Employee Mobile Number: " + emp.getEmpMobileNumber() 
 							+ "      " + "Employee Salary: " + emp.getEmpSalary());
-								
 				}
 				}
 				 else {
-					System.out.println("Enter the Valid Id" + '\n');
+					System.out.println("Enter the Valid Id");
 				}
-				
 		}
-	}		
+	}
 		 else {
-			System.out.println("Insert  the Employee Data first" + '\n');
+				System.out.println("Insert  the Employee Data first");
+			}
+	}*/
+		if (earray != null) {
+			System.out.println("Enter The Employee Name:");
+			String x = in.next();
+			for (int i = 0; i <= earray.length - 1; i++) {
+				emp = earray[i];
+				if (null!=emp){
+				if (x == emp.getEmpName()) {
+					System.out.println("Employee ID: " + emp.getEmpID() 
+							+ "      " + "Employee Name: " + emp.getEmpName()
+							+ "      " + "Employee Mobile Number: " + emp.getEmpMobileNumber() 
+							+ "      " + "Employee Salary: " + emp.getEmpSalary());
+				}
+				}
+				 else {
+					System.out.println("Enter a Valid Name");
+				}
 		}
+	}
+		 else {
+				System.out.println("Insert  the Employee Data first");
+			}
 	}
 	public void PrintData() {
 		if (earray != null) {
@@ -119,8 +144,7 @@ class Employe extends EmpBean{
 							+ "      " + "Employee Mobile Number: " + emp.getEmpMobileNumber()  
 							+ "      " + "Employee Salary: " + emp.getEmpSalary() );
 				}
-				
-			}
+			}	
 			} 
 		else {
 			System.out.println("Insert the Employee Data first" + '\n');
