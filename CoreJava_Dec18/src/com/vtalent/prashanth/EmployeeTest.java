@@ -4,6 +4,7 @@ import java.util.*;
 
 class EmployeeBean1 {
 	private int employeeId;
+	private String employeeName;
 	private double employeeSalary;
 	private long employeeMobileNo;
 	static EmployeeBean1[] emp1;
@@ -14,6 +15,12 @@ class EmployeeBean1 {
 	}
 	public void setEmployeeId(int employeeId) {
 		this.employeeId = employeeId;
+	}
+	public String getEmployeeName() {
+		return employeeName;
+	}
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
 	}
 	public double getEmployeeSalary() {
 		return employeeSalary;
@@ -38,6 +45,10 @@ class EmployeeBean1 {
 			System.out.println("Please enter employee Id: ");
 			employeeId = sc.nextInt();
 			ae.setEmployeeId(employeeId);
+			System.out.println("Plese enter employee Name: ");
+			sc.nextLine();
+			employeeName = sc.nextLine();
+			ae.setEmployeeName(employeeName);
 			System.out.println("Please enter Salary: ");
 			employeeSalary = sc.nextDouble();
 			ae.setEmployeeSalaray(employeeSalary);
@@ -48,7 +59,7 @@ class EmployeeBean1 {
 		}
 		for(int i=0;i<emp1.length;i++) {
 			EmployeeBean1 ae1 = (EmployeeBean1)emp1[i];
-			System.out.println("Id="+ae1.employeeId +" "+"Salary="+ae1.employeeSalary +" "+"Mobile no="+ae1.employeeMobileNo);
+			System.out.println("Id="+ae1.employeeId +" "+"Name="+ae1.employeeName+" "+"Salary="+ae1.employeeSalary +" "+"Mobile no="+ae1.employeeMobileNo);
 		}
 		System.out.println("Employee data inserted successfully in to the Array. ");
 	}
@@ -72,7 +83,7 @@ class EmployeeBean1 {
 			for(i=0; i<emp1.length; i++) {
 				if(emp1[i] != null) {
 					EmployeeBean1 ae2 = (EmployeeBean1)emp1[i];
-					System.out.println("Id="+ae2.employeeId +" "+"Salary="+ae2.employeeSalary +" "+"Mobile no="+ae2.employeeMobileNo);
+					System.out.println("Id="+ae2.employeeId +" "+"Name="+ae2.employeeName+" "+"Salary="+ae2.employeeSalary +" "+"Mobile no="+ae2.employeeMobileNo);
 				}
 			}
 		}
@@ -82,13 +93,11 @@ class EmployeeBean1 {
 		System.out.println("Enter an employeeId to be search: ");
 		int x = sc.nextInt();
 		for (int i=0;i<emp1.length;i++) {
-			if(emp1[i] != null) {
-				EmployeeBean1 ae3 = (EmployeeBean1)emp1[i];
-				if(emp1[i].employeeId == x) {
-					System.out.println("Id="+ae3.employeeId +" "+"Salary="+ae3.employeeSalary +" "+"Mobile no="+ae3.employeeMobileNo);
-					System.out.println("Given employeeId is in the array. ");
-					return;
-				}
+			EmployeeBean1 ae3 = (EmployeeBean1)emp1[i];
+			if(emp1[i] != null && emp1[i].employeeId == x) {
+				System.out.println("Id="+ae3.employeeId +" "+"Name="+ae3.employeeName+" "+"Salary="+ae3.employeeSalary +" "+"Mobile no="+ae3.employeeMobileNo);
+				System.out.println("Given employeeId is in the array. ");
+				return;
 			}
 		}
 		System.out.println("Employee id not found. ");
@@ -98,12 +107,37 @@ class EmployeeBean1 {
 		for(int i=0;i<emp1.length;i++) {
 			if(emp1[i] != null) {
 				EmployeeBean1 ae4 = (EmployeeBean1)emp1[i];
-				System.out.println("Id="+ae4.employeeId +" "+"Salary="+ae4.employeeSalary +" "+"Mobile no="+ae4.employeeMobileNo);
+				System.out.println("Id="+ae4.employeeId +" "+"Name="+ae4.employeeName+" "+"Salary="+ae4.employeeSalary +" "+"Mobile no="+ae4.employeeMobileNo);
 			}
 		}
 		System.out.println("All the employee details printed successfully. ");
 	}
-		
+	
+	public void searchWithName() {
+		boolean flag = false;
+		int message=0;
+		System.out.println("Enter an employeeName Starting Letter to be search: ");
+		char t = sc.next().charAt(0);
+		for (int i=0;i<emp1.length;i++) {
+			EmployeeBean1 ae5 = (EmployeeBean1)emp1[i];
+			if(emp1[i] != null) {
+				String e1 = emp1[i].employeeName;
+				char[] n = e1.toCharArray();
+				if( n[0] == t) {
+					flag = true;
+					if(message==0) {
+						System.out.println("EmployeeName found with " + t + " letter. ");
+						message++;
+					}
+					System.out.println("Id="+ae5.employeeId +" "+"Name="+ae5.employeeName+" "+"Salary="+ae5.employeeSalary +" "+"Mobile no="+ae5.employeeMobileNo);	
+				}
+			}
+		}
+		if(!flag) {
+			System.out.println("EmployeeName not found with " + t + " letter. ");
+		}
+	}
+	
 }
 
 public class EmployeeTest {
@@ -117,8 +151,9 @@ public class EmployeeTest {
 					"1. insert Into Array.\r\n" + 
 					"2. delete from my Array.\r\n" + 
 					"3. Search an employee from my Array.\r\n" + 
-					"4. Print All the employees from my Array.\r\n" + 
-					"5. Exit.");
+					"4. Print All the employees from my Array.\r\n" +
+					"5. Search an employeeName with letter from my Array.\r\n" +
+					"6. Exit.");
 			int scan = s.nextInt();
 			switch(scan) {
 			case 1: a.insert();
@@ -129,7 +164,9 @@ public class EmployeeTest {
 			break;
 			case 4: a.printAll();
 			break;
-			case 5: 
+			case 5: a.searchWithName();
+			break;
+			case 6: 
 			System.exit(0);
 			default: System.out.println("Please give a valid Input: ");
 			
