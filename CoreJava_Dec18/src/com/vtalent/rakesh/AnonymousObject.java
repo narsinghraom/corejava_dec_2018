@@ -2,20 +2,23 @@ package com.vtalent.rakesh;
 
 public class AnonymousObject {
 	int q;
+	private int f;
 	static AnonymousObject h;
 
 	public AnonymousObject() {
 		try {
-			int e = 7;
-			int r = e / 0;
+			int e = 10;
+			int r = e / 2;
 			this.q = r;
 		} catch (Exception e) {
+		e.printStackTrace();
 		}
-	}
-
+		}
 	public int operations(int q) {
+
 		AnonymousObject n1 = new AnonymousObject();
-		this.q = 5;
+        f=20;
+		this.q =	this.f+ q	;
 		// this.q = 1;
 		double m = 0;
 		System.out.println(m);
@@ -23,12 +26,13 @@ public class AnonymousObject {
 
 	}
 
-	public static void main(String[] a) {
+	public static void main(String[] args) {
 		h = new AnonymousObject();
 		// int l = new AnonymousObject().operations(8);
 
 		// h.operations(1);
 		// System.out.println(l);
+	h.operations(h.q);
 		System.out.println(h.q);
 		// char f = ' ';
 		// double q = 5.5555555;
