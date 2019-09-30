@@ -1,14 +1,14 @@
-package com.vtalent.java.mahesh;
-
-import java.util.Scanner;
+package com.vtalent.varshini;
+import java.util.*;
 
 public class Palindrome {
-	public static void main(String args[])  
+	 
+	   public static void main(String args[])  
 	   {  
-	      String original, reverse=""; 
-	      Scanner in = new Scanner(System.in);   
+	      String original, reverse = ""; 
+	      Scanner sc = new Scanner(System.in);   
 	      System.out.println("Enter a string/number to check if it is a palindrome");  
-	      original = in.nextLine();   
+	      original = sc.nextLine();   
 	      int length = original.length();   
 	      for ( int i = length - 1; i >= 0; i-- )  
 	         reverse = reverse + original.charAt(i);  
@@ -17,4 +17,5 @@ public class Palindrome {
 	      else  
 	         System.out.println("Entered string/number isn't a palindrome.");   
 	   }  
-}	
+	}  
+
