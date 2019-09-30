@@ -5,13 +5,12 @@ public class Employ extends Employe{
 	public void InsertData(){
 		System.out.println("Enter No Of Employees to Be Stored.");
 		int size = in.nextInt();
-
 		Employe.earray = new Employe[size];
-
 		for (int i = 0; i <= size - 1; i++) {
 
 			System.out.println("Enter " + (i + 1) + " EmployeeData ");
 			Employe emp = new Employe();
+			
 			System.out.println("Enter Id:");
 			emp.setEmpID(in.nextInt());
 			
