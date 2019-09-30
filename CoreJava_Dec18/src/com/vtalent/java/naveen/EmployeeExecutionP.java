@@ -75,7 +75,7 @@ public class EmployeeExecutionP {
 			if (id.equals(emp[i].getEmployeeId())) {
 				System.out.println(emp[i]);
 
-				System.out.println("do you want to update name press 'y' or id 'n'  more options press  'any key'  ");
+				System.out.println("do you want to update name  press 'y' or id 'n'  more options press  'any key'  ");
 				da = sc.next();
 
 				if (da.equalsIgnoreCase("y")) {
