@@ -33,4 +33,6 @@ public static void main(String[] args) {
 	 e1.setsalary(20000.0);
 	 System.out.println(e1.getEid()+" , "+e1.getEname()+",  "+e1.getsalary());
 }
+
+
 }
