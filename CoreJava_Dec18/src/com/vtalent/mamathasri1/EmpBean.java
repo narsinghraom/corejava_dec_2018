@@ -123,6 +123,8 @@ class Employe extends EmpBean {
 	     if (null!=emp){
 		  if(s.equals(emp.getEmpName())) {  
 	  System.out.println("Employee ID: " + emp.getEmpID() + "      " +
+		  
+			  
 	  "Employee Name: " + emp.getEmpName() + "      " +
 	  "Employee Mobile Number: " + emp.getEmpMobileNumber() + "      " +
 	  "Employee Salary: " + emp.getEmpSalary()); 
@@ -177,10 +179,6 @@ public void UpdateData() {
 				}
 				}		
 		}
-		
-	
-
-	
 	public void PrintData() {
 		if (earray != null) { 
 			for (int i = 0; i <= earray.length - 1; i++) {
