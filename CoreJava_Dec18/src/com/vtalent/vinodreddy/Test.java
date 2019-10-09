@@ -1,6 +1,6 @@
 package com.vtalent.vinodreddy;
 
- class EmployeeBean {
+ class EmployeeBean1 {
 	
 	private int employeeId;
 	private double employeeSalary;
@@ -20,7 +20,7 @@ package com.vtalent.vinodreddy;
 }
  class Test{
 	public static void main(String[] args) {
-		EmployeeBean empref =new EmployeeBean()	;
+		EmployeeBean1 empref =new EmployeeBean1()	;
 	    empref.setEmployeeId(100);
 	    empref.setEmployeeSalary(25000);
 	    System.out.println("Id="+empref.getEmployeeId());

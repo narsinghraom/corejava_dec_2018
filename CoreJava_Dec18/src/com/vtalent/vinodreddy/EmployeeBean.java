@@ -2,7 +2,6 @@ package com.vtalent.vinodreddy;
 
 import java.util.*;
 
-
 public class EmployeeBean {
 	private	int employeeId;
 	private	double employeeSalary;
