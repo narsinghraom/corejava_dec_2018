@@ -1,17 +1,26 @@
 package com.vtalent.java.naveen;
 
 public class EmployeeBeanP {
+	private String  employeeename;
 	private int employeeId;
 	private double employeesalary;
 	private long employeemobileno;
 
-	public EmployeeBeanP(int employeeId, double employeesalary, long employeemobileno) {
+	public String getEmployeeename() {
+	return employeeename;
+}
 
-		this.employeeId = employeeId;
-		this.employeesalary = employeesalary;
-		this.employeemobileno = employeemobileno;
-	}
+public void setEmployeeename(String employeeename) {
+	this.employeeename = employeeename;
+}
 
+	/*
+	 * public EmployeeBeanP(int employeeId, double employeesalary, long
+	 * employeemobileno) {
+	 * 
+	 * this.employeeId = employeeId; this.employeesalary = employeesalary;
+	 * this.employeemobileno = employeemobileno; }
+	 */
 	public int getEmployeeId() {
 		return employeeId;
 	}
@@ -38,8 +47,12 @@ public class EmployeeBeanP {
 
 	@Override
 	public String toString() {
-		return "Employee [employeeId=" + employeeId + ", employeesalary=" + employeesalary + ", employeemobileno="
-				+ employeemobileno + "]";
+		return "EmployeeBeanP [employeeename=" + employeeename + ", employeeId=" + employeeId + ", employeesalary="
+				+ employeesalary + ", employeemobileno=" + employeemobileno + "]";
 	}
+
+	
+
+
 
 }

@@ -4,37 +4,28 @@ import java.util.Scanner;
 
 public class EmployeeExecutionP {
 	// Employee em;
-	Scanner sc = new Scanner(System.in);
-	EmployeeBeanP emp[] = new EmployeeBeanP[3];
 
-	public String insert() {
-		System.out.println("enter your id");
-		System.out.println("enter your salary");
-		System.out.println("enter mobile number");
-		EmployeeBeanP e = new EmployeeBeanP(sc.nextInt(), sc.nextDouble(), sc.nextLong());
-		System.out.println("2nd employee");
-		EmployeeBeanP e1 = new EmployeeBeanP(sc.nextInt(), sc.nextDouble(), sc.nextLong());
-		System.out.println("3rd employee");
-		EmployeeBeanP e2 = new EmployeeBeanP(sc.nextInt(), sc.nextDouble(), sc.nextLong());
-		// e.setEmployeeId(sc.nextInt());
-		// e.setEmployeesalary(sc.nextDouble());
-		// e.setEmployeemobileno(sc.nextLong());
-		emp[0] = e;
-		System.out.println("emp array" + emp[0]);
-		emp[1] = e1;
-		emp[2] = e2;
-		// emp[3]=e1;
-		// emp[4]=e2;
-		System.out.println(e.getEmployeeId() + "  " + e.getEmployeesalary() + "  " + e.getEmployeemobileno());
-		System.out.println(emp[0]);
-		System.out.println(emp[1]);
-		System.out.println(emp[2]);
+	static Scanner sc = new Scanner(System.in);
 
-		// System.out.println(emp);
-		return "recorded  success";
+	static int sa = sc.nextInt();
+	public static EmployeeBeanP emp[] = new EmployeeBeanP[sa];
+
+	/* In this method follows as insert the employee data into the array */
+	public static int insert(EmployeeBeanP employee) {
+
+		int result = 0;
+		for (int i = 0; i <= emp.length - 1; i++) {
+			if (emp[i] == null) {
+				emp[i] = employee;
+				result++;
+				System.out.println(emp[i]);
+				break;
+			}
+		}
+		return result;
 	}
 
-	public String delete() {
+	public static String delete() {
 		System.out.println("enter delete id");
 		Integer n = sc.nextInt();
 		for (int j = 0; j <= emp.length - 1; j++) {
@@ -53,7 +44,7 @@ public class EmployeeExecutionP {
 
 	}
 
-	public String disply() {
+	public static String disply() {
 		if (emp != null) {
 			for (int i = 0; i <= emp.length - 1; i++) {
 				System.out.println(emp[i]);
@@ -62,7 +53,7 @@ public class EmployeeExecutionP {
 		return "Display all array elements";
 	}
 
-	public String searchEmployee() {
+	public static String searchEmployee() {
 		System.out.println("enter  id");
 		Integer id = sc.nextInt();
 
@@ -73,5 +64,52 @@ public class EmployeeExecutionP {
 		}
 
 		return "employee id ";
+	}
+
+	public static int update() {
+		EmployeeBeanP e = null;
+		String da = "n";
+		System.out.println("enter  id ");
+		Integer id = sc.nextInt();
+		for (int i = 0; i <= emp.length - 1; i++) {
+			if (id.equals(emp[i].getEmployeeId())) {
+				System.out.println(emp[i]);
+
+				System.out.println("do you want to update name  press 'y' or id 'n'  more options press  'any key'  ");
+				da = sc.next();
+
+				if (da.equalsIgnoreCase("y")) {
+					e = new EmployeeBeanP();
+					System.out.println("please enter employee name");
+					emp[i].setEmployeeename(sc.next());
+				}
+
+				else if (da.equalsIgnoreCase("n")) {
+					e = new EmployeeBeanP();
+					System.out.println("please enter employee id");
+					emp[i].setEmployeeId(sc.nextInt());
+				}
+				String na = "no";
+				System.out.println("Do you want to update salary press'yes' or  mobile 'no' ");
+				na = sc.next();
+				if (na.equalsIgnoreCase("yes")) {
+					e = new EmployeeBeanP();
+					System.out.println("please enter employee salary");
+					emp[i].setEmployeesalary(sc.nextDouble());
+				} else if (na.equalsIgnoreCase("no")) {
+					e = new EmployeeBeanP();
+					System.out.println("please enter employee mobile number");
+					emp[i].setEmployeemobileno(sc.nextLong());
+				} else
+					break;
+
+			}
+
+		}
+		/*
+		 * int k = 0; for (int i = 0; i <= emp.length - 1; i++) { if (emp == null) { //
+		 * emp[i] = employee; System.out.println(emp[i]); k++; } }
+		 */
+		return 0;
 	}
 }

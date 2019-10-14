@@ -1,18 +1,22 @@
 package com.vtalent.java.prashanth;
 import java.util.Scanner;
 class EmployeeBean1{
-	static Scanner num_emp=new Scanner(System.in);
+	
 	private int employeeId;
 	private double employeeSalary;
 	private long employeeMobileNo;
+	private String employeeName;
 	public int setEmployeeId(int employeeId) {
 		return this.employeeId=employeeId;
 	}
-	public double setEmployeeSalary(double employeeSalary) {
-		return this.employeeSalary=employeeSalary;
+	public void setEmployeeSalary(double employeeSalary) {
+		this.employeeSalary=employeeSalary;
 	}
-	public long setEmployeeMobileNo(long employeeMobileNo) {
-		return this.employeeMobileNo=employeeMobileNo;
+	public void setEmployeeMobileNo(long employeeMobileNo) {
+			this.employeeMobileNo=employeeMobileNo;
+	}
+	public void setEmployeeName(String employeeName) {
+		 this.employeeName=employeeName;
 	}
 	public int getEmployeeId() {
 		return this.employeeId;
@@ -23,11 +27,46 @@ class EmployeeBean1{
 	public long getEmployeeMobileNo() {
 		return this.employeeMobileNo;
 	}
-
+	public String getEmployeeName() {
+		return this.employeeName;
+	}
 	
 }
 
 public class Test11 extends EmployeeBean1 {
+	static Scanner s=new Scanner(System.in);
+	static EmployeeBean1 emp;
+	EmployeeBean1[] employee_array;
+	public void insert() {
+		System.out.println("Please enter no of employees to insert in to array");
+		   Scanner in=new Scanner(System.in);
+		   int num_emp=in.nextInt();
+		   employee_array=new EmployeeBean1[num_emp];
+		   for(int i=0;i<num_emp;i++)
+		   {
+		   EmployeeBean1 emp=new EmployeeBean1();	
+		   System.out.println("Enter Employee Id");
+		   int eid=s.nextInt();
+		   emp.setEmployeeId(eid);
+		   System.out.println("please enter employee name");
+		   String ename=s.next();
+		   emp.setEmployeeName(ename);
+		   System.out.println("Enter Employee Salary");
+		   double esal=s.nextDouble();
+		   emp.setEmployeeSalary(esal);
+		   System.out.println("Enter employee Mobile Number");
+		   long eno=s.nextLong();
+		   emp.setEmployeeMobileNo(eno);
+		   employee_array[i]=emp;
+		   }
+		   for (int j = 0; j <employee_array.length; j++) {
+			   
+			EmployeeBean1 em1 =employee_array[j];
+	        System.out.println("id="+em1.getEmployeeId()+"  "+""
+	        		+ "Salary="+em1.getEmployeeSalary()+"  "+""
+	        		+ "MobileNumber="+em1.getEmployeeMobileNo());
+		   }   		 
+	}
 	
 	public static void main(String[] args) {
 		System.out.println("Please select your choice");
@@ -36,35 +75,11 @@ public class Test11 extends EmployeeBean1 {
 		System.out.println("3.Search an employee from my Array.");
 		System.out.println("4.Print All the employees from my Array.");
 		System.out.println("5.Exit.");
-		Scanner option=new Scanner(System.in);
-		//EmployeeBean obj=new EmployeeBean();
-		int opt=option.nextInt();
-	
-		EmployeeBean[] obj;
-		EmployeeBean t1=new EmployeeBean();
-		
-	
+		int opt=s.nextInt();
+	for(;;) {
 		switch(opt) {
 			 
-		case 1:System.out.println("Enter Employee details");
-			   System.out.println("Please enter no of employees to insert in to array");
-			   Scanner in=new Scanner(System.in);
-			   int num_emp1=num_emp.nextInt();
-			   obj=new EmployeeBean[num_emp1];
-			   Scanner empid=new Scanner(System.in);
-			   int eid=empid.nextInt();
-			   t1.setEmployeeId(eid);
-			   Scanner empsal=new Scanner(System.in);
-			   double esal=empsal.nextDouble();
-			   t1.setEmployeeSalary(esal);
-			   Scanner empno=new Scanner(System.in);
-			   long eno=empno.nextLong();
-			   t1.setEmployeeMobileNo(eno);
-			   for (int i = 0; i < obj.length; i++) {
-				   obj[i]=t1;
-				
-			}
-			   
+		case 1:System.out.println("Enter Employee details");  
 			break;
 		case 2:System.out.println("Delete employee details");
 			break;
@@ -79,8 +94,7 @@ public class Test11 extends EmployeeBean1 {
 		}
 		
 			
-		
-
+	}
 	}
 
 }
