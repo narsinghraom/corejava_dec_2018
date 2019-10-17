@@ -3,7 +3,9 @@ package com.vtalent.laxmisomi;
 
 import java.util.*;
 
-class EmployeeBean {
+import java.io.*;
+
+class EmployeeBean implements Serializable {
 	private int EmployeeId;
 	private String EmployeeName;
 	private double EmployeeSalary;
@@ -13,49 +15,43 @@ class EmployeeBean {
 	static Scanner sc = new Scanner(System.in);
 
 	
+	
+	
+    // to insert employee data
+	
 	public int getEmployeeId() {
 		return EmployeeId;
 	}
-
 
 	public void setEmployeeId(int employeeId) {
 		EmployeeId = employeeId;
 	}
 
-
 	public String getEmployeeName() {
 		return EmployeeName;
 	}
-
 
 	public void setEmployeeName(String employeeName) {
 		EmployeeName = employeeName;
 	}
 
-
 	public double getEmployeeSalary() {
 		return EmployeeSalary;
 	}
-
 
 	public void setEmployeeSalary(double employeeSalary) {
 		EmployeeSalary = employeeSalary;
 	}
 
-
 	public long getEmployeeMobileNo() {
 		return EmployeeMobileNo;
 	}
-
 
 	public void setEmployeeMobileNo(long employeeMobileNo) {
 		EmployeeMobileNo = employeeMobileNo;
 	}
 
-	
-    // to insert employee data
-	
-	public void InsertData() {
+	public void InsertData() throws Exception {
 
 		EmployeeBean emp;
 		int result = 0;
@@ -89,14 +85,43 @@ class EmployeeBean {
 			empArray[i] = emp;
 
 		}
+		writeObjectInToFile();
+		readFileToGetObject();
+		
+		
 
-// to print given inputs data
+	}
 
-		for (int i = 0; i < empArray.length; i++) {
-			emp = empArray[i];
-			System.out.println("name=" + emp.getEmployeeName() + "  " + "Id=" + emp.getEmployeeId() + "    " + "salary="
-					+ emp.getEmployeeSalary() + "  " + "Mobile number" + emp.getEmployeeMobileNo());
-		}
+	
+	private void readFileToGetObject() throws  Exception {
+		// TODO Auto-generated method stub
+		
+		
+		FileInputStream f2=new FileInputStream("employeedetails.txt");
+		ObjectInputStream oos2=new ObjectInputStream(f2);
+		Object oos3= oos2.readObject();
+		EmployeeBean emp=(EmployeeBean)oos3;
+		System.out.println("name=" + emp.getEmployeeName() + "  " + "Id=" + emp.getEmployeeId() + "    " + "salary="
+				+ emp.getEmployeeSalary() + "  " + "Mobile number" + emp.getEmployeeMobileNo());
+		
+		
+		
+		
+		
+	}
+
+	private void writeObjectInToFile() throws Exception {
+		
+		// TODO Auto-generated method stub
+		
+		EmployeeBean emp=new EmployeeBean();
+		File file=new File("employeedetails.txt");
+		FileOutputStream f1=new FileOutputStream(file);
+		ObjectOutputStream oos=new ObjectOutputStream(f1);
+		oos.writeObject(emp);
+		System.out.println("seriualization is done");
+		
+		
 	}
 
 	// to delete employee data 
@@ -104,7 +129,7 @@ class EmployeeBean {
 	public void delete() {
 		System.out.println("Enter an employeeId to be delete. ");
 		int w = sc.nextInt();
-	    int i, count=0;
+	    int i, count=0;  
 		for(i=0; i<empArray.length; i++) {
 			if(empArray[i]!=null && empArray[i].EmployeeId == w){
 				empArray[i]=null;
@@ -171,8 +196,28 @@ class EmployeeBean {
 			}
 			System.out.println("Employee id not found. ");
 		}
+	  
+	  //to search employee name with letter
+	  
+	  public void searchwithletter() {
+			System.out.println("Enter letter to be search: ");
+			char c = sc.next().charAt(0);
+			for (int i=0;i<empArray.length;i++) {
+				if(empArray[i] != null) {
+					EmployeeBean ae4 =empArray[i];  
+					if(ae4 != null)    {
+						if(c==ae4.getEmployeeName().charAt(0)) {
+						System.out.println("Id="+ae4.getEmployeeId() +" "+"Salary="+ae4.getEmployeeSalary() +" "+"Mobile no="+ae4.getEmployeeMobileNo() +" " + "name="+ae4.getEmployeeName());
+						System.out.println("Given letter is in the array. ");
+					}
+				}
+			}else {
+			System.out.println("Employee's name letter not found. ");
+			}
+		}
+	  }
 		
-	  // to update employee details
+	  // to update employee de tails
 	  
 	  public void updateData() {
 		  if(empArray !=null)
@@ -239,9 +284,12 @@ class EmployeeBean {
 			
 	}
 
+
+ 
+	 
 	public class EmployeeDetails {
 
-		public static void main(String[] args) {
+		public static void main(String[] args) throws Exception {
 			
 			EmployeeBean a = new EmployeeBean();
 			for(;;) {
@@ -251,24 +299,29 @@ class EmployeeBean {
 						"2. delete from my Array.\r\n" + 
 						"3. Search an employee from my Array.\r\n" + 
 						"4. Search All the employees from my Array with the help of name.\r\n" +
-						"5. update All the employees from my Array .\r\n" +
-						"6. Print All the employees from my Array.\r\n" + 
-						"7. Exit.");
+						"6. update All the employees from my Array .\r\n" +
+						"5. search employee details with letters from my Array .\r\n" +
+
+						"7. Print All the employees from my Array.\r\n" + 
+						"8. Exit.");
 				int scan = s.nextInt();
 				switch(scan) {
 				case 1: a.InsertData();
 				break;
-				case 2: a.delete();
+				case 2: a.delete(); 
 				break;
 				case 3: a.search();
 				break;
 				case 4: a.searchName();
 				break;
-				case 5: a.updateData();
+				case 5: a.searchwithletter();
 				break;
-		        case 6: a.printAll();
+				
+				case 6: a.updateData();
 				break;
-				case 7: 
+		        case 7: a.printAll();
+				break;
+				case 8: 
 				System.exit(0);
 				default: System.out.println("Please give a valid Input: ");
 				
