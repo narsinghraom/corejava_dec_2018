@@ -1,8 +1,8 @@
 package com.vtalent.java.haritha;
-
+import java.io.*;
 import java.util.*;
 
-class EmployeeBean2 {
+class EmployeeBean2 implements Serializable{
 	private int EmployeeId;
 	private double EmployeeSalary;
 	private long EmployeeMobileNo;
@@ -44,8 +44,18 @@ class EmployeeBean2 {
     static EmployeeBean2 emp;  
 	static EmployeeBean2[] empbean;
 	static Scanner in = new Scanner(System.in);
+	
+	private void write(EmployeeBean2[] empbean)throws Exception {
+		// TODO Auto-generated method stub
+		FileOutputStream fos=new FileOutputStream("serial.txt");
+	     ObjectOutputStream oos=new ObjectOutputStream(fos);
+	     oos.writeObject(empbean);
+	     System.out.println("Serialization is done");
+	}
+		
+	
 
-	public int InsertData() {
+	public int InsertData()throws Exception{
 		int result = 0;
 		System.out.println("please enter no of employeees to insert into Array");
 		int n = in.nextInt();
@@ -56,8 +66,8 @@ class EmployeeBean2 {
 			System.out.println("please enter employee id");
 			emp.EmployeeId = in.nextInt();
 			
-			  System.out.println("please enter employee name"); 
-			  emp.EmployeeName=in.next();
+			 System.out.println("please enter employee name"); 
+			 emp.EmployeeName=in.next();
 			 
 			System.out.println("please enter salary ");
 			emp.EmployeeSalary = in.nextDouble();
@@ -67,14 +77,37 @@ class EmployeeBean2 {
 						empbean[i] = emp;
 						System.out.println("inserted successfully in the array");
 						result++;
-
+                 
 					}
 				}
+		write(empbean);
+		read();
 		return result;
+		
 	}
 
-	public int deletedata() {
+	
+
+	public static EmployeeBean2[] read() throws Exception{
+		// TODO Auto-generated method stub
+		FileInputStream fis=new FileInputStream("serial.txt");
+		ObjectInputStream ois=new ObjectInputStream(fis);
+		Object o=ois.readObject();
+		EmployeeBean2[] arry = (EmployeeBean2[])o;
+		
+		  for(int i=0;i<=arry.length-1;i++) { EmployeeBean2 e = arry[i];
+		  System.out.println("EmployeeId=" + e.getEmployeeId() + "EmployeeName="
+		 +e.getEmployeeName() + "EmployeeSalary=" + e.getEmployeeSalary() +
+		  "EmployeeMobileNo=" + e.getEmployeeMobileNo()); }
+		  System.out.println("deserialization is done");
+		 
+		
+		return arry;
+	}
+
+	public int deletedata()throws Exception {
 		int result=0;
+		EmployeeBean2[] empbean=read();
 		System.out.println("please enter the data to be deleted");
 		int n=in.nextInt();
 		if(empbean!=null) {
@@ -89,7 +122,7 @@ class EmployeeBean2 {
 				}
 				
 			}
-			
+			write(empbean);
 		}
 		return result;
 	}
@@ -108,7 +141,8 @@ class EmployeeBean2 {
 	 * 
 	 * } } } }
 	 */		
-	public void searchdata() {
+	public void searchdata()throws Exception{
+		EmployeeBean2[] empbean = read();
 	System.out.println("please enter the name to be searched");
 	String s=in.next();
 	for(int i=0;i<=empbean.length-1;i++) {
@@ -146,11 +180,13 @@ class EmployeeBean2 {
 				  }
 }}}
 	}
-	public void updatedata() {
+	public void updatedata() throws Exception {
+		EmployeeBean2[] empbean = read();
 		if(empbean!=null) {
-		
+			
 		System.out.println("if u want to update employee details please enter employeeid: ");
 		int u=in.nextInt();
+		
 		for(int i=0;i<=empbean.length-1;i++) {
 		EmployeeBean2 emp=empbean[i];	
 		 if(emp!=null) {
@@ -187,7 +223,7 @@ class EmployeeBean2 {
 	}
 		 }
 		 
-		}
+		}write(empbean);
 		
 		}
 		else {
@@ -196,13 +232,14 @@ class EmployeeBean2 {
 	}
 	
 	
-		public void printdata() {
-
+		public void printdata() throws Exception {
+			EmployeeBean2[] empbean = read();
 		for (int i = 0; i <= empbean.length - 1; i++) {
+		
 			if (empbean[i] != null) {
 				EmployeeBean2 emp=(EmployeeBean2)empbean[i];
 				if(emp!=null) {
-			System.out.println("EmployeeId=" + emp.getEmployeeId() + "  "+"EmployeeName="+emp.getEmployeeName() + "EmployeeSalary="
+			System.out.println("EmployeeId=" + emp.getEmployeeId() + "  "+"EmployeeName="+emp.getEmployeeName()+" " + "EmployeeSalary="
 					+ emp.getEmployeeSalary() + "  " + "EmployeeMobileNo=" + emp.getEmployeeMobileNo());
 
 			}
@@ -212,9 +249,11 @@ class EmployeeBean2 {
 		}
 	}
 	}
+	
+
 public class Employeemain {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception,NullPointerException {
 		EmployeeBean2 e = new EmployeeBean2();
 		Scanner sc = new Scanner(System.in);
 		for (;;) {
