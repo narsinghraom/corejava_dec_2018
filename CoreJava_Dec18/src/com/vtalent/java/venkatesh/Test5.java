@@ -1,8 +1,9 @@
 package com.vtalent.java.venkatesh;
 
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
-class EmployeeBean1{
+class EmployeeBean1 implements Serializable{
 	private String employeeName;
 	private int employeeId;
 	private double employeeSalary;
@@ -34,7 +35,22 @@ class EmployeeBean1{
 	public long getEmployeeMobileno(){
 		return this.employeeMobileno;
 		}
-	public void insert() {
+	public void writeObjectFile(EmployeeBean1[] emparray) throws Exception {
+		File file=new File("EmployeeBean.txt");
+		FileOutputStream f=new FileOutputStream(file);
+		ObjectOutputStream os=new ObjectOutputStream(f);
+		os.writeObject(emparray);
+		System.out.println("serialization done");
+//		return emparray;
+	}
+	public static EmployeeBean1[] readObjectFile() throws Exception {
+		FileInputStream fs=new FileInputStream("EmployeeBean.txt");
+		ObjectInputStream ois=new ObjectInputStream(fs);
+		Object o=ois.readObject();
+		EmployeeBean1[] emparray=(EmployeeBean1[])o;
+	
+		return emparray;}
+	public void insert() throws Exception {
 				System.out.println("enter the no of employees to be stored");
 		int size=s.nextInt();
 				emparray=new EmployeeBean1[size];
@@ -55,22 +71,27 @@ class EmployeeBean1{
 	        em.setEmployeeMobileno(Mobileno);
 	        emparray[i]=em;
 				}
-				for(int i=0;i<size;i++){
-					EmployeeBean1 em1=(EmployeeBean1)emparray[i];
-				System.out.println("employeeName="+em1.getEmployeeName()+""+"id="+em1.getEmployeeId()+""+"salary="+em1.getEmployeeSalary()+""+"mobileno="+em1.getEmployeeMobileno());
-				}
+				writeObjectFile(emparray);
+				readObjectFile();
+				for(int i=0;i<=emparray.length-1;i++) {
+					EmployeeBean1 emp=emparray[i];
+				System.out.println("employeeName="+emp.getEmployeeName()+""+"id="+emp.getEmployeeId()+""+"salary="+emp.getEmployeeSalary()+""+"mobileno="+emp.getEmployeeMobileno());
+			}
 				}
 	
-	public void delete() {
+	public void delete() throws Exception {
 		System.out.println("enter particular value to be deleted");
 	int n=s.nextInt();
+	EmployeeBean1[] emparray=readObjectFile();
 	int u = 0;
+	if(emparray != null) {
 	for(int i=0;i<=emparray.length-1;i++) {
 		if(emparray[i] != null && emparray[i].employeeId == n) {
 			emparray[i] = null;
 			u++;
 			break;
 		}	
+	}
 	}
 	if(u == 0) {
 		System.out.println("employee id not found");
@@ -84,10 +105,12 @@ class EmployeeBean1{
 			}	
 		}
 	}
+	writeObjectFile(emparray);
 	}
-	public void search() {
+	public void search() throws Exception {
 	System.out.println("enter particular value to be search");
 	int n=s.nextInt();
+	EmployeeBean1[] emparray=readObjectFile();
 	for(int i=0;i<emparray.length;i++) {
 	EmployeeBean1 em2=(EmployeeBean1)emparray[i];
 	if(em2.employeeId==n) {
@@ -95,20 +118,25 @@ class EmployeeBean1{
 System.out.println("the employee details successfully found");
 return;
 	}
-	else {
-		System.out.println("the given is not matched");
 	}
 	}
-	}
-public void printalldata() {
-	System.out.println("the all the employee details are");
-	for(int i=0;i<emparray.length;i++) {
+public void printalldata() throws Exception {
+	EmployeeBean1[] emparray=readObjectFile();
+	System.out.println("the all the employee details are"); 
+	if(emparray!=null) {
+	for(int i=0;i<emparray.length;i++) { 
+		if(emparray[i] != null) {
 		EmployeeBean1 em4=(EmployeeBean1)emparray[i];
-		System.out.println("employeeName="+em4.getEmployeeName()+""+"id="+em4.getEmployeeId()+""+"salary="+em4.getEmployeeSalary()+""+"mobileno="+em4.getEmployeeMobileno());
-		System.out.println("print all employee list");
+		System.out.println("employeeName="+em4.getEmployeeName()+""+"id="+em4.
+		  getEmployeeId()+""+"salary="+em4.getEmployeeSalary()+""+"mobileno="+em4.
+		  getEmployeeMobileno()); 
+		  System.out.println("print all employee list"); 
+		  }
+	}
 	}
 }
-public void searchemployeeName() {
+public void searchemployeeName() throws Exception {
+	EmployeeBean1[] emparray=readObjectFile();
 	boolean flag = false;
 	int message=0;
 	System.out.println("enter particular Name to be search");
@@ -132,7 +160,8 @@ public void searchemployeeName() {
 	}
 }
 
-public void updatedetails() {
+public void updatedetails() throws Exception {
+	EmployeeBean1[] emparray=readObjectFile();
 		System.out.println("Enter the Id to be Updated");
 		int n = s.nextInt();
 		for (int i = 0; i <= emparray.length - 1; i++) {
@@ -175,12 +204,14 @@ public void updatedetails() {
 		}else {
 			System.out.println("no");
 		}
+		writeObjectFile(emparray);
+		return;
 		}
 }
 }
 public class Test5 {
 	static Scanner s= new Scanner(System.in);
-public static void main(String[] args) {
+public static void main(String[] args) throws Exception {
 	EmployeeBean1 a=new EmployeeBean1();
 for(;;) {
 System.out.println("please enter your choice\n"
