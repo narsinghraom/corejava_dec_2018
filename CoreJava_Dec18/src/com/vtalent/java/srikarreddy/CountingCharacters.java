@@ -3,12 +3,12 @@ package com.vtalent.java.srikarreddy;
 import java.util.Scanner;
 
 class CountingCharacters {
-	static final  int size=700;
+	static final  int size=300;
     public static void main(String[] args) {
 		Scanner f=new Scanner(System.in);
 		System.out.println("enter the string");
-		String name=f.next();
-		int count[]=new int[size];
+		String name=f.nextLine();
+		int count[]=new int[size]; 
 		int len= name.length();
 		for(int i=0;i<len;i++) {
 			count[name.charAt(i)]++;}
@@ -22,10 +22,9 @@ class CountingCharacters {
 				}
 			}
 		 
-			if(find==1) {
-				System.out.println(name.charAt(i)+" is:"+count[name.charAt(i)]);
-			}
-		}}}
+			if(find==1) { 
+			System.out.println(name.charAt(i)+" is:"+count[name.charAt(i)]);
+		}}}}
 		
 		
 	 

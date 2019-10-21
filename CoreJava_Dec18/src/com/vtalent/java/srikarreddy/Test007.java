@@ -15,7 +15,7 @@ class EmployeeBean1 implements Serializable{
 	private String employeeName;
 	private int employeeId;
 	private double employeeSalary;
-	private long employeeMobileno;
+	private long employeeMobileno; 
 	static EmployeeBean1[] emparray;
 	static Scanner s=new Scanner(System.in);
 	
@@ -132,7 +132,7 @@ class EmployeeBean1 implements Serializable{
 		 writeObjectInFile(emparray );
 	 
 	}
-	}
+	}}
 	public void search() throws IOException, ClassNotFoundException {
 	System.out.println("enter particular value to be search");
 	int n=s.nextInt();
