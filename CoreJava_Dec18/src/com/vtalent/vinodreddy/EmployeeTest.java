@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class EmployeeTest{
 	static EmployeeBean b;
 	 static Scanner sc =new Scanner(System.in);
-		public static void main(String[] args) {
+		public static void main(String[] args) throws Exception {
 		
 		 b =new EmployeeBean();
 		for(;;) {
