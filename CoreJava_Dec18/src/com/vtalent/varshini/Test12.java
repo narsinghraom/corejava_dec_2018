@@ -1,8 +1,10 @@
 package com.vtalent.varshini;
 
+import java.io.*;
 import java.util.*;
 
-class EmployeeBean {
+
+class EmployeeBean implements Serializable {
 
 	private int empid;
 	private double empsal;
@@ -35,10 +37,19 @@ class EmployeeBean {
 	public void setEmpmobileno(long empmobileno) {
 		this.empmobileno = empmobileno;
 	}
+	private void write(EmployeeBean[] empbean)throws Exception
+	{
+	 //File file=new File("serial.txt");
+	 FileOutputStream fos=new FileOutputStream("serial.txt");
+	 ObjectOutputStream oos=new ObjectOutputStream(fos); 
+	 oos.writeObject(empbean);
+     System.out.println("Serialization is done"); //oos.close(); 
+	}
+	  
          //****insert data*****////
-	            public void insertdata() {
+	            public void insertdata() throws Exception {
 	            System.out.println("enter the number of employees information");
-	        	//Scanner input=new Scanner(System.in);
+	        //Scanner input=new Scanner(System.in);
 	        	int n=sc.nextInt();
 	        	empbean=new EmployeeBean[n];
 		    for(int i=0;i<=empbean.length-1;i++)
@@ -56,9 +67,27 @@ class EmployeeBean {
 		    	emp.setEmpname(sc.nextLine());
 		    	empbean[i]=emp;
 		    }
+		    write(empbean);
+		    read();
         }
+	            public static EmployeeBean[] read() throws Exception { 
+	           	 FileInputStream fis=new FileInputStream("serial.txt"); 
+	           	 ObjectInputStream ois=new ObjectInputStream(fis); 
+	           	 Object o=ois.readObject();
+	           	 EmployeeBean[] array=(EmployeeBean[])o; 
+	           	 for(int i=0;i<=array.length-1;i++)
+	           	 {
+	           		 EmployeeBean e=array[i];
+	           		 System.out.println("EmployeeId="+e.getEmpid()
+	           		 + "Empsal"+e.getEmpsal() + "Empname"+e.getEmpname() +"Empmobilenumber"+e.getEmpmobileno());
+	           		 
+	           	 }
+	           	 System.out.println("deserialization is done");
+	           	 return array;
+	           	 }
 	    //*******delete data**************//
-       public void deletedata() {
+       public void deletedata() throws Exception {
+    	   EmployeeBean[] empbean=read();
     	   System.out.println("enter the deleteted data information");
     	      int d=sc.nextInt();
     	      int i,count=0;
@@ -77,9 +106,13 @@ class EmployeeBean {
     	      else {
     	    	  System.out.println("deleted succussesfully");
     	      } 		
+    	      write(empbean);
 	    	}
       ////**************search data****************//
-       public void searchdata() {
+       public void searchdata() throws Exception {
+    	  
+    	EmployeeBean[] empbean = read();
+
    		System.out.println("Enter an employeeId details");
    		int x = sc.nextInt();
    		for (int i=0;i<empbean.length;i++) {
@@ -94,6 +127,7 @@ class EmployeeBean {
    		}
    		System.out.println("Employee id not found. ");
    	}
+       
        public void searchempdata() {
       		System.out.println("Enter an employeename details");
       		String s = sc.nextLine();
@@ -109,7 +143,9 @@ class EmployeeBean {
       		}
       		System.out.println("Employee id not found. ");
       	}
-       public void updatedata() {
+       public void updatedata() throws Exception {
+    	   EmployeeBean[] empbean = read();
+
     	   if(empbean !=null) {
     		   System.out.println("if u want to update the employee details");
     		   int b = sc.nextInt();
@@ -147,13 +183,15 @@ class EmployeeBean {
                     }
       			}
       		}
+    		   write(empbean);
         }
        }
        
        
        
    	///////***********print data***********/////
-   	public void printAll() {
+   	public void printAll() throws Exception{
+   		EmployeeBean[] empbean = read();
    		for(int i=0;i<empbean.length;i++) {
    			if(empbean[i] != null) {
    				EmployeeBean ab4 = (EmployeeBean)empbean[i];
@@ -161,11 +199,11 @@ class EmployeeBean {
    			}
    		}
    		System.out.println("employee details printed successfully. ");
-   	}
-}
+   	}	 
+ }
    	public class Test12 {
 
-   		public static void main(String[] args) {
+   		public static void main(String[] args) throws Exception {
    			
    			EmployeeBean eb= new EmployeeBean();
    			for(;;) {
