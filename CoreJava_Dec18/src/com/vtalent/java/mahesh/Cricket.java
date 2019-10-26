@@ -63,7 +63,7 @@ public class Cricket {
 						}else if(innings==true)
 						{
 							e=(int)((75*e)/100);
-							System.out.println("First teams score due to rain is:"+e);
+							System.out.println("First teams score due to rain is:"+(int)e);
 							SecondInnings();
 						}
 					}else if(k.equals("Yes")){
@@ -97,9 +97,9 @@ public class Cricket {
 		}
 		System.out.println("The score of\t"+ a +"\tteam is:"+(int)e+"/"+z);
 		innings=true;
+		rain();
 	}
 	public void SecondInnings() throws Over{
-		rain();
 		System.out.println("Second Innings by"+"  "+b);
 		System.out.println("Enter the number of overs:");
 		float x=in.nextFloat();
@@ -111,7 +111,7 @@ public class Cricket {
 	System.out.println("Run rate should not exceed more than 2 decimal points of"+(e/x));
 	float g=in.nextFloat();
 	h=(int) (x*g);
-	if(x==50&&h<e){
+	if(x<=50&&h<e){
 		z=10;
 	}
 	else if(x<50&&(h<(e+6)&&h>e)){
@@ -123,8 +123,13 @@ public class Cricket {
 		int l=0;		
 		Cricket c=new Cricket();
 			c.rain();
+			if(innings==false)
+			{
 			c.FirstInnings();
+			}else if(innings==true)
+			{
 				c.SecondInnings();
+			}
 		if(e>h){
 			System.out.println(a+"  "+"Won the match by"+" "+(e-h)+" "+"runs");
 		}else if(h>e&&h<=(e+6)){
