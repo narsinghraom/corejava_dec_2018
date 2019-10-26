@@ -10,7 +10,7 @@ public class Cricket {
 	static float e,h;
 	static int z;
 	Random r=new Random();
-	static boolean innings=false;
+	static int l=0;
 	static boolean fortyoversflag=false;
 	 static class Over extends Exception{
 		Over(String s){
@@ -57,10 +57,10 @@ public class Cricket {
 					String k=in.next();
 					if(k.equals("no")){
 						fortyoversflag=true;
-						if(innings==false)
+						if(l==0)
 						{
 						FirstInnings();
-						}else if(innings==true)
+						}else if(l==1)
 						{
 							e=(int)((75*e)/100);
 							System.out.println("First teams score due to rain is:"+(int)e);
@@ -96,7 +96,7 @@ public class Cricket {
 			 z=r.nextInt(9);
 		}
 		System.out.println("The score of\t"+ a +"\tteam is:"+(int)e+"/"+z);
-		innings=true;
+		l++;
 		rain();
 	}
 	public void SecondInnings() throws Over{
@@ -118,16 +118,14 @@ public class Cricket {
 		z=r.nextInt(9);
 	}
 	System.out.println("The score of\t"+ b +"\tteam is:"+(int)h+"/"+z);
+	l++;
 	}
-	public static void main(String args[]) throws Over{
-		int l=0;		
+	public static void main(String args[]) throws Over{		
 		Cricket c=new Cricket();
 			c.rain();
-			if(innings==false)
-			{
-			c.FirstInnings();
-			}else if(innings==true)
-			{
+			if(l==0){
+				c.FirstInnings();
+			}else if(l==1){
 				c.SecondInnings();
 			}
 		if(e>h){
