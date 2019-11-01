@@ -17,6 +17,7 @@ public static void main(String[] args) {
 	o1.i=10;
 	o1.function();
 	OuterStatic.InnerEx in=new OuterStatic.InnerEx();
+	in.f = (float) 1.5;
 	in.function();
 	
 }
