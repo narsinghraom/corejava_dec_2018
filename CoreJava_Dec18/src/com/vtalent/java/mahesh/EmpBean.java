@@ -1,8 +1,10 @@
 package com.vtalent.java.mahesh;
 
 import java.util.Scanner;
+import java.io.*;
 
-public class EmpBean {
+public class EmpBean implements Serializable {
+	
 	private int EID;
 	private String EName;
 	private double ESalary;
@@ -15,9 +17,8 @@ public class EmpBean {
 	public int getEmpID() {
 		return EID;
 	}
-
-	public void setEmpName(String empName) {
-		this.EName = empName;
+	public void setEmpName(String empname){
+		this.EName=empname;
 	}
 
 	public String getEmpName() {
@@ -39,169 +40,218 @@ public class EmpBean {
 	public long getEmpMobileNumber() {
 		return EMobileNumber;
 	}
-}
+	static EmpBean emp;
 
-class Employe extends EmpBean {
-
-	static Employe emp;
-
-	static Employe[] earray;
+	static EmpBean[] earray;
 	
-	Scanner in = new Scanner(System.in);
+	static Scanner in = new Scanner(System.in);
 
-	public static void InsertData(Employe emp) {
-		if (earray != null) {
-			for (int i = 0; i <= earray.length - 1; i++) {
-				if (earray[i] == null) {
-					earray[i] = emp;
-					break;
-				}
-			}
-			System.out.println("Sucessfully Inserted." + '\n');
-		} else {
-			System.out.println("Already Inserted." + '\n');
-		}
+	private void write(EmpBean[] earray)throws Exception {
+		FileOutputStream fos=new FileOutputStream("min.txt");
+	     ObjectOutputStream oos=new ObjectOutputStream(fos);
+	     oos.writeObject(earray);
+	     System.out.println("Serialization is done");
 	}
-
-	public void DeleteData() {
-		int c=0;
-		if (earray != null) {
-		System.out.println("enter id to be deleted");
-		int del = in.nextInt();
-		if (null != emp) {
+	
+	public static EmpBean[] read() throws Exception{
+		FileInputStream fis=new FileInputStream("min.txt");
+		ObjectInputStream ois=new ObjectInputStream(fis);
+		Object o=ois.readObject();
+		EmpBean[] earray = (EmpBean[])o;
+		System.out.println("deserialization is done");
+		return earray;
+	}
+	
+	public int Insertdata()throws Exception{
+		int result = 0;
+		System.out.println("please enter no of employeees to be inserted:");
+		int n = in.nextInt();
+		earray = new EmpBean[n]; 
 		for (int i = 0; i <= earray.length - 1; i++) {
+			EmpBean emp = new EmpBean();
+			System.out.println("please enter employee id");
+			emp.EID = in.nextInt();
+			System.out.println("please enter employee name"); 
+			emp.EName=in.next(); 
+			System.out.println("please enter salary: ");
+			emp.ESalary = in.nextDouble();
+			System.out.println("Please enter  MobileNo:");
+			emp.EMobileNumber = in.nextLong();
+					if (earray[i] == null) {
+						earray[i] = emp;
+						System.out.println("inserted successfully");
+						result++;  
+					}
+				}
+		write(earray);
+		read();
+		return result;
+		
+	}
+
+	public int deletedata()throws Exception {
+		int result=0;
+		EmpBean[] earray=read();
+		System.out.println("please enter the ID to be deleted");
+		int n=in.nextInt();
+		if(earray!=null) {
+			for(int i=0;i<=earray.length-1;i++) {
+				emp=earray[i];
+				if(emp!=null) {
+					if(n==emp.getEmpID()) {
+						earray[i]=null;
+						result++;
+						System.out.println("deleted successfully");
+					}
+				}
+			}
+			write(earray);
+		}
+		return result;
+	}
+		
+	public void searchdata()throws Exception{
+		EmpBean[] earray = read();
+		System.out.println("please enter the name to be searched:");
+		String s=in.next();
+			for(int i=0;i<=earray.length-1;i++) {
+				if(earray!=null) {
+					emp=earray[i];
+					if(emp!=null) {
+						if(s.equals(emp.getEmpName())) {
+							System.out.println("EmployeeId=" + emp.getEmpID()+
+									"  "+"EmployeeName=" +emp.getEmpName()+ 
+									"  "+"EmployeeSalary=" + emp.getEmpSalary()+ 
+									"  "+"EmployeeMobileNo=" + emp.getEmpMobileNumber());
+						}
+						else {
+							System.out.println("enter valid name");
+						}
+					}
+				}
+		}
+	}
+	
+	public void searchdataletter() throws Exception {
+		EmpBean[] earray = read();
+		System.out.println("enter the First letter of the names to be searched:");
+		char c=in.next().charAt(0);
+		for(int i=0;i<=earray.length-1;i++) {
+			if(earray!=null) {
+				 emp=earray[i];
+				if(emp!=null) {
+					if(c==emp.getEmpName().charAt(0)) {
+						System.out.println("EmployeeId=" + emp.getEmpID()+
+								"  "+"EmployeeName=" +emp.getEmpName()+ 
+								"  "+"EmployeeSalary=" +""+ emp.getEmpSalary()+ 
+								"  "+"EmployeeMobileNo=" + emp.getEmpMobileNumber());
+					}
+					  else { 
+				 System.out.println("enter valid letter");
+				  }
+				}}}
+	}
+	
+	public void updatedata() throws Exception {
+		EmpBean[] earray = read();
+		if(earray!=null) {
+		System.out.println("if u want to update employee details please enter employeeid: ");
+		int u=in.nextInt();
+		
+		for(int i=0;i<=earray.length-1;i++) {
+		 emp=earray[i];	
+		 if(emp!=null) {
+					if (u == (emp.getEmpID())) {
+						System.out.println("EmployeeId=" + emp.getEmpID()+
+						"  "+"EmployeeName="+emp.getEmpName()+
+						"  "+"EmployeeSalary=" + emp.getEmpSalary()+ 
+						"  " + "EmployeeMobileNo=" + emp.getEmpMobileNumber());
+		System.out.println("Do u want to update id of your employee data\t"+emp.getEmpID()+ "\tyes/no:");
+		String n=in.next();
+		if(n.equals("yes")) {
+		System.out.println("enter id to updated");
+		emp.setEmpID(in.nextInt());	
+		}
+		System.out.println("Do you want to update name of your employee data\t"+emp.getEmpName()+"\t yes/no");
+		String param=in.next();
+		if(param.equals("yes")) {
+			System.out.println("enter name to update");
+			emp.setEmpName(in.next());	
+		}
+		System.out.println("Do you want to update salary of your employee data\t"+emp.getEmpSalary()+"\t yes/no");
+		String n1=in.next();
+		if(n1.equals("yes")) {
+			System.out.println("enter salary to update");
+			emp.setEmpSalary(in.nextDouble());	
+		}
+		System.out.println("Do you want to update mobile number of your employeee data\t"+emp.getEmpMobileNumber()+" \tyes/no");
+		String n2=in.next();
+		if(n2.equals("yes")) {
+			System.out.println("enter mobile number to update");
+			emp.setEmpMobileNumber(in.nextLong());
+		}
+		earray[i]=emp;
+	}
+		 } 
+		}write(earray);
+		}
+		else {
+			System.out.println("please enter valid ID");
+		}
+	}
+	
+	public void printdata() throws Exception {
+		EmpBean[] earray = read();
+			for (int i = 0; i <= earray.length - 1; i++) {
 			if (earray[i] != null) {
-				emp = earray[i];
-					if (del == emp.getEmpID()) {
-						earray[i] = null;
-						c++;
-						System.out.println("deleted succesfully");
-					}
-				} 
-			}if (c == 0) {
-				System.out.println("Enter Valid ID");
+				emp=earray[i];
+				if(emp!=null) {
+			System.out.println("EmployeeId=" + emp.getEmpID() + 
+						  "  "+"EmployeeName="+emp.getEmpName()+
+						  "  "+ "EmployeeSalary="+emp.getEmpSalary()+
+						  "  " + "EmployeeMobileNo=" + emp.getEmpMobileNumber());
 			}
-		}
-	}else{
-		System.out.println("No data found! Insert the Employee Data first");
-	}
-}
-	
-	public void searchData() {
-		int c=0;
-		if (earray != null) {
-			System.out.println("Enter The Employee ID:");
-			int x = in.nextInt();
-			for (int i = 0; i <= earray.length - 1; i++) {
-				emp = earray[i];
-				if (null!=emp) {
-				if (x == emp.getEmpID()) {
-						System.out.println("Employee ID: " + emp.getEmpID()
-								+ "      " + "Employee Name: "
-								+ emp.getEmpName() + "      "
-								+ "Employee Mobile Number: "
-								+ emp.getEmpMobileNumber() + "      "
-								+ "Employee Salary: " + emp.getEmpSalary());
-						c++;
-				}
-				} 
-				}if(c==0){
-					System.out.println("Enter valid ID");
-				}
-		}else{
-			System.out.println("No data found! Insert the Employee Data first");
-		}
-	}
-	
-	  /*if (earray != null) {
-			System.out.println("Enter The Employee name:");
-			String x = in.next();
-			for (int i = 0; i <= earray.length - 1; i++) {
-				emp = earray[i];
-				if (null!=emp) {
-				if (x.equals(emp.getEmpName())) {
-						System.out.println("Employee ID: " + emp.getEmpID()
-								+ "      " + "Employee Name: "
-								+ emp.getEmpName() + "      "
-								+ "Employee Mobile Number: "
-								+ emp.getEmpMobileNumber() + "      "
-								+ "Employee Salary: " + emp.getEmpSalary());
-					}
-				}
-			else if (x!=emp.getEmpName()){
-				System.out.println("Enter the Valid name");
-				}
-				}
-			}
-	  else {
-	  System.out.println("Insert  the Employee Data first"); 
-	  } 
-	  }*/
-	public void UpdateData() {
-		int c=0;
-		if (earray != null) {
-			System.out.println("Enter The Employee ID of the employee whose details to be updated:");
-			int x = in.nextInt();
-			for (int i = 0; i <= earray.length - 1; i++) {
-				emp = earray[i];
-				if (null!=emp) {
-				if (x == emp.getEmpID()) {
-					System.out.println("Do you want to update the Employee ID?\t"+(emp.getEmpID())+"\ty/n:");
-					String s1=in.next();
-					if(s1.equals("yes")){
-						System.out.println("Enter ID to be updated:");
-						emp.setEmpID(in.nextInt());
-					}
-					System.out.println("Do you want to update the Employee Name?\t"+ (emp.getEmpName()) +"\ty/n:");
-					String s2=in.next();
-					if(s2.equals("yes")){
-						System.out.println("Enter Name to be updated:");
-						emp.setEmpName(in.next());
-					}
-					System.out.println("Do you want to update the Employee Mobile Number?\t" +(emp.getEmpMobileNumber())+"\ty/n:");
-					String s3=in.next();
-					if(s3.equals("yes")){
-						System.out.println("Enter Mobile Number to be updated:");
-						emp.setEmpMobileNumber(in.nextLong());
-					}
-					System.out.println("Do you want to update the Employee Salary?\t"+(emp.getEmpSalary())+"\ty/n:");
-					String s4=in.next();
-					if(s4.equals("yes")){
-						System.out.println("Enter Salary to be updated:");
-						emp.setEmpSalary(in.nextDouble());
-						c++;
-						System.out.println("Updated succesfully");
-					}
-				}
-				}
-				}if(c==0){
-					System.out.println("Enter valid ID");
-				}
-		}else{
-			System.out.println("No data found! Insert the Employee Data first");
-		}
-	  }
-	public void PrintData() {
-		int c=0;
-		if (earray != null) { 
-			for (int i = 0; i <= earray.length - 1; i++) {
-				Employe emp = earray[i];
-				if (null != emp) {
-					System.out.println("Employee ID: " + emp.getEmpID()
-							+ "      " + "Employee Name: " + emp.getEmpName()
-							+ "      " + "Employee Mobile Number: " + emp.getEmpMobileNumber() + "      "
-							+ "Employee Salary: " + emp.getEmpSalary());
-					c++;
-				}
-			}if(c==0){
+			}else {
 				System.out.println("Enter valid ID");
 			}
-		} else {
-			System.out.println("No data found! Insert the Employee Data first" + '\n');
+			}
 		}
-	}
-
-	public void Exit() {
-		System.out.println("task exited");
-	}
-}
+		
+	public void Exit(){
+		System.out.println("Task Exited");
+		}
+	
+		public static void main(String[] args) throws Exception,NullPointerException {
+		EmpBean e = new EmpBean();
+		Scanner sc = new Scanner(System.in);
+		for (;;) {
+			System.out.println("please select your choice:\n" + "1.insert into Array.\n" + "2.delete an employee.\n"
+					+ "3.search an employee by name.\n" + "4.search an employee through letter.\n"+"5.update an employee.\n"+"6.print all the employees.\n"
+					+ "7.Exit.");
+			int scan = sc.nextInt();
+			switch (scan) {
+			case 1:
+				e.Insertdata();
+				break;
+			case 2:
+				e.deletedata();
+				break;
+			case 3:
+				e.searchdata();
+				break;
+			case 4:
+				e.searchdataletter();
+				break;
+			case 5:
+				e.updatedata();
+				break;
+			case 6:
+				e.printdata();
+				break;
+			case 7:
+				e.Exit();
+				System.exit(0);
+			}
+		}
+		}
+}		
