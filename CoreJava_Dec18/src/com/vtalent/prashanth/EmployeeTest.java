@@ -8,7 +8,8 @@ class EmployeeBean1 implements Serializable {
 	private String employeeName;
 	private double employeeSalary;
 	private long employeeMobileNo;
-	static EmployeeBean1[] emp1;
+//	static EmployeeBean1[] emp1;
+	static ArrayList<EmployeeBean1> emp1 = new ArrayList<EmployeeBean1>();
 	static Scanner sc = new Scanner(System.in);
 	
 	public int getEmployeeId() {
@@ -36,27 +37,27 @@ class EmployeeBean1 implements Serializable {
 		this.employeeMobileNo = employeeMobileNo;
 	}
 	
-	public void writeObjectFile(EmployeeBean1[] emp1) throws Exception {
+	public void writeObjectFile(ArrayList<EmployeeBean1> emp1) throws Exception {
 		File file = new File("EmployeeBeanT.txt");
 		FileOutputStream fos = new FileOutputStream(file);
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		oos.writeObject(emp1);
 		System.out.println("Serialization is done");
 	} 
-	public static EmployeeBean1[] readObjectFile() throws Exception {
+	public static ArrayList<EmployeeBean1> readObjectFile() throws Exception {
 		FileInputStream fis = new FileInputStream("EmployeeBeanT.txt");
 		ObjectInputStream ois = new ObjectInputStream(fis);
 		Object o = ois.readObject();
-		EmployeeBean1[] emp1 = (EmployeeBean1[])o;
+		ArrayList<EmployeeBean1> emp1 = (ArrayList<EmployeeBean1>)o;
 		return emp1;
 	}
 	
 	public void insert() throws Exception {
-		System.out.println("Please enter no of employees to insert in to Array: ");
-		int z = sc.nextInt();
-		emp1 = new EmployeeBean1[z];
+//		System.out.println("Please enter no of employees to insert in to Array: ");
+//		int z = sc.nextInt();
+//		emp1 = new ArrayList<EmployeeBean1>();
 		
-		for(int i=0;i<emp1.length;i++) {
+//		for(int i=0;i<emp1.length;i++) {
 			EmployeeBean1 ae = new EmployeeBean1();
 			System.out.println("Please enter employee Id: ");
 			employeeId = sc.nextInt();
@@ -71,12 +72,13 @@ class EmployeeBean1 implements Serializable {
 			System.out.println("Please enter Mobile no: ");
 			employeeMobileNo = sc.nextLong();
 			ae.setEmployeeMobileNo(employeeMobileNo);
-			emp1[i] = ae;
-		}
+			emp1.add(ae);
+//			emp1[i] = ae;
+//		}
 		writeObjectFile(emp1);
 		readObjectFile();
-		for(int i=0;i<emp1.length;i++) {
-			EmployeeBean1 ae1 = (EmployeeBean1)emp1[i];
+		for(EmployeeBean1 ae1:emp1) {
+//			EmployeeBean1 ae1 = (EmployeeBean1)emp1[i];
 			System.out.println("Id="+ae1.employeeId +" "+"Name="+ae1.employeeName+" "+"Salary="+ae1.employeeSalary +" "+"Mobile no="+ae1.employeeMobileNo);
 		}
 		System.out.println("Employee data inserted successfully in to the Array. ");
@@ -85,12 +87,13 @@ class EmployeeBean1 implements Serializable {
 	public void delete() throws Exception {
 		System.out.println("Enter an employeeId to be delete. ");
 		int w = sc.nextInt();
-		EmployeeBean1[] emp1=readObjectFile();
-		int i,count=0;
+		ArrayList<EmployeeBean1> emp1=readObjectFile();
+		int count=0;
 		if(emp1 != null) {
-			for(i=0; i<emp1.length; i++) {
-				if(emp1[i]!=null && emp1[i].employeeId == w){
-					emp1[i]=null;
+			for(EmployeeBean1 a2:emp1) {
+				if(a2!=null && a2.employeeId == w){
+					a2=null;
+//					System.out.println("Id="+a2.employeeId +" "+"Name="+a2.employeeName+" "+"Salary="+a2.employeeSalary +" "+"Mobile no="+a2.employeeMobileNo);
 					count++;
 					break;
 				}
@@ -101,9 +104,9 @@ class EmployeeBean1 implements Serializable {
 		} else {
 			System.out.println("Employee id Deleted Successfully..!!");
 			System.out.println("Now the New Array is : ");
-			for(i=0; i<emp1.length; i++) {
-				if(emp1[i] != null) {
-					EmployeeBean1 ae2 = (EmployeeBean1)emp1[i];
+			for(EmployeeBean1 ae2:emp1) {
+				if(ae2 != null) {
+//					EmployeeBean1 ae2 = (EmployeeBean1)emp1[i];
 					System.out.println("Id="+ae2.employeeId +" "+"Name="+ae2.employeeName+" "+"Salary="+ae2.employeeSalary +" "+"Mobile no="+ae2.employeeMobileNo);
 				}
 			}
@@ -114,11 +117,11 @@ class EmployeeBean1 implements Serializable {
 	public void search() throws Exception {
 		System.out.println("Enter an employeeId to be search: ");
 		int x = sc.nextInt();
-		EmployeeBean1[] emp1=readObjectFile();
+		ArrayList<EmployeeBean1> emp1=readObjectFile();
 		if(emp1 != null) {
-			for (int i=0;i<emp1.length;i++) {
-				EmployeeBean1 ae3 = (EmployeeBean1)emp1[i];
-				if(emp1[i] != null && emp1[i].employeeId == x) {
+			for (EmployeeBean1 ae3:emp1) {
+//				EmployeeBean1 ae3 = (EmployeeBean1)emp1[i];
+				if(ae3 != null && ae3.employeeId == x) {
 					System.out.println("Id="+ae3.employeeId +" "+"Name="+ae3.employeeName+" "+"Salary="+ae3.employeeSalary +" "+"Mobile no="+ae3.employeeMobileNo);
 					System.out.println("Given employeeId is in the array. ");
 					return;
@@ -129,11 +132,11 @@ class EmployeeBean1 implements Serializable {
 	}
 	
 	public void printAll() throws Exception {
-		EmployeeBean1[] emp1=readObjectFile();
+		ArrayList<EmployeeBean1> emp1=readObjectFile();
 		if(emp1 != null) {
-			for(int i=0;i<emp1.length;i++) {
-				if(emp1[i] != null) {
-					EmployeeBean1 ae4 = (EmployeeBean1)emp1[i];
+			for(EmployeeBean1 ae4:emp1) {
+				if(ae4 != null) {
+//					EmployeeBean1 ae4 = (EmployeeBean1)emp1[i];
 					System.out.println("Id="+ae4.employeeId +" "+"Name="+ae4.employeeName+" "+"Salary="+ae4.employeeSalary +" "+"Mobile no="+ae4.employeeMobileNo);
 				}
 			}
@@ -146,12 +149,12 @@ class EmployeeBean1 implements Serializable {
 		int message=0;
 		System.out.println("Enter an employeeName Starting Letter to be search: ");
 		char t = sc.next().charAt(0);
-		EmployeeBean1[] emp1=readObjectFile();
+		ArrayList<EmployeeBean1> emp1=readObjectFile();
 		if(emp1 != null) {
-			for (int i=0;i<emp1.length;i++) {
-				EmployeeBean1 ae5 = (EmployeeBean1)emp1[i];
-				if(emp1[i] != null) {
-					String e1 = emp1[i].employeeName;
+			for (EmployeeBean1 ae5:emp1) {
+//				EmployeeBean1 ae5 = (EmployeeBean1)emp1[i];
+				if(ae5 != null) {
+					String e1 = ae5.employeeName;
 					char[] n = e1.toCharArray();
 					if( n[0] == t) {
 						flag = true;
@@ -172,11 +175,11 @@ class EmployeeBean1 implements Serializable {
 	public void update() throws Exception {
 		System.out.println("Enter an employeeId to be update: ");
 		int c = sc.nextInt();
-		EmployeeBean1[] emp1=readObjectFile();
+		ArrayList<EmployeeBean1> emp1=readObjectFile();
 		if(emp1 != null) {
-			for (int i=0;i<emp1.length;i++) {
-				EmployeeBean1 ae3 = (EmployeeBean1)emp1[i];
-				if(emp1[i] != null && emp1[i].employeeId == c) {
+			for (EmployeeBean1 ae3:emp1) {
+//				EmployeeBean1 ae3 = (EmployeeBean1)emp1[i];
+				if(ae3 != null && ae3.employeeId == c) {
 					System.out.println("Given employeeId details. ");
 					System.out.println("Id="+ae3.employeeId +" "+"Name="+ae3.employeeName+" "+"Salary="+ae3.employeeSalary +" "+"Mobile no="+ae3.employeeMobileNo);
 					System.out.println("Do you want to update employeeId yes or no. ");
@@ -184,7 +187,7 @@ class EmployeeBean1 implements Serializable {
 					if(es.equals("yes")) {
 						System.out.println("Enter employeeId to be update: ");
 						int l = sc.nextInt();
-						emp1[i].employeeId = l;
+						ae3.employeeId = l;
 						System.out.println("Employee Id updated successfully. ");
 						System.out.println("Id="+ae3.employeeId +" "+"Name="+ae3.employeeName+" "+"Salary="+ae3.employeeSalary +" "+"Mobile no="+ae3.employeeMobileNo);
 					}else {
@@ -196,7 +199,7 @@ class EmployeeBean1 implements Serializable {
 						System.out.println("Enter employeeName to be update: ");
 						sc.nextLine();
 						String s1 = sc.nextLine();
-						emp1[i].employeeName = s1;
+						ae3.employeeName = s1;
 						System.out.println("Employee Name updated successfully.");
 						System.out.println("Id="+ae3.employeeId +" "+"Name="+ae3.employeeName+" "+"Salary="+ae3.employeeSalary +" "+"Mobile no="+ae3.employeeMobileNo);
 					}else {
@@ -207,7 +210,7 @@ class EmployeeBean1 implements Serializable {
 					if(es2.equals("yes")) {
 						System.out.println("Enter employeeSalary to be update: ");
 						double d1 = sc.nextDouble();
-						emp1[i].employeeSalary = d1;
+						ae3.employeeSalary = d1;
 						System.out.println("Employee Salary updated successfully.");
 						System.out.println("Id="+ae3.employeeId +" "+"Name="+ae3.employeeName+" "+"Salary="+ae3.employeeSalary +" "+"Mobile no="+ae3.employeeMobileNo);
 					}else {
@@ -218,7 +221,7 @@ class EmployeeBean1 implements Serializable {
 					if(es3.equals("yes")) {
 						System.out.println("Enter employeeMobileNo to be update: ");
 						long l1 = sc.nextLong();
-						emp1[i].employeeMobileNo = l1;
+						ae3.employeeMobileNo = l1;
 						System.out.println("Employee MobileNo updated successfully.");
 						System.out.println("Id="+ae3.employeeId +" "+"Name="+ae3.employeeName+" "+"Salary="+ae3.employeeSalary +" "+"Mobile no="+ae3.employeeMobileNo);
 					}else {
