@@ -76,18 +76,18 @@ class EmployeeBean1 implements Serializable{
 	 
 	}
 	public void insert() throws Exception {
-				System.out.println("enter the no of employees to be stored");
-		int size=s.nextInt();
+//				System.out.println("enter the no of employees to be stored");
+//		int size=s.nextInt();
 				/*emparray=new EmployeeBean1[size];
 				for(int i=0;i<size;i++) {*/
-					EmployeeBean1 em=new EmployeeBean1();
+			EmployeeBean1 em=new EmployeeBean1();
+			System.out.println("please enter your employeeid");
+			int id=s.nextInt();
+			em.setEmployeeId(id);
 			System.out.println("please enter employeename");
 			s.nextLine();
 			employeeName=s.nextLine();
 			em.setEmployeeName(employeeName);
-			System.out.println("please enter your employeeid");
-			int id=s.nextInt();
-			em.setEmployeeId(id);
 			System.out.println("please enter your salary");
 			double salary= s.nextDouble();
 			em.setEmployeeSalary(salary);
@@ -116,7 +116,8 @@ class EmployeeBean1 implements Serializable{
 	if(emparray != null) {
 		for(EmployeeBean1 a1:emparray) {
 		if(a1 != null && a1.employeeId == n) {
-		a1 = null;
+//		a1 = null;
+			emparray.remove(a1);
 		u++;
 		break;
 		}
