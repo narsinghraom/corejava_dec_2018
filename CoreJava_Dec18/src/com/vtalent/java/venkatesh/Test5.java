@@ -50,20 +50,21 @@ class EmployeeBean1 implements Serializable{
 		Object o=ois.readObject();
 		ArrayList<EmployeeBean1> emparray=(ArrayList<EmployeeBean1>)o;
 	
-		return emparray;}
+		return emparray;
+		}
 	public void insert() throws Exception {
-				System.out.println("enter the no of employees to be stored");
-		int size=s.nextInt();
-//				emparray=new EmployeeBean1[size];
-//				for(int i=0;i<size;i++) {
+//		System.out.println("enter the no of employees to be stored");
+//		int size=s.nextInt();
+//		emparray=new EmployeeBean1[size];	
+//		for(int i=0;i<size;i++) {
 					EmployeeBean1 em=new EmployeeBean1();
-			System.out.println("please enter employeename");
-			s.nextLine();
-			employeeName=s.nextLine();
-			em.setEmployeeName(employeeName);
 			System.out.println("please enter your employeeid");
 			int id=s.nextInt();
 			em.setEmployeeId(id);
+			System.out.println("please enter employeename");
+			s.nextLine();
+			String employeeName=s.nextLine();
+			em.setEmployeeName(employeeName);
 			System.out.println("please enter your salary");
 			double salary= s.nextDouble();
 			em.setEmployeeSalary(salary);
@@ -89,7 +90,8 @@ class EmployeeBean1 implements Serializable{
 	if(emparray != null) {
 	for(EmployeeBean1 a1:emparray) {
 		if(a1 != null && a1.employeeId == n) {
-			a1 = null;
+//			a1 = null;
+			emparray.remove(a1);
 			u++;
 			break;
 		}	
@@ -137,11 +139,12 @@ public void printalldata() throws Exception {
 	}
 }
 public void searchemployeeName() throws Exception {
-	ArrayList<EmployeeBean1> emparray=readObjectFile();
 	boolean flag = false;
 	int message=0;
+	ArrayList<EmployeeBean1> emparray=readObjectFile();
 	System.out.println("enter particular Name to be search");
 	char e=s.next().charAt(0);
+	if(emparray != null) {
 	for(EmployeeBean1 em5:emparray) {
 //	EmployeeBean1 em5=(EmployeeBean1)emparray[i];
 	if(em5!=null) {
@@ -150,12 +153,13 @@ public void searchemployeeName() throws Exception {
 		if(w[0]==e) {
 			flag = true;
 			if(message==0) {
-		System.out.println("employeeName="+em5.getEmployeeName()+""+"id="+em5.getEmployeeId()+""+"salary="+em5.getEmployeeSalary()+""+"mobileno="+em5.getEmployeeMobileno());
+		System.out.println("the employee name with letter " + e + "  found");
 		message++;
 	}
+			System.out.println("employeeName="+em5.getEmployeeName()+""+"id="+em5.getEmployeeId()+""+"salary="+em5.getEmployeeSalary()+""+"mobileno="+em5.getEmployeeMobileno());
 			}	
 	}
-	}
+	}}
 	if(!flag) {
 	System.out.println("the employee name with letter " + e + " not found");
 	}
@@ -195,7 +199,6 @@ public void updatedetails() throws Exception {
 		       }else {
 		    	   System.out.println("no");
 		       }
-		}
 		System.out.println("enter Employees new Mobileno yes or no. ");
 		String e=s.next();
 		if(e.equals("yes")) {
@@ -207,7 +210,7 @@ public void updatedetails() throws Exception {
 		}
 		writeObjectFile(emparray);
 		return;
-		}
+		}}
 }
 }
 public class Test5 {

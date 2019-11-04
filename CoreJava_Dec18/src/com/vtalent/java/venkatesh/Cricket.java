@@ -1,7 +1,7 @@
 package com.vtalent.java.venkatesh;
 
 import java.util.*;
-
+class Outer{
 class OversException extends Exception{
 	public String toString() {
 		return "exception";
@@ -12,7 +12,7 @@ class BallsException extends Exception{
 	public String toString() {
 		return "exception";
 	}
-}
+}}
 class CricketInnings {
 	static Scanner sc=new Scanner(System.in);
 	static String teamA,teamB;
@@ -101,9 +101,10 @@ class CricketInnings {
 		try {
 			d=sc.nextDouble();
 			if(d>50) {
-				throw new OversException();
+				throw new Exception();
 			}else {
-				System.out.println("no exception");
+				System.out.println("no overs exception");
+				balls();
 			}
 			
 		}catch(Exception e){
@@ -116,9 +117,10 @@ class CricketInnings {
 		try {
 			d=sc.nextDouble();
 			if(d>40) {
-				throw new OversException();
+				throw new Exception();
 			}else {
-				System.out.println("no exception");
+				System.out.println("no overs exception");
+				balls1();
 			}
 			
 		}catch(Exception e){
@@ -131,9 +133,10 @@ class CricketInnings {
 		try {
 			d=sc.nextDouble();
 			if(d>30) {
-				throw new OversException();
+				throw new Exception();
 			}else {
-				System.out.println("no exception");
+				System.out.println("no overs exception");
+				balls2();
 			}
 			
 		}catch(Exception e){
@@ -145,9 +148,10 @@ class CricketInnings {
 		try {
 			d=sc.nextDouble();
 			if(d>15) {
-				throw new OversException();
+				throw new Exception();
 			}else {
-				System.out.println("no exception");
+				System.out.println("no overs exception");
+				balls3();
 			}
 			
 		}catch(Exception e){
@@ -156,6 +160,87 @@ class CricketInnings {
 			overs15();
 		}
 	}
+	public static void balls() {
+		String o = " " + d;
+		char chArr[] = o.toCharArray();
+		int intArr[] = new int[o.length()];
+		for(int i=0;i<o.length();i++ ) {
+			intArr[i] = chArr[i];
+		}		
+		try {
+			int last = intArr[intArr.length-1];
+			if(last<48 || last>53) {
+				throw new Exception();
+			}else {
+				System.out.println("No Balls Exception.");
+			}
+		}catch(Exception e){
+			System.out.println("Exception occured: " + e);
+			System.out.println("Please enter Balls in between 0-5.");
+			overs50();
+		} 	
+		}
+	public static void balls1() {
+		String o = " " + d;
+		char chArr[] = o.toCharArray();
+		int intArr[] = new int[o.length()];
+		for(int i=0;i<o.length();i++ ) {
+			intArr[i] = chArr[i];
+		}		
+		try {
+			int last = intArr[intArr.length-1];
+			if(last<48 || last>53) {
+				throw new Exception();
+			}else {
+				System.out.println("No Balls Exception.");
+			}
+		}catch(Exception e){
+			System.out.println("Exception occured: " + e);
+			System.out.println("Please enter Balls in between 0-5.");
+			overs40();
+		} 	
+		}
+	public static void balls2() {
+		String o = " " + d;
+		char chArr[] = o.toCharArray();
+		int intArr[] = new int[o.length()];
+		for(int i=0;i<o.length();i++ ) {
+			intArr[i] = chArr[i];
+		}		
+		try {
+			int last = intArr[intArr.length-1];
+			if(last<48 || last>53) {
+				throw new Exception();
+			}else {
+				System.out.println("No Balls Exception.");
+			}
+		}catch(Exception e){
+			System.out.println("Exception occured: " + e);
+			System.out.println("Please enter Balls in between 0-5.");
+			overs30();
+		} 	
+		}
+	public static void balls3() {
+		String o = " " + d;
+		char chArr[] = o.toCharArray();
+		int intArr[] = new int[o.length()];
+		for(int i=0;i<o.length();i++ ) {
+			intArr[i] = chArr[i];
+		}		
+		try {
+			int last = intArr[intArr.length-1];
+			if(last<48 || last>53) {
+				throw new Exception();
+			}else {
+				System.out.println("No Balls Exception.");
+			}
+		}catch(Exception e){
+			System.out.println("Exception occured: " + e);
+			System.out.println("Please enter Balls in between 0-5.");
+			overs15();
+		} 	
+		}
+	
 	public static void secondinnings() {
 		System.out.println("Second Innings by"+teamB+".");
 		System.out.println(" Is it raining yes or no ");
