@@ -168,24 +168,26 @@ public void printalldata() throws Exception {
     
 }
 public void searchemployeeName() throws Exception {
-	ArrayList<EmployeeBean1> emparray=readObjectFile();
 	boolean flag = false;
 	int message=0;
 	System.out.println("enter particular Name to be search");
 	char e=s.next().charAt(0);
+	ArrayList<EmployeeBean1> emparray=readObjectFile();
+	if(emparray!=null) {
 	for(EmployeeBean1 em5:emparray) {
 	// EmployeeBean1 em5=(EmployeeBean1)emparray[i];
-	if(em5!=null) {
+	if(em5 != null) {
 	String q=em5.employeeName;
 	char[] w=q.toCharArray();
 	if(w[0]==e) {
 	flag = true;
 	if(message==0) {
-	System.out.println("employeeName="+em5.getEmployeeName()+""+"id="+em5.getEmployeeId()+""+"salary="+em5.getEmployeeSalary()+""+"mobileno="+em5.getEmployeeMobileno());
+System.out.println("EmployeeName found with "+ e +" letter ");
 	message++;
 	}
+	System.out.println("employeeName="+em5.getEmployeeName()+""+"id="+em5.getEmployeeId()+""+"salary="+em5.getEmployeeSalary()+""+"mobileno="+em5.getEmployeeMobileno());
 	}
-	}
+	}}
 	}
 	if(!flag) {
 	System.out.println("the employee name with letter " + e + " not found");
@@ -193,10 +195,10 @@ public void searchemployeeName() throws Exception {
 	}
 
 public void updatedetails() throws Exception {
-
-		ArrayList<EmployeeBean1> emparray=readObjectFile();
 		System.out.println("Enter the Id to be Updated");
 		int n = s.nextInt();
+		ArrayList<EmployeeBean1> emparray=readObjectFile();
+		if(emparray != null) {
 		for (EmployeeBean1 em6:emparray) {
 		// EmployeeBean1 em6=(EmployeeBean1)emparray[i];
 		if(em6!=null && em6.employeeId==n) {
@@ -207,7 +209,7 @@ public void updatedetails() throws Exception {
 		          int e=s.nextInt();
 		          em6.employeeId=e;
 		           }else {
-		          System.out.println("no");
+		          System.out.println("");
 		           }
 		            System.out.println("Enter Employees new Name yes or no.");
 		   String z=s.next();
@@ -216,7 +218,7 @@ public void updatedetails() throws Exception {
 		       employeeName=s.next();
 		      em6.employeeName=employeeName;
 		      }else {
-		      System.out.println("no");
+		      System.out.println(" ");
 		      }
 		      System.out.println("Enter Employee new  Salary yes or no.");
 		      String w1=s.next();
@@ -225,7 +227,7 @@ public void updatedetails() throws Exception {
 		      double r=s.nextDouble();
 		      em6.employeeSalary= r;
 		      }else {
-		      System.out.println("no");
+		      System.out.println(" ");
 		      }
 		}
 		System.out.println("enter Employees new Mobileno yes or no. ");
@@ -235,13 +237,13 @@ public void updatedetails() throws Exception {
 		long b=s.nextLong();
 		em6.employeeMobileno=b;
 		}else {
-		System.out.println("no");
+		System.out.println(" ");
 		}
 		writeObjectFile(emparray);
 		return;
 		}
 		}
-		}
+		}}
 public class Test007 {
 	static Scanner s= new Scanner(System.in);
 public static void main(String[] args) throws Exception {
