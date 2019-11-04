@@ -1,7 +1,6 @@
 package com.vtalent.java.naveen;
 
 public class MyStrings {
-
 	/*
 	 * equals method in string class compare value of the object. we have ==
 	 * condition to check the object referances bcz of to different memory
@@ -9,11 +8,15 @@ public class MyStrings {
 	 */
 
 	public static void main(String[] args) {
+		MyStrings ms=new MyStrings();
+
 String sn="      ";
 System.out.println("hascode "+sn.hashCode());
-		String s = "  Venkata Satya Naveen ";
+		String s = "Venkata Satya Naveen ";
+
 		String s3="Naveen";
 		String s1 = new String("Naveen");
+		System.out.println(s.split(s).toString());
 		System.err.println("char at" + "  " + s.charAt(2));
 		System.out.println("compare to" + "  " + s.compareTo(s1));
 		System.err.println("hascode" + s.hashCode());

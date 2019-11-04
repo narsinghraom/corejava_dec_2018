@@ -1,6 +1,8 @@
 package com.vtalent.java.naveen;
 
-public class EmployeeBeanP {
+import java.io.Serializable;
+
+public class EmployeeBeanP implements Serializable{
 	private String  employeeename;
 	private int employeeId;
 	private double employeesalary;
@@ -13,14 +15,6 @@ public class EmployeeBeanP {
 public void setEmployeeename(String employeeename) {
 	this.employeeename = employeeename;
 }
-
-	/*
-	 * public EmployeeBeanP(int employeeId, double employeesalary, long
-	 * employeemobileno) {
-	 * 
-	 * this.employeeId = employeeId; this.employeesalary = employeesalary;
-	 * this.employeemobileno = employeemobileno; }
-	 */
 	public int getEmployeeId() {
 		return employeeId;
 	}
