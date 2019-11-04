@@ -16,7 +16,9 @@ public class EmployeeBean implements Serializable {
 	private double employeeSalary;
 	private long employeeMobileNo;
 	private String employeeName;
-	static EmployeeBean[] emparray;
+	/* static EmployeeBean[] emparray; */
+	static ArrayList<EmployeeBean> emparray = new ArrayList<EmployeeBean>();
+	
 	
 	static Scanner s = new Scanner(System.in);
 
@@ -56,7 +58,7 @@ public class EmployeeBean implements Serializable {
 
 	}
 
-	private void writeObjectInToFile(EmployeeBean[] emparray) throws Exception {
+	public void writeObjectInToFile(ArrayList<EmployeeBean> emparray) throws Exception {
 		// TODO Auto-generated method stub
 //			EmployeeBean emp =new EmployeeBean();
 		File file = new File("employeedatata.txt");
@@ -67,12 +69,12 @@ public class EmployeeBean implements Serializable {
 
 	}
 
-	private EmployeeBean[] readFileToGetObject() throws Exception {
+	public ArrayList<EmployeeBean> readFileToGetObject() throws Exception {
 		// TODO Auto-generated method stub
 		FileInputStream fis = new FileInputStream("employeedatata.txt");
 		ObjectInputStream ois = new ObjectInputStream(fis);
 		Object o = ois.readObject();
-		EmployeeBean[] emparray = (EmployeeBean[]) o;
+		ArrayList<EmployeeBean> emparray =(ArrayList<EmployeeBean>)o;
 		/*
 		 * for (int i = 0; i < emparray.length; i++) { EmployeeBean emp = emparray[i];
 		 * 
@@ -86,15 +88,18 @@ public class EmployeeBean implements Serializable {
 	}
 
 	public void insert() throws Exception {
-		Scanner s = new Scanner(System.in);
-		System.out.println("Enter the no.of Employees to be stored");
-		int size = s.nextInt();
-		emparray = new EmployeeBean[size];
-
-		for (int i = 0; i < size; i++) {
+		
+		/*
+		 * System.out.println("Enter the no.of Employees to be stored"); int size =
+		 * s.nextInt(); emparray = new [size];
+		 * 
+		 * for (int i = 0; i < size; i++) {
+		 */
+		
+		
+			
 			EmployeeBean em = new EmployeeBean();
 			System.out.println("enter the EmployeeName");
-			s.nextLine();
 			String name = s.nextLine();
 			em.setEmployeeName(name);
 			System.out.println("enter the EmployeeId");
@@ -106,49 +111,46 @@ public class EmployeeBean implements Serializable {
 			System.out.println("enter the EmployeeMobileNumber");
 			long mno = s.nextLong();
 			em.setEmployeeMobileNo(mno);
-			emparray[i] = em;
-		}
+		/* emparray[i] = em; */
+			emparray.add(em);
+		
+
 		writeObjectInToFile(emparray);
 		readFileToGetObject();
 	}
 
 	public void delete() throws Exception {
-		EmployeeBean[] emparray =readFileToGetObject();
-		 EmployeeBean emp; 
-		for(int i =0;i<emparray.length;i++) {
-			  emp = emparray[i];
-		  
-		  System.out.println("id="+emp.getEmployeeId()+"  "+"Name="+emp.getEmployeeName()+"  "+"salary="+emp.getEmployeeSalary()+"  "+"mobileno="+emp.getEmployeeMobileNo());
-		  }
-		 System.out.println("enter the id to be deleted"); 
-		  int n =s.nextInt();
 		 
+		 System.out.println("enter the id to be deleted"); 
+			  int n =s.nextInt();
+			  emparray =readFileToGetObject();
+			  for(EmployeeBean emp:emparray) {
+					if(emparray!=null) {		
+					
+						if (emp!=null && emp.getEmployeeId() == n ) {
+			  
+			         emparray.remove(emp);
+		  }
+		 
+		  }
 		
-		for(int i=0;i<emparray.length;i++) {
-			emp =emparray[i];
-			if(n ==emp.getEmployeeId()) {
-				emp=null;
-				emparray[i]=emp;
-			}
-		}
-		
-		  
+		  }
 		  writeObjectInToFile(emparray); 
 		 
-
+		  
 	}
 
 	
 	public void search() throws Exception {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
-		EmployeeBean emp;
-		EmployeeBean[] emparray =readFileToGetObject();
+	
+		emparray =readFileToGetObject();
 	    System.out.println("enter the id to be search");
 		int n = s.nextInt();
+		for(EmployeeBean emp:emparray) {
 		if(emparray!=null) {		
-		for (int i = 0; i < emparray.length; i++) {
-			emp = emparray[i];
+		
 			if (emp!=null && emp.getEmployeeId() == n ) {
 				System.out.println("id=" + emp.getEmployeeId() + "  " + "Name=" + emp.getEmployeeName() + "  "
 						+ "Salary=" + emp.getEmployeeSalary() + "  " + "MobileNumber=" + emp.getEmployeeMobileNo());
@@ -157,80 +159,61 @@ public class EmployeeBean implements Serializable {
 			
 			}
 		}
-
+		}
 		}	
 		
-	}
+	
 
 	public void pritntAllData() throws Exception {
 		// TODO Auto-generated method stub
-		/*
-		 * EmployeeBean emp; System.out.println("The All the Employee details are");
-		 * for(int i=0;i<emparray.length;i++) { if(emparray[i] != null) {
-		 * emp=emparray[i]; // writeObjectInToFile();
-		 * System.out.println("id="+emp.getEmployeeId()+" "+"Name="+emp.getEmployeeName(
-		 * )+" "+"Salary="+emp.getEmployeeSalary()+"  "+"MobileNumber="+emp.
-		 * getEmployeeMobileNo()); } } writeObjectInToFile();
-		 */
-		EmployeeBean[] emparray = readFileToGetObject();
-		if (emparray != null) {
-			for (int i = 0; i < emparray.length; i++) {
-				EmployeeBean emp = emparray[i];
-				if (emp != null) {
+		
+		 
+		emparray = readFileToGetObject();
+		 System.out.println("The All the Employee details are");
+		if(emparray !=null) {
+			for(EmployeeBean emp:emparray) {
+			if(emparray !=null) {
+		
 					System.out.println("id=" + emp.getEmployeeId() + "  " + "Name=" + emp.getEmployeeName() + "  "
 							+ "Salary=" + emp.getEmployeeSalary() + "  " + "MobileNumber=" + emp.getEmployeeMobileNo());
 				}
 
 			}
 		}
+	}
 		
 		 
-	}
+	
 
 	public void searchwithemployeeName() throws Exception {
 		// TODO Auto-generated method stub
-		EmployeeBean[] emparray = readFileToGetObject();
-		EmployeeBean emp;
-		boolean flag = false;
-		int message = 0;
-		System.out.println("enter particular Name to be search");
-		char e = s.next().charAt(0);
-		for (int i = 0; i < emparray.length; i++) {
-			emp = emparray[i];
-			if (emparray[i] != null) {
-				String q = emparray[i].employeeName;
-				char[] w = q.toCharArray();
-				if (w[0] == e) {
-					flag = true;
-					if (message == 0) {
-						System.out.println("employeeName=" + emp.getEmployeeName() + "" + "id=" + emp.getEmployeeId()
-								+ "" + "salary=" + emp.getEmployeeSalary() + "" + "mobileno="
-								+ emp.getEmployeeMobileNo());
-						message++;
-					}
-				}
-			}
-		}
-		if (!flag) {
-			System.out.println("the employee name with letter " + e + " not found");
-		}
+		/*
+		 * emparray = readFileToGetObject(); EmployeeBean emp; boolean flag = false; int
+		 * message = 0; System.out.println("enter particular Name to be search"); char e
+		 * = s.next().charAt(0); for (int i = 0; i < emparray.length; i++) { emp =
+		 * emparray[i]; if (emparray[i] != null) { String q = emparray[i].employeeName;
+		 * char[] w = q.toCharArray(); if (w[0] == e) { flag = true; if (message == 0) {
+		 * System.out.println("employeeName=" + emp.getEmployeeName() + "" + "id=" +
+		 * emp.getEmployeeId() + "" + "salary=" + emp.getEmployeeSalary() + "" +
+		 * "mobileno=" + emp.getEmployeeMobileNo()); message++; } } } } if (!flag) {
+		 * System.out.println("the employee name with letter " + e + " not found"); }
+		 */
 	}
 
 	public void updatedetails() throws Exception {
 		// TODO Auto-generated method stub
-		EmployeeBean[] emparray = readFileToGetObject();
-		EmployeeBean emp;
+		emparray = readFileToGetObject();
+		
 		System.out.println("Enter the Id to be Updated");
 		int n = s.nextInt();
-		for (int i = 0; i < emparray.length; i++) {
-			emp = emparray[i];
-			if (emparray[i] != null && emparray[i].employeeId == n) {
+		for(EmployeeBean emp:emparray) {
+			if (emparray!= null && emp.employeeId == n) {
 				System.out.println("enter Employees new Id yes or no");
 				String w = s.next();
 				if (w.equals("yes")) {
 					System.out.println("enter new employee id:");
 					int e = s.nextInt();
-					emparray[i].employeeId = e;
+					emp.employeeId = e;
 					System.out.println("employeeName=" + emp.getEmployeeName() + "" + "id=" + emp.getEmployeeId() + ""
 							+ "salary=" + emp.getEmployeeSalary() + "" + "mobileno=" + emp.getEmployeeMobileNo());
 				} else {
@@ -241,7 +224,7 @@ public class EmployeeBean implements Serializable {
 				if (name.equals("yes")) {
 					System.out.println("enter The new employee Name");
 					employeeName = s.next();
-					emparray[i].employeeName = employeeName;
+					emp.employeeName = employeeName;
 					System.out.println("employeeName=" + emp.getEmployeeName() + "" + "id=" + emp.getEmployeeId() + ""
 							+ "salary=" + emp.getEmployeeSalary() + "" + "mobileno=" + emp.getEmployeeMobileNo());
 				} else {
@@ -252,7 +235,7 @@ public class EmployeeBean implements Serializable {
 				if (w1.equals("yes")) {
 					System.out.println("enter salary:");
 					double r = s.nextDouble();
-					emparray[i].employeeSalary = r;
+					emp.employeeSalary = r;
 					System.out.println("employeeName=" + emp.getEmployeeName() + "" + "id=" + emp.getEmployeeId() + ""
 							+ "salary=" + emp.getEmployeeSalary() + "" + "mobileno=" + emp.getEmployeeMobileNo());
 				} else {
@@ -264,7 +247,7 @@ public class EmployeeBean implements Serializable {
 			if (e.equals("yes")) {
 				System.out.println("enter mobile no:");
 				long b = s.nextLong();
-				emparray[i].employeeMobileNo = b;
+				emp.employeeMobileNo = b;
 				System.out.println("employeeName=" + emp.getEmployeeName() + "" + "id=" + emp.getEmployeeId() + ""
 						+ "salary=" + emp.getEmployeeSalary() + "" + "mobileno=" + emp.getEmployeeMobileNo());
 			} else {
