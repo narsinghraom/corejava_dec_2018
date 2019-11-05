@@ -1,6 +1,8 @@
 package com.vtalent.swamy;
 
-public class EmployeeBeen {
+import java.io.Serializable;
+
+public class EmployeeBeen implements Serializable{
 private int  empid;
 private String empname;
 private  double empsalary;
