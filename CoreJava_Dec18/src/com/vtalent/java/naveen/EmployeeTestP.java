@@ -1,11 +1,9 @@
 package com.vtalent.java.naveen;
-
 import java.util.Scanner;
 
-public class EmployeeTestP {
+public class EmployeeTestP  {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		String s = "n";
 		// EmployeeExecutionP ee = new EmployeeExecutionP();
 		Scanner sc = new Scanner(System.in);
@@ -52,38 +50,38 @@ public class EmployeeTestP {
 				case 5:
 					EmployeeExecutionP.update();
 					break;
-				/*
-				 * for (int i1 = 0; i1 <= EmployeeExecution.emp.length - 1; i1++) {
-				 * 
-				 * e = new Employee(); System.out.println("please enter employee name");
-				 * e.setEmployeename(sc.next()); System.out.println("please enter employee id");
-				 * e.setEmployeeId(sc.nextInt());
-				 * System.out.println("please enter employee salary");
-				 * e.setEmployeesalary(sc.nextDouble());
-				 * System.out.println("please enter employee mobile number ");
-				 * e.setEmployeemobileno(sc.nextLong()); int l= EmployeeExecution.update();
-				 * if(l==1) { break; }else
-				 * System.out.println("array is full you can not inserted");
-				 */
-				/*
-				 * break; }
-				 */
+																								/*
+																								 * for (int i1 = 0; i1 <= EmployeeExecution.emp.length - 1; i1++) {
+																								 * 
+																								 * e = new Employee(); System.out.println("please enter employee name");
+																								 * e.setEmployeename(sc.next()); System.out.println("please enter employee id");
+																								 * e.setEmployeeId(sc.nextInt());
+																								 * System.out.println("please enter employee salary");
+																								 * e.setEmployeesalary(sc.nextDouble());
+																								 * System.out.println("please enter employee mobile number ");
+																								 * e.setEmployeemobileno(sc.nextLong()); int l= EmployeeExecution.update();
+																								 * if(l==1) { break; }else
+																								 * System.out.println("array is full you can not inserted");
+																								 */
+																								/*
+																								 * break; }
+																								 */
 				case 6:
 					System.out.println("you want to exit application press 'y' ");
-					String ap1="y";
-				String ap=	sc.next();
-					if(ap1.equals(ap)) {
-					System.out.println("Application terminated by you");
-					System.exit(0);
+					String ap1 = "y";
+					String ap = sc.next();
+					if (ap1.equals(ap)) {
+						System.out.println("Application terminated by you");
+						System.exit(0);
 					}
 					break;
 				}
 			} else
-				System.out.println("please enter valid input option(between 1-5)");
 			System.out.println("do you want to continue [y/n]");
 			s = sc.next();
 		} while (s.equals("y"));
 		System.out.println("application terminated:::::: ");
+				System.out.println("please enter valid input option(between 1-6)");
 
 	}
 

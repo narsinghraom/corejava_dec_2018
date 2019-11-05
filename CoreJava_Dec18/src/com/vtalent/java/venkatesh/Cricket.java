@@ -1,35 +1,41 @@
 package com.vtalent.java.venkatesh;
 
 import java.util.*;
-
-class CricketInnings extends Exception{
+class Outer{
+class OversException extends Exception{
 	public String toString() {
-	System.out.println("overs should be less than 50");	
-		return null;
+		return "exception";
+		
 	}
+}
+class BallsException extends Exception{
+	public String toString() {
+		return "exception";
+	}
+}}
+class CricketInnings {
 	static Scanner sc=new Scanner(System.in);
 	static String teamA,teamB;
 	static int scoreA,scoreB;
+	static double d;
 	public void sample() {
 		System.out.println("enter teamA name");
 		teamA=sc.nextLine();
 		System.out.println("enter teamB name");
 		teamB=sc.nextLine();
 		System.out.println("welcome to odi between " +teamA+ " vs " +teamB+ ".");
+		firstinnings();
 	}
-	public void firstinnings() throws Exception {
+	public static void firstinnings() {
 		System.out.println("First Innings by"+teamA+".");
 		System.out.println(" Is it raining yes or no ");
 		String ri=sc.next();
 		if(ri.equals("no")) {
 			System.out.println("overs played by" +teamA+ ".");
-			double d=sc.nextDouble();
+			overs50();
 			System.out.println("runrate of" +teamA+ ".");
 			double d1=sc.nextDouble();
 			scoreA=(int)(d*d1);
-			if(d>50) {
-				throw new CricketInnings();
-			}
 			if(d==50) {
 				int wickets = 6;
 				System.out.println("score of " +teamA+ "=" +scoreA+ "/" +wickets);
@@ -46,7 +52,7 @@ class CricketInnings extends Exception{
 			if(ri1.equals("no")) {
 				System.out.println("overs reduced to 40");
 				System.out.println("overs played by" +teamA+ ".");
-			    double d=sc.nextDouble();
+			    overs40();
 				System.out.println("runrate of" +teamA+ ".");
 				double d1=sc.nextDouble();
 				scoreA=(int)(d*d1);
@@ -61,7 +67,7 @@ class CricketInnings extends Exception{
 					if(ri2.equals("no")) {
 						System.out.println("overs reduced to 30");
 						System.out.println("overs played by" +teamA+ ".");
-						double d=sc.nextDouble();
+						overs30();
 						System.out.println("runrate of" +teamA+ ".");
 						double d1=sc.nextDouble();
 						scoreA=(int)(d*d1);
@@ -76,7 +82,7 @@ class CricketInnings extends Exception{
 						if(ri3.equals("no")) {
 							System.out.println("overs reduced to 15");
 							System.out.println("overs played by" +teamA+ ".");
-							double d=sc.nextDouble();
+							overs15();
 							System.out.println("runrate of" +teamA+ ".");
 							double d1=sc.nextDouble();
 							scoreA=(int)(d*d1);
@@ -91,19 +97,160 @@ class CricketInnings extends Exception{
 						}
 					}
 			}}
-	public static void secondinnings() throws Exception {
+	public static void overs50() {
+		try {
+			d=sc.nextDouble();
+			if(d>50) {
+				throw new Exception();
+			}else {
+				System.out.println("no overs exception");
+				balls();
+			}
+			
+		}catch(Exception e){
+			System.out.println("exception " +e);
+			System.out.println("enter<=50");
+			overs50();
+		}
+	}
+	public static void overs40() {
+		try {
+			d=sc.nextDouble();
+			if(d>40) {
+				throw new Exception();
+			}else {
+				System.out.println("no overs exception");
+				balls1();
+			}
+			
+		}catch(Exception e){
+			System.out.println("exception " +e);
+			System.out.println("enter<=40");
+			overs40();
+		}
+	}
+	public static void overs30() {
+		try {
+			d=sc.nextDouble();
+			if(d>30) {
+				throw new Exception();
+			}else {
+				System.out.println("no overs exception");
+				balls2();
+			}
+			
+		}catch(Exception e){
+			System.out.println("exception " +e);
+			System.out.println("enter<=30");
+			overs30();
+		}
+	}public static void overs15() {
+		try {
+			d=sc.nextDouble();
+			if(d>15) {
+				throw new Exception();
+			}else {
+				System.out.println("no overs exception");
+				balls3();
+			}
+			
+		}catch(Exception e){
+			System.out.println("exception " +e);
+			System.out.println("enter<=50");
+			overs15();
+		}
+	}
+	public static void balls() {
+		String o = " " + d;
+		char chArr[] = o.toCharArray();
+		int intArr[] = new int[o.length()];
+		for(int i=0;i<o.length();i++ ) {
+			intArr[i] = chArr[i];
+		}		
+		try {
+			int last = intArr[intArr.length-1];
+			if(last<48 || last>53) {
+				throw new Exception();
+			}else {
+				System.out.println("No Balls Exception.");
+			}
+		}catch(Exception e){
+			System.out.println("Exception occured: " + e);
+			System.out.println("Please enter Balls in between 0-5.");
+			overs50();
+		} 	
+		}
+	public static void balls1() {
+		String o = " " + d;
+		char chArr[] = o.toCharArray();
+		int intArr[] = new int[o.length()];
+		for(int i=0;i<o.length();i++ ) {
+			intArr[i] = chArr[i];
+		}		
+		try {
+			int last = intArr[intArr.length-1];
+			if(last<48 || last>53) {
+				throw new Exception();
+			}else {
+				System.out.println("No Balls Exception.");
+			}
+		}catch(Exception e){
+			System.out.println("Exception occured: " + e);
+			System.out.println("Please enter Balls in between 0-5.");
+			overs40();
+		} 	
+		}
+	public static void balls2() {
+		String o = " " + d;
+		char chArr[] = o.toCharArray();
+		int intArr[] = new int[o.length()];
+		for(int i=0;i<o.length();i++ ) {
+			intArr[i] = chArr[i];
+		}		
+		try {
+			int last = intArr[intArr.length-1];
+			if(last<48 || last>53) {
+				throw new Exception();
+			}else {
+				System.out.println("No Balls Exception.");
+			}
+		}catch(Exception e){
+			System.out.println("Exception occured: " + e);
+			System.out.println("Please enter Balls in between 0-5.");
+			overs30();
+		} 	
+		}
+	public static void balls3() {
+		String o = " " + d;
+		char chArr[] = o.toCharArray();
+		int intArr[] = new int[o.length()];
+		for(int i=0;i<o.length();i++ ) {
+			intArr[i] = chArr[i];
+		}		
+		try {
+			int last = intArr[intArr.length-1];
+			if(last<48 || last>53) {
+				throw new Exception();
+			}else {
+				System.out.println("No Balls Exception.");
+			}
+		}catch(Exception e){
+			System.out.println("Exception occured: " + e);
+			System.out.println("Please enter Balls in between 0-5.");
+			overs15();
+		} 	
+		}
+	
+	public static void secondinnings() {
 		System.out.println("Second Innings by"+teamB+".");
 		System.out.println(" Is it raining yes or no ");
 		String ri=sc.next();
 		if(ri.equals("no")) {
 			System.out.println("overs played by" +teamB+ ".");
-			double d=sc.nextDouble();
+			overs50();
 			System.out.println("runrate of" +teamB+ ".");
 			double d1=sc.nextDouble();
 			scoreB=(int)(d*d1);
-			if(d>50) {
-				throw new CricketInnings();
-			}
 			if(d==50) {
 				int wickets = 6;
 				System.out.println("score of " +teamB+ "=" +scoreB+ "/" +wickets);		
@@ -125,22 +272,23 @@ class CricketInnings extends Exception{
 			System.out.println("is it raining after 1hour yes or no");
 			String ri1=sc.next();
 			if(ri1.equals("no")) {
-				System.out.println("overs reduced to 30");
+				System.out.println("overs reduced to 40");
+				System.out.println(teamB +" target is "+(89*(scoreA)/100) );
 				System.out.println("overs played by" +teamB+ ".");
-			    double dd=sc.nextDouble();
+			    overs40();
 				System.out.println("runrate of" +teamB+ ".");
 				double dd1=sc.nextDouble();
-				scoreB=(int)(dd*dd1);
-				if(dd<=30 && dd1<=5.5) {
+				scoreB=(int)(d*dd1);
+				if(d<=30 && dd1<=5.5) {
 					int wickets=10;
 					System.out.println("score of" +teamB+ "=" +scoreB+ "/" +wickets);
-					}if(scoreA==scoreB) {
+					}if((89*(scoreA)/100)==scoreB) {
 						System.out.println("match tied");
-					}else if(scoreA>scoreB) {
-						int ss=scoreA-scoreB;
+					}else if((89*(scoreA)/100)>scoreB) {
+						int ss=(89*(scoreA)/100)-scoreB;
 						System.out.println( teamA+ "won by" +ss+ "runs.");
-					}else if(scoreB>scoreA) {
-						int ss1=scoreB-scoreA;
+					}else if(scoreB>(89*(scoreA)/100)) {
+						int ss1=scoreB-(89*(scoreA)/100);
 						System.out.println(teamB+ "won by" +ss1+ "runs.");
 					}
 				}else {
@@ -148,22 +296,23 @@ class CricketInnings extends Exception{
 					String ri2=sc.next();
 					if(ri2.equals("no")) {
 						System.out.println("overs reduced to 30");
+						System.out.println(teamB +" target is "+(75*(scoreA)/100) );
 						System.out.println("overs played by" +teamB+ ".");
-						double dd=sc.nextDouble();
+						overs30();
 						System.out.println("runrate of" +teamB+ ".");
 						double dd1=sc.nextDouble();
-						scoreB=(int)(dd*dd1);
-						if(dd<=30 && dd1<=7) {
+						scoreB=(int)(d*dd1);
+						if(d<=30 && dd1<=7) {
 							int wickets=10;
 							System.out.println("score of" +teamB+ "=" +scoreB+ "/" +wickets);
 						}
-						if(scoreA==scoreB) {
+						if((75*(scoreA)/100)==scoreB) {
 							System.out.println("match tied");
-						}else if(scoreA>scoreB) {
-							int sss=scoreA-scoreB;
+						}else if((75*(scoreA)/100)>scoreB) {
+							int sss=(75*(scoreA)/100)-scoreB;
 							System.out.println( teamA+ "won by" +sss+ "runs.");
-						}else if(scoreB>scoreA) {
-							int ss2=scoreB-scoreA;
+						}else if(scoreB>(75*(scoreA)/100)) {
+							int ss2=scoreB-(75*(scoreA)/100);
 							System.out.println(teamB+ "won by" +ss2+ "runs.");
 						}
 					}else {
@@ -171,21 +320,22 @@ class CricketInnings extends Exception{
 						String ri3=sc.next();
 						if(ri3.equals("no")) {
 							System.out.println("overs reduced to 15");
+							System.out.println(teamB +" target is "+(40*(scoreA)/100) );
 							System.out.println("overs played by" +teamB+ ".");
-							double dd=sc.nextDouble();
+							overs15();
 							System.out.println("runrate of" +teamB+ ".");
 							double dd1=sc.nextDouble();
-							scoreB=(int)(dd*dd1);
-							if(dd<=15 && dd1<=8) {
+							scoreB=(int)(d*dd1);
+							if(d<=15 && dd1<=8) {
 								int wickets=10;
 								System.out.println("score of " +teamB+ "=" +scoreB+ "/" +wickets);
-								}if(scoreA==scoreB) {
+								}if((40*(scoreA)/100)==scoreB) {
 									System.out.println("match tied");
-								}else if(scoreA>scoreB) {
-									int sss1=scoreA-scoreB;
+								}else if((40*(scoreA)/100)>scoreB) {
+									int sss1=(40*(scoreA)/100)-scoreB;
 									System.out.println( teamA+ "won by" +sss1+ "runs.");
-								}else if(scoreB>scoreA) {
-									int ss2=scoreB-scoreA;
+								}else if(scoreB>(40*(scoreA)/100)) {
+									int ss2=scoreB-(40*(scoreA)/100);
 									System.out.println(teamB+ "won by" +ss2+ "runs.");
 								}
 							}else {
@@ -200,10 +350,8 @@ class CricketInnings extends Exception{
 
 public class Cricket {
 public static void main(String[] args) throws Exception {
-	Scanner sc1=new Scanner(System.in);
 	CricketInnings ci=new CricketInnings();
 	ci.sample();
-	ci.firstinnings();
 	
 	
 	

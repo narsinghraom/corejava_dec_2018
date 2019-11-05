@@ -10,7 +10,7 @@ public class Cricket {
 	static float e,h;
 	static int z;
 	Random r=new Random();
-	static boolean innings=false;
+	static int l=0;
 	static boolean fortyoversflag=false;
 	 static class Over extends Exception{
 		Over(String s){
@@ -20,8 +20,12 @@ public class Cricket {
 	 static class OverException{
 		 public static void ov(float o) throws Over{
 		 if(o>50){
+			 try{
 			throw new Over("Not valid number of overs");
+			}catch(Over e){
+				System.out.println(e);
 			}
+		 }
 		 else{
 			 double ap = Math.abs(o - Math.floor(o));
 			    if (ap > 0.5&&ap<=0.6){
@@ -29,20 +33,36 @@ public class Cricket {
 			        System.out.println(o);
 			    }
 			  if (ap>0.6){
+				  try{
 			throw new Over("An over should have only 6 balls"); 
+				  }catch(Over e1){
+					  System.out.println(e1);
+				  }
 		 }
 		 }
 	 }
 		 public static void ri(float o) throws Over{
 			if(o>40){
+				try{
 				throw new Over("Overs reduced to 40 due to rain");
+				}catch(Over e2){
+					System.out.println(e2);
+				}
 			} 
 		 }
 		 public static void tie()throws Over{
+			 try{
 			 throw new Over("Match is a tie");
+			 }catch(Over e3){
+				 System.out.println(e3);
+			 }
 		 }
 		 public static void runs()throws Over{
+			 try{
 			 throw new Over("Runs Should not exceed 6 more than from first team score");
+			 }catch(Over e4){
+				 System.out.println(e4);
+			 }
 		 }
 	 }
 	 public void rain() throws Over{
@@ -57,13 +77,13 @@ public class Cricket {
 					String k=in.next();
 					if(k.equals("no")){
 						fortyoversflag=true;
-						if(innings==false)
+						if(l==0)
 						{
 						FirstInnings();
-						}else if(innings==true)
+						}else if(l==1)
 						{
 							e=(int)((75*e)/100);
-							System.out.println("First teams score due to rain is:"+(int)e);
+							System.out.println("First teams score due to rain based on DLS method is:"+(int)e);
 							SecondInnings();
 						}
 					}else if(k.equals("Yes")){
@@ -96,10 +116,11 @@ public class Cricket {
 			 z=r.nextInt(9);
 		}
 		System.out.println("The score of\t"+ a +"\tteam is:"+(int)e+"/"+z);
-		innings=true;
+		l++;
 		rain();
 	}
 	public void SecondInnings() throws Over{
+		
 		System.out.println("Second Innings by"+"  "+b);
 		System.out.println("Enter the number of overs:");
 		float x=in.nextFloat();
@@ -108,26 +129,24 @@ public class Cricket {
 			OverException.ri(x);
 			}
 	System.out.println("Enter the run rate:");
-	System.out.println("Run rate should not exceed more than 2 decimal points of"+(e/x));
+	System.out.println("Run rate should not exceed more than 2 decimal points of:"+(e/x));
 	float g=in.nextFloat();
 	h=(int) (x*g);
-	if(x<=50&&h<e){
+	if(x<50&&h<e){
 		z=10;
 	}
-	else if(x<50&&(h<(e+6)&&h>e)){
+	else if(x<=50&&(h<(e+6)&&h>e)){
 		z=r.nextInt(9);
 	}
 	System.out.println("The score of\t"+ b +"\tteam is:"+(int)h+"/"+z);
+	l++;
 	}
-	public static void main(String args[]) throws Over{
-		int l=0;		
+	public static void main(String args[]) throws Over{		
 		Cricket c=new Cricket();
 			c.rain();
-			if(innings==false)
-			{
-			c.FirstInnings();
-			}else if(innings==true)
-			{
+			if(l==0){
+				c.FirstInnings();
+			} if(l==1){
 				c.SecondInnings();
 			}
 		if(e>h){

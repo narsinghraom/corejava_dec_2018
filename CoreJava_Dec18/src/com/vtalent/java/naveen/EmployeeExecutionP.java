@@ -1,8 +1,9 @@
 package com.vtalent.java.naveen;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class EmployeeExecutionP {
+public class EmployeeExecutionP implements Serializable {
 	// Employee em;
 
 	static Scanner sc = new Scanner(System.in);
@@ -10,7 +11,7 @@ public class EmployeeExecutionP {
 	static int sa = sc.nextInt();
 	public static EmployeeBeanP emp[] = new EmployeeBeanP[sa];
 
-	/* In this method follows as insert the employee data into the array */
+	//  /* In this method follows as insert the employee data into the array */
 	public static int insert(EmployeeBeanP employee) {
 
 		int result = 0;
@@ -75,33 +76,42 @@ public class EmployeeExecutionP {
 			if (id.equals(emp[i].getEmployeeId())) {
 				System.out.println(emp[i]);
 
-				System.out.println("do you want to update name  press 'y' or id 'n'  more options press  'any key'  ");
+				System.out.println("do you want to update name  press 'y'  ");
 				da = sc.next();
 
 				if (da.equalsIgnoreCase("y")) {
 					e = new EmployeeBeanP();
-					System.out.println("please enter employee name");
+					System.err.println("please enter employee name");
 					emp[i].setEmployeeename(sc.next());
 				}
-
-				else if (da.equalsIgnoreCase("n")) {
+				System.out.println("Do you  want to change id press 'y' ");
+				String ss = "n";
+				ss = sc.next();
+				if (da.equalsIgnoreCase("n")) {
 					e = new EmployeeBeanP();
-					System.out.println("please enter employee id");
+					System.err.println("please enter employee id");
 					emp[i].setEmployeeId(sc.nextInt());
 				}
 				String na = "no";
-				System.out.println("Do you want to update salary press'yes' or  mobile 'no' ");
+				System.out.println("Do you want to update salary press'y' ");
 				na = sc.next();
-				if (na.equalsIgnoreCase("yes")) {
+				if (na.equalsIgnoreCase("y")) {
 					e = new EmployeeBeanP();
-					System.out.println("please enter employee salary");
+					System.err.println("please enter employee salary");
 					emp[i].setEmployeesalary(sc.nextDouble());
-				} else if (na.equalsIgnoreCase("no")) {
+				}
+				System.out.println("Do you want to change mobile number press 'y' ");
+				String vs = "n";
+				vs = sc.next();
+				if (vs.equalsIgnoreCase("y")) {
 					e = new EmployeeBeanP();
-					System.out.println("please enter employee mobile number");
+					System.err.println("please enter employee mobile number");
 					emp[i].setEmployeemobileno(sc.nextLong());
-				} else
-					break;
+				} else {
+					System.out.println("employee mobile number as same ");
+				}
+				searchEmployee();
+				break;
 
 			}
 

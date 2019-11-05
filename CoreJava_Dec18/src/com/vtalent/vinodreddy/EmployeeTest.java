@@ -1,12 +1,13 @@
 package com.vtalent.vinodreddy;
 
+
 import java.util.Scanner;
 
 public class EmployeeTest{
 	static EmployeeBean b;
 	 static Scanner sc =new Scanner(System.in);
 		public static void main(String[] args) throws Exception {
-		
+	
 		 b =new EmployeeBean();
 		for(;;) {
 		System.out.println("Please Select Your Choice\n"
@@ -20,6 +21,7 @@ public class EmployeeTest{
          int n =sc.nextInt();
             switch (n) {
 				case 1:
+					
 				b.insert();
 				
 				break;

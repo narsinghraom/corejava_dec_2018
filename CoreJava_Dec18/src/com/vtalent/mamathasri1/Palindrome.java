@@ -1,8 +1,5 @@
 package com.vtalent.mamathasri1;
-
-
-	
-	import java.util.Scanner;
+import java.util.Scanner;
 
 	public class Palindrome {
 		public static void main(String args[])  
