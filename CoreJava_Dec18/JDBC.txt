@@ -1,0 +1,17 @@
+Connection - is used to connect our application to DB
+-> load the driver relavent to DB.
+-> establish the connection by passing db url and credentials
+-> singleTon object: 
+single object to whole application
+-> private constructor.
+-> we need a public static method which it should return instance of that class.
+
+Statement - is used to execte the queries, this will be execute every load 
+PreparedStatement- is used to execte the queries, will load only once and execute multiple times
+
+ResultSet- is nothing but an grid to store the table data.
+
+executeUpdate()- will be called at insert,update,delete, except select statement
+-> return type will be int.
+executeQuery()- this is alone for select statement
+-> return type will be resultset
