@@ -44,7 +44,7 @@ class EmployeeBean1 implements Serializable {
 		oos.writeObject(emp1);
 		System.out.println("Serialization is done");
 	} 
-	public static ArrayList<EmployeeBean1> readObjectFile() throws Exception {
+	public ArrayList<EmployeeBean1> readObjectFile() throws Exception {
 		FileInputStream fis = new FileInputStream("EmployeeBeanT.txt");
 		ObjectInputStream ois = new ObjectInputStream(fis);
 		Object o = ois.readObject();
@@ -92,7 +92,8 @@ class EmployeeBean1 implements Serializable {
 		if(emp1 != null) {
 			for(EmployeeBean1 a2:emp1) {
 				if(a2!=null && a2.employeeId == w){
-					a2=null;
+//					a2=null;
+					emp1.remove(a2);
 //					System.out.println("Id="+a2.employeeId +" "+"Name="+a2.employeeName+" "+"Salary="+a2.employeeSalary +" "+"Mobile no="+a2.employeeMobileNo);
 					count++;
 					break;
