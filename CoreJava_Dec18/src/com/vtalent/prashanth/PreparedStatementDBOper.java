@@ -1,64 +1,73 @@
 package com.vtalent.prashanth;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-public class DBOperations {
+import com.sun.corba.se.spi.legacy.connection.GetEndPointInfoAgainException;
+
+public class PreparedStatementDBOper {
+	
 	Connection connection;
-	Statement statement;
+	PreparedStatement preparedStatement;
 	ResultSet resultSet;
 	
-	public DBOperations() {
+	public PreparedStatementDBOper() {
 		connection = MySQLConnection.getInstance();
 	}
 	
-	public int insertDataWithStatement(EmployeeBean2 employee) {
+	public int insertDataWithPreparedStatement(EmployeeBean2 employee) {
 		int result = 0;
-		String query = "insert into Employee_table values("+employee.getEmployeeId()+",'"+employee.getEmployeeName()+"',"+employee.getEmployeeSalary()+","+employee.getEmployeeMobileNo()+")";
+		String query = "insert into Employee_table values(?,?,?,?)";
 		try {
-			statement = connection.createStatement();
-			result = statement.executeUpdate(query);
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, employee.getEmployeeId());
+			preparedStatement.setString(2, employee.getEmployeeName());
+			preparedStatement.setDouble(3, employee.getEmployeeSalary());
+			preparedStatement.setLong(4, employee.getEmployeeMobileNo());
+			result = preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
 	
-	public int deleteDataWithStatement(EmployeeBean2 employee) {
+	public int deleteDataWithPreparedStatement(EmployeeBean2 employee) {
 		int result1 = 0;
-		String query = "delete from Employee_table where employeeName='"+employee.getEmployeeName()+"'";
+		String query = "delete from Employee_table where employeeName=?";
 		try {
-			statement = connection.createStatement();
-			result1 = statement.executeUpdate(query);
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(2, employee.getEmployeeName());
+			result1 = preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return result1;
-		
+		return result1 ;
 	}
 	
-	public int updateDataWithStatement(EmployeeBean2 employee) {
+	public int updateDataWithPreparedStatement(EmployeeBean2 employee) {
 		int result2 = 0;
-		String query = "update Employee_table set employeeName='"+employee.getEmployeeName()+"' where employeeId="+employee.getEmployeeId();
+		String query = "update Employee_table set employeeName=? where employeeId=?";
 		try {
-			statement = connection.createStatement();
-			result2 = statement.executeUpdate(query);
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(2, employee.getEmployeeName());
+			preparedStatement.setInt(1, employee.getEmployeeId());
+			result2 = preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return result2;
-		
+		return result2 ;
 	}
 	
-	public EmployeeBean2 searchDataWithStatement(EmployeeBean2 employee) {
+	public EmployeeBean2 searchDataWithPreparedStatement(EmployeeBean2 employee) {
 		EmployeeBean2 emp = null;
-		String query = "select * from Employee_table where employeeId="+employee.getEmployeeId();
+		String query = "select * from Employee_table where employeeId=?";
 		try {
-			statement = connection.createStatement();
-			resultSet = statement.executeQuery(query);
+			preparedStatement = (PreparedStatement) connection.createStatement();
+			resultSet = preparedStatement.executeQuery(query);
 			while(resultSet.next()) {
 				emp = new EmployeeBean2();
 				emp.setEmployeeId(resultSet.getInt(1));
@@ -74,7 +83,7 @@ public class DBOperations {
 	
 	public static void main(String[] args) {
 		
-		DBOperations dbOperations = new DBOperations();
+		PreparedStatementDBOper preparedStatementDBOper = new PreparedStatementDBOper();
 		Scanner sc = new Scanner(System.in);
 		for(;;) {
 			System.out.println("Please select your choice: \r\n" +
@@ -99,7 +108,7 @@ public class DBOperations {
 				System.out.println("Enter Mobile Number: ");
 				employee.setEmployeeMobileNo(sc.nextLong());
 				
-				int result = dbOperations.insertDataWithStatement(employee);
+				int result = preparedStatementDBOper.insertDataWithPreparedStatement(employee);
 				if(result > 0) {
 					System.out.println("Employee Data Inserted Successfully.");
 				}else {
@@ -110,7 +119,7 @@ public class DBOperations {
 				
 				System.out.println("Enter Employee Name to Delete: ");
 				employee.setEmployeeName(sc.next());
-				int result1 = dbOperations.deleteDataWithStatement(employee);
+				int result1 = preparedStatementDBOper.deleteDataWithPreparedStatement(employee);
 				if(result1>0) {
 					System.out.println("Employee Data Deleted Successfully.");
 				}else {
@@ -123,7 +132,7 @@ public class DBOperations {
 				employee.setEmployeeName(sc.next());
 				System.out.println("Enter Employee Id for Upadating Name: ");
 				employee.setEmployeeId(sc.nextInt());
-				int result2 = dbOperations.updateDataWithStatement(employee);
+				int result2 = preparedStatementDBOper.updateDataWithPreparedStatement(employee);
 				if(result2>0) {
 					System.out.println("Employee Data Updated Successfully.");
 				}else {
@@ -134,7 +143,7 @@ public class DBOperations {
 				
 				System.out.println("Enter Employee Id to be Search: ");
 				employee.setEmployeeId(sc.nextInt());
-				EmployeeBean2 emp1 = dbOperations.searchDataWithStatement(employee);
+				EmployeeBean2 emp1 = preparedStatementDBOper.searchDataWithPreparedStatement(employee);
 				if(null != emp1) {
 					System.out.println("Employee Data Searched Successfully.");
 					System.out.println("employeeId \t employeeName \t employeeSalary \t employeeMobileNo");
@@ -150,6 +159,6 @@ public class DBOperations {
 			
 			}
 		}
-		
 	}
+
 }
