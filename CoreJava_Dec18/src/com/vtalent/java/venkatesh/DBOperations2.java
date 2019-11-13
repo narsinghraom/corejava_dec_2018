@@ -42,7 +42,7 @@ public class DBOperations2 {
 	}
 	public int updateDataWithPreparedStatement(EmployeeBean2 employee) {
 		int result=0;
-		String query="update employee_table set employeeName='"+employee.getEmployeeName()+"'+where employeeId="+employee.getEmployeeId();
+		String query="update employee_table set employeeName='"+employee.getEmployeeName()+"' where employeeId="+employee.getEmployeeId();
 		try {
 			pstatement=connection.prepareStatement(query);
 			result=pstatement.executeUpdate(query);
@@ -94,18 +94,18 @@ public class DBOperations2 {
 			System.out.println("delete operation was unsuccessfull");
 		}break;
 		case 3:
-		System.out.println("enter the name to be updated");
-		employee.setEmployeeName(s.next());
-		System.out.println("enter the id for updateing name");
-		employee.setEmployeeId(s.nextInt());
-		DBOperations2 dboperations2=new DBOperations2();
-		int result2=dboperations2.updateDataWithPreparedStatement(employee);
-		if(result2>0) {
-			System.out.println("employee data updated");
-		}else {
-			System.out.println("update was unsuccessfull");
-		}break;
+			System.out.println("enter the name to be updated");
+			employee.setEmployeeName(s.next());
+			System.out.println("enter specific id to update name");
+			employee.setEmployeeId(s.nextInt());
+			DBOperations2 dboperations2=new DBOperations2();
+			int result2=dboperations2.updateDataWithPreparedStatement(employee);
+			if(result2>0) {
+				System.out.println("data updated successfully");
+			}else {
+				System.out.println("update operation was unsuccessfull");
+			}break;
+			}
+		}
 	}
-	}
-	}
-	}
+}
