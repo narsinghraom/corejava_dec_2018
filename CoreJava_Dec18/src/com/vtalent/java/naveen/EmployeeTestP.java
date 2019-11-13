@@ -76,12 +76,14 @@ public class EmployeeTestP  {
 					}
 					break;
 				}
-			} else
+			} else {
+				System.out.println("please enter valid input option(between 1-6)");
+			}
 			System.out.println("do you want to continue [y/n]");
 			s = sc.next();
 		} while (s.equals("y"));
 		System.out.println("application terminated:::::: ");
-				System.out.println("please enter valid input option(between 1-6)");
+		
 
 	}
 

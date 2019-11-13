@@ -10,7 +10,6 @@ public class EmployeeExecutionP implements Serializable {
 
 	static int sa = sc.nextInt();
 	public static EmployeeBeanP emp[] = new EmployeeBeanP[sa];
-
 	//  /* In this method follows as insert the employee data into the array */
 	public static int insert(EmployeeBeanP employee) {
 
