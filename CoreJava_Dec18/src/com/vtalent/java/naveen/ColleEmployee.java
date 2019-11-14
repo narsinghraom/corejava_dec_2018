@@ -59,15 +59,18 @@ public class ColleEmployee {
 					String ap1 = "y";
 					String ap = sc.next();
 					if (ap1.equals(ap)) {
-						System.out.println("Application terminated by you");
+						System.out.println("Application terminated by   you");
 						System.exit(0);
 					}
 					break;
 				}
-			} else
+			} else {
 				System.out.println("please enter valid input option(between 1-5)");
+		}
 			System.out.println("do you want to continue [y/n]");
 			s = sc.next();
+	
+			
 		} while (s.equalsIgnoreCase("y"));
 		System.out.println("application terminated:::::: ");
 
