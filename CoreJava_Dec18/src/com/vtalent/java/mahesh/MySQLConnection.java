@@ -12,10 +12,11 @@ public class MySQLConnection {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-		}
-			try{
+		} 
+		try{
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/vtalent9","root","root");
-		} catch (SQLException e1) {
+		}
+		catch (SQLException e1) {
 			e1.printStackTrace();
 		}
 	}

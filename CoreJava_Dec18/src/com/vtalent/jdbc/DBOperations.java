@@ -75,7 +75,6 @@ public class DBOperations {
 		return result;
 	}
 	
-	
 	public int insertDataWithStatement(EmployeeBean employeeBean) {
 		int result = 0;
 		String query = "insert into employee values("+employeeBean.getEmployeeId()+",'"+employeeBean.getEmployeeName()+"',"+employeeBean.getEmployeeSalary()+")";
@@ -124,8 +123,8 @@ public class DBOperations {
 		 * dbOperations.insertDataWithPreparedStatement(employee); if(result>0) {
 		 * System.out.println("Insert Sucessfully"); }else {
 		 * System.out.println("Operation failed please try again"); }
-		 */
-
+		 
+*/
 	}
 
 }
