@@ -14,7 +14,7 @@ class CricketInnings {
         TeamB = sc.nextLine();
         System.out.println("welcome to ONEDAY innings");
 		}
-		public void FirstInnings() {
+		public void FirstInnings() throws  OversException{
 			System.out.println("First innings by teamA");
 			System.out.println("Is there is raining yes/no"); 
 			String raining=sc.nextLine();

@@ -11,8 +11,7 @@ import java.util.Scanner;
 
 import com.sun.corba.se.spi.legacy.connection.GetEndPointInfoAgainException;
 
-public class PreparedStatementDBOper {
-	
+public class PreparedStatementDBOper {    
 	Connection connection;
 	PreparedStatement preparedStatement;
 	ResultSet resultSet;

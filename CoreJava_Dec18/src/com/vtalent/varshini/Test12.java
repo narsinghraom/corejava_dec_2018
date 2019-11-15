@@ -83,8 +83,9 @@ class EmployeeBean implements Serializable {
     	    			  empabc.remove(ab2);
     	    		  }
     	    	  }
+    	      }
     	      writeObjectFile(empabc);
-	    	}
+	    	
     	}
     	  
     				
