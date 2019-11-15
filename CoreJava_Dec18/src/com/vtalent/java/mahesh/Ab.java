@@ -1,5 +1,4 @@
 package com.vtalent.java.mahesh;
-
 public interface Ab {
 	public static final float pi=3.14f;
 	public int k=0;
@@ -23,4 +22,7 @@ public interface Ab {
 		public void function(){
 		System.out.println(k);
 		}
-}
+
+		
+	}
+	
