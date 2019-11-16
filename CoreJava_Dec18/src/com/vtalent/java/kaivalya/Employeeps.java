@@ -1,18 +1,15 @@
 package com.vtalent.java.kaivalya;
 
-public class Employee 
+public class Employeeps 
 {
 private String empname;
 private int empid;
-private double empsalary;
-{
-	
-}
+private  double empsalary;
 public String getEmpname() {
 	return empname;
 }
 public void setEmpname(String empname) {
-	this.empname= empname;
+	this.empname = empname;
 }
 public int getEmpid() {
 	return empid;
