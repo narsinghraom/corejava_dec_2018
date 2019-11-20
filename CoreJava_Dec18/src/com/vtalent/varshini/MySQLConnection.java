@@ -1,9 +1,6 @@
 package com.vtalent.varshini;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
+import java.sql.*;
 
 public class MySQLConnection {
 	private static MySQLConnection mysqlconnection=new MySQLConnection();
@@ -11,23 +8,24 @@ public class MySQLConnection {
 	private MySQLConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			try {
-				connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/vtalentDB","root","root");
-			} catch (SQLException e) {
-				
-				e.printStackTrace();
-			}
-		} catch (ClassNotFoundException e) {
-			
+		} catch (ClassNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/vtalent","root","root");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 	public static Connection getInstance() {
 		return mysqlconnection.connection;
-		}
+	}
 	public static void main(String[] args) {
-		System.out.println("mysqlconnection.getInstance()");
+		System.out.println(MySQLConnection.getInstance());
 	}
 	
+
+
 }
