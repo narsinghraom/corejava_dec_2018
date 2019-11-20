@@ -7,7 +7,7 @@ import java.util.Random;
 public class Cricket {
 	static Scanner in=new Scanner(System.in);
 	static String a,b;
-	static float e,h;
+	static float e,h,o,f,x,g;
 	static int z;
 	Random r=new Random();
 	static int l=0;
@@ -24,19 +24,22 @@ public class Cricket {
 			throw new Over("Not valid number of overs");
 			}catch(Over e){
 				System.out.println(e);
-			}
+			}System.out.println("Please enter the overs once again:");
+			 Exceptionhandle();
 		 }
 		 else{
-			 double ap = Math.abs(o - Math.floor(o));
-			    if (ap > 0.5&&ap<=0.6){
+			 	double ap = Math.abs(o - Math.floor(o));
+			    if (ap>0.5&&ap<=0.6){
 			        o= Math.round(o);
 			        System.out.println(o);
 			    }
-			  if (ap>0.6){
+		else  if (ap>0.6){
 				  try{
-			throw new Over("An over should have only 6 balls"); 
-				  }catch(Over e1){
+					  throw new Over("An over should have only 6 balls"); 
+				  	}catch(Over e1){
 					  System.out.println(e1);
+					  System.out.println("Please enter the overs once again:");
+					  Exceptionhandle();
 				  }
 		 }
 		 }
@@ -48,7 +51,8 @@ public class Cricket {
 				}catch(Over e2){
 					System.out.println(e2);
 				}
-			} 
+			} System.out.println("Please enter the overs once again less than 40:");
+			 Exceptionhandle();
 		 }
 		 public static void tie()throws Over{
 			 try{
@@ -62,7 +66,17 @@ public class Cricket {
 			 throw new Over("Runs Should not exceed 6 more than from first team score");
 			 }catch(Over e4){
 				 System.out.println(e4);
-			 }
+			 }System.out.println("please enter run rate once again:");
+			 float rr=in.nextFloat();
+			 g=rr;
+		 }
+	 }
+	 public static void Exceptionhandle(){
+		 o=in.nextFloat();
+		 if(l==0){
+			 f=o;
+		 }else if(l==1){
+			 x=o;
 		 }
 	 }
 	 public void rain() throws Over{
@@ -82,7 +96,7 @@ public class Cricket {
 						FirstInnings();
 						}else if(l==1)
 						{
-							e=(int)((75*e)/100);
+							 e=(int)((75*e)/100);
 							System.out.println("First teams score due to rain based on DLS method is:"+(int)e);
 							SecondInnings();
 						}
@@ -100,8 +114,8 @@ public class Cricket {
 		b=in.next();
 		System.out.println("Welcome to ODI between\t "+a+"\tvs\t"+b);
 		System.out.println("First Innings by"+"  "+a);
-		System.out.println("Ente the number of overs:");
-		float f=in.nextFloat();
+		System.out.println("Enter the number of overs:");
+		f=in.nextFloat();
 		OverException.ov(f);
 		if(fortyoversflag==true){
 			OverException.ri(f);
@@ -123,20 +137,22 @@ public class Cricket {
 		
 		System.out.println("Second Innings by"+"  "+b);
 		System.out.println("Enter the number of overs:");
-		float x=in.nextFloat();
+		x=in.nextFloat();
 		OverException.ov(x);
 		if(fortyoversflag==true){
 			OverException.ri(x);
 			}
 	System.out.println("Enter the run rate:");
 	System.out.println("Run rate should not exceed more than 2 decimal points of:"+(e/x));
-	float g=in.nextFloat();
+	g=in.nextFloat();
 	h=(int) (x*g);
 	if(x<50&&h<e){
 		z=10;
 	}
 	else if(x<=50&&(h<(e+6)&&h>e)){
 		z=r.nextInt(9);
+	}if(h>(e+6)){
+		OverException.runs();
 	}
 	System.out.println("The score of\t"+ b +"\tteam is:"+(int)h+"/"+z);
 	l++;
@@ -151,15 +167,11 @@ public class Cricket {
 			}
 		if(e>h){
 			System.out.println(a+"  "+"Won the match by"+" "+(e-h)+" "+"runs");
-		}else if(h>e&&h<=(e+6)){
+		}else if(h>e&&h<(e+7)){
 			System.out.println(b+"  "+"Won the match by"+" "+(h-e)+" "+"runs");
 		}
-			else if(h>(e+6)){
-				OverException.runs();
-			}
 		 if(e==h){
 			OverException.tie();
 		}
-		
 	}
 }
