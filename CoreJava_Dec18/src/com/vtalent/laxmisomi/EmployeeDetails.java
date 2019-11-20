@@ -1,280 +1,224 @@
-
 package com.vtalent.laxmisomi;
+
+import java.io.*;
+
 
 import java.util.*;
 
-class EmployeeBean {
-	private int EmployeeId;
-	private String EmployeeName;
-	private double EmployeeSalary;
-	private long EmployeeMobileNo;
+class EmployeeBean implements Serializable {
 
-	static EmployeeBean[] empArray;
+	private int empid;
+	private double empsal;
+	private long empmobileno;
+	private String empname;
+	static ArrayList<EmployeeBean> empabc = new ArrayList<EmployeeBean>();
 	static Scanner sc = new Scanner(System.in);
-
-	
-	public int getEmployeeId() {
-		return EmployeeId;
+	public String getEmpname() {
+		return empname;
 	}
-
-
-	public void setEmployeeId(int employeeId) {
-		EmployeeId = employeeId;
-	}
-
-
-	public String getEmployeeName() {
-		return EmployeeName;
-	}
-
-
-	public void setEmployeeName(String employeeName) {
-		EmployeeName = employeeName;
-	}
-
-
-	public double getEmployeeSalary() {
-		return EmployeeSalary;
-	}
-
-
-	public void setEmployeeSalary(double employeeSalary) {
-		EmployeeSalary = employeeSalary;
-	}
-
-
-	public long getEmployeeMobileNo() {
-		return EmployeeMobileNo;
-	}
-
-
-	public void setEmployeeMobileNo(long employeeMobileNo) {
-		EmployeeMobileNo = employeeMobileNo;
-	}
-
-	
-    // to insert employee data
-	
-	public void InsertData() {
-
-		EmployeeBean emp;
-		int result = 0;
-		System.out.println("please enter no of employeees to insert into Array");
-		int length = sc.nextInt();
-		empArray = new EmployeeBean[length];
-
-// creating for loop to entire the employee details
-		for (int i = 0; i < empArray.length; i++) {
-			// creating object for employeebean class reference
-			emp = new EmployeeBean();
-			System.out.println("please enter employee id");
-			int id = sc.nextInt();
-			// to store the given id in object which is already given setter methods
-			emp.setEmployeeId(id);
-
-			System.out.println("please enter employee name");
-			// to create space for antother word like lakshmi somisetty
-			sc.nextLine();
-			String name = sc.nextLine();
-			emp.setEmployeeName(name);
-
-			System.out.println("please enter employee salary ");
-			double salary = sc.nextDouble();
-			emp.setEmployeeSalary(salary);
-
-			System.out.println("please Enter Employee MobileNo");
-			long Mnumber = sc.nextLong();
-			emp.setEmployeeMobileNo(Mnumber);
-
-			empArray[i] = emp;
-
-		}
-
-// to print given inputs data
-
-		for (int i = 0; i < empArray.length; i++) {
-			emp = empArray[i];
-			System.out.println("name=" + emp.getEmployeeName() + "  " + "Id=" + emp.getEmployeeId() + "    " + "salary="
-					+ emp.getEmployeeSalary() + "  " + "Mobile number" + emp.getEmployeeMobileNo());
-		}
-	}
-
-	// to delete employee data 
-
-	public void delete() {
-		System.out.println("Enter an employeeId to be delete. ");
-		int w = sc.nextInt();
-	    int i, count=0;
-		for(i=0; i<empArray.length; i++) {
-			if(empArray[i]!=null && empArray[i].EmployeeId == w){
-				empArray[i]=null;
-				count++;
-				break;
-			}
-		}
-		if(count == 0) {
-			System.out.println("Employee Id Not Found..!!");
-		} else {
-			System.out.println("Employee id Deleted Successfully..!!");
-			System.out.println("Now the New Array is : ");
-			for(i=0; i<empArray.length; i++) {
-				if(empArray[i] != null) {
-					EmployeeBean ae2 = (EmployeeBean)empArray[i];
-					System.out.println("Id="+ae2.EmployeeId +" "+"Salary="+ae2.EmployeeSalary +" "+"Mobile no="+ae2.EmployeeMobileNo);
-				}
-			}
-		}
+	public void setEmpname(String empname) {
+		this.empname = empname;
 	}
 	
-	 
+   public int getEmpid() {
+		return empid;
+	}
+	public void setEmpid(int empid) {
+		this.empid = empid;
+	}
+	public double getEmpsal() {
+		return empsal;
+	}
+	public void setEmpsal(double empsal) {
+		this.empsal = empsal;
+	}
+	public long getEmpmobileno() {
+		return empmobileno;
+	}
+	public void setEmpmobileno(long empmobileno) {
+		this.empmobileno = empmobileno;
+	}
+
+	private void  writeObjectFile(ArrayList<EmployeeBean> empabc2) throws Exception{
+	 //File file=new File("serial.txt");
+	 FileOutputStream fos=new FileOutputStream("serial.txt");
+	 ObjectOutputStream oos=new ObjectOutputStream(fos); 
+	 oos.writeObject(empabc2);
+     System.out.println("Serialization is done"); //oos.close(); 
+	}
 	  
-	
-	  //to search employee details with the help of name
-	
-	  public void searchName() {
-		  
-	  System.out.println("please enter the name to be searched"); 
-	  String s=sc.next();
-	  for(int i=0;i<=empArray.length-1;i++) {
-		  if(empArray!=null) {
-			  EmployeeBean abc=empArray[i];
-			  if(abc!=null) { 
-			  if(s.equals (abc.getEmployeeName())) {
-	  System.out.println("EmployeeId=" + abc.getEmployeeId() + "EmployeeName=" +abc.getEmployeeName() + "EmployeeSalary=" + abc.getEmployeeSalary() + "EmployeeMobileNo=" + abc.getEmployeeMobileNo());
-	  
-			  }
-			  else {
-	  System.out.println("enter valid name");
-	  } 
-			  }
-			  } 
-		  }
-	  }
-	  
-	 
-	 
-	  
-	  //to search employee details with id
-	
-	  public void search() {
-			System.out.println("Enter an employeeId to be search: ");
-			int x = sc.nextInt();
-			for (int i=0;i<empArray.length;i++) {
-				if(empArray[i] != null) {
-					EmployeeBean ae3 = (EmployeeBean)empArray[i];
-					if(empArray[i].EmployeeId == x) {
-						System.out.println("Id="+ae3.EmployeeId +" "+"Salary="+ae3.EmployeeSalary +" "+"Mobile no="+ae3.EmployeeMobileNo);
-						System.out.println("Given employeeId is in the array. ");
-						return;
-					}
-				}
-			}
-			System.out.println("Employee id not found. ");
-		}
-		
-	  // to update employee details
-	  
-	  public void updateData() {
-		  if(empArray !=null)
-		  {
-			  System.out.println("enter your employee id which is need to update");
-			  int j=sc.nextInt();
-			  for(int i=0; i<empArray.length; i++) {
-				EmployeeBean g=empArray[i];
-				if(g !=null)
-				{
-					if (j==(g.getEmployeeId())) {
-						System.out.println("Id="+g.EmployeeId +" "+"Salary="+g.EmployeeSalary +" "+"Mobile no="+g.EmployeeMobileNo + "Employee Name=" + g.EmployeeName);
-					
-					 
-					System.out.println("Do you want to update the id" +g.getEmployeeId() +"yes/no");
-					String l=sc.next();
-					if(l.equals ("yes")) {
-					System.out.println("enter id to update ");
-						g.setEmployeeId(sc.nextInt());
-						
-					}
-					
-					System.out.println("Do you want to update employee name"+g.getEmployeeName() + " yes/no");
-					String d=sc.next();
-					if(d.equals ("yes")) {
-						System.out.println("enter employee name to update");
-						g.setEmployeeName(sc.next());
-					}
-					
-					System.out.println("Do you want to update employee salary" +g.getEmployeeSalary() +" yes/no");
-					String e=sc.next();
-					if(e.equals("yes")) {
-						System.out.println("enter employee salary to update");
-						g.setEmployeeSalary(sc.nextDouble());
-					}
-					
-					System.out.println("Do you want to updtae empployee mobile number"+g.getEmployeeMobileNo() +" yes/no");
-					String f=sc.next();
-					if(f.equals("yes")) {
-						System.out.println("enter employee mobile number to update");
-						g.setEmployeeMobileNo(sc.nextLong());
-					}
-					}
-					
-					}
-				
-			  }
-		  }
-	  }
-        
-		
-		
+         //****insert data*****////
+	            public void insertdata() throws Exception {
+	            EmployeeBean  emp=new EmployeeBean();
+		    	System.out.println("enter employee id ");
+		    	emp.setEmpid(sc.nextInt());
+		    	System.out.println("enter employee salary");
+		    	emp.setEmpsal(sc.nextInt());
+		    	System.out.println("enter employee mobile number");
+		    	emp.setEmpmobileno(sc.nextLong());
+		    	System.out.println("enter employee name");
+		    	emp.setEmpname(sc.next());
+		    	empabc.add(emp);
+		    	    
+		    writeObjectFile(empabc);
+		    readObjectFile();
+        }
+	            
+	             public static ArrayList<EmployeeBean> readObjectFile() throws Exception { 
+	           	 FileInputStream fis=new FileInputStream("serial.txt"); 
+	           	 ObjectInputStream ois=new ObjectInputStream(fis); 
+	           	 Object o=ois.readObject();
+	           	 ArrayList<EmployeeBean> emp=(ArrayList<EmployeeBean>)o; 
+	           	// for(int i=0;i<=array.length-1;i++)
+	           	 return emp;
+	           	 }
+	    //*******delete data**************//
+       public void deletedata() throws Exception {
+    	   ArrayList<EmployeeBean> empabc=readObjectFile();
+    	   System.out.println("enter the deleteted data information");
+    	      int d=sc.nextInt();
+    	      for(EmployeeBean ab2:empabc) {
+    	    	  if(empabc !=null) {
+    	    		  if(ab2 !=null && ab2.empid==d) {
+    	    			  empabc.remove(ab2);
+    	    		  }
+    	    	  }
+    	      writeObjectFile(empabc);
+	    	}
+    	}
+    	  
+    				
+      ////**************search data****************//
+       public void searchdata() throws Exception {
+    	  
+    	ArrayList<EmployeeBean> empabc = readObjectFile();
 
-	  // To print employee details 
-		public void printAll() {
-			for(int i=0;i<empArray.length;i++) {
-				if(empArray[i] != null) {
-					EmployeeBean ae4 = (EmployeeBean)empArray[i];
-					System.out.println("Id="+ae4.EmployeeId +" "+"Salary="+ae4.EmployeeSalary +" "+"Mobile no="+ae4.EmployeeMobileNo+ "EmployeeName ="+ae4.EmployeeName);
-				}
-			}
-			System.out.println("All the employee details printed successfully. ");
-		}
-			
-	}
+   		System.out.println("Enter an employeeId details");
+   		int x = sc.nextInt();
+   		//for (int i=0;i<empbean.length;i++) {
+   	        for(EmployeeBean ab3:empabc)				//EmployeeBean  ab3 = (EmployeeBean)empbean;
+   				if(ab3 !=null && ab3.empid== x) {
+   					System.out.println("Id="+ab3.empid +" "+"Salary="+ab3.empsal +" "+"Mobile no="+ab3.empmobileno);
+   					System.out.println("Given employeeId is in the array. ");
+   					return;
+   				}
+   			
+   		
+       System.out.println("Employee id not found. ");
+       }
+       
+       public void searchempdata() throws Exception {
+    	   
+    	   ArrayList<EmployeeBean> empabc = readObjectFile();
 
-	public class EmployeeDetails {
+      		System.out.println("Enter an employeename details");
+      		String s = sc.nextLine();
+      		//for (int i=0;i<empbean.length;i++) {
+      			if(empabc != null) {
+      				//EmployeeBean ab4 = (EmployeeBean)empbean[i];
+      				for(EmployeeBean ab4:empabc)
+                   	if(s.equals(ab4.getEmpname())) {
+      					System.out.println("Id="+ab4.empid +" "+"Salary="+ab4.empsal +" "+"Mobile no="+ab4.empmobileno+"empname="+ab4.empname);
+      					System.out.println("Given employeename is in the array. ");
+      					return;
+      				}
+      			}
+      		
+      		System.out.println("Employee id not found. ");
+      	}
+       public void updatedata() throws Exception {
+    	   ArrayList<EmployeeBean> empabc = readObjectFile();
 
-		public static void main(String[] args) {
-			
-			EmployeeBean a = new EmployeeBean();
-			for(;;) {
-				Scanner s = new Scanner(System.in);
-				System.out.println("Please select your choice: \r\n" +
-						"1. insert Into Array.\r\n" + 
-						"2. delete from my Array.\r\n" + 
-						"3. Search an employee from my Array.\r\n" + 
-						"4. Search All the employees from my Array with the help of name.\r\n" +
-						"5. update All the employees from my Array .\r\n" +
-						"6. Print All the employees from my Array.\r\n" + 
-						"7. Exit.");
-				int scan = s.nextInt();
-				switch(scan) {
-				case 1: a.InsertData();
-				break;
-				case 2: a.delete();
-				break;
-				case 3: a.search();
-				break;
-				case 4: a.searchName();
-				break;
-				case 5: a.updateData();
-				break;
-		        case 6: a.printAll();
-				break;
-				case 7: 
-				System.exit(0);
-				default: System.out.println("Please give a valid Input: ");
-				
-			 
-				
-				}
-			}
-		}
-	}
+    	   if(empabc !=null) {
+    		   System.out.println("if u want to update the employee details");
+    		   int b = sc.nextInt();{
+    		  // for (int i=0;i<empbean.length;i++) 
+    			   for(EmployeeBean ab5:empabc)
+                     // EmployeeBean ab5 = empbean[i];
+                        if(ab5 != null) {
+                        	if(b==(ab5.getEmpid())) {
+                     
+           		      	System.out.println("Id="+ab5.empid +" "+"Salary="+ab5.empsal +" "+"Mobile no="+ab5.empmobileno);
+      					
+      				} 
+                    System.out.println("Do u want to update the empid details yes/no");
+                    String n=sc.next();
+                    if(n.equals("yes")) {
+                    	System.out.println("enter id to update");
+                    	ab5.setEmpid(sc.nextInt());
+                    }
+                    System.out.println("Do u want to update the empsal details yes/no");
+                    String n1=sc.next();
+                    if(n1.equals("yes")) {
+                    	System.out.println("employee salary to update");
+                    	ab5.setEmpsal(sc.nextDouble());
+                    }
+                    System.out.println("Do u want to update the empmobile details yes/no");
+                    String n2=sc.next();
+                    if(n2.equals("yes")) {
+                    	System.out.println("enter mobile details to update");
+                    	ab5.setEmpmobileno(sc.nextLong());
+                    }
+                    System.out.println("Do u want to update the emp details yes/no");
+                    String n3=sc.next();
+                    if(n3.equals("yes")) {
+                    	System.out.println("enter id to update");
+                    	ab5.setEmpname(sc.nextLine());
+                    }
+    	   }
+    		   }
+    	   }
+       }
+       
+       
+   	///////***********print data***********/////
+   	public void printAll() throws Exception{
+   		ArrayList<EmployeeBean> empabc = readObjectFile();
+   		
+   		//for(int i=0;i<empbean.length;i++) 
+   		for(EmployeeBean ab4:empabc)
+               if(empabc != null) {
+   				//EmployeeBean ab4 = (EmployeeBean)empbean[i];
+   				System.out.println("Id="+ab4.empid +" "+"Salary="+ab4.empsal +" "+"Mobile no="+ab4.empmobileno +"empname="+ab4.empname);
+   			}
+   		
+   		System.out.println("employee details printed successfully. ");
+   	}	 
+   	}
+       
+ 
+   	public class EmployeeDetails {
+
+   		public static void main(String[] args) throws Exception {
+   			EmployeeBean eb=new EmployeeBean();
+   			for(;;) {
+   				Scanner sc = new Scanner(System.in);
+   				System.out.println("Please select your choice: \r\n" +
+   						"1. insert Into Array.\r\n" + 
+   						"2. delete from my Array.\r\n" + 
+   						"3. Search an employee from my Array.\r\n" +
+   						"4. serch emp.\r\n"+
+   						"5. update emp.\r\n"+
+   						"6. Print All the employees from my Array.\r\n" + 
+   						"7. Exit.");
+   				int ch = sc.nextInt();
+   				switch(ch) {
+   				case 1: eb.insertdata();
+   				break;
+   				case 2: eb.deletedata();
+   				break;
+   				case 3: eb.searchdata();
+   				break;
+   				case 4: eb.searchempdata();
+   				break;
+   				case 5:eb.updatedata();
+   				break;
+   				case 6: eb.printAll();
+   				break;
+   				default: System.out.println("Please give a valid Input: ");
+   				
+   				}
+   			}
+   		}
+
+   	}

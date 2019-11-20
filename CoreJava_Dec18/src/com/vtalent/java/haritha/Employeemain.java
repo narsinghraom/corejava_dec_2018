@@ -1,12 +1,15 @@
 package com.vtalent.java.haritha;
-
+import java.io.*;
 import java.util.*;
 
-class EmployeeBean2 {
+class EmployeeBean2 implements Serializable{
+	private static final int EmployeeBean2 = 0;
 	private int EmployeeId;
 	private double EmployeeSalary;
 	private long EmployeeMobileNo;
 	private String EmployeeName;
+	static ArrayList<EmployeeBean2> empbean=new ArrayList<EmployeeBean2>();
+
 
 	public void setEmployeeId(int EId) {
 		this.EmployeeId = EId;
@@ -19,13 +22,10 @@ class EmployeeBean2 {
 	public void setEmployeeMobileNo(long EMobileNo) {
 		this.EmployeeMobileNo = EMobileNo;
 	}
-
-	
-	 public void setEmployeeName(String EName) {
+	public void setEmployeeName(String EName) {
 		 this.EmployeeName=EName; } 
 	 
-
-	public int getEmployeeId() {
+ 	public int getEmployeeId() {
 		return this.EmployeeId;
 	}
 
@@ -36,84 +36,91 @@ class EmployeeBean2 {
 	public long getEmployeeMobileNo() {
 		return this.EmployeeMobileNo;
 	}
-
-	
-	  public String getEmployeeName() {
+	public String getEmployeeName() {
 		  return this.EmployeeName; }
-	 
+
     static EmployeeBean2 emp;  
-	static EmployeeBean2[] empbean;
 	static Scanner in = new Scanner(System.in);
-
-	public int InsertData() {
+	
+	private void write(ArrayList<EmployeeBean2> empbean)throws Exception {
+		// TODO Auto-generated method stub
+		FileOutputStream fos=new FileOutputStream("serial.txt");
+	     ObjectOutputStream oos=new ObjectOutputStream(fos);
+	     oos.writeObject(empbean);
+	     System.out.println("Serialization is done");
+	}
+		public int InsertData()throws Exception{
 		int result = 0;
-		System.out.println("please enter no of employeees to insert into Array");
-		int n = in.nextInt();
-		empbean = new EmployeeBean2[n];
-		 
-		for (int i = 0; i <= empbean.length - 1; i++) {
-			EmployeeBean2 emp = new EmployeeBean2();
+			EmployeeBean2 emp1 = new EmployeeBean2();
 			System.out.println("please enter employee id");
-			emp.EmployeeId = in.nextInt();
-			
-			  System.out.println("please enter employee name"); 
-			  emp.EmployeeName=in.next();
-			 
+			emp1.EmployeeId = in.nextInt();
+			System.out.println("please enter employee name"); 
+			emp1.EmployeeName=in.next();
 			System.out.println("please enter salary ");
-			emp.EmployeeSalary = in.nextDouble();
+			emp1.EmployeeSalary = in.nextDouble();
 			System.out.println("EmployeeMobileNo");
-			emp.EmployeeMobileNo = in.nextLong();
-					if (empbean[i] == null) {
-						empbean[i] = emp;
-						System.out.println("inserted successfully in the array");
-						result++;
+			emp1.EmployeeMobileNo = in.nextLong();
+			empbean.add(emp1);
+			System.out.println(empbean);
+			for(EmployeeBean2 emp10:empbean) {
+			System.out.println("EmployeeId="+emp10.EmployeeId);
+			System.out.println("EmployeeName="+emp10.EmployeeName);
+			System.out.println("EmployeeSalary="+emp10.EmployeeSalary);
+			System.out.println("EmployeeMobileNo"+emp10.EmployeeMobileNo);
+			 System.out.println("inserted successfully in the array");
+		}
+		 write(empbean); read();
+		return result;	
+		}
 
-					}
-				}
-		return result;
+	public static ArrayList<EmployeeBean2> read() throws Exception{
+		// TODO Auto-generated method stub
+		FileInputStream fis=new FileInputStream("serial.txt");
+		ObjectInputStream ois=new ObjectInputStream(fis);
+		Object o=ois.readObject();
+		ArrayList<EmployeeBean2> arry = (ArrayList<EmployeeBean2>)o;
+		  for(EmployeeBean2 e:empbean) { 
+		  System.out.println("EmployeeId=" + e.getEmployeeId() + "EmployeeName="
+		 +e.getEmployeeName() + "EmployeeSalary=" + e.getEmployeeSalary() +
+		  "EmployeeMobileNo=" + e.getEmployeeMobileNo()); }
+		  System.out.println("deserialization is done");
+		 return arry;
 	}
 
-	public int deletedata() {
+	public void deletedata()throws Exception {
 		int result=0;
 		System.out.println("please enter the data to be deleted");
 		int n=in.nextInt();
+		ArrayList<EmployeeBean2> empbean=read();
 		if(empbean!=null) {
-			for(int i=0;i<=empbean.length-1;i++) {
-				emp=empbean[i];
-				if(emp!=null) {
-					if(n==emp.getEmployeeId()) {
-						empbean[i]=null;
-						result++;
-						System.out.println("deleted successfully");
-					}
-				}
-				
+			for(EmployeeBean2 emp:empbean) {
+//				emp=empbean[i];
+				if(emp!=null && n==emp.getEmployeeId()) {
+					empbean.remove(emp);
+						result++;	
+				}	
 			}
-			
-		}
-		return result;
+			if(result == 0) {
+				System.out.println("Employee id not found");
+			}else {
+				System.out.println("Employee id deleted successfully");
+				for(EmployeeBean2 emp15:empbean) {
+				System.out.println("EmployeeId=" + emp15.getEmployeeId() +
+						"EmployeeName=" +emp15.getEmployeeName() + 
+						 "EmployeeSalary=" + emp15.getEmployeeSalary() + 
+						 "EmployeeMobileNo=" + emp15.getEmployeeMobileNo());
+			}
+					}
+						}
+		write(empbean);
 	}
 
-	/*
-	 * public void searchdata() {
-	 * System.out.println("please enter the data to be searched"); int n =
-	 * in.nextInt(); for (int i = 0; i <= empbean.length - 1; i++) { if (empbean!=
-	 * null) { EmployeeBean2 emp= empbean[i]; if(emp!=null) { if (n ==
-	 * emp.getEmployeeId()) { System.out.println("EmployeeId=" + emp.getEmployeeId()
-	 * + "  " + "EmployeeSalary=" + emp.getEmployeeSalary() + "  " +
-	 * "EmployeeMobileNo=" + emp.getEmployeeMobileNo()); }else {
-	 * System.out.println("enter valid id ");
-	 * 
-	 * }
-	 * 
-	 * } } } }
-	 */		
-	public void searchdata() {
+	public void searchdata()throws Exception{
+		ArrayList<EmployeeBean2> empbean = read();
 	System.out.println("please enter the name to be searched");
 	String s=in.next();
-	for(int i=0;i<=empbean.length-1;i++) {
+	for(EmployeeBean2 emp:empbean) {
 		if(empbean!=null) {
-			EmployeeBean2 emp=empbean[i];
 			if(emp!=null) {
 				if(s.equals(emp.getEmployeeName())) {
 					System.out.println("EmployeeId=" + emp.getEmployeeId() +
@@ -131,9 +138,8 @@ class EmployeeBean2 {
 	public void searchdataletter() {
 		System.out.println("enter the letter to be searched");
 		char c=in.next().charAt(0);
-		for(int i=0;i<=empbean.length-1;i++) {
+		for(EmployeeBean2 emp:empbean) {
 			if(empbean!=null) {
-				EmployeeBean2 emp=empbean[i];
 				if(emp!=null) {
 					if(c==emp.getEmployeeName().charAt(0)) {
 						System.out.println("EmployeeId=" + emp.getEmployeeId() +
@@ -144,15 +150,16 @@ class EmployeeBean2 {
 					  else { 
 				 System.out.println("enter valid letter");
 				  }
-}}}
+}
 	}
-	public void updatedata() {
+		}
+			}
+	public void updatedata() throws Exception {
+		ArrayList<EmployeeBean2> empbean = read();
 		if(empbean!=null) {
-		
 		System.out.println("if u want to update employee details please enter employeeid: ");
 		int u=in.nextInt();
-		for(int i=0;i<=empbean.length-1;i++) {
-		EmployeeBean2 emp=empbean[i];	
+		for(EmployeeBean2 emp:empbean) {
 		 if(emp!=null) {
 					if (u == (emp.getEmployeeId())) {
 						System.out.println("EmployeeId=" + emp.getEmployeeId() +
@@ -183,28 +190,23 @@ class EmployeeBean2 {
 			System.out.println("enter mobile number to update");
 			emp.setEmployeeMobileNo(in.nextLong());
 		}
-		empbean[i]=emp;
 	}
 		 }
 		 
 		}
-		
+		write(empbean);
 		}
 		else {
 			System.out.println("Array empty, please insert data");
 		}
 	}
-	
-	
-		public void printdata() {
-
-		for (int i = 0; i <= empbean.length - 1; i++) {
-			if (empbean[i] != null) {
-				EmployeeBean2 emp=(EmployeeBean2)empbean[i];
+	public void printdata() throws Exception {
+			ArrayList<EmployeeBean2> empbean = read();
+		for (EmployeeBean2 emp:empbean) {
+		if (empbean != null) {
 				if(emp!=null) {
-			System.out.println("EmployeeId=" + emp.getEmployeeId() + "  "+"EmployeeName="+emp.getEmployeeName() + "EmployeeSalary="
+			System.out.println("EmployeeId=" + emp.getEmployeeId() + "  "+"EmployeeName="+emp.getEmployeeName()+" " + "EmployeeSalary="
 					+ emp.getEmployeeSalary() + "  " + "EmployeeMobileNo=" + emp.getEmployeeMobileNo());
-
 			}
 			}else {
 				System.out.println("insert the employee data first");
@@ -213,8 +215,7 @@ class EmployeeBean2 {
 	}
 	}
 public class Employeemain {
-
-	public static void main(String[] args) {
+public static void main(String[] args) throws Exception,NullPointerException {
 		EmployeeBean2 e = new EmployeeBean2();
 		Scanner sc = new Scanner(System.in);
 		for (;;) {

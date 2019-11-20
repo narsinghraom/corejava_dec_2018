@@ -1,13 +1,15 @@
 package com.vtalent.java.venkatesh;
 
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
-class EmployeeBean1{
+class EmployeeBean1 implements Serializable{
 	private String employeeName;
 	private int employeeId;
 	private double employeeSalary;
 	private long employeeMobileno;
-	static EmployeeBean1[] emparray;
+//	static EmployeeBean1[] emparray;
+	static ArrayList<EmployeeBean1> emparray=new ArrayList<EmployeeBean1>();
 	static Scanner s=new Scanner(System.in);
 	
 	public void setEmployeeName(String employeeName) {
@@ -34,116 +36,148 @@ class EmployeeBean1{
 	public long getEmployeeMobileno(){
 		return this.employeeMobileno;
 		}
-	public void insert() {
-				System.out.println("enter the no of employees to be stored");
-		int size=s.nextInt();
-				emparray=new EmployeeBean1[size];
-				for(int i=0;i<size;i++) {
+	public void writeObjectFile(ArrayList<EmployeeBean1> emparray) throws Exception {
+		File file=new File("EmployeeBean.txt");
+		FileOutputStream f=new FileOutputStream(file);
+		ObjectOutputStream os=new ObjectOutputStream(f);
+		os.writeObject(emparray);
+		System.out.println("serialization done");
+//		return emparray;
+	}
+	public static ArrayList<EmployeeBean1> readObjectFile() throws Exception {
+		FileInputStream fs=new FileInputStream("EmployeeBean.txt");
+		ObjectInputStream ois=new ObjectInputStream(fs);
+		Object o=ois.readObject();
+		ArrayList<EmployeeBean1> emparray=(ArrayList<EmployeeBean1>)o;
+	
+		return emparray;
+		}
+	public void insert() throws Exception {
+//		System.out.println("enter the no of employees to be stored");
+//		int size=s.nextInt();
+//		emparray=new EmployeeBean1[size];	
+//		for(int i=0;i<size;i++) {
 					EmployeeBean1 em=new EmployeeBean1();
-			System.out.println("please enter employeename");
-			s.nextLine();
-			employeeName=s.nextLine();
-			em.setEmployeeName(employeeName);
 			System.out.println("please enter your employeeid");
 			int id=s.nextInt();
 			em.setEmployeeId(id);
+			System.out.println("please enter employeename");
+			s.nextLine();
+			String employeeName=s.nextLine();
+			em.setEmployeeName(employeeName);
 			System.out.println("please enter your salary");
 			double salary= s.nextDouble();
 			em.setEmployeeSalary(salary);
 	        System.out.printf("Please enter your Mobilenumber");
 	        long Mobileno= s.nextLong();
 	        em.setEmployeeMobileno(Mobileno);
-	        emparray[i]=em;
-				}
-				for(int i=0;i<size;i++){
-					EmployeeBean1 em1=(EmployeeBean1)emparray[i];
-				System.out.println("employeeName="+em1.getEmployeeName()+""+"id="+em1.getEmployeeId()+""+"salary="+em1.getEmployeeSalary()+""+"mobileno="+em1.getEmployeeMobileno());
-				}
+//	        emparray[i]=em;
+	        emparray.add(em);
+//				}
+				writeObjectFile(emparray);
+				readObjectFile();
+				for(EmployeeBean1 emp:emparray) {
+//					EmployeeBean1 emp=emparray[i];
+				System.out.println("employeeName="+emp.getEmployeeName()+""+"id="+emp.getEmployeeId()+""+"salary="+emp.getEmployeeSalary()+""+"mobileno="+emp.getEmployeeMobileno());
+			}
 				}
 	
-	public void delete() {
+	public void delete() throws Exception {
 		System.out.println("enter particular value to be deleted");
 	int n=s.nextInt();
+	ArrayList<EmployeeBean1> emparray=readObjectFile();
 	int u = 0;
-	for(int i=0;i<=emparray.length-1;i++) {
-		if(emparray[i] != null && emparray[i].employeeId == n) {
-			emparray[i] = null;
+	if(emparray != null) {
+	for(EmployeeBean1 a1:emparray) {
+		if(a1 != null && a1.employeeId == n) {
+//			a1 = null;
+			emparray.remove(a1);
 			u++;
 			break;
 		}	
+	}
 	}
 	if(u == 0) {
 		System.out.println("employee id not found");
 	}else {
 		System.out.println("employee id deleted successfully");
 		System.out.println("now the array is: ");
-		for(int i=0;i<=emparray.length-1;i++) {
-			if(emparray[i]!=null) {
-				EmployeeBean1 em3=(EmployeeBean1)emparray[i];
+		for(EmployeeBean1 em3:emparray) {
+			if(em3!=null) {
+//				EmployeeBean1 em3=(EmployeeBean1)emparray[i];
 				System.out.println("employeeName="+em3.getEmployeeName()+""+"id="+em3.getEmployeeId()+""+"salary="+em3.getEmployeeSalary()+""+"mobileno="+em3.getEmployeeMobileno());
 			}	
 		}
 	}
+	writeObjectFile(emparray);
 	}
-	public void search() {
+	public void search() throws Exception {
 	System.out.println("enter particular value to be search");
 	int n=s.nextInt();
-	for(int i=0;i<emparray.length;i++) {
-	EmployeeBean1 em2=(EmployeeBean1)emparray[i];
+	ArrayList<EmployeeBean1> emparray=readObjectFile();
+	for(EmployeeBean1 em2:emparray) {
+//	EmployeeBean1 em2=(EmployeeBean1)emparray[i];
 	if(em2.employeeId==n) {
 		System.out.println("employeeName="+em2.getEmployeeName()+""+"id="+em2.getEmployeeId()+""+"salary="+em2.getEmployeeSalary()+""+"mobileno="+em2.getEmployeeMobileno());
 System.out.println("the employee details successfully found");
 return;
 	}
-	else {
-		System.out.println("the given is not matched");
 	}
 	}
+public void printalldata() throws Exception {
+	ArrayList<EmployeeBean1> emparray=readObjectFile();
+	System.out.println("the all the employee details are"); 
+	if(emparray!=null) {
+	for(EmployeeBean1 em4:emparray) { 
+		if(em4 != null) {
+//		EmployeeBean1 em4=(EmployeeBean1)emparray[i];
+		System.out.println("employeeName="+em4.getEmployeeName()+""+"id="+em4.
+		  getEmployeeId()+""+"salary="+em4.getEmployeeSalary()+""+"mobileno="+em4.
+		  getEmployeeMobileno()); 
+		  }
 	}
-public void printalldata() {
-	System.out.println("the all the employee details are");
-	for(int i=0;i<emparray.length;i++) {
-		EmployeeBean1 em4=(EmployeeBean1)emparray[i];
-		System.out.println("employeeName="+em4.getEmployeeName()+""+"id="+em4.getEmployeeId()+""+"salary="+em4.getEmployeeSalary()+""+"mobileno="+em4.getEmployeeMobileno());
-		System.out.println("print all employee list");
 	}
 }
-public void searchemployeeName() {
+public void searchemployeeName() throws Exception {
 	boolean flag = false;
 	int message=0;
+	ArrayList<EmployeeBean1> emparray=readObjectFile();
 	System.out.println("enter particular Name to be search");
 	char e=s.next().charAt(0);
-	for(int i=0;i<emparray.length;i++) {
-	EmployeeBean1 em5=(EmployeeBean1)emparray[i];
-	if(emparray[i]!=null) {
-		String q=emparray[i].employeeName;
+	if(emparray != null) {
+	for(EmployeeBean1 em5:emparray) {
+//	EmployeeBean1 em5=(EmployeeBean1)emparray[i];
+	if(em5!=null) {
+		String q=em5.employeeName;
 		char[] w=q.toCharArray();
 		if(w[0]==e) {
 			flag = true;
 			if(message==0) {
-		System.out.println("employeeName="+em5.getEmployeeName()+""+"id="+em5.getEmployeeId()+""+"salary="+em5.getEmployeeSalary()+""+"mobileno="+em5.getEmployeeMobileno());
+		System.out.println("the employee name with letter " + e + "  found");
 		message++;
 	}
+			System.out.println("employeeName="+em5.getEmployeeName()+""+"id="+em5.getEmployeeId()+""+"salary="+em5.getEmployeeSalary()+""+"mobileno="+em5.getEmployeeMobileno());
 			}	
 	}
-	}
+	}}
 	if(!flag) {
 	System.out.println("the employee name with letter " + e + " not found");
 	}
 }
 
-public void updatedetails() {
+public void updatedetails() throws Exception {
+	ArrayList<EmployeeBean1> emparray=readObjectFile();
 		System.out.println("Enter the Id to be Updated");
 		int n = s.nextInt();
-		for (int i = 0; i <= emparray.length - 1; i++) {
-		EmployeeBean1 em6=(EmployeeBean1)emparray[i];
-		if(emparray[i]!=null && emparray[i].employeeId==n) {
+		for (EmployeeBean1 em6:emparray) {
+//		EmployeeBean1 em6=(EmployeeBean1)emparray[i];
+		if(em6!=null && em6.employeeId==n) {
            System.out.println("enter Employees new Id yes or no");
            String w=s.next();
            if(w.equals("yes")) {
         	   System.out.println("enter new id:");
         	   int e=s.nextInt();
-        	   emparray[i].employeeId=e;
+        	   em6.employeeId=e;
            }else {
         	   System.out.println("no");
            }
@@ -152,7 +186,7 @@ public void updatedetails() {
 		       if(z.equals("yes")) {
 		    	  System.out.println("enter name:");
 		    	    employeeName=s.next();
-		    	   emparray[i].employeeName=employeeName;
+		    	   em6.employeeName=employeeName;
 		       }else {
 		    	   System.out.println("no");
 		       }
@@ -161,26 +195,27 @@ public void updatedetails() {
 		       if(w1.equals("yes")) {
 		    	   System.out.println("enter salary:");
 		    	   double r=s.nextDouble();
-		    	   emparray[i].employeeSalary= r;
+		    	   em6.employeeSalary= r;
 		       }else {
 		    	   System.out.println("no");
 		       }
-		}
 		System.out.println("enter Employees new Mobileno yes or no. ");
 		String e=s.next();
 		if(e.equals("yes")) {
 			System.out.println("enter mobile no:");
 			long b=s.nextLong();
-			emparray[i].employeeMobileno=b;
+			em6.employeeMobileno=b;
 		}else {
 			System.out.println("no");
 		}
-		}
+		writeObjectFile(emparray);
+		return;
+		}}
 }
 }
 public class Test5 {
 	static Scanner s= new Scanner(System.in);
-public static void main(String[] args) {
+public static void main(String[] args) throws Exception {
 	EmployeeBean1 a=new EmployeeBean1();
 for(;;) {
 System.out.println("please enter your choice\n"
