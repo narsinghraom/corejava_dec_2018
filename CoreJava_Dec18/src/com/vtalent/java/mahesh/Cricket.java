@@ -12,11 +12,15 @@ public class Cricket {
 	Random r=new Random();
 	static int l=0;
 	static boolean fortyoversflag=false;
+	
+	
 	 static class Over extends Exception{
 		Over(String s){
 		super(s);
 		}	
 	}
+	 
+	 
 	 static class OverException{
 		 public static void ov(float o) throws Over{
 		 if(o>50){
@@ -44,6 +48,7 @@ public class Cricket {
 		 }
 		 }
 	 }
+		 
 		 public static void ri(float o) throws Over{
 			if(o>40){
 				try{
@@ -54,6 +59,7 @@ public class Cricket {
 			} System.out.println("Please enter the overs once again less than 40:");
 			 Exceptionhandle();
 		 }
+		 
 		 public static void tie()throws Over{
 			 try{
 			 throw new Over("Match is a tie");
@@ -61,6 +67,7 @@ public class Cricket {
 				 System.out.println(e3);
 			 }
 		 }
+		 
 		 public static void runs()throws Over{
 			 try{
 			 throw new Over("Runs Should not exceed 6 more than from first team score");
@@ -71,6 +78,7 @@ public class Cricket {
 			 g=rr;
 		 }
 	 }
+	 
 	 public static void Exceptionhandle(){
 		 o=in.nextFloat();
 		 if(l==0){
@@ -79,6 +87,7 @@ public class Cricket {
 			 x=o;
 		 }
 	 }
+	 
 	 public void rain() throws Over{
 		 Scanner in=new Scanner(System.in);
 			System.out.println("Is It Raining yes/no:");
@@ -107,6 +116,7 @@ public class Cricket {
 				}
 			}
 	 }
+	 
 	public void FirstInnings() throws Over{
 		System.out.println("enter the first team name");
 		a=in.next();
@@ -133,6 +143,7 @@ public class Cricket {
 		l++;
 		rain();
 	}
+	
 	public void SecondInnings() throws Over{
 		
 		System.out.println("Second Innings by"+"  "+b);
@@ -157,6 +168,7 @@ public class Cricket {
 	System.out.println("The score of\t"+ b +"\tteam is:"+(int)h+"/"+z);
 	l++;
 	}
+	
 	public static void main(String args[]) throws Over{		
 		Cricket c=new Cricket();
 			c.rain();
