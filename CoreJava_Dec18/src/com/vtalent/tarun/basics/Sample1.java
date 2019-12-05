@@ -1,11 +1,12 @@
 package com.vtalent.tarun.basics;
 
-public class Sample {
+public class Sample1 {
+
 	int a,b;
 	static int c;
 	public static void main(String[] args) {
 		c=10;
-		Sample s1=new Sample();
+		Sample1 s1=new Sample1();
 		s1.function(c);
 		
 		System.out.println(s1.a +s1.b+ c);
@@ -16,5 +17,4 @@ public class Sample {
 		b=c+5;
 		
 	}
-
 }
