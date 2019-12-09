@@ -19,10 +19,10 @@ public class bubble {
 		System.out.println();
 	}
 	public static void main(String args[]) {
-		bubble ob=new bubble();
+		bubble b=new bubble();
 		int arr[]= {60,40,30,90,80,20,50};
-		ob.bubbleSort(arr);
+		b.bubbleSort(arr);
 		System.out.println("Sorted array");
-		ob.printArray(arr);
+		b.printArray(arr);
 	}
 }
