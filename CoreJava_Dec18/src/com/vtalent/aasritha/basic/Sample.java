@@ -8,7 +8,7 @@ public class Sample {
 		Sample s1=new Sample();
 		s1.function(c);
 		System.out.print(s1.a+s1.b+c);
-	}
+		}
 	public void function(int c) {
 		a=c;
 		b=c+5;
