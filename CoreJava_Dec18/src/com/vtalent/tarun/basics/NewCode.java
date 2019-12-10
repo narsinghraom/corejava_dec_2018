@@ -15,9 +15,9 @@ public class NewCode {
 	}
 
 	public static float function(int a, int b) {
-		a= NewCode.a  + a;
-		b=NewCode.b+ b;
-		return a+b;
+		a = NewCode.a + a;
+		b = NewCode.b + b;
+		return a + b;
 	}
 
 	public static void main(String[] args) {
