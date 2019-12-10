@@ -5,7 +5,7 @@ public class MergeSort {
 	void merge(int arr[], int beg, int mid, int end)  
 	{  
 	  
-	int l = mid - beg + 1;  
+	int l = mid - beg + 1; 
 	int r = end - mid;  
 	  
 	int LeftArray[] = new int [l];  
