@@ -23,5 +23,4 @@ public class Sample_New {
 		System.out.println("X + Y Value "+(s1.x+s1.y));
 		System.out.println("f1 value "+f1);
 	}
-
 }
