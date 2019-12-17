@@ -28,16 +28,39 @@ public class EmployeeTest {
 		
 		return flag;
 	}
+	public static boolean deleteAnEmployee() {
+		boolean flag=false;
+		if(employeeArray == null) {
+			System.out.println("Array size is not defined, please run again and pass the value");
+			flag=false;
+		}else {
+			Employee employee = new Employee();
+			System.out.println("Please enter an employee to delete");
+			employee.employeeId=input.nextInt();
+			for(int i=0;i<=employeeArray.length-1;i++) {
+				Employee delete=null;
+				if(delete==employeeArray[i]) {
+					for(int j=0;j<=employeeArray.length-1;i++) {
+						employeeArray[j]=employeeArray[j+1];
+					}
+					break;
+				}
+				
+			}
+			
+		}
+		return flag;
+	}
 	
 	public static void printAllEmployees() {
 		if(employeeArray == null) {
 			System.out.println("No Data Found");
 		}else {
-			System.out.println("EmployeeId \t EmployeeSalary \t EmployeeMobileNo");
+			System.out.println("EmployeeId\tEmployeeSalary\tEmployeeMobileNo");
 			for(int i=0;i<=employeeArray.length-1;i++) {
 				if(employeeArray[i] != null) {
 					Employee employee = employeeArray[i];
-					System.out.println(employee.employeeId +"\t"+employee.employeeSalary+"\t"+employee.employeeMobileNo);
+					System.out.println(employee.employeeId +"\t\t"+employee.employeeSalary+"\t\t"+employee.employeeMobileNo);
 				}
 			}
 		}
@@ -62,6 +85,13 @@ public class EmployeeTest {
 					System.out.println("Inserted Succesfully");
 				}else {
 					System.out.println("Something went worng! Please try again");
+				}
+				break;
+			case 2: boolean deleteFlag = deleteAnEmployee();
+				if(deleteFlag) {
+					System.out.println("Deleted Succesfully");
+				}else {
+					System.out.println("something went wrong! please try again");
 				}
 				break;
 			case 4: printAllEmployees();
