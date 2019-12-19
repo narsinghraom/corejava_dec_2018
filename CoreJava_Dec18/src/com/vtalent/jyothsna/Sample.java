@@ -1,7 +1,7 @@
 package com.vtalent.jyothsna;
 
 public class Sample {
-	int a, b;
+	int a, b,d;
 	static int c;
 
 	public static void main(String[] args) {
