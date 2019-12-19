@@ -2,6 +2,7 @@ package com.vtalent.mallikarjun.basics;
 
 public class Sample1 {
 	int a,b;
+	int d;
 	static int c;
 	public static void main(String[] args) {
 		c=10;
