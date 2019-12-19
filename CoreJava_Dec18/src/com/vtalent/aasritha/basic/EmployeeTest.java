@@ -3,7 +3,7 @@ package com.vtalent.aasritha.basic;
 
 import java.util.Scanner;
 
-import com.vtalent.mohammad.Employee;
+
 
 public class EmployeeTest {
 	static Employee1[] employeeArray;
@@ -148,7 +148,7 @@ public class EmployeeTest {
 							{
 								System.out.println("Please Enter your Mobile Number to Update");
 								employee.employeeMobileNo=input.nextLong();
-								System.out.println("Current Employee Salary : "+employee.employeeMobileNo);
+								System.out.println("Current Employee number : "+employee.employeeMobileNo);
 								System.out.println("Mobile Updated Successfully ");
 							}
 						}
