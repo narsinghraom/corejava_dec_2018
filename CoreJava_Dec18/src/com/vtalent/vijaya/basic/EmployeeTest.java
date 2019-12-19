@@ -29,28 +29,109 @@ public class EmployeeTest {
 		return flag;
 	}
 	public static boolean deleteAnEmployee() {
-		boolean flag=false;
+		boolean flag = false;
+		int deletevalue;
 		if(employeeArray == null) {
 			System.out.println("Array size is not defined, please run again and pass the value");
 			flag=false;
 		}else {
-			Employee employee = new Employee();
 			System.out.println("Please enter an employee to delete");
-			employee.employeeId=input.nextInt();
+			deletevalue=input.nextInt();
 			for(int i=0;i<=employeeArray.length-1;i++) {
-				Employee delete=null;
-				if(delete==employeeArray[i]) {
-					for(int j=0;j<=employeeArray.length-1;i++) {
-						employeeArray[j]=employeeArray[j+1];
+				if(employeeArray[i]!=null) {
+				Employee employee=employeeArray[i];
+				if(employee.employeeId == deletevalue) {
+					for(int j=i+1;j<=employeeArray.length-1;j++) {
+						employeeArray[j-1]=employeeArray[j];
 					}
+					employeeArray[employeeArray.length-1]=null;
+					flag=true;
 					break;
 				}
 				
+			}
 			}
 			
 		}
 		return flag;
 	}
+	public static boolean searchAnEmployee() {
+		boolean flag = false;
+		if(employeeArray == null) {
+			System.out.println("Array is empty,please try again");
+			flag = false;
+		}else {
+			System.out.println("enter the employeeid to search");
+			int searchId = input.nextInt();
+			for(int i= 0;i<=employeeArray.length-1;i++) {
+				if(employeeArray[i]!=null) {
+				Employee employee = employeeArray[i];
+				if(employee.employeeId == searchId) {
+					System.out.println(employee.employeeId+"\t"+employee.employeeSalary+"\t"+employee.employeeMobileNo);
+					flag=true;
+					break;
+				}
+			}
+		}
+		}
+		return flag;
+	}
+	public static boolean updateAnEmployee() 
+	{
+		boolean flag = false;
+		 int x;
+		 if(employeeArray == null) {
+		System.out.println("Array is emplty, Please run again and pass the value");
+		flag =false;
+			}else
+			 {	
+			 System.out.print("Enter the element you want to update:");
+		        x = input.nextInt();  
+		        for(int i=0;i<=employeeArray.length-1;i++) {
+				if(employeeArray[i] != null) {
+					Employee employee = employeeArray[i];
+						if(employee.employeeId == x) {	 
+						System.out.println(employee.employeeId +"\t"+employee.employeeSalary+"\t"+employee.employeeMobileNo);
+							while(true) {
+							 System.out.println("do you want to update details[1/0]");
+							 int k=input.nextInt();
+							 if (k==1)
+							 {
+							  k=0;
+							 System.out.println("do you want to update salary[1/0]");
+							k=input.nextInt();
+							if (k==1) 
+							{
+							  System.out.println("Please enter employee salary");									
+							 employee.employeeSalary = input.nextFloat();
+							 System.out.println(employee.employeeId +"\t"+employee.employeeSalary+"\t"+employee.employeeMobileNo);
+							 System.out.println("do you want to update mobile[1/0]");
+						     k=input.nextInt();								     
+							if (k==1) 
+						    {
+																		               
+							System.out.println("please enter employee Mobile No");
+							employee.employeeMobileNo = input.nextLong();
+						 System.out.println(employee.employeeId +"\t"+employee.employeeSalary+"\t"+employee.employeeMobileNo);										          
+		}
+		else {
+			  break;
+		 }
+	}
+		 else { 
+			 System.out.println("please enter employee Mobile No");
+			employee.employeeMobileNo = input.nextLong();
+			System.out.println(employee.employeeId +"\t"+employee.employeeSalary+"\t"+employee.employeeMobileNo);
+}
+ }
+break;}}  
+} 
+flag = true;
+break;
+							      
+		        }}
+			return flag;
+		}
 	
 	public static void printAllEmployees() {
 		if(employeeArray == null) {
@@ -91,9 +172,23 @@ public class EmployeeTest {
 				if(deleteFlag) {
 					System.out.println("Deleted Succesfully");
 				}else {
+					System.out.println("details are updated");
+				}
+				break;
+			case 3:boolean searchFlag = searchAnEmployee();
+				if(searchFlag) {
+					System.out.println("searched the details");
+				}else {
 					System.out.println("something went wrong! please try again");
 				}
 				break;
+			case 5:boolean updateFlag = updateAnEmployee();
+			if(updateFlag) {
+				System.out.println(" updated successfully");
+			}else {
+				System.out.println("something went wrong! please try again");
+			}
+			break;
 			case 4: printAllEmployees();
 					break;
 			case 6: System.exit(0);
