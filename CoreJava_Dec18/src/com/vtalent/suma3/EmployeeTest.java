@@ -44,6 +44,68 @@ package com.vtalent.suma3;
 			}
 		}
 		
+
+		public static boolean deleteAnEmployee() {
+			boolean flag = false;
+			if(employeeArray == null) {
+				System.out.println("Something went wrong, Please try again");
+				flag =false;
+			}else {
+				System.out.println("Enter the id");
+				int delId = input.nextInt();
+				for(int i = 0; i<employeeArray.length-1; i++) {
+					Employee emp = employeeArray[i];
+					if (emp.employeeId == delId) {
+						flag = true;
+						for(int j =i; j<employeeArray.length-1; j++) {
+							employeeArray[j] = employeeArray[j+1];
+						}
+						employeeArray[employeeArray.length-1] = null;
+						break;
+						
+					} 
+				}
+				
+			}
+			return flag;
+			
+		}
+		public static boolean searchAnEmployee() {
+			boolean flag = false;
+			if(employeeArray == null) {
+				System.out.println("Array is empty, Please try again");
+				flag =false;
+			}else {
+				System.out.println("Enter the employee id to search");
+				int searchId = input.nextInt();
+				for(int i = 0; i<employeeArray.length-1; i++) {
+					Employee employee = employeeArray[i];
+					if (employee.employeeId == searchId) {
+						System.out.println(employee.employeeId + "\t" + employee.employeeSalary + "\t"
+								+ employee.employeeMobileNo);
+						flag = true;
+						break;
+					} 
+				}
+				
+			}
+			return flag;
+			
+		}
+    public static boolean updateAnEmployee() {
+		boolean flag = false;
+		if(employeeArray == null) {
+			System.out.println("Array Size is not defined, Please run again and pass the value");
+			flag =false;
+		}
+		else {
+			
+		}
+
+    	
+    
+    }
+		
 		public static void main(String[] args) {
 			System.out.println("Please enter the size of array to store the employees");
 			int employeeSize = input.nextInt();
@@ -65,8 +127,35 @@ package com.vtalent.suma3;
 						System.out.println("Something went worng! Please try again");
 					}
 					break;
+				case 2:boolean deleteFlag = deleteAnEmployee();
+				
+				if(deleteFlag) {
+					System.out.println("Successfully deleted");						
+				} else {
+
+					System.out.println("Invalid id! Please try again");
+				}
+			    break;
+				case 3: boolean searchFlag = searchAnEmployee();
+				if(searchFlag) {
+					System.out.println("displayed successfully");						
+				} else {
+
+					System.out.println("Invalid id! Please try again");
+
+				}
+				break;
+			
 				case 4: printAllEmployees();
 						break;
+				case 5: boolean updateFlag = updateAnEmployee();
+				if(updateFlag) {
+					System.out.println(" Updated successfully");
+				} else{
+					System.out.println("Invalid id! Please try again");
+						
+				}
+				break;
 				case 6: System.exit(0);
 
 				default:System.out.println("Invalid Option Please try again");
