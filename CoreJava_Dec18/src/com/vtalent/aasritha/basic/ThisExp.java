@@ -1,5 +1,9 @@
 package com.vtalent.aasritha.basic;
 
+/**
+ * @author ADMIN
+ *
+ */
 public class ThisExp {
 	int x,y;
 	ThisExp(){
