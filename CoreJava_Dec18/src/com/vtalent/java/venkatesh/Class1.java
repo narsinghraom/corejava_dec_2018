@@ -13,7 +13,7 @@ class A {
 	     System.out.println("Child class method");
 	   }
 	}
-	   class Class{
+	   class Class1{
 	    public static void main(String[] args) {
 	     B obj = new B();
 	     obj.methodA(); //calling super class method

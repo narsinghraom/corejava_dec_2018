@@ -5,12 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.sun.corba.se.spi.legacy.connection.GetEndPointInfoAgainException;
 
-public class PreparedStatementDBOper {
-	
+public class PreparedStatementDBOper {    
 	Connection connection;
 	PreparedStatement preparedStatement;
 	ResultSet resultSet;
@@ -40,7 +41,7 @@ public class PreparedStatementDBOper {
 		String query = "delete from Employee_table where employeeName=?";
 		try {
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(2, employee.getEmployeeName());
+			preparedStatement.setString(1, employee.getEmployeeName());
 			result1 = preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -53,8 +54,8 @@ public class PreparedStatementDBOper {
 		String query = "update Employee_table set employeeName=? where employeeId=?";
 		try {
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(2, employee.getEmployeeName());
-			preparedStatement.setInt(1, employee.getEmployeeId());
+			preparedStatement.setString(1, employee.getEmployeeName());
+			preparedStatement.setInt(2, employee.getEmployeeId());
 			result2 = preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -66,8 +67,10 @@ public class PreparedStatementDBOper {
 		EmployeeBean2 emp = null;
 		String query = "select * from Employee_table where employeeId=?";
 		try {
-			preparedStatement = (PreparedStatement) connection.createStatement();
-			resultSet = preparedStatement.executeQuery(query);
+			
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, employee.getEmployeeId());
+			resultSet = preparedStatement.executeQuery();
 			while(resultSet.next()) {
 				emp = new EmployeeBean2();
 				emp.setEmployeeId(resultSet.getInt(1));
@@ -81,6 +84,28 @@ public class PreparedStatementDBOper {
 		return emp;
 	}
 	
+	public List<EmployeeBean2> getAllEmployeeData() {
+		List<EmployeeBean2> listOfEmployees = new ArrayList<EmployeeBean2>();
+		String query = "select * from Employee_table";
+		try {
+			preparedStatement = connection.prepareStatement(query);
+			resultSet = preparedStatement.executeQuery();
+			EmployeeBean2 employeeBean = null;
+			while(resultSet.next()) {
+				employeeBean = new EmployeeBean2();
+				employeeBean.setEmployeeId(resultSet.getInt(1));
+				employeeBean.setEmployeeName(resultSet.getString(2));
+				employeeBean.setEmployeeSalary(resultSet.getDouble(3));
+				employeeBean.setEmployeeMobileNo(resultSet.getLong(4));
+				listOfEmployees.add(employeeBean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return listOfEmployees ;
+		
+	}
+	
 	public static void main(String[] args) {
 		
 		PreparedStatementDBOper preparedStatementDBOper = new PreparedStatementDBOper();
@@ -91,7 +116,8 @@ public class PreparedStatementDBOper {
 					"2. delete from my Array.\r\n" + 
 					"3. Update an employee details.\r\n" +
 					"4. Search an employee details.\r\n" +
-					"5. Exit.");
+					"5. Print all employee details.\r\n" +
+					"6. Exit.");
 			int scan = sc.nextInt();
 			
 			EmployeeBean2 employee = new EmployeeBean2();
@@ -153,6 +179,19 @@ public class PreparedStatementDBOper {
 				}
 				break;
 			case 5:
+				
+				List <EmployeeBean2> emp2 = preparedStatementDBOper.getAllEmployeeData();
+				if(null != emp2) {
+					System.out.println("employeeId \t employeeName \t employeeSalary \t employeeMobileNo");
+					for(EmployeeBean2 em:emp2) {
+						System.out.println(em.getEmployeeId()+" \t "+em.getEmployeeName()+" \t "+em.getEmployeeSalary()+" \t "+em.getEmployeeMobileNo());
+					}
+					System.out.println("Employee Data Searched Successfully.");
+				}else {
+					System.out.println("Employee Id is Not Valid.");
+				}
+				break;
+			case 6:
 				
 				System.exit(0);
 			default: System.out.println("Please give a valid Input: ");
