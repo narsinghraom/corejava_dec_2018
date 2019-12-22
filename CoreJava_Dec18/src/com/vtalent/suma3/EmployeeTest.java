@@ -99,12 +99,60 @@ package com.vtalent.suma3;
 			flag =false;
 		}
 		else {
+				System.out.println("Enter the employee id to update");
+				int updateId = input.nextInt();
+				for(int i = 0; i<employeeArray.length-1; i++) {
+					Employee employee = employeeArray[i];
+					if (employee.employeeId == updateId) {
+						System.out.println("Your details are");
+						System.out.println(employee.employeeId + "\t" + employee.employeeSalary + "\t"
+								+ employee.employeeMobileNo);
+						while(true) {
+						System.out.println("Do you want to update your details(1/0)");
+						int choice = input.nextInt();
+						
+														if (choice ==1) {
+															System.out.println("do you want to update salary (1/0)");
+															choice= input.nextInt();
+																								if (choice== 1) {
+																									System.out.println("please enter the salary to update");
+																									float updatedSal = input.nextFloat();
+																									employee.employeeSalary = updatedSal;
+																								}
+																								       else if(choice==0)  {
+																										System.out.println("do you want to update mobile no(1/0)");
+																										int choice1  = input.nextInt();
+																																	if (choice1 == 1) {
+																																		System.out.println("Please enter the mobile no to update");
+																																		long updateMobileNo = input.nextLong();
+																																		employee.employeeMobileNo = updateMobileNo;
+																															         }
+																																	else {
+																																		break;
+																																	}
+																								      }
+																								}
+														else {break;}
+																					
+													break;}
+																		
+											                                                } 															
+							
+							flag = true;
+							break;
+							
+						}
+						
+						
+						
+				}
 			
+			
+			return flag;
 		}
-
     	
     
-    }
+    
 		
 		public static void main(String[] args) {
 			System.out.println("Please enter the size of array to store the employees");
