@@ -34,7 +34,7 @@ public class DBOperations2 {
 		try {
 			pstatement=connection.prepareStatement(query);
 			pstatement.setString(1, employee.getEmployeeName());
-			result=pstatement.executeUpdate(query);
+			result=pstatement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -50,7 +50,7 @@ public class DBOperations2 {
 			pstatement=connection.prepareStatement(query);
 			pstatement.setInt(1, employee.getEmployeeId());
 			pstatement.setString(2, employee.getEmployeeName());
-			result=pstatement.executeUpdate(query);
+			result=pstatement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,7 +65,7 @@ public class DBOperations2 {
 		try {
 			
 			pstatement = connection.prepareStatement(query);
-			pstatement.setInt(1, employee1.getEmployeeId());
+			pstatement.setInt(1, employee.getEmployeeId());
 			resultset = pstatement.executeQuery();
 			while(resultset.next()) {
 				employee1 = new EmployeeBean2();
