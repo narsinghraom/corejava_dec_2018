@@ -14,6 +14,7 @@ public class ArrayEx {
 		ArrayEx ae=new ArrayEx();
 		for(int i=0;i<=ae.iarr.length-1;i++) {
 			ae.iarr[i]=i+2;
+			//System.out.println(ae.iarr[i]);
 		}
 			ae.farr=ae.function(ae.iarr);
 			for(int k=0;k<=ae.farr.length-1;k++) {
