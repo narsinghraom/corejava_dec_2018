@@ -16,11 +16,11 @@ public int function(int x,int y)
 	return x+y;
 }
 public static void main(String[] args) {
-	Sample s1=new Sample();
+	Sample3 s1=new Sample3();
 	s1.function();
 	int k=s1.function(2,3);
 	System.out.println(k);
-	System.out.println(S1.x+S1.y);
+	System.out.println(s1.x+s1.y);
 	System.out.println(f1);
 	 
 	

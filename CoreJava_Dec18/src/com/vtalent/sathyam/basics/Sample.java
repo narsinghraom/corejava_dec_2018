@@ -11,9 +11,12 @@ public class Sample {
 	}
 	public void function(int c)
 	{
-		a=c;	
+		a=c+5;	
 		b=c+5;
 	}
+	
+	
+	
 
 }
 
