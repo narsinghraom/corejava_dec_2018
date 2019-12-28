@@ -4,7 +4,6 @@ public class ThisExample2 {
 
 		int x,y;
 		ThisExample2(){
-			
 			x=5;
 			y=7;
 		
