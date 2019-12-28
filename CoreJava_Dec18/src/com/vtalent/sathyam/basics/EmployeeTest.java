@@ -1,4 +1,4 @@
-package com.vtalent.jyothsna;
+package com.vtalent.sathyam.basics;
 
 import java.util.Scanner;
 
@@ -12,6 +12,8 @@ public class EmployeeTest {
 			System.out.println("Array Size is not defined, Please run again and pass the value");
 			flag = false;
 		} else {
+			
+		}
 			Employee employee = new Employee();
 			System.out.println("Please enter employee Id");
 			employee.employeeId = input.nextInt();
@@ -77,6 +79,7 @@ public class EmployeeTest {
 					for (int j = i; j < employeeArray.length - 1; j++) {
 						employeeArray[j] = employeeArray[j + 1];
 					}
+					
 					employeeArray[employeeArray.length - 1] = null;
 
 					break;
@@ -87,76 +90,62 @@ public class EmployeeTest {
 		return flag;
 
 	}
-
 	public static boolean updateAnEmployee() {
 		boolean flag = false;
-		int x;
+		int a;
 		if (employeeArray == null) {
 			System.out.println("Array is emplty, Please run again and pass the value");
 			flag = false;
 		} else {
-
-			System.out.print("Enter the element you want to update:");
-			x = input.nextInt();
+	        System.out.print("Enter the element you want to update:");
+			a = input.nextInt();
 
 			for (int i = 0; i <= employeeArray.length - 1; i++) {
 				if (employeeArray[i] != null) {
 					Employee employee = employeeArray[i];
-					if (employee.employeeId == x) {
+					if (employee.employeeId == a) {
 
 						System.out.println(employee.employeeId + "\t" + employee.employeeSalary + "\t"
 								+ employee.employeeMobileNo);
-						while (true) {
-							System.out.println("do you want to update details[1/0]");
-							int k = input.nextInt();
-							if (k == 1) {
-								k = 0;
-								System.out.println("do you want to update salary[1/0]");
-								k = input.nextInt();
-								if (k == 1) {
-									System.out.println("Please enter employee salary");
-									employee.employeeSalary = input.nextFloat();
+						while(true) {
+						System.out.println("do you want to update details[1/0]");
+						int m=input.nextInt();
+						if(m==1)
+						{
+							m=0;
+							System.out.println("do you want to update salary[1/0]");
+							m=input.nextInt();
+							if(m==1)
+							{
+								System.out.println("please enter employee salary");
+								employee.employeeSalary=input.nextFloat();
+								System.out.println(employee.employeeId + "\t" + employee.employeeSalary + "\t"
+										+ employee.employeeMobileNo);
+								System.out.println("do you want to update mobileNo[1/0]");
+								m=input.nextInt();
+								if(m==1)
+								{
+									System.out.println("please enter employee mobileNo");
+									employee.employeeMobileNo=input.nextLong();
 									System.out.println(employee.employeeId + "\t" + employee.employeeSalary + "\t"
 											+ employee.employeeMobileNo);
-									System.out.println("do you want to update mobile[1/0]");
-									k = input.nextInt();
-									if (k == 1) {
-
-										System.out.println("please enter employee Mobile No");
-										employee.employeeMobileNo = input.nextLong();
-										System.out.println(employee.employeeId + "\t" + employee.employeeSalary + "\t"
-												+ employee.employeeMobileNo);
-
-									} else {
-										break;
-									}
-								} else {
-									System.out.println("do you want to update mobile[1/0]");
-									k = input.nextInt();
-									if (k == 1) {
-
-										System.out.println("please enter employee Mobile No");
-										employee.employeeMobileNo = input.nextLong();
-										System.out.println(employee.employeeId + "\t" + employee.employeeSalary + "\t"
-												+ employee.employeeMobileNo);
-
-									}
+								}
+								else
+								{
+									
+								
+					
+									break;
 								}
 							}
-							break;
 						}
+
+						return flag;                                                                                         
+					
 					}
-
-				}
-
-				flag = true;
-				break;
-
-			}
-		}
-		return flag;
-	}
-
+					
+					
+					
 	public static void printAllEmployees() {
 		if (employeeArray == null) {
 			System.out.println("No Data Found");
@@ -173,7 +162,7 @@ public class EmployeeTest {
 	}
 
 	public static void main(String[] args) {
-		int i, del;
+		int size, i, del, count = 0;
 		System.out.println("Please enter the size of array to store the employees");
 		int employeeSize = input.nextInt();
 		employeeArray = new Employee[employeeSize];
@@ -218,11 +207,10 @@ public class EmployeeTest {
 			case 5:
 				boolean updateFlag = updateAnEmployee();
 				if (updateFlag) {
-					System.out.println("updated Succesfully");
+					System.out.println("update Succesfully");
 				} else {
 					System.out.println("invalid id please try again");
 				}
-
 				break;
 			case 6:
 				System.exit(0);
