@@ -1,4 +1,4 @@
-package com.vtalent.java.haritha;
+package com.vtalent.mahesh.basics;
 
 public class DemoTwo {
 	int x,y;
