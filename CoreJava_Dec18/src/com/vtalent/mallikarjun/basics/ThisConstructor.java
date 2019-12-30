@@ -5,8 +5,8 @@ int x,y;
 
 	public ThisConstructor() {
 		this(5);
-	x=5;
-	y=7;
+	int x=5;
+	int y=7;
 	
 }
 

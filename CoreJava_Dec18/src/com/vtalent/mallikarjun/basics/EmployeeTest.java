@@ -1,3 +1,4 @@
+
 package com.vtalent.mallikarjun.basics;
 import java.util.Scanner;
 
