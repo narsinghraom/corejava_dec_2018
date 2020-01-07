@@ -1,4 +1,4 @@
-package com.vtalent.java.haritha;
+package com.vtalent.mahesh.basics;
 public class Demo2{
 	int x,y;
 	static float f1,f2;

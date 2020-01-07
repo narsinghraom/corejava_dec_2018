@@ -20,6 +20,9 @@ package com.vtalent.bharathi.basics;
 				employee.employeeSalary = input.nextFloat();
 				System.out.println("please enter employee Mobile No");
 				employee.employeeMobileNo = input.nextLong();
+				System.out.println("Enter the Employee name");
+				employee.employeeName = input.next();				
+				
 				for(int i=0;i<=employeeArray.length-1;i++) {
 					if(employeeArray[i]==null) {
 						employeeArray[i] = employee;
@@ -64,13 +67,13 @@ package com.vtalent.bharathi.basics;
 				System.out.println("Array is empty, Please try again");
 				flag =false;
 			}else {
-				System.out.println("Enter the employee id to search");
+				System.out.println("Enter the employee name to search");
 				int searchId = input.nextInt();
 				for(int i = 0; i<employeeArray.length-1; i++) {
 					Employee employee = employeeArray[i];
 					if (employee.employeeId == searchId) {
 						System.out.println(employee.employeeId + "\t" + employee.employeeSalary + "\t"
-								+ employee.employeeMobileNo);
+								+ employee.employeeMobileNo+"\t" + employee.employeeName );
 						flag = true;
 						break;
 					} 
@@ -90,7 +93,7 @@ package com.vtalent.bharathi.basics;
 				for(int i=0;i<=employeeArray.length-1;i++) {
 					if(employeeArray[i] != null) {
 						Employee employee = employeeArray[i];
-						System.out.println("\t"+employee.employeeId +"\t"+"\t"+employee.employeeSalary+"\t"+"\t"+employee.employeeMobileNo);
+						System.out.println("\t"+employee.employeeId +"\t"+"\t"+employee.employeeSalary+"\t"+"\t"+employee.employeeMobileNo+"\t"+employee.employeeName);
 					}
 				}
 			}
@@ -110,21 +113,21 @@ package com.vtalent.bharathi.basics;
 						System.out.println(employee.employeeId + "\t" + employee.employeeSalary + "\t"
 								+ employee.employeeMobileNo);
 						while(true) {
-						System.out.println("Do you want to update your details(1/0)");
-						int choice = input.nextInt();
+						System.out.println("Do you want to update your details(yes/No)");
+						String choice = input.nextLine();
 						
-														if (choice ==1) {
-															System.out.println("do you want to update salary (1/0)");
-															choice= input.nextInt();
-																								if (choice== 1) {
+														if (choice =="yes") {
+															System.out.println("do you want to update salary (yes/No)");
+															choice= input.nextLine();
+																								if (choice== "yes") {
 																									System.out.println("please enter the salary to update");
 																									float updatedSal = input.nextFloat();
 																									employee.employeeSalary = updatedSal;
 																								}
-																								       else if(choice==0)  {
-																										System.out.println("do you want to update mobile no(1/0)");
-																										int choice1  = input.nextInt();
-																																	if (choice1 == 1) {
+																								       else if(choice=="no")  {
+																										System.out.println("do you want to update mobile no(yes/no)");
+																										String choice1  = input.nextLine();
+																																	if (choice1 == "no") {
 																																		System.out.println("Please enter the mobile no to update");
 																																		long updateMobileNo = input.nextLong();
 																																		employee.employeeMobileNo = updateMobileNo;
@@ -153,6 +156,37 @@ package com.vtalent.bharathi.basics;
 			return flag;
 		}
 		
+		
+		public static boolean searchWithName() {
+
+			boolean flag = false;
+			if(employeeArray == null) {
+				System.out.println("Array is empty, Please try again");
+				flag =false;
+			}else {
+				System.out.println("Enter the starting alphabet");
+				char start = input.next().charAt(0);  //b
+				
+				for(int i = 0; i<employeeArray.length-1; i++) {
+					Employee employee = employeeArray[i];
+					
+					char staringLetterOfName =employee.employeeName.charAt(0);
+					if (staringLetterOfName != start ) {
+						System.out.println(employeeArray[i]);				
+						
+						flag = true;
+						break;
+					} 
+				}
+				
+			}
+			return flag;
+			
+		
+			
+		}
+		
+		
 		public static void main(String[] args) {
 			System.out.println("Please enter the size of array to store the employees");
 			int employeeSize = input.nextInt();
@@ -165,6 +199,7 @@ package com.vtalent.bharathi.basics;
 				System.out.println("4) Print All employees");
 				System.out.println("5) Update an employee");
 				System.out.println("6) Terminate the application");
+				System.out.println("7) searchWithName");
 				int choice = input.nextInt();
 				switch (choice) {
 				case 1: boolean insertFlag = insertAnEmployee();
@@ -207,6 +242,16 @@ package com.vtalent.bharathi.basics;
 
 				default:System.out.println("Invalid Option Please try again");
 					break;
+				
+				case 7:boolean searchFlagName = searchWithName();
+				if (searchFlagName) {
+					System.out.println(" employee name starts with ");
+				}
+				else {
+					System.out.println("Nothing found ");
+				}
+				break;
+				
 				}
 			}
 		}

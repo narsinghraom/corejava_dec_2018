@@ -20,3 +20,10 @@ class Two extends One{
 		this.x=this.x+x;
 	}
 }
+class Three extends Two{
+	int x,y;
+	public void function (int x,int y) {
+		this.x=this.x+x;
+		this.y=this.y+y;
+	}
+}
