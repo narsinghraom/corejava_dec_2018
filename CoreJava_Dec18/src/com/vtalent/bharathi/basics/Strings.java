@@ -1,9 +1,10 @@
-package strings;
+package com.vtalent.bharathi.basics;
 
 public class Strings {
 	
  // string is a pre defined class
 	// it is immautable
+	
 	
 	
 	// string declaration
@@ -57,6 +58,9 @@ public class Strings {
 		System.out.println(s4.contentEquals(s3));
 		
 		// 
+		
+		System.out.println(String.copyValueOf(s2.toCharArray()));
+		
 		
 		
 		
