@@ -156,7 +156,7 @@ public class EmployeeTest {
 						System.out.println(employee.employeeId + "\t \t" + employee.employeeSalary + "\t \t "
 								+ employee.employeeMobileNo + "\t \t" + employee.name);
 						flag = true;
-						break;
+						//break;
 					}}
 					}
 						
