@@ -44,7 +44,7 @@ public class FlamesPrm {
 	    // Driver code 
 	    public static void main(String[] args)  
 	    { 
-	        String str1 = "bharathi"; 
+	        String str1 = "mahesh"; 
 	        String str2 = "sravy"; 
 	        findAndPrintUncommonChars(str1, str2); 
 	    } 
