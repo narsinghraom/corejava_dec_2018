@@ -158,32 +158,30 @@ package com.vtalent.bharathi.basics;
 		
 		
 		public static boolean searchWithName() {
-
 			boolean flag = false;
 			if(employeeArray == null) {
 				System.out.println("Array is empty, Please try again");
 				flag =false;
 			}else {
-				System.out.println("Enter the starting alphabet");
-				char start = input.next().charAt(0);  //b
-				
-				for(int i = 0; i<employeeArray.length-1; i++) {
-					Employee employee = employeeArray[i];
-					
-					char staringLetterOfName =employee.employeeName.charAt(0);
-					if (staringLetterOfName != start ) {
-						System.out.println(employeeArray[i]);				
-						
-						flag = true;
-						break;
-					} 
-				}
-				
-			}
-			return flag;
+			System.out.println("enter name you want to search ");
+			String n=input.next();
+	
+		boolean b;
+		String  newName=n.toLowerCase();
+			for (int i=0;i<=employeeArray.length-1;i++) {
+			Employee employee = employeeArray[i];
+				b=employee.employeeName.startsWith(newName);			
+					if(b==true) {
+						System.out.println(employee.employeeId + "\t" + employee.employeeSalary + "\t"
+								+ employee.employeeMobileNo);
+					if( employeeArray.length>1 )if( employeeArray[i+1]==null) {flag= true;break;}
+					flag= true;
+					}
 			
 		
-			
+					}
+			}
+			return flag;			
 		}
 		
 		
