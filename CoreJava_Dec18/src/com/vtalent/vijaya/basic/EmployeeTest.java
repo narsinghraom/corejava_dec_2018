@@ -139,11 +139,11 @@ break;
 		if(employeeArray == null) {
 			System.out.println("No Data Found");
 		}else {
-			System.out.println("EmployeeId\tEmployeeSalary\tEmployeeMobileNo");
+			System.out.println("name\tEmployeeId\tEmployeeSalary\tEmployeeMobileNo");
 			for(int i=0;i<=employeeArray.length-1;i++) {
 				if(employeeArray[i] != null) {
 					Employee employee = employeeArray[i];
-					System.out.println(employee.employeeId +"\t\t"+employee.employeeSalary+"\t\t"+employee.employeeMobileNo);
+					System.out.println(employee.name+"\t\t"+employee.employeeId +"\t\t"+employee.employeeSalary+"\t\t"+employee.employeeMobileNo);
 				}
 			}
 		}
