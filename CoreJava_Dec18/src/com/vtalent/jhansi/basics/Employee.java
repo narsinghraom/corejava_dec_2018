@@ -5,7 +5,7 @@ package com.vtalent.jhansi.basics;
 		int employeeId;
 		float employeeSalary;
 		long employeeMobileNo;
-
+		String name;
 	}
 
 
