@@ -15,6 +15,8 @@ public class EmployeeTest {
 			Employee employee = new Employee();
 			System.out.println("Please enter employee Id");
 			employee.employeeId = input.nextInt();
+			System.out.println("Please enter employee name");
+			employee.employeeName=input.next();
 			System.out.println("Please enter employee salary");
 			employee.employeeSalary = input.nextFloat();
 			System.out.println("please enter employee Mobile No");
@@ -76,8 +78,33 @@ public class EmployeeTest {
 					Employee employee = employeeArray[i];
 					if (employee.employeeId == empid) {
 
-						System.out.println(employee.employeeId + "\t" + employee.employeeSalary + "\t"
-								+ employee.employeeMobileNo);
+						System.out.println(employee.employeeId + "\t"+employee.employeeName+"\t" + employee.employeeSalary + "\t"+ employee.employeeMobileNo);
+						flag = true;
+						break;
+					}
+				}
+			}
+		}
+		return flag;
+	}
+	public static boolean searchingEmployeeName() {
+		boolean flag = false;
+		String empName;
+		if (employeeArray == null) {
+			System.out.println("Array is emplty, Please run again and pass the value");
+			flag = false;
+		} else {
+
+			System.out.print("Enter the employee name you want to search:");
+			empName = input.next();
+
+			for (int i = 0; i <= employeeArray.length - 1; i++) {
+				if (employeeArray[i] != null) {
+					Employee employee = employeeArray[i];
+					if (employee.employeeName.startsWith(empName)) {
+
+						
+						System.out.println(employee.employeeId + "\t"+employee.employeeName+"\t" + employee.employeeSalary + "\t"+ employee.employeeMobileNo);
 						flag = true;
 						break;
 					}
@@ -91,11 +118,11 @@ public class EmployeeTest {
 		if(employeeArray == null) {
 			System.out.println("No Data Found");
 		}else {
-			System.out.println("EmployeeId \t EmployeeSalary \t EmployeeMobileNo");
+			System.out.println("EmployeeId \t EmployeeName \t EmployeeSalary \t EmployeeMobileNo");
 			for(int i=0;i<=employeeArray.length-1;i++) {
 				if(employeeArray[i] != null) {
 					Employee employee = employeeArray[i];
-					System.out.println(employee.employeeId +"\t\t\t"+employee.employeeSalary+"\t\t\t"+employee.employeeMobileNo);
+					System.out.println(employee.employeeId +"\t\t"+employee.employeeName+"\t\t"+employee.employeeSalary+"\t\t"+employee.employeeMobileNo);
 				}
 			}
 		}
@@ -103,7 +130,8 @@ public class EmployeeTest {
 	
 	public static boolean updatingEmployee() {
 		boolean flag = false;
-		int empid,m;
+		int empid;
+		String m;
 		if (employeeArray == null) {
 			System.out.println("Array is emplty, Please run again and pass the value");
 			flag = false;
@@ -117,15 +145,16 @@ public class EmployeeTest {
 					Employee employee = employeeArray[i];
 					if (employee.employeeId == empid) {
 						System.out.println("employeeId        :"+employee.employeeId);
+						System.out.println("employeeName      :"+employee.employeeName);
 						System.out.println("employeeSalary    :"+employee.employeeSalary);
 						System.out.println("employeeMobileNo. :"+employee.employeeMobileNo);
 						System.out.println();
-							System.out.println("do u want to update ur data, press (1/0) ,1=yes,0=no");
-							m=input.nextInt();
-							if(m==1) {
-								System.out.println("do u waant to update ur salary ,press (1/0) ,1=salary, 0=next ");
-								m=input.nextInt();
-								if(m==1) {
+							System.out.println("do u want to update ur data, press yes  else no");
+							m=input.next();
+							if(m.equals("yes")) {
+								System.out.println("do u waant to update ur salary ,press (yes/no) ,yes=salary, no=next ");
+								m=input.next();
+								if(m.equals("yes")) {
 									System.out.println("enter ur salary to update");
 									employee.employeeSalary=input.nextFloat();
 									System.out.println(employee.employeeSalary);
@@ -133,9 +162,9 @@ public class EmployeeTest {
 								}else {
 									System.out.println("u entered wrong values");
 								}
-								System.out.println("do u waant to update ur  mobile no. ,press (1/0) ,0=next, 1=mobile no. ");
-								m=input.nextInt();
-								if(m==1){
+								System.out.println("do u waant to update ur  mobile no. ,press (yes/no) ,no=next, yes=mobile no. ");
+								m=input.next();
+								if(m.equals("yes")){
 									System.out.println("enter ur mobile no. to update");
 									employee.employeeMobileNo=input.nextLong();
 									System.out.println(employee.employeeMobileNo);
@@ -167,6 +196,7 @@ public class EmployeeTest {
 			System.out.println("4) Print All employees");
 			System.out.println("5) Update an employee");
 			System.out.println("6) Terminate the application");
+			System.out.println("7) Search with employee name");
 			int choice = input.nextInt();
 			switch (choice) {
 			case 1: boolean insertFlag = insertAnEmployee();
@@ -198,11 +228,17 @@ public class EmployeeTest {
 					}else {
 						System.out.println("Something went worng! Please try again");
 					}
-		break;
+					break;
 			case 6: System.exit(0);
-
+			case 7:boolean searchingFlag1= searchingEmployeeName();
+					if(searchingFlag1) {
+						System.out.println("searching Succesfully");
+					}else {
+						System.out.println("Something went worng! Please try again");
+					}
+					break;
 			default:System.out.println("Invalid Option Please try again");
-				break;
+					break;
 			}
 		}
 	}
