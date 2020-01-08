@@ -173,7 +173,9 @@ package com.vtalent.jyothsna;
 				b=employee.employeeName.startsWith(newName);			
 					if(b==true) {
 					System.out.println(employee.employeeName);
-					if( employeeArray.length>1 )if( employeeArray[i+1]==null) {flag= true;break;}
+					if( employeeArray.length>1 )if( employeeArray[i+1]==null) { 
+						flag= true;break;
+						}
 					flag= true;
 					}
 			
