@@ -11,6 +11,8 @@ public class EmployeeTest {
 			flag =false;
 		}else {
 			Employee employee = new Employee();
+			System.out.println("please enter the employee name");
+			employee.name=input.next();
 			System.out.println("Please enter employee Id");
 			employee.employeeId = input.nextInt();
 			System.out.println("Please enter employee salary");
