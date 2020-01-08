@@ -97,7 +97,7 @@ public class EmployeeTest {
 
 			System.out.print("Enter the employee name you want to search:");
 			empName = input.next();
-
+			empName=empName.toLowerCase();
 			for (int i = 0; i <= employeeArray.length - 1; i++) {
 				if (employeeArray[i] != null) {
 					Employee employee = employeeArray[i];
@@ -106,7 +106,7 @@ public class EmployeeTest {
 						
 						System.out.println(employee.employeeId + "\t"+employee.employeeName+"\t" + employee.employeeSalary + "\t"+ employee.employeeMobileNo);
 						flag = true;
-						break;
+						//break;
 					}
 				}
 			}
