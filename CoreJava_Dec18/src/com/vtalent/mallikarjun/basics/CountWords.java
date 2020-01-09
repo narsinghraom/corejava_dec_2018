@@ -7,7 +7,7 @@ public static void main(String[] args) {
 	Scanner scn=new Scanner(System.in);
 	System.out.println("Enter String");
 	String str=scn.nextLine();
-	//str=str.toLowerCase();
+//	str=str.toLowerCase();
 	char[] ch=str.toCharArray();
 	int count=1;
 	for(int i=0;i<str.length();i++) {
