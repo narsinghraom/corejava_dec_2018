@@ -10,6 +10,6 @@ public class Employee {
 	double loanamt;
 	int tenure;
 	float emi;
-	
+	float intrest;
 	
 }
