@@ -1,12 +1,9 @@
 package com.vtalent.jhansi.basics;
 import java.util.Scanner;
-
 public class StrFactorial {
-	
 	// Function to print all the permutations of str 
 			static void printPermutn(String str, String ans) 
 			{ 
-
 				// If string is empty 
 				if (str.length() == 0) { 
 					System.out.print(ans + " "); 
