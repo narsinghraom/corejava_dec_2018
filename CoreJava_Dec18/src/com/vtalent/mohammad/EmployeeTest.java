@@ -168,6 +168,24 @@ public class EmployeeTest {
 			System.out.println("6) Terminate the application");
 			int choice = input.nextInt();
 			switch (choice) {
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			case 1:
 				boolean insertFlag = insertAnEmployee();
 				if (insertFlag) {
