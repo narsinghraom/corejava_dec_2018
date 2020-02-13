@@ -1,58 +1,46 @@
 package com.vtalent.jhansi.basics;
 import java.util.Scanner;
-
 public class StrElimination {
-	 static int MAX = 26; 
-	    
-	    static void findAndPrintUncommonChars(String str1, String str2)  
-	    { 
-	        int present[] = new int[MAX]; 
-	        for (int i = 0; i < MAX; i++)  
-	        { 
-	            present[i] = 0; 
-	        } 
-	  
-	        int l1 = str1.length(); 
-	        int l2 = str2.length(); 
-	        for (int i = 0; i < l1; i++) 
-	        { 
-	            present[str1.charAt(i) - 'a'] = 1; 
-	        }
-	        for (int i = 0; i < l2; i++) 
-	        { 
-	            if (present[str2.charAt(i) - 'a'] == 1 || present[str2.charAt(i) - 'a'] == -1)  
-	            { 
-	                present[str2.charAt(i) - 'a'] = -1; 
-	            }  
-	              
-	            // else mark its presence as 2 
-	            else
-	            { 
-	                present[str2.charAt(i) - 'a'] = 2; 
-	            } 
-	        } 
-	  
-	        for (int i = 0; i < MAX; i++) 
-	        { 
-	            if (present[i] == 1 || present[i] == 2)  
-	            { 
-	                System.out.print((char) (i + 'a') + " "); 
-	            } 
-	        } 
-	    } 
-	  
-	    // Driver code 
-	    public static void main(String[] args)  
-	    { 
-	    	Scanner scan=new Scanner(System.in);
-	        String str1,str2; 
-	        System.out.println("please enter string 1");
-	        str1=scan.next();
-	        System.out.println("please enter string 2");
-	        str2=scan.next();
-	        
-	        findAndPrintUncommonChars(str1, str2); 
-	    } 
+	static Scanner scan=new Scanner(System.in);
+	public static void main(String[] args) {
+		String str1,str2;
+		System.out.println("please enter string 1");
+		str1=scan.next();
+		System.out.println("please enter string 2");
+		str2=scan.next();
+		char[] c1=str1.toCharArray();
+		char[] c2=str2.toCharArray();
+		System.out.println("c1");
+		for(int i=0;i<c1.length;i++) {
+			System.out.println("c1[i] " + c1[i]);
+		}
+		System.out.println("c2");
+		for(int i=0;i<c2.length;i++) {
+			System.out.println("c2[i] " + c2[i]);
+		}
+		for(int i=0;i<c1.length;i++) {
+			for(int j=0;j<c2.length;j++) {
+				System.out.println(c1[i]);
+				System.out.println(c2[j]);
+				System.out.println(c1[i]==c2[j]);
+				if(c1[i]==c2[j])
+				{
+					c1[i]=' ';
+					c2[j]=' ';
+				}
+				break;
+			}
+		}
+		str1=String.valueOf(c1);
+		str2=String.valueOf(c2);
+		System.out.println("str1 " + str1);
+		System.out.println("str2 " + str2);
+		String str3=str1 + str2;
+		System.out.println("str3 " + str3);
+		str3=str3.replaceAll(" ","");
+		System.out.println("the required eliminated string is "+ str3 );
+				}
+	
 	}
 
 

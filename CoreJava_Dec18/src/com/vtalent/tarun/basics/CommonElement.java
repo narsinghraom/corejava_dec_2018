@@ -4,8 +4,8 @@ import java.util.Scanner;
 public class CommonElement {
 	static Scanner sr = new Scanner(System.in);
 	public  void removeCommonCharacter(String str1, String str2) {
-		System.out.println("Gien String 1 :" + str1);
-		System.out.println("Given String 2 :" + str2);
+		System.out.println("Given String 1:" + str1);
+		System.out.println("Given String 2:" + str2);
 		String commonChars = "";
 		String str3 = "";
 		
@@ -15,6 +15,7 @@ public class CommonElement {
 			for (int j = 0; j < str2.length(); j++) {
 				if (str1.charAt(i) == str2.charAt(j)) {
 					commonChars += str1.charAt(i);
+				//do-while(); 
 				}
 			}
 		}
@@ -23,9 +24,10 @@ public class CommonElement {
 			str1 = str1.replace(charToRemove, "");
 			str2 = str2.replace(charToRemove, "");
 			str3= str1+str2;
-			
+			str3 = str3.trim();
+			str3 = str3.toUpperCase();
 		}
-		System.out.println("After removing common character " + str3);
+		System.out.println("After removing common character: " + str3);
 		//System.out.println("After removing common character " + str2);
 	}
 

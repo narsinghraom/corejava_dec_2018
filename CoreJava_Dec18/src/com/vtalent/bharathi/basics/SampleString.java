@@ -1,4 +1,4 @@
-package strings;
+package com.vtalent.bharathi.basics;
 
 public class SampleString {
 	public static void main(String[] args) {
