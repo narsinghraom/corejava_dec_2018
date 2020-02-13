@@ -29,6 +29,7 @@ package com.vtalent.bharathi.basics;
 						flag = true;
 						break;
 					}
+					
 				}
 			}
 			
@@ -172,8 +173,12 @@ package com.vtalent.bharathi.basics;
 			Employee employee = employeeArray[i];
 				b=employee.employeeName.startsWith(newName);			
 					if(b==true) {
+<<<<<<< HEAD
+					System.out.println(employee.employeeName);
+=======
 						System.out.println(employee.employeeId + "\t" + employee.employeeSalary + "\t"
 								+ employee.employeeMobileNo);
+>>>>>>> 29fc3a9ddf7519b56adb46b238336b6d4387a700
 					if( employeeArray.length>1 )if( employeeArray[i+1]==null) {flag= true;break;}
 					flag= true;
 					}
@@ -243,7 +248,7 @@ package com.vtalent.bharathi.basics;
 				
 				case 7:boolean searchFlagName = searchWithName();
 				if (searchFlagName) {
-					System.out.println(" employee name starts with ");
+					System.out.println(" Successfully displayed");
 				}
 				else {
 					System.out.println("Nothing found ");
