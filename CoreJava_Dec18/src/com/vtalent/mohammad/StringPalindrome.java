@@ -18,6 +18,8 @@ public class StringPalindrome {
 			System.out.println("The string is a palindrome.");
 		else
 			System.out.println("The string isn't a palindrome.");
+		
+		input.close();
 	}
 
 }

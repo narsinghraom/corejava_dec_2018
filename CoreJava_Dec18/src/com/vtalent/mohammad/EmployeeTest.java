@@ -318,9 +318,7 @@ public static  void deSerialization()throws Exception {
 		       }
 			
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
 			System.out.println("ssssomething went wrong"+e1);
-		
 			
 		}}else {
 		

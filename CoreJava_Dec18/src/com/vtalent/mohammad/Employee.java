@@ -17,5 +17,4 @@ public class Employee implements Serializable{
 	int tenure;
 	float emi;
 	float intrest;
-
 }
