@@ -11,14 +11,16 @@ public class Demo3 {
 	public static float function(float f1) {
 		Demo3 d2=new Demo3();
 		f1=f1+d2.function(2,3);
-		d2.f2=f1;
-		return f1;
+		f2=f1;
+		return f2;
 	}
 	public static void main(String[] args) {
 		Demo3 d1=new Demo3();
-		d1.f1=d1.function(1.5f);
+		f1=function(1.5f);
 		System.out.println(f1+f2);
 		System.out.println(d1.x+d1.y);
+		System.out.println(f1);
+		System.out.println(f2);
 	}
 
 }

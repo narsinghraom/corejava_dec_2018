@@ -1,6 +1,11 @@
 package com.vtalent.mohammad;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
+
 import com.vtalent.mohammad.Employee;
 
 public class EmployeeTest {
@@ -20,6 +25,9 @@ public class EmployeeTest {
 			employee.employeeSalary = input.nextFloat();
 			System.out.println("please enter employee Mobile No");
 			employee.employeeMobileNo = input.nextLong();
+			System.out.println("Please enter employee name");
+			employee.employeeName = input.next();
+			
 			for (int i = 0; i <= employeeArray.length - 1; i++) {
 				if (employeeArray[i] == null) {
 					employeeArray[i] = employee;
@@ -139,6 +147,114 @@ public class EmployeeTest {
 		return flag;
 	}
 
+	public static boolean searchNameEmployee() {
+		boolean flag = false;
+		if (employeeArray == null) {
+			System.out.println("Array Size is not defined, Please run again and pass the value");
+			flag = false;
+		} else {
+			System.out.println("Please Enter Search Employee name");
+			String search = input.next();
+			search = search.toLowerCase();
+
+			for (int i = 0; i <= employeeArray.length - 1; i++) {
+				if (employeeArray[i] != null) {
+					Employee employee = employeeArray[i];
+					employee.employeeName = employee.employeeName.toLowerCase();
+					if (employee.employeeName.startsWith(search)) {
+						System.out.println(employee.employeeId + "\t \t" + employee.employeeSalary + "\t \t "
+								+ employee.employeeMobileNo + "\t \t" + employee.employeeName);
+						flag = true;
+						//break;
+					}}
+					}
+						
+				}
+			
+		
+		return flag;
+	}
+	
+	public static boolean getALoan() {
+		boolean flag = false;
+		int empid;
+		if (employeeArray == null) {
+			System.out.println("Array is emplty, Please run again and pass the value");
+			flag = false;
+		} else {
+			
+			System.out.print("Enter the id you want to search:");
+			empid = input.nextInt();
+
+			for (int i = 0; i <= employeeArray.length - 1; i++) {
+				if (employeeArray[i] != null) {
+					Employee employee = employeeArray[i];
+					if (employee.employeeId == empid) {
+					
+			System.out.println("Do you want to continue loan process enter yes or no");
+			String option=input.next();
+			if(option.equals("yes")) {
+				
+				System.out.println("Please enter your experience");
+				float exp=input.nextFloat();
+				
+				if(exp>=2 ) {
+					System.out.println("you are eligible for loan");
+					System.out.println("enter the amount you required and it should be from 1-1,00,000");
+					float amt=input.nextFloat();
+				try{	
+					if(amt>100000) {
+						throw new EmployeeLoan();
+					}
+					else{
+						System.out.println("You are eligible for loan of "+amt+" with 14% of interest per Anum");
+						employee.loanamt=amt;
+					}
+				}
+				catch(EmployeeLoan e) {
+					System.out.println(e);
+				}							
+						System.out.println("do you want to continue loan process enter yes or no");
+						if(option.equals("yes")) {
+							option=input.next();
+							
+							System.out.println("enter tenure of loan(12/24) months");
+							employee.tenure=input.nextInt();
+							//employee.emi=(float) ((amt)+((amt)0.14(employee.tenure))/12)/(employee.tenure);
+							float Iamt=(float) (amt*0.14*employee.tenure)/12;
+							employee.emi=(amt+Iamt)/employee.tenure;
+							
+							System.out.println("your emi: " + employee.emi);
+							System.out.println("your application has been under processing");
+							
+							flag= true;
+							break;
+							
+						}else {
+							System.out.println("you cancel the loan");
+							break;
+						}
+						
+					}else {
+						System.out.println("you get the loan  half of ur package");
+						break;
+					}
+				}else {
+					System.out.println("to get loan should have 2 years of experience");
+				break;
+				}
+				
+			}else{
+				System.out.println("thank you");
+			break;
+			}
+		}
+			}
+		}
+		return flag;
+		}
+		
+
 	public static void printAllEmployees() {
 		if (employeeArray == null) {
 			System.out.println("No Data Found");
@@ -153,8 +269,59 @@ public class EmployeeTest {
 			}
 		}
 	}
-
+	
+public static void serialization()throws Exception {
+		
+		//File f=new File("E:\\Employ.txt");
+		try{FileOutputStream fos=new FileOutputStream("E:Employee.txt");
+		ObjectOutputStream oos=new ObjectOutputStream(fos);
+		oos.writeObject(employeeArray);
+		
+	oos.close();
+	fos.close();}catch(Exception e){
+		e.printStackTrace();
+		
+	}
+}
+public static  void deSerialization()throws Exception {
+	
+		
+		FileInputStream fis=new FileInputStream("E:Employee.txt");
+		ObjectInputStream ois=new ObjectInputStream(fis);
+		Object obj=ois.readObject();
+		Employee[] emparray=(Employee[])obj;
+		for(int i=0;i<=emparray.length-1;i++) {
+		System.out.println("Id- "+emparray[i].employeeId+'\n'+"Name- "+emparray[i].employeeName+'\n'+"Package- "+emparray[i].employeePackage+'\n'+"Salary- "+emparray[i].employeeSalary);
+			
+		ois.close();}
+	}
 	public static void main(String[] args) {
+		
+		System.out.println("do you want to read data from the file [yes/no]");
+		String choiceS=input.next();
+		
+		if(choiceS.equals("yes")) {try {
+			//deSerialization();		
+		       try
+		       { 
+		    	FileInputStream fis=new FileInputStream("E:\\Employ.txt");
+		   		ObjectInputStream ois=new ObjectInputStream(fis);
+		   		Object obj=ois.readObject();
+		   		Employee[] emparray=(Employee[])obj;
+		   		employeeArray=emparray;
+		        
+		          ois.close();
+		       }catch(Exception i)
+		       {
+		          i.printStackTrace();
+		          return;
+		       }
+			
+		} catch (Exception e1) {
+			System.out.println("ssssomething went wrong"+e1);
+			
+		}}else {
+		
 		System.out.println("Please enter the size of array to store the employees");
 		int employeeSize = input.nextInt();
 		employeeArray = new Employee[employeeSize];
@@ -166,25 +333,12 @@ public class EmployeeTest {
 			System.out.println("4) Print All employees");
 			System.out.println("5) Update an employee");
 			System.out.println("6) Terminate the application");
+			System.out.println("7) Search an employee by name");
+			System.out.println("8) Get a loan");
+			System.out.println("9) to read data");
+			System.out.println("10) to get data");
 			int choice = input.nextInt();
 			switch (choice) {
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			
 			case 1:
 				boolean insertFlag = insertAnEmployee();
@@ -222,8 +376,41 @@ public class EmployeeTest {
 					System.out.println("Enter invalid Employee ID, Please try again");
 				}
 				break;
+				
 			case 6:
 				System.exit(0);
+				
+			case 7:
+				boolean searchNameFlag = searchNameEmployee();
+				if (searchNameFlag) {
+					System.out.println("Searching by name  Succesfully");
+				} else {
+					System.out.println("Entered invalid Employee name, Please try again");
+				}
+				break;
+			case 8:
+				boolean loanFlag = getALoan();
+				if (loanFlag) {
+					System.out.println("loan Succesful");
+				} else {
+					System.out.println("something went wrong, Please try again");
+				}
+				break;	
+			case 9:try {
+			//deSerialization();
+				serialization();
+			} catch (Exception e1) {
+				System.out.println("something went wrong");
+			}	
+			break;
+			
+			case 10 :try {
+			deSerialization();
+				//serialization();
+			} catch (Exception e1) {
+				System.out.println("ssssomething went wrong"+e1);
+			}
+			break;
 
 			default:
 				System.out.println("Invalid Option Please try again");
@@ -231,5 +418,5 @@ public class EmployeeTest {
 			}
 		}
 	}
-
+  }
 }
