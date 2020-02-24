@@ -1,6 +1,6 @@
 package com.vtalent.corejava.avinash;
 
-public class sample2 {
+public class Sample2 {
 	int x,y;
 	static float f1;
 	public void function() {
@@ -9,7 +9,7 @@ public class sample2 {
 		f1=1.5f;
 	}
 	public static void main(String[]args) {
-		sample2 sample=new sample2();
+		Sample2 sample=new Sample2();
 		sample.function();
 		System.out.println(sample.x+sample.y);
 		System.out.println(f1);

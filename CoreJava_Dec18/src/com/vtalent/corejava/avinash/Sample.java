@@ -1,4 +1,6 @@
-public class sample {
+package com.vtalent.corejava.avinash;
+
+public class Sample {
 	int x,y;
 	static float f1;
 	static float b2;
@@ -10,11 +12,11 @@ protected void function() {
 	}
 	public static void main(String[]args) {
 		
-		sample Sample=new sample();
+		Sample Sample=new Sample();
 		Sample.function();
 		System.out.println(Sample.x+Sample.y);
 		System.out.println(f1);
-		System.out.println(sample.b2);
+		System.out.println(Sample.b2);
 		System.out.println(Sample.k);
 		System.out.println(Sample);
 	}
