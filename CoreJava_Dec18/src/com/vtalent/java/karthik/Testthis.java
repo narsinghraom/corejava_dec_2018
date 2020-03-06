@@ -1,16 +1,20 @@
 package com.vtalent.java.karthik;
 
 public class Testthis {
-		public static float fun(float f,float f1){
-		f=f+f1;
-		return f;
+		int i;//
+		float f1;//
+		public void function(){//
+			int x=method(3,30.0f);
+			System.out.println("My value of X"+" "+x);
 		}
-		public static void method(int i){
-		i=i+i;
-		System.out.println(i);
+		public int method(int i,float f1){//d/
+			this.i=(int) (i+f1);
+			this.f1=(float) (this.i);
+			return (int)(this.i+this.f1); 
 		}
-		public static void main(String []args){
-		method(5);
-		Basic kk=new Basic();
-		fun(5.5f,5.5f);
-		System.out.println(f);}
+		public static void main(String[] args) {
+			Testthis kk = new Testthis();
+			kk.function();
+		}
+
+	}
