@@ -1,7 +1,6 @@
 package com.vtalent.corejava.avinash;
 
 public class Constructor5 {
-	{
 		int x,y;
 		Constructor5(){
 			this(2,6);
