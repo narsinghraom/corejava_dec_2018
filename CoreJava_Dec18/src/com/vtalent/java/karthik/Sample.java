@@ -2,7 +2,7 @@ package com.vtalent.java.karthik;
 
 public class Sample {
 	
-		int x,y;//non static variables
+		int x,y;//non static or instance variable
 		static float f ;//static variable
 		
 		public void function(){

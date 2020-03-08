@@ -1,14 +1,14 @@
 package com.vtalent.corejava.siva;
 
 public class Loop {
+	int x,y;
+	public void abc(int x){
+		this.x=this.x+x;
+		y=5;
+	}
 	public static void main(String[] args) {
-		for(int i=0;i<=2;i++)
-		{
-			for(int j=0;j<=2;j++)
-			{
-				System.out.println(i+ " " +j);
-			}
-		}
-
+		Loop obj=new Loop();
+		obj.abc(5);
+		System.out.println(obj.x+obj.y);
 	}
 }
