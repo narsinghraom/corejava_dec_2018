@@ -33,9 +33,15 @@ public class EmployeeBean {
 			Employee empBean2=emp[i];
 		if(null!=empBean2&&id2==emp[i].getEmployeeId()) {
 			for(int j=i;j<emp.length;j++) {
+				if(j==0) {
+					emp[j]=emp[j+1];
+					System.out.println("Employee Successfully Deleted");
+					break;
+				}else {
 				emp[j]=emp[j-1];
 				System.out.println("Employee Successfully Deleted");
-			}
+				}	
+		}
 		}
 		}
 	}
@@ -54,7 +60,7 @@ public class EmployeeBean {
 		System.out.println("Enter Employee Salary To Be Updated");
 		empBean3.setEmployeeSalary(input.nextDouble());
 		}
-		else {
+		if(null!=empBean3&&id!=emp[i].getEmployeeId()) {
 		System.out.println("Entered Employee Id is Incorrect");
 	}}
 	}
