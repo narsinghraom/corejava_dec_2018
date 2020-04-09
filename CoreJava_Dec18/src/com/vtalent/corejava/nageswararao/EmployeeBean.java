@@ -41,9 +41,10 @@ public class EmployeeBean {
 					emp[j]=emp[j+1];
 					System.out.println("Employee Successfully Deleted");
 					break;
-				}else {
+				}if(j==emp.length-1) {
 				emp[j]=emp[j-1];
 				System.out.println("Employee Successfully Deleted");
+				break;
 				}	
 		}
 		}
@@ -63,20 +64,21 @@ public class EmployeeBean {
 		empBean3.setEmployeeMobileNumber(input.nextLong());
 		System.out.println("Enter Employee Salary To Be Updated");
 		empBean3.setEmployeeSalary(input.nextDouble());
+		break;
 		}
-		if(null!=empBean3&&id!=emp[i].getEmployeeId()) {
+		else {
 		System.out.println("Entered Employee Id is Incorrect");
 	}}
 	}
 	
 	public void searchEmployee() {
+		for(i=0;i<=emp.length-1;i++) {
+			System.out.println("Available Employee ID are "+emp[i].getEmployeeId());
+		}
 		int id1;
 		System.out.println("Enter Employee Id You Want To Search");
 		id1=input.nextInt();
 		
-		for(i=0;i<=emp.length-1;i++) {
-			System.out.println("Available Employee ID is "+(i+1)+emp[i].getEmployeeId());
-		}
 		for(i=0;i<=emp.length-1;i++) {
 			Employee empBean=emp[i];
 		if(null!=empBean&&id1==emp[i].getEmployeeId()) {
@@ -84,6 +86,7 @@ public class EmployeeBean {
 			System.out.println("Employee Mobile Number "+empBean.getEmployeeMobileNumber());
 			System.out.println("Employee Salary "+empBean.getEmployeeSalary());
 			System.out.println("Employee City "+empBean.getEmployeeCity());
+			break;
 		} 
 		else {
 			System.out.println("Entered Employee Id is Incorrect");

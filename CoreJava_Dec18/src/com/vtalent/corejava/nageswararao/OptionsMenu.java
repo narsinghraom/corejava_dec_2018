@@ -37,7 +37,8 @@ public class OptionsMenu {
 		e.selectAllEmployees();
 		break;
 	case 6:
-		break;
+		System.out.println("Good Bye");
+		System.exit(0);
 	default:
 		System.out.println("Invalid Selection");
 		break;
