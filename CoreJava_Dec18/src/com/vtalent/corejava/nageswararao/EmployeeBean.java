@@ -16,10 +16,14 @@ public class EmployeeBean {
 			empBean1 = new Employee();
 		System.out.println("Enter Employee Id ");
 		empBean1.setEmployeeId(input.nextInt());
+		System.out.println("Enter Employee Name");
+		empBean1.setEmployeeName(input.next());
 		System.out.println("Enter Employee Mobile Number ");
 		empBean1.setEmployeeMobileNumber(input.nextLong());
 		System.out.println("Enter Employee Salary ");
 		empBean1.setEmployeeSalary(input.nextDouble());
+		System.out.println("Enter Employee City");
+		empBean1.setEmployeeCity(input.next());
 		emp[i] = empBean1;
 		System.out.println("Employee Successfully Created");
 		}
@@ -71,20 +75,27 @@ public class EmployeeBean {
 		id1=input.nextInt();
 		
 		for(i=0;i<=emp.length-1;i++) {
+			System.out.println("Available Employee ID is "+(i+1)+emp[i].getEmployeeId());
+		}
+		for(i=0;i<=emp.length-1;i++) {
 			Employee empBean=emp[i];
 		if(null!=empBean&&id1==emp[i].getEmployeeId()) {
+			System.out.println("Employee Name "+empBean.getEmployeeName());
 			System.out.println("Employee Mobile Number "+empBean.getEmployeeMobileNumber());
 			System.out.println("Employee Salary "+empBean.getEmployeeSalary());
+			System.out.println("Employee City "+empBean.getEmployeeCity());
 		} 
-		while(null!=empBean&&id1!=emp[i].getEmployeeId()) {
+		else {
 			System.out.println("Entered Employee Id is Incorrect");
 		}}
 	}
 	public void selectAllEmployees() {
 		for(i=0;i<=emp.length-1;i++) {
 			System.out.println("Employee Id is "+emp[i].getEmployeeId());
+			System.out.println("Employee Name "+emp[i].getEmployeeName());
 			System.out.println("Employee Mobile Number is "+emp[i].getEmployeeMobileNumber());
 			System.out.println("Employee Salary is "+emp[i].getEmployeeSalary());
+			System.out.println("Employee City "+emp[i].getEmployeeCity());
 		}
 	}
 }
