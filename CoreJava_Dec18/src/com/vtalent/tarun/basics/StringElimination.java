@@ -19,11 +19,11 @@ public class StringElimination {
 		
 		int m=sb1.length();
 		int n= sb2.length();
-		for(int i=0; i<=m ; i++) {
-			for(int j=0; j<=n ; j++) {
+		for(int i=0; i<m ; i++) {
+			for(int j=0; j<n ; j++) {
 				 if (sb1.charAt(i) == sb2.charAt(j)) {
-				sb1.replace(i, i+1, "0");
-				sb2.replace(j, j+1, "0");
+				sb1.replace(i, i+1, "");
+				sb2.replace(j, j+1, "");
 				 }
 			}
 		}

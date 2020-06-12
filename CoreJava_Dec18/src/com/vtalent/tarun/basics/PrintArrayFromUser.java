@@ -1,7 +1,7 @@
 package com.vtalent.tarun.basics;
 
 import java.util.*;
- 
+
 public class PrintArrayFromUser {
 
 	public static void main(String[] args) {
@@ -9,22 +9,17 @@ public class PrintArrayFromUser {
 		Scanner s = new Scanner(System.in);
 		System.out.println("Enter no. of elements in array: ");
 		n = s.nextInt();
-		int[] a = new int[n];
+		String[] a = new String[n];
 		System.out.println("Enter all the elements into array:");
-		for (int i = 0; i < n; i++) {
-			a[i] = s.nextInt();
-
+		for (int i = 0; i <n; i++) {
+			a[i] = s.next();
 		}
 		System.out.println("Given array: ");
-		for (int i : a) {
-
+		for (String i : a) {
 			System.out.print(i + " ");
 		}
 		System.out.println();
 		Arrays.sort(a);
-		
-		  
-        System.out.printf("Modified arr[] : %s", 
-                          Arrays.toString(a)); 
+		System.out.print("Modified arr[] after sorting:" +Arrays.toString(a));
 	}
 }

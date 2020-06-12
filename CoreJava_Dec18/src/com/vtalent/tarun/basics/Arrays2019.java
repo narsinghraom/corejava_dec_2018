@@ -1,6 +1,6 @@
 package com.vtalent.tarun.basics;
 
-public class Arrays {
+public class Arrays2019 {
 		public static void main(String[] args) {
 			
 		int[] a = new int[]{10,20,30};
