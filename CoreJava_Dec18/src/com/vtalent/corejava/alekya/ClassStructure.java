@@ -22,6 +22,7 @@ public class ClassStructure {
 	 ClassStructure objRef=new ClassStructure();
 	
 	 objRef.methodDisplay();
+	 objRef.methodOne();
 	 
 	 } 
      }
