@@ -1,13 +1,12 @@
-package com.vtalent.vijaya.basic;
+package com.vtalent.tarun.basics;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.lang.String;
 
-public class ArrayListExample {
+public class ArrayListEx {
 	public static void main(String[] args) {
 		//non-generic type
-		ArrayList al=new ArrayList<>();
+		ArrayList al=new ArrayList();
 		al.add("Hi");
 		al.add(new Integer(10));
 		System.out.println(al);
@@ -25,8 +24,7 @@ public class ArrayListExample {
 		al2.add("secondobject");
 		all.addAll(al2);
 		Iterator<String> itr=all.iterator();
-		while(itr.hasNext())
-		{
+		while(itr.hasNext()){
 			System.out.println(itr.next());
 		}	
 	}
