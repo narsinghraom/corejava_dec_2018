@@ -8,6 +8,7 @@ public class VectorExample {
 		Vector<String> v1=new Vector<String>();
 		v1.add("HI");
 		v1.add("HELLO"); 
+		v1.add("HELLO"); 
 		System.out.println(v1);
 		
 		Enumeration<String> en=v1.elements();

@@ -13,6 +13,8 @@ public class RunnableExample implements Runnable {
 
 	public void run() {
 		System.out.println("This is run method");
+		System.out.println("This is run method");
+
 
 	}
 

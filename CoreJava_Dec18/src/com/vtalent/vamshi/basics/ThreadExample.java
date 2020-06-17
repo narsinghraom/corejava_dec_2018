@@ -6,6 +6,7 @@ public class ThreadExample extends Thread{
 	
 	public void run() {
 		System.out.println("this is an run method called by sart method");
+		System.out.println("this is an run method called by sart method");
 		for(int i=0;i<=5;i++) {
 			System.out.println(Thread.currentThread());
 			System.out.println("Value of i = "+i);

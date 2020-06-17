@@ -18,7 +18,7 @@ public class ArrayListExample {
         String sl1=al1.get(0);
         al1.add(null);
         al1.add(2, "Bye");
-        al1.remove(0);
+       
         System.out.println(al1);
         ArrayList<String> al2=new ArrayList();
         al2.add("secondobject");
