@@ -23,7 +23,7 @@ public class MyFirstJava {
 		f1=f1+s1.functionOne((int) f1, (int)f1+2);
 		System.out.println(f1);
 		System.out.println(s1.x+s1.y);
-		System.out.println(s1.f1+f2);
+		System.out.println(s1.f2+s1.f1);
 		
 	}
 }
