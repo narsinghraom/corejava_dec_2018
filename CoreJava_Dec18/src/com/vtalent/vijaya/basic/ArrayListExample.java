@@ -7,14 +7,14 @@ import java.lang.String;
 public class ArrayListExample {
 	public static void main(String[] args) {
 		//non-generic type
-		ArrayList al=new ArrayList<>();
+		ArrayList al=new ArrayList();
 		al.add("Hi");
 		al.add(new Integer(10));
 		System.out.println(al);
 		String name=(String) al.get(0);
 		Object id=al.get(1);
 		//generic type
-		ArrayList<String> all=new ArrayList<>();
+		ArrayList<String> all=new ArrayList();
 		all.add("Hi");
 		all.add("Hello");
 		String s11=all.get(0);
