@@ -1,4 +1,4 @@
-package com.vtalent.corejava.alekya.Threads;
+package com.vtalent.corejava.alekya.Threadscollections;
 
 public class ThreadExample extends Thread{
 	

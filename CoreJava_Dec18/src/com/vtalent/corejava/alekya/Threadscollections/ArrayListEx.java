@@ -1,13 +1,13 @@
-package com.vtalent.corejava.alekya.Threads;
+package com.vtalent.corejava.alekya.Threadscollections;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ListIterator;
 
-
-
 public class ArrayListEx {
 public static void main(String[] args) {
+	
+	
 //non-generic Type
 ArrayList al=new ArrayList(); //null memory
 al.add("Hello");//al is added with hello instead of null i.e., previous memory is deleted
@@ -31,6 +31,8 @@ while(itr.hasNext()) //check whether the elements are present in collection or n
 {
 System.out.println(itr.next());
 }
+
+
 ArrayList<Integer> arr=new ArrayList<Integer>();//add(int index, E element method
 arr.add(1);
 arr.add(21);
@@ -52,6 +54,8 @@ a3.add("def");
 System.out.println(a3);
 a3.clear();
 System.out.println(a3);
+
+
 
 ArrayList<Integer> ar=new ArrayList<Integer>();//clone()
 ar.add(1);
@@ -94,6 +98,8 @@ a31.add("Alekya");
 for(String s: a31){
 	System.out.println(s);
 }
+
+
 ArrayList<Integer> bl = new ArrayList<Integer>();//isEmpty()
 //Checking whether the list is empty
 System.out.println("Is ArrayList Empty: "+bl.isEmpty());
@@ -108,6 +114,7 @@ System.out.println("Is ArrayList Empty: "+bl.isEmpty());
 for (Integer num: bl) {
 System.out.println(num);
 }
+
 
 ArrayList<String> cl = new ArrayList<String>();//	remove(int index)  
 cl.add("AB");
@@ -129,6 +136,7 @@ System.out.println("ArrayList After remove:");
 for(String var2: cl){
       System.out.println(var2);
 }
+
 
 ArrayList<String> Dl = new ArrayList<String>();//remove(Object o)
 Dl.add("AA");
@@ -156,6 +164,8 @@ System.out.println("ArrayList After remove:");
 for(String var2: Dl){
     System.out.println(var2);
 }  
+
+
 ArrayList<Integer> arraylist = new ArrayList<Integer>(50);//trimToSize()
 arraylist.add(1);
 arraylist.add(2);
@@ -186,6 +196,8 @@ System.out.println("Final ArrayList: ");
 for(int num: El){
     System.out.println(num);
 }
+
+
 ArrayList<String> hb = new ArrayList<String>();//indexOf(Object o)
 hb.add("AB");
 hb.add("CD");
@@ -224,14 +236,13 @@ System.out.println("Last occurrence of element 88: "+sl.lastIndexOf(88));
 System.out.println("Last occurrence of element 82: "+sl.lastIndexOf(82)); 
 
 
-ArrayList<String> cli = new ArrayList<String>();//removeAll(Collection<?> c)
 
-// use add() method to add values in the list
+
+ArrayList<String> cli = new ArrayList<String>();//removeAll(Collection<?> c)
 cli.add("Alekya");
 cli.add("Babulu");
 cli.add("Rashi");
 
-// create an empty array sample with an initial capacity 
 ArrayList<String> sample = new ArrayList<String>();
 
 // use add() method to add values in the list 
@@ -244,6 +255,7 @@ sample.removeAll(cli);
 
 System.out.println("First List :"+ cli);
 System.out.println("Second List :"+ sample);
+
 
 ArrayList<String> colorlist = new ArrayList<String>(5);//toArray(T[] a)
 
@@ -269,6 +281,8 @@ System.out.println("Printing elements of color_list2:");
 for (String color : colorlist2) {
   System.out.println("Color = " + color);
 }
+
+
 ArrayList<String> list1 = new ArrayList<String>(5);//toArray()
 
 // use add() method to add values in the list
@@ -292,6 +306,8 @@ System.out.println("Printing elements from first to last:");
 for (Object st : obj) {
   System.out.println("Color = " + st);
 }
+
+
 ArrayList<Integer> array = new ArrayList<Integer>();//set()
 array.add(1);
 array.add(2);
@@ -304,6 +320,7 @@ array.set(1, 33);
 array.set(2, 35);
 
 System.out.println("ArrayList after Update: "+array);
+
 
 
 ArrayList<String> li = new ArrayList<String>();//subList(int fromIndex, int toIndex)
@@ -323,6 +340,7 @@ System.out.println("List of the colors :" +li);
 //Return empty list as fromindex and toindex are equal
  ArrayList<String> new_color_list2 = new ArrayList<String>(li.subList(3, 3));
  System.out.println("Portion of the list: "+new_color_list2);
+
 
 
 
@@ -351,6 +369,7 @@ System.out.println("print above :" + col);
    System.out.println(itrr.previous());
 
 
+ 
  ArrayList<String> hi = new ArrayList<String>();//retainAll(Collection<?> c)
  hi.add("orange");
  hi.add("mango");

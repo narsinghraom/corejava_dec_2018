@@ -1,4 +1,4 @@
-package com.vtalent.corejava.alekya.Threads;
+package com.vtalent.corejava.alekya.Threadscollections;
 import java.util.Enumeration;
 import java.util.Vector;
 
