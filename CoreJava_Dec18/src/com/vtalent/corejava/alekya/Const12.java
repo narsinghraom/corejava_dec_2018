@@ -18,8 +18,10 @@ public class Const12 {
 		System.out.println("value of single argument x"+"     "+x);
 		System.out.println("value of single argument y"+"     "+y);
 	}
-	Const12(int x, int y)
+	Const12(int x, int y)//first execution place becoz first starts at default but there this(12)so go to 1 parameter place then in 1paramater it is this(5,5) so comes here and start excution
 	{
+System.out.println(this.x);//here value is zero
+System.out.println(x);//5
 
 		System.out.println("value of double argument"+"     "+(this.x +y));
 		this.x=this.x+x;
@@ -32,7 +34,7 @@ public class Const12 {
 	}
 	public static void main(String[] args){
 		Const12 c2= new Const12();
-		System.out.println(c2.x+c2.y);
+		
 	}
 	
 
