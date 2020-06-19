@@ -6,8 +6,8 @@ public class CommonElement {
 	public  void removeCommonCharacter(String str1, String str2) {
 		System.out.println("Given String 1:" + str1);
 		System.out.println("Given String 2:" + str2);
-		String commonChars = "";
-		String str3 = "";
+		String commonChars = null;
+		String str3 = null;
 		
 		str1 = str1.toLowerCase();
 		str2 = str2.toLowerCase();		
@@ -27,7 +27,7 @@ public class CommonElement {
 			str3 = str3.trim();
 			str3 = str3.toUpperCase();
 		}
-		System.out.println("After removing common character: " + str3);
+		System.out.println("After removing common characters: " + str3);
 		//System.out.println("After removing common character " + str2);
 	}
 

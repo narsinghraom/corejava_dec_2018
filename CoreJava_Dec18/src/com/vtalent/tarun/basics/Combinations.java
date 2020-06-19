@@ -32,9 +32,9 @@ public class Combinations {
 		// Driver code 
 		public static void main(String[] args) 
 		{ 
-			Scanner sc = new Scanner(System.in); 
+			Scanner sr = new Scanner(System.in); 
 			System.out.println("Enter string you want check");
-			        String s = sc.nextLine();
+			        String s = sr.nextLine();
 			
 			 
 			printPermutn(s, ""); 

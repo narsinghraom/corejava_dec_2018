@@ -1,6 +1,6 @@
 package com.vtalent.tarun.basics;
 
-public class UAException extends Exception {
+public class UAException extends Exception { //UA = UnderAge
 
 	UAException() {
 		super("You are noob"); //why super is bcoz for default exception handler
@@ -13,7 +13,9 @@ public class UAException extends Exception {
 
 class Voting {
 	public static void main(String[] args) {
-		int age = 24;
+		java.util.Scanner s = new java.util.Scanner(System.in);
+		System.out.println("Enter your age:");
+		int age = s.nextInt();
 		try {
 			if (age < 18) {
 				throw new UAException();

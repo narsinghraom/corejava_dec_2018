@@ -1,21 +1,19 @@
 package com.vtalent.bharathi.basics;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
 	int employeeId;
 	String employeeName;
 	double employeeSalary;
 	long employeeMobileNo;
-	int yoe;
+	int yearsOfExperience;
 	double employeePackage;
-	double loanamt;
+	double loanAmount;
 	int tenure;
-	double emi;
-	 float intrest;
-	
-	
+	double EMI;
 	
 	
 
 
 }
-	
