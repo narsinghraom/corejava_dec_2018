@@ -25,7 +25,7 @@ public class ArrayEmployee2 {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Employee other = (Employee) obj;
+		ArrayEmployee2 other = (ArrayEmployee2) obj;
 		if (employeeName == null) {
 			if (other.employeeName != null)
 				return false;
