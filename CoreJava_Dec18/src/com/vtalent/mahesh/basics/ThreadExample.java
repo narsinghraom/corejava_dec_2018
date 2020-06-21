@@ -8,7 +8,7 @@ public class ThreadExample extends Thread{
 			System.out.println(Thread.currentThread());
 			System.out.println("Value of i = "+i);
 			try {
-				sleep(1000);
+				sleep(5000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
