@@ -8,9 +8,9 @@ public class HashSetExample {
 
 	public static void main(String[] args) {
 		Set<String> set1 = new HashSet<String>();
-		String s1 = "vtalent";
-		String s2 = "info";
-		String s3 = "vtalent";
+		String s1 = "Information";
+		String s2 = "Info";
+		String s3 = "Information";
 		System.out.println("hashCode values of the stirngs are S1 = "+s1.hashCode() + " s2 = "+s2.hashCode()+" s3 = "+s3.hashCode());
 		set1.add(s1);
 		set1.add(s2);
