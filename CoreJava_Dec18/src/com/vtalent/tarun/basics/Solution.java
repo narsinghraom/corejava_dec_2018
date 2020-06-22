@@ -1,6 +1,10 @@
 package com.vtalent.tarun.basics;
 
+//import java.io.*;
 import java.util.*;
+/*import java.text.*;
+import java.math.*;
+import java.util.regex.*;*/
 
 public class Solution {
 
@@ -13,40 +17,55 @@ public class Solution {
 			String director = s.nextLine();
 			int rating = s.nextInt();
 			int budget = s.nextInt();
-			//s.nextLine();
 			movie[i] = new Movie(movieId, director, rating, budget);
-			int output1 = findAvgBudgetByDirector(movie, director);
+		}
+		s.nextLine();
+		String nm = s.nextLine();
+		int um = s.nextInt();
+		int dm = s.nextInt();
+			int output1 = findAvgBudgetByDirector(movie, nm);
 			if (output1 == 0) {
-				System.out.println("Sorry the director nnot directed any movie");
+				System.out.println("Sorry the director not directed any movie");
 			} else {
 				System.out.println(output1);
 			}
-			Movie output2 = getmovieByRatingbudget(movie, rating, budget);
+			Movie output2 = getmovieByRatingbudget(movie, um, dm);
 			if (output2 == null) {
 				System.out.println("Sorry, no movie avlb with specified rating and budget req");
 			} else {
-				System.out.println(output2);
+				System.out.println(output2.getMovieId());
 			}
+		}
+	public static int findAvgBudgetByDirector(Movie[] movie, String nm) {
+//			int avg = 0;
+//			int sum =0;
+//			for(int i = 0 ; i<movie.length;i++) {
+//				if (movie[i].getDirector().equalsIgnoreCase(director)) {
+//					sum = sum + movie[i].getBudget();
+//				}
+//			}
+//			avg = sum/2;
+//			return avg;
+//			
+//		}
+	int avg, s = 0, j = 0;
+	for (int i = 0; i < movie.length; i++) {
+		if (nm.equalsIgnoreCase(movie[i].getDirector())) {
+			s = s + movie[i].getBudget();
+			j++;
 		}
 	}
-
-	public static int findAvgBudgetByDirector(Movie[] movie, String director) {
-			int avg = 0;
-			int sum =0;
-			for(int i = 0 ; i<movie.length;i++) {
-				if (movie[i].getDirector().equalsIgnoreCase(director)) {
-					sum = sum + movie[i].getBudget();
-				}
-			}
-			avg = sum/2;
-			return avg;
-			
-		}
+	if (j > 0) {
+		avg = s / j;
+		return avg;
+	} else
+		return 0;
+}
 
 	public static Movie getmovieByRatingbudget(Movie[] movie, int rating, int budget) {
 		Movie movie2 = null;
 		for (int i = 0; i < movie.length; i++) {
-			if (movie[i].getRating() == movie[i].getBudget() && movie[i].getBudget() % movie[i].getRating() == 0) {
+			if ((movie[i].getRating() == rating) && (movie[i].getBudget() == budget) && (movie[i].getBudget() % movie[i].getRating() == 0)) {
 				movie2 = movie[i];
 				break;
 			}
