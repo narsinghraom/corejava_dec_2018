@@ -58,7 +58,7 @@ System.out.println("Values in Cloned TreeSet:" +treeSet2);
 		  t0.clear();
 		  System.out.println("Values in TreeSet:" +t0);
 		  
-		  TreeSet <Integer>trees = new TreeSet<Integer>();//Comparator comparator():
+		  TreeSet <Integer>trees = new TreeSet<Integer>();//Comparator comparator(): This method returns the object of Comparator Class which is used to order the elements, or it returns null if it is using natural ordering as shown in the following program
 		  TreeSet <Integer>treeSetComparator = new TreeSet<Integer>();
 		  trees.add(3);
 		  trees.add(5);
