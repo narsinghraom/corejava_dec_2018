@@ -9,11 +9,11 @@ public class ArrayEmployee {
 	
 	public static void main(String[] args) {
 		Employee emp1 = new Employee();
-		emp1.setId(10);
-		emp1.setEmployeeName("Narsingh");
+		emp1.setId(02);
+		emp1.setEmployeeName("Alekya");
 		Employee emp2 = new Employee();
 		emp2.setId(20);
-		emp2.setEmployeeName("Rao");
+		emp2.setEmployeeName("Avadutha");
 		arrayOfEmployees.add(emp1);
 		arrayOfEmployees.add(emp2);
 		
@@ -23,7 +23,7 @@ public class ArrayEmployee {
 			System.out.println(emp.getId() + emp.getEmployeeName());
 		}
 		
-		for(Employee employee : arrayOfEmployees) {
+		for(Employee employee : arrayOfEmployees) {//for each
 			System.out.println(employee.getId() + employee.getEmployeeName());
 		}
 	}
