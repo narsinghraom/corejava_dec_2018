@@ -12,6 +12,7 @@ package com.vtalent.mallikarjun.basics;
 							count++;
 						}
 			}
+					System.out.println("count space");
 			System.out.println(count);
 		}
 	}

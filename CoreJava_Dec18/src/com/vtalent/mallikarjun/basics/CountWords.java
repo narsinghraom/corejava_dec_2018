@@ -22,5 +22,6 @@ public static void main(String[] args) {
 			count=1;
 		}
 	}
+	System.out.println("count words");
 }
 }
